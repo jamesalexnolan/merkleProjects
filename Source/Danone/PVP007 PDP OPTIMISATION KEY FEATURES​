@@ -1,0 +1,42 @@
+//text element to change
+var section = document.querySelector('.ph__description.ph__container');
+
+//array of bullet points
+var bulletPoints = [
+'Thickened with carob bean gum to help feeds stay down',
+'Nutritionally complete',
+'Food for Special Medical Purposes',
+'Suitable from birth to 12 months'
+];
+
+//create ul element
+var ul = document.createElement('ul');
+//add styling
+ul.style.listStyleType = 'disc';
+ul.style.paddingLeft = '10px'; 
+
+//add CSS spacing styling for p elements
+var paragraphStyle = document.createElement('style');
+paragraphStyle.textContent = '.ph__description p { margin-bottom: 10px; }';
+document.head.appendChild(paragraphStyle);
+
+//add li elements and styling to adjust alignment
+bulletPoints.forEach(function(point) {
+    var li = document.createElement('li');
+    li.style.display = 'flex'; 
+
+    var bullet = document.createElement('span');
+    bullet.textContent = '\u2022'; 
+    bullet.style.marginRight = '5px'; 
+
+    var text = document.createElement('p');
+    text.textContent = point;
+
+    li.appendChild(bullet);
+    li.appendChild(text);
+    ul.appendChild(li);
+});
+
+//Replace paragraph with bullet points
+section.innerHTML = '';
+section.appendChild(ul);

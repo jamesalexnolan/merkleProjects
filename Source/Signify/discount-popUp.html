@@ -1,0 +1,1044 @@
+<style>
+    .mpx-popup {
+        position: fixed;
+        z-index: 999999 !important;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: translateY(60%) scale(0);
+        transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    .mpx-popup.visible {
+        transform: translateY(0) scale(1);
+        background-color: rgba(16, 16, 16, 0.4);
+        transition: background-color 1s ease;
+    }
+
+    .mpx-t-and-cs_visible {
+        width: 300px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-16%, -56%);
+        background-color: black;
+        z-index: 2;
+    }
+
+    .mpx-t-and-cs_title {
+        display: block;
+    }
+
+    .mpx-container {
+        height: auto;
+        margin-top: 24px;
+        width: inherit;
+        padding: 10px;
+    }
+
+    .mpx-content {
+        position: relative;
+        padding: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: black;
+        width: 736px;
+        height: auto;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        box-shadow: 5px 10px 10px rgba(16, 16, 16, 0.4);
+        background: url(https://www.philips-hue.com/content/dam/hue/en-us/images/sk-image-m.jpg);
+        background-repeat: no-repeat;
+        background-color: black;
+        border-radius: 12px;
+        background-size: cover;
+        background-position: -20px;
+    }
+
+    .mpx-font-weight {
+        font-weight: 400;
+    }
+
+    .mpx-header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .mpx-close-btn {
+        padding: 2px 13px 0 0;
+        display: flex;
+        justify-content: end;
+    }
+
+    .mpx-close-btn>img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .mpx-close-btn:hover {
+        color: #0050a8;
+    }
+
+    .stop-scrolling {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .mpx-rows {
+        display: flex;
+        width: inherit;
+    }
+
+    .mpx-exit {
+        width: inherit;
+        position: fixed;
+        margin-top: 5px;
+    }
+
+    .mpx-col-one {
+        flex: 3;
+        padding: 10px;
+    }
+
+    .mpx-col-two {
+        flex: 2;
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+
+    .mpx-font_bold {
+        font-weight: bold;
+    }
+
+    .mpx-header>p {
+        font-weight: lighter;
+        font-size: 16px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .mpx-header {
+        margin-bottom: 22px;
+    }
+
+    .mpx-t-and-cs {
+        font-size: 10px;
+        font-weight: 100;
+        margin-top: 20px;
+    }
+
+    .mpx-code-span {
+        font-size: 16px;
+    }
+
+    .mpx-question-mark {
+        background-color: white;
+        padding: 2px 6px 2px 6px;
+        color: black;
+        border-radius: 50%;
+        margin-left: 5px;
+        font-weight: bold;
+    }
+
+    .mpx-cta_starter-kits {
+        margin-top: 15px;
+    }
+
+    .mpx-cta_promo-code {
+        margin-bottom: 15px;
+    }
+
+    .mpx-cta_promo-code button {
+        background-color: #007BFF;
+        color: #ffffff;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .mpx-cta_starter-kits button {
+        background-color: transparent;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+        padding: 5px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .mpx-t-and-cs>p {
+        font-size: 12px !important;
+    }
+
+    .mpx-t-and-cs_visible {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .mpx-t-and-cs_title {
+        font-weight: bold;
+        font-size: larger;
+    }
+
+    .mpx-t-and-cs {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: calc(100vh - 20px);
+    }
+
+    .mpx-starter-kit-link {
+        color: white;
+    }
+
+    /*tablet*/
+    @media (max-width: 1025px) {
+        .mpx-content {
+            width: 622px;
+            background-position: top center;
+        }
+
+        .mpx-col-two {
+            flex: 3;
+        }
+    }
+
+    /*large-mobile*/
+    @media (max-width: 760px) {
+        .mpx-content {
+            width: 450px;
+            background: url(https://www.philips-hue.com/content/dam/hue/en-us/images/sk-image-s-xs.png);
+            background-position: center -45px;
+            background-repeat: no-repeat;
+            background-color: black;
+            background-size: contain;
+        }
+
+        .mpx-col-one {
+            padding-top: 150px;
+        }
+
+        .mpx-rows {
+            flex-direction: column;
+        }
+    }
+
+    /*mobile*/
+    @media (max-width: 501px) {
+
+        .mpx-content {
+            width: 330px;
+            background: url(https://www.philips-hue.com/content/dam/hue/en-us/images/sk-image-s-xs.png);
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-color: black;
+            background-size: contain;
+        }
+
+        .mpx-col-one {
+            padding-top: 150px;
+        }
+
+        .mpx-rows {
+            flex-direction: column;
+            width: unset;
+        }
+
+    }
+
+    /* scroll function */
+    @media screen and (max-height: 600px) {
+
+        .mpx-container {
+            overflow-y: auto;
+            max-height: 300px;
+            overflow-x: hidden;
+        }
+
+        .mpx-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .mpx-container::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .mpx-container::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        .mpx-container::-webkit-scrollbar-thumb:hover {
+            background: #555;
+            border-radius: 5px;
+        }
+    }
+
+    @media screen and (min-width: 1026px) {
+        .mpx-t-and-cs_visible {
+            transform: translate(5%, -57%)
+        }
+    }
+
+    @media screen and (min-width: 761px) and (max-width: 768px) {
+        .mpx-t-and-cs_visible {
+            transform: translate(-20%, -66%);
+        }
+    }
+
+    @media screen and (min-width: 502px) and (max-width: 761px) {
+        .mpx-t-and-cs_visible {
+            transform: translate(-45%, -54%);
+        }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 501px) {
+        .mpx-t-and-cs_visible {
+            transform: translate(-50%, -48%);
+        }
+    }
+</style>
+
+<script>
+
+    document.querySelector('.page').insertAdjacentHTML('afterBegin', '<div class="mpx-popup">\
+            <div class="mpx-content">\
+                <div class="mpx-exit">\
+                    <a href="#" class="mpx-close-btn">\
+                        <img src="https://www.philips-hue.com/content/dam/hue/en-us/images/close.png" \ alt="exit_button"\
+                            height="30" width="30">\
+                    </a>\
+                </div>\
+                <div class="mpx-container">\
+                    <div class="mpx-rows" style="display: flex;">\
+                        <div class="mpx-col-one">\
+                        </div>\
+                        <div class="mpx-col-two">\
+                            <div class="mpx-header mpx-font-weight">\
+                                <h4>Get <span class="mpx-font_bold">15%</span> off any starter kit</h4>\
+                                <p>Use promo code <span class="mpx-font_bold">SK15</span> at the checkout.</p>\
+                                <p>Offer subject to stock availability.</p>\
+                            </div>\
+                            <div class="mpx-ctas mpx-font-weight">\
+                                <div class="mpx-cta_promo-code">\
+                                    <button class="mpx-font_bold" id="copyPromoCodeBtn">\
+                                        Copy promo code\
+                                    </button>\
+                                </div>\
+                                <div class="mpx-cta_starter-kits">\
+                                    <button>\
+                                        <a class="mpx-starter-kit-link mpx-font_bold" href = "/en-us/products/smart-light-starter-kits" > Shop starter kits</a >\
+                                    </button >\
+                                </div >\
+                            </div >\
+        <div class="mpx-t-and-cs">\
+            <p>Subject to terms and conditions <span class="mpx-question-mark">?</span></p>\
+            <p class="mpx-t-and-cs_visible">\
+                <span class="mpx-t-and-cs_title">Terms and conditions</span>\
+                Offer valid until December 24, 2023. This offer is subject to stock availability and does not include starter kits containing Philips Hue Secure products. This offer cannot be used in conjunction with any other offer on www.philips-hue.com. Signify US reserves the right to cancel a promo code at any time or amend these terms and conditions by republishing them. Promo codes can only be used once. Promo code only applies to one product.                            </div>\
+                        </div >\
+                    </div >\
+                </div >\
+            </div >\
+        </div >\
+        </div >')
+
+    //copy button functionality
+    document.getElementById('copyPromoCodeBtn').addEventListener('click', function () {
+        var tempElement = document.createElement('textarea');
+        tempElement.value = 'SK15';
+
+        //append the temporary element to the document
+        document.body.appendChild(tempElement);
+        //select the text inside the temporary element
+        tempElement.select();
+        //execute the copy command
+        document.execCommand('copy');
+        //remove the temporary element
+        document.body.removeChild(tempElement);
+
+        //change text
+        document.getElementById('copyPromoCodeBtn').innerText = 'Copied to clipboard'
+    });
+
+
+    //if exit button clicked, remove popup
+    document.querySelector('.mpx-close-btn').addEventListener('click', function () {
+        document.querySelector('.mpx-popup').classList.remove('visible');
+        document.querySelector('body').classList.remove('stop-scrolling');
+    });
+
+    //updated terms and conditions
+    var popup = document.querySelector('.mpx-t-and-cs_visible')
+    popup.style.display = 'none'
+
+    //update terms and conditions text
+    document.querySelector('.mpx-t-and-cs').addEventListener('click', function () {
+        if (popup.style.display === 'none') {
+            popup.style.display = 'block'
+        } else {
+            popup.style.display = 'none'
+        }
+    });
+
+
+    //COOKIE HANDLING
+    //sets cookie 
+    //popUpShown cookie 
+    function logPopUpShownCookie() {
+        const decodedName = 'popUpShown';
+        const cookies = document.cookie.split(';');
+
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
+
+            if (cookie.indexOf(decodedName + '=') === 0) {
+                const cookieValue = decodeURIComponent(cookie.substring(decodedName.length + 1));
+                return cookieValue;
+            }
+        }
+
+        //cookie not found
+        return null;
+    }
+
+    //usabilla cookie
+    function logUSCookie() {
+        const decodedNameUS = 's_usabilla';
+        const cookie = document.cookie.split(';');
+
+        for (let i = 0; i < cookie.length; i++) {
+            let cookies = cookie[i].trim();
+
+            if (cookies.indexOf(decodedNameUS + '=') === 0) {
+                const cookieValues = decodeURIComponent(cookies.substring(decodedNameUS.length + 1));
+                return cookieValues
+                return;
+            }
+        }
+
+        // Cookie not found
+        return null;
+    }
+
+    //do not show popup again if cookie is present
+    setTimeout(() => {
+        //get popUpShown cookie
+        let popUpShown = logPopUpShownCookie();
+        //session ID
+        var sessionData = sessionStorage.getItem('com.adobe.reactor.dataElements.CO|Session|Session_id');
+        //get session id
+        var lsSessionData = localStorage.getItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData)
+        //get survery cookie
+        let USCookie = logUSCookie();
+
+        if (popUpShown === null) {
+            //show pop-up
+            document.querySelector('.mpx-popup').classList.add('visible');
+            //add cookie
+            document.cookie = `popUpShown=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+            //add session id
+            localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+
+            //stop survery pop up
+            if (USCookie === null) {
+                document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+            }
+        } else if (popUpShown === '1') {
+            //if session id doesn't match, incidcates new session
+            if (lsSessionData !== sessionData) {
+                document.querySelector('.mpx-popup').classList.add('visible');
+                document.cookie = `popUpShown=2; path=/; max-age=${60 * 60 * 24 * 14};`;
+                //add new session id
+                localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+                if (USCookie === null) {
+                    document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+                }
+            }
+        } else if (popUpShown === '2') {
+            if (lsSessionData !== sessionData) {
+                document.querySelector('.mpx-popup').classList.add('visible');
+                document.cookie = `popUpShown=3; path=/; max-age=${60 * 60 * 24 * 14};`;
+                localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+                if (USCookie === null) {
+                    document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+                }
+            }
+        } else if (popUpShown === '3') {
+            if (lsSessionData !== sessionData) {
+                document.querySelector('.mpx-popup').classList.add('visible');
+                document.cookie = `popUpShown=4; path=/; max-age=${60 * 60 * 24 * 14};`;
+                localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+                if (USCookie === null) {
+                    document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+                }
+            }
+        } else if (popUpShown === '4') {
+            if (lsSessionData !== sessionData) {
+                document.querySelector('.mpx-popup').classList.add('visible');
+                document.cookie = `popUpShown=5; path=/; max-age=${60 * 60 * 24 * 14};`;
+                localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+                if (USCookie === null) {
+                    document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+                }
+            }
+        } else if (popUpShown === '5') {
+            document.querySelector('.mpx-popup').style.display = 'none'
+        }
+    }, 3000)//three second timer
+
+</script>
+
+
+
+/////////////OTHER LOCAL VARIANT/////////////////
+
+<style>
+    .mpx-popup {
+        position: fixed;
+        z-index: 999999 !important;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: translateY(60%) scale(0);
+        transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    .mpx-popup.visible {
+        transform: translateY(0) scale(1);
+        background-color: rgba(16, 16, 16, 0.4);
+        transition: background-color 1s ease;
+    }
+
+    .mpx-t-and-cs_visible {
+        width: 300px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-16%, -56%);
+        background-color: black;
+        z-index: 2;
+    }
+
+    .mpx-t-and-cs_title {
+        display: block;
+    }
+
+    .mpx-container {
+        height: auto;
+        margin-top: 24px;
+        width: inherit;
+        padding: 10px;
+    }
+
+    .mpx-content {
+        position: relative;
+        padding: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: black;
+        width: 736px;
+        height: auto;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        box-shadow: 5px 10px 10px rgba(16, 16, 16, 0.4);
+        background: url(https://www.philips-hue.com/content/dam/hue/en-us/images/sk-image-m.jpg);
+        background-repeat: no-repeat;
+        background-color: black;
+        border-radius: 12px;
+        background-size: cover;
+        background-position: -20px;
+    }
+
+    .mpx-font-weight {
+        font-weight: 400;
+    }
+
+    .mpx-header {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .mpx-close-btn {
+        padding: 2px 13px 0 0;
+        display: flex;
+        justify-content: end;
+    }
+
+    .mpx-close-btn>img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .mpx-close-btn:hover {
+        color: #0050a8;
+    }
+
+    .stop-scrolling {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .mpx-rows {
+        display: flex;
+    }
+
+    .mpx-exit {
+        width: inherit;
+        position: fixed;
+        margin-top: 5px;
+    }
+
+    .mpx-col-one {
+        flex: 3;
+        padding: 10px;
+    }
+
+    .mpx-col-two {
+        flex: 2;
+        padding: 10px;
+        color: white;
+        text-align: center;
+    }
+
+    .mpx-font_bold {
+        font-weight: bold;
+    }
+
+    .mpx-header>p {
+        font-weight: lighter;
+        font-size: 16px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .mpx-header {
+        margin-bottom: 22px;
+    }
+
+    .mpx-t-and-cs {
+        font-size: 10px;
+        font-weight: 100;
+        margin-top: 20px;
+    }
+
+    .mpx-code-span {
+        font-size: 16px;
+    }
+
+    .mpx-question-mark {
+        background-color: white;
+        padding: 2px 6px 2px 6px;
+        color: black;
+        border-radius: 50%;
+        margin-left: 5px;
+        font-weight: bold;
+    }
+
+    .mpx-cta_starter-kits {
+        margin-top: 15px;
+    }
+
+    .mpx-cta_promo-code {
+        margin-bottom: 15px;
+    }
+
+    .mpx-cta_promo-code button {
+        background-color: #007BFF;
+        color: #ffffff;
+        border: none;
+        padding: 5px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+
+    .mpx-cta_starter-kits button {
+        background-color: transparent;
+        color: #ffffff;
+        border: 2px solid #ffffff;
+        padding: 5px 20px;
+        border-radius: 20px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .mpx-t-and-cs>p {
+        font-size: 12px !important;
+    }
+
+    .mpx-t-and-cs_visible {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .mpx-t-and-cs_title {
+        font-weight: bold;
+        font-size: larger;
+    }
+
+    .mpx-t-and-cs {
+        overflow-y: auto;
+        overflow-x: hidden;
+        max-height: calc(100vh - 20px);
+    }
+
+    .mpx-t-and-cs::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .mpx-t-and-cs::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .mpx-t-and-cs::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+
+    .mpx-t-and-cs::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        border-radius: 5px;
+    }
+
+    .mpx-content::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .mpx-content::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .mpx-content::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+
+    .mpx-content::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        border-radius: 5px;
+    }
+
+    .mpx-starter-kit-link {
+        color: white;
+    }
+
+    /*tablet*/
+    @media (max-width: 1025px) {
+        .mpx-content {
+            width: 622px;
+            background-position: top center;
+        }
+
+        .mpx-col-two {
+            flex: 3;
+        }
+    }
+
+    /*large-mobile*/
+    @media (max-width: 760px) {
+        .mpx-content {
+            width: 450px;
+            background: url(https://www.philips-hue.com/content/dam/hue/en-us/images/sk-image-s-xs.png);
+            background-position: center -45px;
+            background-repeat: no-repeat;
+            background-color: black;
+            background-size: contain;
+        }
+
+        .mpx-col-one {
+            padding-top: 150px;
+        }
+
+        .mpx-rows {
+            flex-direction: column;
+        }
+    }
+
+    /*mobile*/
+    @media (max-width: 501px) {
+
+        .mpx-content {
+            width: 330px;
+            background: url(https://www.philips-hue.com/content/dam/hue/en-us/images/sk-image-s-xs.png);
+            background-position: top center;
+            background-repeat: no-repeat;
+            background-color: black;
+            background-size: contain;
+        }
+
+        .mpx-col-one {
+            padding-top: 150px;
+        }
+
+        .mpx-rows {
+            flex-direction: column;
+            width: unset;
+        }
+
+    }
+
+    /* scroll function */
+    @media screen and (max-height: 600px) {
+        .mpx-content {
+            height: 85vh;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+    }
+
+    @media screen and (min-width: 1026px) {
+        .mpx-t-and-cs_visible {
+            transform: translate(5%, -57%)
+        }
+    }
+
+    @media screen and (min-width: 761px) and (max-width: 768px) {
+        .mpx-t-and-cs_visible {
+            transform: translate(-20%, -66%);
+        }
+    }
+
+    @media screen and (min-width: 502px) and (max-width: 761px) {
+        .mpx-t-and-cs_visible {
+            transform: translate(-45%, -54%);
+        }
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 501px) {
+        .mpx-t-and-cs_visible {
+            transform: translate(-50%, -48%);
+        }
+    }
+</style>
+
+<script>
+
+    document.querySelector('.page').insertAdjacentHTML('afterBegin', '<div class="mpx-popup">\
+            <div class="mpx-content">\
+                <div class="mpx-exit">\
+                    <a href="#" class="mpx-close-btn">\
+                        <img src="https://www.philips-hue.com/content/dam/hue/en-us/images/close.png" \ alt="exit_button"\
+                            height="30" width="30">\
+                    </a>\
+                </div>\
+                <div class="mpx-container">\
+                    <div class="mpx-rows" style="display: flex;">\
+                        <div class="mpx-col-one">\
+                        </div>\
+                        <div class="mpx-col-two">\
+                            <div class="mpx-header mpx-font-weight">\
+                                <h4>Obtenez <span class="mpx-font_bold">20%</span> de réduction sur tous les kits de démarrage</h4>\
+                                <p>Utilisez le code promotionnel <span class="mpx-font_bold">SK20</span> lors du paiement.</p>\
+                                <p>Offre valable dans la limite des stocks disponsibles.</p>\
+                            </div>\
+                            <div class="mpx-ctas mpx-font-weight">\
+                                <div class="mpx-cta_promo-code">\
+                                    <button class="mpx-font_bold" id="copyPromoCodeBtn">\
+                                        Copier le code promo\
+                                    </button>\
+                                </div>\
+                                <div class="mpx-cta_starter-kits">\
+                                    <button>\
+                                        <a class="mpx-starter-kit-link mpx-font_bold" href = "/fr-fr/products/smart-light-starter-kits" >Acheter un kit de demarrage</a >\
+                                    </button >\
+                                </div >\
+                            </div >\
+        <div class="mpx-t-and-cs">\
+            <p>Modalités et conditions <span class="mpx-question-mark">?</span></p>\
+            <p class="mpx-t-and-cs_visible">\
+                <span class="mpx-t-and-cs_title">Terms and conditions</span>\
+                Offre valable jusqu\'au 24 décembre 2023. Cette offre est soumise à la disponibilité des stocks et ne comprend pas les kits de démarrage contenant des produits Philips Hue Secure. Cette offre ne peut pas être utilisée en conjonction avec toute autre offre sur www.philips-hue.com. Signify France se réserve le droit d\'annuler un code promotionnel à tout moment ou de modifier ces termes et conditions en les republiant. Les codes promotionnels ne peuvent être utilisés qu\'une seule fois. Le code promotionnel s\'applique uniquement à un produit.                            </div>\
+                        </div >\
+                    </div >\
+                </div >\
+            </div >\
+        </div >\
+        </div >')
+
+    //copy button functionality
+    document.getElementById('copyPromoCodeBtn').addEventListener('click', function () {
+        var tempElement = document.createElement('textarea');
+        tempElement.value = 'SK20';
+
+        //append the temporary element to the document
+        document.body.appendChild(tempElement);
+        //select the text inside the temporary element
+        tempElement.select();
+        //execute the copy command
+        document.execCommand('copy');
+        //remove the temporary element
+        document.body.removeChild(tempElement);
+
+        //change text
+        document.getElementById('copyPromoCodeBtn').innerText = 'Code copié'
+    });
+
+
+    //if exit button clicked, remove popup
+    document.querySelector('.mpx-close-btn').addEventListener('click', function () {
+        document.querySelector('.mpx-popup').classList.remove('visible');
+        document.querySelector('body').classList.remove('stop-scrolling');
+    });
+
+    //updated terms and conditions
+    var popup = document.querySelector('.mpx-t-and-cs_visible')
+    popup.style.display = 'none'
+
+    //update terms and conditions text
+    document.querySelector('.mpx-t-and-cs').addEventListener('click', function () {
+        if (popup.style.display === 'none') {
+            popup.style.display = 'block'
+        } else {
+            popup.style.display = 'none'
+        }
+    });
+
+
+    //COOKIE HANDLING
+    //sets cookie  
+    function logPopUpShownCookie() {
+        const decodedName = 'popUpShown';
+        const cookies = document.cookie.split(';');
+
+        for (let i = 0; i < cookies.length; i++) {
+            let cookie = cookies[i].trim();
+
+            if (cookie.indexOf(decodedName + '=') === 0) {
+                const cookieValue = decodeURIComponent(cookie.substring(decodedName.length + 1));
+                return cookieValue;
+            }
+        }
+
+        //cookie not found
+        return null;
+    }
+
+    //usabilla cookie
+    function logUSCookie() {
+        const decodedNameUS = 's_usabilla';
+        const cookie = document.cookie.split(';');
+
+        for (let i = 0; i < cookie.length; i++) {
+            let cookies = cookie[i].trim();
+
+            if (cookies.indexOf(decodedNameUS + '=') === 0) {
+                const cookieValues = decodeURIComponent(cookies.substring(decodedNameUS.length + 1));
+                return cookieValues
+                return;
+            }
+        }
+
+        // Cookie not found
+        return null;
+    }
+
+    //do not show popup again if cookie is present
+    setTimeout(() => {
+        //get popUpShown cookie
+        let popUpShown = logPopUpShownCookie();
+        //session ID
+        var sessionData = sessionStorage.getItem('com.adobe.reactor.dataElements.CO|Session|Session_id');
+        //get session id
+        var lsSessionData = localStorage.getItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData)
+        //get survery cookie
+        let USCookie = logUSCookie();
+
+        if (popUpShown === null) {
+            //show pop-up
+            document.querySelector('.mpx-popup').classList.add('visible');
+            //stop page scroll
+            document.querySelector('body').classList.add('stop-scrolling');
+            //add cookie
+            document.cookie = `popUpShown=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+            //add session id
+            localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+            //stop survery pop up
+            if (USCookie === null) {
+                document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+            }
+        } else if (popUpShown === '1') {
+            //if session id doesn't match, incidcates new session
+            if (lsSessionData !== sessionData) {
+                document.querySelector('.mpx-popup').classList.add('visible');
+                document.querySelector('body').classList.add('stop-scrolling');
+                document.cookie = `popUpShown=2; path=/; max-age=${60 * 60 * 24 * 14};`;
+                if (USCookie === null) {
+                    document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+                }
+                //add new session id
+                localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+            }
+        } else if (popUpShown === '2') {
+            if (lsSessionData !== sessionData) {
+                document.querySelector('.mpx-popup').classList.add('visible');
+                document.querySelector('body').classList.add('stop-scrolling');
+                document.cookie = `popUpShown=3; path=/; max-age=${60 * 60 * 24 * 14};`;
+                if (USCookie === null) {
+                    document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+                }
+                localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+            }
+        } else if (popUpShown === '3') {
+            if (lsSessionData !== sessionData) {
+                document.querySelector('.mpx-popup').classList.add('visible');
+                document.querySelector('body').classList.add('stop-scrolling');
+                document.cookie = `popUpShown=4; path=/; max-age=${60 * 60 * 24 * 14};`;
+                if (USCookie === null) {
+                    document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+                }
+                localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+            }
+        } else if (popUpShown === '4') {
+            if (lsSessionData !== sessionData) {
+                document.querySelector('.mpx-popup').classList.add('visible');
+                document.querySelector('body').classList.add('stop-scrolling');
+                document.cookie = `popUpShown=5; path=/; max-age=${60 * 60 * 24 * 14};`;
+                if (USCookie === null) {
+                    document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+                }
+                localStorage.setItem('com.adobe.reactor.dataElements.CO|Session|Session_id', sessionData);
+            }
+        } else if (popUpShown === '5') {
+            document.querySelector('.mpx-popup').remove()
+        }
+    }, 3000)//three second timer
+
+</script>
+
+
+///CONTROL SCRIPT///
+<script>
+    //usabilla cookie
+    function logUSCookie() {
+        const decodedNameUS = 's_usabilla';
+        const cookie = document.cookie.split(';');
+
+        for (let i = 0; i < cookie.length; i++) {
+            let cookies = cookie[i].trim();
+
+            if (cookies.indexOf(decodedNameUS + '=') === 0) {
+                const cookieValues = decodeURIComponent(cookies.substring(decodedNameUS.length + 1));
+                return cookieValues
+                return;
+            }
+        }
+
+        // Cookie not found
+        return null;
+    }
+    //get survery cookie
+    let USCookie = logUSCookie();
+    //set cookie if not found
+    if (USCookie === null) {
+        document.cookie = `s_usabilla=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+    }
+</script>

@@ -1,0 +1,272 @@
+<body>
+    <div class="progressbarOne-container">
+        <ul class="mpx-progressbarOne">
+            <li>About You</li>
+            <li>Your Work</li>
+            <li>Your Work Address</li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="progressbarTwo-container">
+        <ul class="mpx-progressbarTwo">
+            <li>About You</li>
+            <li>Your Work</li>
+            <li>Your Work Address</li>
+        </ul>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div class="progressbarThree-container">
+        <ul class="mpx-progressbarThree">
+            <li>About You</li>
+            <li>Your Work</li>
+            <li>Your Work Address</li>
+        </ul>
+    </div>
+</body>
+
+<style>
+    .progressbarOne-container {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .mpx-progressbarOne li {
+        float: left;
+        width: 33%;
+        position: relative;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .mpx-progressbarOne li::marker {
+        display: none;
+    }
+
+    .mpx-progressbarOne li:after {
+        content: "\25CF";
+        align-content: inline;
+        color: #513388;
+        font-size: 40px;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #bebebe;
+        display: block;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        line-height: 9px;
+        inline-size: 25px;
+        transform: translateY(15px);
+        padding-top: 6px;
+        background-color: white;
+    }
+
+    .mpx-progressbarOne li:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #979797;
+        top: 15px;
+        left: -50%;
+        z-index: -1;
+        transform: translateY(33px);
+
+    }
+
+    .mpx-progressbarOne li:first-child:before {
+        content: none;
+    }
+
+    .mpx-progressbarOne li:nth-child(1) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarOne li:nth-child(2) {
+        color: grey;
+    }
+
+    .mpx-progressbarOne li:nth-child(3) {
+        color: grey;
+    }
+
+    .mpx-progressbarOne li:nth-child(1):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarOne li:nth-child(2):after {
+        content: '';
+    }
+
+    .mpx-progressbarOne li:nth-child(3):after {
+        content: '';
+    }
+
+
+    .progressbarTwo-container {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .mpx-progressbarTwo li {
+        float: left;
+        width: 33%;
+        position: relative;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .mpx-progressbarTwo li::marker {
+        display: none;
+    }
+
+    .mpx-progressbarTwo li:after {
+        content: "\25CF";
+        align-content: inline;
+        color: #513388;
+        font-size: 40px;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #bebebe;
+        display: block;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        line-height: 9px;
+        inline-size: 25px;
+        transform: translateY(15px);
+        padding-top: 6px;
+        background-color: white;
+    }
+
+    .mpx-progressbarTwo li:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #979797;
+        top: 15px;
+        left: -50%;
+        z-index: -1;
+        transform: translateY(33px);
+
+    }
+
+    .mpx-progressbarTwo li:first-child:before {
+        content: none;
+    }
+
+    .mpx-progressbarTwo li:nth-child(1) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarTwo li:nth-child(2) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarTwo li:nth-child(3) {
+        color: grey;
+    }
+
+    .mpx-progressbarTwo li:nth-child(1):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarTwo li:nth-child(2):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarTwo li:nth-child(3):after {
+        content: '';
+    }
+
+    .progressbarThree-container {
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .mpx-progressbarThree li {
+        float: left;
+        width: 33%;
+        position: relative;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .mpx-progressbarThree li::marker {
+        display: none;
+    }
+
+    .mpx-progressbarThree li:after {
+        content: "\25CF";
+        align-content: inline;
+        color: #513388;
+        font-size: 40px;
+        width: 20px;
+        height: 20px;
+        border: 3px solid #bebebe;
+        display: block;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        line-height: 9px;
+        inline-size: 25px;
+        transform: translateY(15px);
+        padding-top: 6px;
+        background-color: white;
+    }
+
+    .mpx-progressbarThree li:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #979797;
+        top: 15px;
+        left: -50%;
+        z-index: -1;
+        transform: translateY(33px);
+
+    }
+
+    .mpx-progressbarThree li:first-child:before {
+        content: none;
+    }
+
+    .mpx-progressbarThree li:nth-child(1) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarThree li:nth-child(2) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarThree li:nth-child(3) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarThree li:nth-child(1):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarThree li:nth-child(2):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarThree li:nth-child(3):after {
+        border: 3px solid #444343;
+    }
+</style>

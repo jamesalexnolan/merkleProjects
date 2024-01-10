@@ -1,0 +1,483 @@
+<style>
+    body>header>div>div.row {
+        margin-top: 12px;
+        margin-bottom: 25px;
+    }
+
+    .mpx-icon-spacing {
+        width: min-content !important;
+        margin-right: -40px;
+    }
+
+    .page-new-header__column.navigation-column {
+        justify-content: center;
+    }
+
+    .main-navigation__block {
+        margin: 0 3px 0 3px;
+    }
+
+    .main-navigation {
+        margin: 0 !important;
+    }
+
+    .page-new-header .main-navigation__link {
+        font-size: 1rem;
+    }
+
+    .mpx-hide {
+        display: none;
+    }
+
+    .mpx-flyout {
+        display: flex;
+        position: fixed;
+        top: 175px;
+        width: 1000px;
+        height: auto;
+        background-color: #fff;
+        z-index: 9999;
+        border-radius: 20px;
+        box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .mpx-column-1 {
+        flex: 1;
+        width: 33.33%;
+        margin: 25px;
+        width: 33.33%;
+        border-right: 1px solid #ccc
+    }
+
+    .mpx-column-2 {
+        flex: 2;
+        width: 66.66%;
+        margin: 25px;
+    }
+
+    .mpx-title>a {
+        color: red;
+        text-decoration: underline;
+        font-size: smaller;
+    }
+
+    .mpx-sub-nav {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mpx-sub-nav-items {
+        margin: 10px;
+        margin-top: 30px;
+    }
+
+    .mpx-sub-nav-item {
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 13px;
+    }
+
+    .mpx-sub-nav-item-sub-title {
+        font-weight: 100;
+        color: #8080807a;
+        margin-left: 5px;
+    }
+
+    .mpx-title>h4 {
+        font-size: 1.1rem !important;
+    }
+
+    .mpx-selected {
+        background: #80808014;
+        border-radius: 50px;
+    }
+
+    .mpx-sub-nav-item-title {
+        color: black;
+    }
+</style>
+
+
+<script>
+
+    //hide the top nav about us section
+    document.querySelectorAll('.meta-navigation__link.is-always-shown')[1].style.display = 'none'
+
+
+    //add class to icon
+    document.querySelectorAll('.column.page-new-header__column')[0].classList.add('mpx-icon-spacing')
+
+    //select Nav menu
+    var navMenu = document.querySelector('.main-navigation')
+
+    //create new menu 
+    var mpxMenu = '<div class="main-navigation__block">\
+        <a class="main-navigation__link ">\
+            <span class="main-navigation__link-text">Products</span>\
+            <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                <use\
+                    xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-right">\
+                </use>\
+            </svg>\
+        </a>\
+    </div>\
+    <div class="main-navigation__block">\
+        <a class="main-navigation__link ">\
+            <span class="main-navigation__link-text">Support for you and baby</span>\
+            <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                <use\
+                    xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-right">\
+                </use>\
+            </svg>\
+        </a>\
+    </div>\
+    <div class="main-navigation__block">\
+        <a href="/about-us.html" class="main-navigation__link ">\
+            <span class="main-navigation__link-text">About us</span>\
+        </a>\
+    </div>\
+    <div class="main-navigation__block">\
+        <a href="/reviews.html" class="main-navigation__link ">\
+            <span class="main-navigation__link-text">Reviews</span>\
+        </a>\
+    </div>'
+
+    //insert new menu
+    navMenu.innerHTML = mpxMenu
+
+    //insert flyout
+    var mpxFlyOut = '<div class="mpx-flyout mpx-hide">\
+        <div class="mpx-column-1">\
+            <!---CONTENT LOADED HERE--->\
+        </div>\
+        <div class="mpx-column-2">\
+            <!---CONTENT LOADED HERE--->\
+        </div>\
+    </div>'
+
+    //target element
+    var targetElement = document.querySelectorAll('.row')[1]
+    //append flyout 
+    targetElement.insertAdjacentHTML('afterend', mpxFlyOut);
+
+    //flyout targets
+    //first col
+    var mpxCol1 = document.querySelector('.mpx-column-1')
+    //second col
+    var mpxCol2 = document.querySelector('.mpx-column-2')
+
+    //open menu function
+    //support your baby CTA
+    var mpxSYB = document.querySelectorAll('.main-navigation__link')[1]
+
+    //.mpx-flyout element
+    var mpxFlyout = document.querySelector('.mpx-flyout');
+
+    mpxSYB.addEventListener('click', function () {
+        //chevron orientation
+        document.querySelectorAll('.main-navigation__subnav-icon>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-left')
+        //Add active class to flyout
+        document.querySelector('.mpx-flyout').classList.toggle('mpxSYB-Active')
+
+        //close/open flyout functionality
+        if (document.querySelector('.mpx-flyout').classList.contains('mpxSYB-Active')){
+            document.querySelector('.mpx-flyout').classList.remove('mpx-hide')
+        } else {
+            document.querySelector('.mpx-flyout').classList.add('mpx-hide')
+            document.querySelectorAll('.main-navigation__subnav-icon>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+        }
+
+        //insert menu
+        //create menu
+        var mpxSYBSubMenu = '<div class="mpx-title">\
+        <h4>Support for you and baby</h4>\
+        <a href="/pregnancy.html">See all</a>\
+    </div>\
+    <div class="mpx-sub-nav">\
+        <div class="mpx-sub-nav-items">\
+            <div class="mpx-sub-nav-item mpx-support-for-you-and-baby mpxSYB-pregnancy">\
+                <a class="mpx-sub-nav-item-title">Pregnancy <span class="mpx-sub-nav-item-sub-title">(Week 0-40)</span></a>\
+                <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                    <use\
+                        xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-up">\
+                    </use>\
+                </svg>\
+            </div>\
+            <div class="mpx-sub-nav-item mpx-support-for-you-and-baby mpxSYB-LandB">\
+                <a class="mpx-sub-nav-item-title">Labour & Birth</a>\
+                <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                    <use\
+                        xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-up">\
+                    </use>\
+                </svg>\
+            </div>\
+            <div class="mpx-sub-nav-item mpx-support-for-you-and-baby mpxSYB-baby">\
+                <a class="mpx-sub-nav-item-title">Baby <span class="mpx-sub-nav-item-sub-title">(0-12 months)</span></a>\
+                <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                    <use\
+                        xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-up">\
+                    </use>\
+                </svg>\
+            </div>\
+            <div class="mpx-sub-nav-item mpx-support-for-you-and-baby mpxSYB-toddler">\
+                <a class="mpx-sub-nav-item-title">Toddler <span class="mpx-sub-nav-item-sub-title">(1-3 years)</span></a>\
+                <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                    <use\
+                        xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-up">\
+                    </use>\
+                </svg>\
+            </div>\
+            <div class="mpx-sub-nav-item mpx-support-for-you-and-baby mpxSYB-DandP">\
+                <a class="mpx-sub-nav-item-title">Dads & Partners</a>\
+                <a class="mpx-sub-nav-item-sub-title"></a>\
+                <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                    <use\
+                        xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-up">\
+                    </use>\
+                </svg>\
+            </div>\
+        </div>\
+    </div>'
+
+        //insert menu 
+        mpxCol1.innerHTML = mpxSYBSubMenu
+        //menu added for selecters 
+
+        //support for baby sub menu functionality
+        //Pregnancy
+        document.querySelector('.mpxSYB-pregnancy').addEventListener('click', function () {
+            //create menu
+            var mpxSYBSubMenuPregnancy = '<div class="mpx-title">\
+        <h4>Pregnancy</h4>\
+        <a href="/pregnancy.html">See all</a>\
+    </div>\
+    <div class="mpx-sub-nav">\
+        <div class="mpx-sub-nav-items">\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy.html" class="mpx-sub-nav-item-title">Pregnancy</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/conception/healthy-eating-for-conception.html" class="mpx-sub-nav-item-title">Diet & Nutrition</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/when-am-i-due.html" class="mpx-sub-nav-item-title">Pregnancy due date calculator</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/health/morning-sickness.html" class="mpx-sub-nav-item-title">Morning sickness & pregnancy symptoms</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/wellbeing/pregnancy-blues-and-mood-swings.html" class="mpx-sub-nav-item-title">Mental health in pregnancy</a>\
+            </div>\
+        </div>\
+    </div>'
+            //insert menu
+            mpxCol2.innerHTML = mpxSYBSubMenuPregnancy
+
+        })
+
+        //Labour and birth
+        document.querySelector('.mpxSYB-LandB').addEventListener('click', function () {
+            //create menu
+            var mpxSYBSubMenuLandB = '<div class="mpx-title">\
+        <h4>Labour and Birth</h4>\
+        <a href="/pregnancy/labour-and-birth.html">See all</a>\
+    </div>\
+    <div class="mpx-sub-nav">\
+        <div class="mpx-sub-nav-items">\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth.html" class="mpx-sub-nav-item-title">Labour & Birth</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/the-stages-of-labour.html" class="mpx-sub-nav-item-title">3 stages of labour</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/what-are-braxton-hicks-contractions.html" class="mpx-sub-nav-item-title">Braxton hicks contractions</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/the-stages-of-labour.html" class="mpx-sub-nav-item-title">Early signs of labour</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/how-do-i-write-a-birth-plan.html" class="mpx-sub-nav-item-title">Birth plan</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/hospital-bag-checklist.html" class="mpx-sub-nav-item-title">Birth Hospital checklist</a>\
+            </div>\
+        </div>\
+    </div>'
+            //insert menu
+            mpxCol2.innerHTML = mpxSYBSubMenuLandB
+
+        })
+
+        //Baby
+        document.querySelector('.mpxSYB-baby').addEventListener('click', function () {
+            //create menu
+            var mpxSYBSubMenuBaby = '<div class="mpx-title">\
+        <h4>Baby</h4>\
+        <a href="/baby.html">See all</a>\
+    </div>\
+    <div class="mpx-sub-nav">\
+        <div class="mpx-sub-nav-items">\
+            <div class="mpx-sub-nav-item">\
+                <a href="/baby.html" class="mpx-sub-nav-item-title">Baby</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/baby/health/baby-symptom-checker.html" class="mpx-sub-nav-item-title">Baby symptom checker</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/products/milks/pre-term-or-low-birthweight-infant-milk.html" class="mpx-sub-nav-item-title">Premature babies</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/baby/new-mum.html" class="mpx-sub-nav-item-title">New mum</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/baby/routine/establishing-your-newborns-routine.html" class="mpx-sub-nav-item-title">Your baby\'s routine</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/baby/feeding.html" class="mpx-sub-nav-item-title">Baby feeding & nutrition</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/baby/feeding/weaning/5-step-weaning-plan-sign-up.html" class="mpx-sub-nav-item-title">Weaning</a>\
+            </div>\
+        </div>\
+    </div>'
+            //insert menu
+            mpxCol2.innerHTML = mpxSYBSubMenuBaby
+
+        })
+
+        //Toddler
+        document.querySelector('.mpxSYB-toddler').addEventListener('click', function () {
+            //create menu
+            var mpxSYBSubMenuToddler = '<div class="mpx-title">\
+        <h4>Toddler</h4>\
+        <a href="/toddler.html">See all</a>\
+    </div>\
+    <div class="mpx-sub-nav">\
+        <div class="mpx-sub-nav-items">\
+            <div class="mpx-sub-nav-item">\
+                <a href="/toddler.html" class="mpx-sub-nav-item-title">Toddler</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/toddler/development/toddler-development-stages.html" class="mpx-sub-nav-item-title">Your toddler\'s development</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/products/milks/toddler-milk.html" class="mpx-sub-nav-item-title">Toddler feeding & nutrition</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/products/milks/toddler-milk.html" class="mpx-sub-nav-item-title">Toddler health</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/products/milks/first-infant-milk.html" class="mpx-sub-nav-item-title">Vitamins</a>\
+            </div>\
+        </div>\
+    </div>'
+            //insert menu
+            mpxCol2.innerHTML = mpxSYBSubMenuToddler
+
+        })
+
+        //Dads and Partners
+        document.querySelector('.mpxSYB-DandP').addEventListener('click', function () {
+            //create menu
+            var mpxSYBSubMenuDandP = '<div class="mpx-title">\
+        <h4>Dads & Partners</h4>\
+        <a href="/parenting.html">See all</a>\
+    </div>\
+    <div class="mpx-sub-nav">\
+        <div class="mpx-sub-nav-items">\
+            <div class="mpx-sub-nav-item">\
+                <a href="/parenting.html" class="mpx-sub-nav-item-title">Dads & Partners</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/parenting/when-to-leave-baby-for-first-time.html" class="mpx-sub-nav-item-title">"Us" time for parents</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/parenting/bringing-your-baby-home-from-hospital.html" class="mpx-sub-nav-item-title">Bringing your baby home from the hospital</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/parenting/new-parent-checklist.html" class="mpx-sub-nav-item-title">New parents survival kit for dads & partners</a>\
+            </div>\
+        </div>\
+    </div>'
+            //insert menu
+            mpxCol2.innerHTML = mpxSYBSubMenuDandP
+
+        })
+
+        //remove selected option if another option is selected 
+        var mpxSupportForYouAndBabyItems = document.querySelectorAll('.mpx-support-for-you-and-baby');
+
+        mpxSupportForYouAndBabyItems.forEach(function (item) {
+            item.addEventListener('click', function (event) {
+                mpxSupportForYouAndBabyItems.forEach(function (otherItem) {
+                    otherItem.classList.remove('mpx-selected');
+                });
+                item.classList.add('mpx-selected');
+            });
+        });
+
+        //close other menu
+        if (document.querySelector('.mpx-flyout').classList.contains('mpxProducts-Active')) {
+            //remove active class for SYB menu
+            document.querySelector('.mpx-flyout').classList.remove('mpxProducts-Active')
+            //chevron orientation (closed)
+            document.querySelectorAll('.main-navigation__subnav-icon>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+        }
+
+    })
+
+
+    //products CTA
+    var mpxProducts = document.querySelectorAll('.main-navigation__link')[0]
+
+    mpxProducts.addEventListener('click', function () {
+        //chevron orientation
+        document.querySelectorAll('.main-navigation__subnav-icon>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-left')
+        //Add active class to flyout
+        document.querySelector('.mpx-flyout').classList.toggle('mpxProducts-Active')
+
+        //close/open flyout functionality
+        if (document.querySelector('.mpx-flyout').classList.contains('mpxProducts-Active')){
+            document.querySelector('.mpx-flyout').classList.remove('mpx-hide')
+        } else {
+            document.querySelector('.mpx-flyout').classList.add('mpx-hide')
+            document.querySelectorAll('.main-navigation__subnav-icon>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+        }
+
+        //create menu
+        var mpxProductsSubMenu = '<div class="mpx-title">\
+        <h4>Support for you and baby</h4>\
+        <a href="/shop.html">See All Products</a>\
+    </div>\
+    <div class="mpx-sub-nav">\
+        <div class="mpx-sub-nav-items">\
+            <div class="mpx-sub-nav-item">\
+                <a href="/products/milks.html" class="mpx-sub-nav-item-title">Baby milk</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/products/foods.html" class="mpx-sub-nav-item-title">Baby food</a>\
+            </div>\
+            <div class="mpx-sub-nav-item">\
+                <a href="/products/milks/specialist-milk.html" class="mpx-sub-nav-item-title">Gate specialist milk</a>\
+            </div>\
+        </div>\
+    </div>'
+
+        //insert menu
+        mpxCol1.innerHTML = mpxProductsSubMenu
+        mpxCol2.innerHTML = ''
+
+        //close other menu
+        if (document.querySelector('.mpx-flyout').classList.contains('mpxSYB-Active')) {
+            //remove active class for SYB menu
+            document.querySelector('.mpx-flyout').classList.remove('mpxSYB-Active')
+            //chevron orientation (closed)
+            document.querySelectorAll('.main-navigation__subnav-icon>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+        }
+    })
+
+</script>

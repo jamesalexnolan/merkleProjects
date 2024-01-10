@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>popUp-Danone</title>
+</head>
+
+<body>
+    <div class="pop-up">
+        <img src="https://reasondesign.co.uk/wp-content/uploads/2019/05/Reason_Danone_Internal2.jpg" class="pop-up-img">
+        <a href="" class="yes-button">Find out more!</a>
+        <a href="" class="no-button">No thanks.</a>
+        <a href="#" class="close"></a>
+    </div>
+</body>
+</html>
+
+<style>
+    .pop-up {
+        font-family: 'Roboto-bold', sans-serif;
+        z-index: 1;
+        border-radius: 1%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform: translateY(60%) scale(0);
+        box-shadow: 3px 3px 10px 2px #424141;
+        overflow: hidden;
+        height: 30%;
+        width: auto;
+        background: rgb(71, 67, 67);
+        transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    .pop-up-img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .pop-up.visible {
+        transform: translateY(0) scale(1);
+        transform: translate(-50%, -50%);
+        background: rgb(71, 67, 67);
+    }
+
+
+    .yes-button {
+        position: absolute;
+        padding: 10px;
+        top: 85%;
+        left: 85%;
+        transform: translate(-130%, -60%);
+        text-decoration: none;
+        background-color: none;
+        font-weight: bold;
+        text-align: center;
+        width: 120px;
+        color: white;
+        border: solid;
+        border-color: white;
+        border-radius: 5px;
+    }
+
+    .yes-button:hover {
+        text-decoration: underline;
+        font-weight: bold;
+        text-decoration-thickness: 2px;
+        color: black;
+        background-color: white;
+        border-color: white;
+        box-shadow: 3px 3px 10px 2px #424141;
+        border-radius: 5%;
+    }
+
+    .no-button {
+        position: absolute;
+        padding: 10px;
+        top: 85%;
+        left: 85%;
+        transform: translate(-40%, -60%);
+        text-decoration: none;
+        text-align: center;
+        width: 90px;
+        color: black;
+        opacity: 0.5;
+    }
+
+    .no-button:hover {
+        text-decoration: underline;
+        font-weight: bold;
+        text-decoration-thickness: 2px;
+        color: black;
+        opacity: 1;
+    }
+
+    .close {
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        width: 32px;
+        height: 32px;
+        opacity: 0.3;
+    }
+
+    .close:hover {
+        opacity: 1;
+    }
+
+    .close:before,
+    .close:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+        background-color: rgb(15, 12, 12);
+    }
+
+    .close:before {
+        transform: rotate(45deg);
+    }
+
+    .close:after {
+        transform: rotate(-45deg);
+    }
+</style>
+
+<script>
+    function getCookie(name) {
+        let value = `; ${document.cookie}`;
+        let parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+
+    window.onload = function () {
+
+        document.querySelector('.pop-up').addEventListener('click', function () {
+            document.querySelector('.pop-up').classList.remove('visible');
+        });
+
+        document.addEventListener("mouseleave", function (e) {
+            if (e.clientY < 0) {
+                let lightBoxShown = getCookie('popUpShown');
+                if (typeof (popUpShown) === 'undefined') {
+                    document.querySelector('.pop-up').classList.add('visible');
+                    document.cookie = `popUpShown=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+                }
+            }
+        }, false);
+    }
+</script>

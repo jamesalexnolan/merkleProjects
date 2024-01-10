@@ -1,0 +1,67 @@
+URL - https://www.carwow.co.uk/sell-my-car
+
+<style>
+    .mpx-values {
+        color: white;
+    }
+
+    .hero-frame__social-wrap {
+        margin-top: 40px;
+    }
+
+    .mpx-wrap {
+        margin-top: 30px;
+    }
+
+    .mpx-value {
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .list-icon__item--positive::before,
+    .list-icon__item--check::before {
+        background-color: var(--transparent);
+        border: 1px solid white;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+        line-height: 25px;
+        text-align: center;
+    }
+</style>
+
+<script>
+    //hide sub title
+    document.querySelector('.hero-frame__desc').style.display = 'none'
+
+    //create html
+    const mpxContainer = '<div class="mpx-wrap"><div class="mpx-container"><ol class="mpx-values"><li class="list-icon__item list-icon__item--check">Offers from 1000s of trusted dealers</li><li class="list-icon__item list-icon__item--check">Fast payment with no fees</li><li class="list-icon__item list-icon__item--check">Free home collection</li></ol></div></div>';
+
+    //place container
+    const el = document.createElement('div');
+    el.innerHTML = mpxContainer;
+
+    const targetEl = document.querySelector('.hero-frame__extra-content-wrap');
+    targetEl.parentNode.insertBefore(el.firstChild, targetEl.nextSibling);
+
+    //move content into container
+    document.querySelector('.mpx-container').appendChild(document.querySelector('.hero-frame__extra-content-wrap'));
+    document.querySelector('.mpx-container').appendChild(document.querySelector('.hero-frame__social-wrap'));
+
+    //dataLayer push
+    if (window.dataLayer) {
+        var testData = {
+            event: 'entered_ab_test',
+            test_name: 'merkle_test_1',
+            test_variant: (window.merkle_test_2 || 'v1')
+        };
+        window.dataLayer.push(testData);
+    }
+
+
+</script>

@@ -1,0 +1,96 @@
+<script>
+
+  try {
+    //insert HTML component
+    var mpxCode = '<div id="mpx-container2"><img class="mpx-image2" src="https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/11/19/09/personal-pregnancy-journey-icon-circle.png?fmt=png-alpha"><p class="mpx-text2">Discover the science behind your baby\'s developments, week-by-week</p></div><div class="form-group"><a href="/register.html" class="button -type-primary theme-1">Join now for free</a></div><a href="" class="mpx-link"><div id="mpx-container"><img class="mpx-image" src=""><h3 class="mpx-title">How big is my baby?<br>And what does my baby look like?</h3><p class="mpx-text"></p><p class="mpx-learnmore">Learn more</p></div></a>';
+
+    document.querySelector('a[data-dm="pregnancycaculator.weekresultlink"]').parentElement.style.display = 'none';
+    var mpxBtn = document.querySelector('button[data-js="pregnancyduedatecalculator"]');
+
+    document.querySelector('.pregnancyweekresult ul.week-numbers').insertAdjacentHTML('afterend', mpxCode);
+
+    //object containing text, img url and href url for each week page
+    const mpxCopy = {
+    mpx5 : ['In week 5 of pregnancy, your baby, technically called an embryo, measures a little over 1mm long – that’s roughly the size of a sesame seed.', 'https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-8.jpg', 'https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-5.html'],
+    mpx6 : ['In this 6th week of pregnancy they have a tadpole-like appearance, but with the tiny buds of their arms and legs developing, this won’t last long.', 'https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-6.jpg', 'https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-6.html'],
+    mpx7 : ['At 7 weeks pregnant, your baby measures anywhere between 4mm and 10mm long and is roughly the size of a  blueberry.', 'https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-7.jpg', 'https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-7.html'],
+    mpx8 : ['By the time you’re 8 weeks pregnant, your baby is roughly 1.6cm long. At this stage, their newly formed jawbone gives more definition to their tiny mouth.', 'https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-8.jpg', 'https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-8.html'],
+    mpx9 : ['Measuring between 2cm and 3cm long from head to bottom, your baby is roughly the size of a cherry.', 'https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-9.jpg', 'https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-9.html'],
+    mpx10 : ['By your 10th week of pregnancy, your baby measures between 3 and 4cm long, and roughly the size of a fig.', 'https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-10.jpg', 'https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-10.html'],
+    mpx11 : ['At 11 weeks pregnant, your baby is about to begin a rapid phase of growth. They’re still only 4-5cm in length, making them the size of a lime.', 'https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-11.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-11.html'],
+    mpx12 : ['At 12 weeks pregnant, your baby is around 6cm in length, having doubled in size in the last 3 weeks alone, and is roughly the size of a plum.', 'https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-12.jpg', 'https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-12.html'],
+    mpx13 : ['Your baby is now growing rapidly and is quite active, with lots of stretching, kicking and turning – although it’s unlikely you’ll feel their movements yet.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-13.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-13.html'],
+    mpx14 : ['Your baby is now the size of a kiwi fruit - around 8.5cm in length. The head is rounder and more proportioned to the body.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-14.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-14.html'],
+    mpx15 : ['Your baby can hear sounds in your body such as your heartbeat, voice and digestive system. They can also pick up muffled sounds from outside, but can’t make sense of them yet.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-15.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-15.html'],
+    mpx16 : ['Your baby is now the size of an avocado, and around 11.6cm in length. He or she will weigh around 100g. The circulatory system is now starting to run, and can pump over 28 litres of blood a day.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-16.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-16.html'],
+    mpx17 : ['At 17 weeks your baby should weigh about 150g (just over 5oz) and measure around 13cm from crown to rump. Until now, your baby’s head has been larger in proportion, but now its body is starting to catch up and put on weight.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-17.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-17.html'],
+    mpx18 : ['At 18 weeks your baby is about 14.2cm long - the size of a sweet red pepper - and weighs around 190g','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-18.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-18.html'],
+    mpx19 : ['At 19 weeks pregnant, your baby is around 15.3cm long from head to bottom, and around 240g in weight. That’s roughly the same size as a beef tomato, only heavier.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-19.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-19.html'],
+    mpx20 : ['At 20 weeks pregnant your baby will be roughly 16cm from head to bottom (the size of a banana), and will weigh around 300g. Their heartbeat is strong enough to be detected easily.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-20.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-20.html'],
+    mpx21 : ['By the time you’re 21 weeks pregnant, your baby weighs more than your placenta. Their digestive system is starting to work and their bones are becoming harder and stronger.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-21.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-21.html'],
+    mpx22 : ['In week 22 of pregnancy, your baby will measure roughly 20cm from head to bottom (roughly the size of a coconut) and weigh around 450g.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-22.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-22.html'],
+    mpx23 : ['In week 23 of pregnancy, your baby will have grown to around 20cm in length and weigh about 450g - roughly the size of a grapefruit.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-23.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-23.html'],
+    mpx24 : ['In week 24 of pregnancy, your baby is around 21cm long from the crown of its head to its bottom, roughly the same size as an ear of corn, only heavier. It should weigh around 600g.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-24.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-24.html'],
+    mpx25 : ['In week 25 of pregnancy, your baby measures about 22cm long from head to bottom, and weighs roughly 700g. He or she is now about the size of a cauliflower.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-25.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-25.html'],
+    mpx26 : ['Now’s the time to start thinking about your birth plan, what you might want to pack for the hospital and what sort of pain relief you’d be comfortable with when you go into labour.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-26.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-26.html'],
+    mpx27 : ['Week 27 marks the start of your third trimester, and your baby is getting plumper. Their senses are developing rapidly too, with their eyes now becoming more sensitive to light.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-27.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-27.html'],
+    mpx28 : ['By the time you’re 28 weeks pregnant, your baby is fully formed and weighs just over 2lbs. With the majority of their body systems working well, much of their development now centres around growth.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-28.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-28.html'],
+    mpx29 : ['In week 29 of pregnancy, the size and weight of each baby varies considerably. But on average, they are roughly 26cm – measured from the top of their head to their bottom – and weigh about 2lb 8oz.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-29.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-29.html'],
+    mpx30 : ['There is a lot going on, inside and out, for your baby when you’re 30 weeks pregnant. Tiny toenails are beginning to appear and their nerve fibres are growing rapidly to allow brain impulses to travel faster.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-30.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-30.html'],
+    mpx31 : ['Although their growth is slowing a little during week 31 of pregnancy, their development continues, with eye colour now starting to form.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-31.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-31.html'],
+    mpx32 : ['By the time you\'re 32 weeks pregnant, most of your baby’s body systems are formed, functioning, and ready for life outside the womb.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-32.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-32.html'],
+    mpx33 : ['At 33 weeks pregnant, your baby is taking up an increasing amount of the available space in your tummy. You may notice a decrease in appetite as a result, but your baby still needs a steady supply of nutrients for the development that’s yet to come.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-33.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-33.html'],
+    mpx34 : ['By week 34 of your pregnancy, your growing baby is roughly 5lbs in weight and 31cm long from head to bottom. Some of this additional weight is from their bones, which are continuing to harden and grow stronger.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-34.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-34.html'],
+    mpx35 : ['By week 35 of your pregnancy, your baby weighs approximately 5.5lbs, although this is just an estimate. Babies vary widely in size and weight at this stage.','https://smartmedia.digital4danone.com/is/image/danone/ssw-35-embryo','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-35.html'],
+    mpx36 : ['Wow, you might be wondering where the time went all of a sudden! Only 4 weeks until your due date, and 1 week until your pregnancy is deemed to be full-term.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-37.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-36.html'],
+    mpx37 : ['As birth approaches, it’s important to maintain your balanced diet, making sure you get enough nutrients like calcium, which is also important while breastfeeding.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/01/22/23/37-weeks-pregnant.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-37.html'],
+    mpx38 : ['In week 38 of pregnancy, your baby weighs around 7lbs. Around now, most babies move lower into the abdomen, a process called ‘engagement’ or ‘lightening’, which means that labour probably isn’t too far away.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-38.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-38.html'],
+    mpx39 : ['By the time you\'re 39 weeks pregnant, your baby is probably in the head-down position, ready for birth. It won’t be long until you’re meeting them face-to-face and beginning your journey together.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-39.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-39.html'],
+    mpx40 : ['Over the last 40 weeks, your baby has grown from a single cell to a well-developed, unique and beautiful little person with a world of potential within them.','https://smartassets.danone.com/is/image/content/dam/dam/eln/local/gb/approved/2019/02/21/11/foetus-pregnancy-week-40.jpg','https://www.aptaclub.co.uk/pregnancy/weeks/pregnancy-week-40.html']
+  };
+
+    //oberserver to watch element state change and pick correct week copy and image
+    const mpxtargetNode = document.querySelector('.pregnancyweekresult');
+    const mpxconfig = { attributes: true, childList: true, subtree: true };
+
+    const callback = function(mutationsList, observer) {
+      for(const mutation of mutationsList) {
+        if (mutation.attributeName === "class") {
+          if (!mpxtargetNode.classList.contains('hide')){
+            var mpxImg = document.querySelector('.mpx-image');
+            var mpxText = document.querySelector('.mpx-text');
+            var mpxLink = document.querySelector('.mpx-link');
+            let mpxWeek;
+            mpxWeek = document.querySelector('li.week-numbers__list-item.-current-week').innerText;
+            for (i=0; i < Object.keys(mpxCopy).length; i++) {
+              var mpxItem = Object.keys(mpxCopy)[i];
+              var mpxIndex = mpxItem.replace(/\D/g,'');
+              if (parseInt(mpxIndex) == parseInt(mpxWeek)) {
+                mpxLink.style.removeProperty('display');
+                mpxImg.src = Object.values(mpxCopy)[i][1];
+                mpxText.innerText = Object.values(mpxCopy)[i][0];
+                mpxLink.href = Object.values(mpxCopy)[i][2];
+                break;
+              } else if (parseInt(mpxWeek) == 0 |parseInt(mpxWeek) == 1 | parseInt(mpxWeek) == 2 | parseInt(mpxWeek) == 3 | parseInt(mpxWeek) == 4){
+                mpxLink.style.display = 'none';
+              }
+            }
+          }
+        }
+      }
+    };
+
+    const observer = new MutationObserver(callback);
+    observer.observe(mpxtargetNode, mpxconfig);
+
+    var mpxImg2;
+    var mpxText2;
+    let mpxWeek2;
+    var mpxBtn2 = document.querySelector('button[data-js="pregnancyduedatecalculator"]');
+
+    mpxImg2 = document.querySelector('.mpx-image');
+    mpxText2 = document.querySelector('.mpx-text');
+  }
+  catch (err) {
+  }
+</script>

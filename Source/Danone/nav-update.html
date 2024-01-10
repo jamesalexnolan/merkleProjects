@@ -1,0 +1,356 @@
+<style>
+    .mpx-sub-title {
+        font-weight: bold;
+        color: #236bee;
+    }
+
+    .mpx-mob-sub-nav {
+        display: none;
+    }
+
+    .mpx-nav-adjust {
+        display: block;
+        z-index: 9999;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 50px;
+    }
+
+    .logo {
+        z-index: 99999;
+    }
+
+    .mpx-pill {
+        width: fit-content;
+        font-weight: bold;
+    }
+
+    .mpx-column a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .mpx-font {
+        font-weight: bold;
+        background-color: transparent;
+    }
+
+    .mpx-hide {
+        display: none !important;
+    }
+
+    @media screen and (min-width: 51em) {
+        .mpx-nav-adjust {
+            margin-left: -635px;
+        }
+    }
+
+    @media screen and (max-width: 50.9375em) {
+        .logo {
+            z-index: inherit;
+        }
+
+        .mpx-column {
+            display: none;
+        }
+
+        .mpx-mob-sub-nav {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 10px;
+        }
+
+        .mpx-nav-adjust {
+            display: unset;
+            z-index: unset;
+            display: unset;
+            grid-template-columns: unset;
+            grid-gap: unset;
+        }
+    }
+</style>
+
+<script>
+    //select product links
+    var mpxproducts = document.querySelectorAll('.main-navigation__block>div')[5]
+
+    //create nav content
+    var mpxCols = '<div class="mpx-column">\
+      <a href="/products.html" class="main-navigation__subnav-title mpx-sub-title"data-dm="mainnavigation.sub-nav-link">Products</a>\
+        <a href="/products/compare-products.html"\
+            class="main-navigation__subnav-link main-navigation__subnav-link--highlight is-active mpx-pill"\
+            data-dm="mainnavigation.sub-nav-link">Compare products</a>\
+        <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+        <a href="/shop/filter-results.html" class="main-navigation__subnav-link  "\
+            data-dm="mainnavigation.sub-nav-link">List all products</a>\
+        </div>\
+  <div class="mpx-column">\
+    <p\
+        class="main-navigation__subnav-link main-navigation__subnav-link mpx-sub-title"\
+        data-dm="mainnavigation.sub-nav-link">Products by range</p>\
+    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+    <a href="/products/aptamil-advanced.html" class="main-navigation__subnav-link  "\
+        data-dm="mainnavigation.sub-nav-link">Aptamil Advanced</a>\
+    <a href="/products/aptamil-pronutra-range.html" class="main-navigation__subnav-link  "\
+        data-dm="mainnavigation.sub-nav-link">Aptamil</a>\
+    <a href="/products/ready-to-drink.html" class="main-navigation__subnav-link  "\
+        data-dm="mainnavigation.sub-nav-link">Aptamil Ready to drink</a>\
+    <a href="/products/aptamil-pre-measured-tabs.html" class="main-navigation__subnav-link  "\
+        data-dm="mainnavigation.sub-nav-link">Aptamil Pre-Measured Tabs</a>\
+    <a href="/products/aptamil-organic.html" class="main-navigation__subnav-link  "\
+        data-dm="mainnavigation.sub-nav-link">Aptamil Organic</a>\
+    <a href="/products/aptamil/cereals.html" class="main-navigation__subnav-link  "\
+        data-dm="mainnavigation.sub-nav-link">Aptamil Cereals</a>\
+    </div>\
+  <div class="mpx-column">\
+    <p\
+        class="main-navigation__subnav-link main-navigation__subnav-link mpx-sub-title"\
+        data-dm="mainnavigation.sub-nav-link">Products by Age</p>\
+    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+    <a href="/products/aptamil/infant-formula.html" class="main-navigation__subnav-link  "\
+        data-dm="mainnavigation.sub-nav-link">0-6 Months</a>\
+    <a href="/products/aptamil/follow-on-milk.html" class="main-navigation__subnav-link  "\
+        data-dm="mainnavigation.sub-nav-link">6-12 Months</a>\
+    <a href="/products/aptamil/toddler-milk.html" class="main-navigation__subnav-link  "\
+        data-dm="mainnavigation.sub-nav-link">12+ Months</a>\
+    </div>\
+    <div class="mpx-mob-sub-nav">\
+            <div class="main-navigation__subnav-header">\
+                <button type="link" href="#0"\
+                    class="main-navigation__back-button main-navigation__subnav-link main-navigation__back-link mpx-back-button"\
+                    data-js="main-navigation__back-link" data-dm="mainnavigation.nav-back-link">\
+                    <svg class="icon -size-small" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-left">\
+                        </use>\
+                    </svg>\
+                    <span class="back-link-label">Back</span>\
+                </button>\
+                <a href="/products.html" class="main-navigation__subnav-title "\
+                    data-dm="mainnavigation.sub-nav-link">Products</a>\
+            </div>\
+            <a href="/products/compare-products.html"\
+    class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-pill"\
+    data-dm="mainnavigation.sub-nav-link">Compare products</a>\
+<div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+<p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font"\
+    data-dm="mainnavigation.sub-nav-link">Products by range\
+    <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+	<use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right"></use>\
+	</svg>\
+    </p>\
+<div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+<a href="/products/aptamil-advanced.html" class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+    data-dm="mainnavigation.sub-nav-link">Aptamil Advanced</a>\
+<a href="/products/aptamil-pronutra-range.html" class="main-navigation__subnav-link  mpx-range-content mpx-hide" \
+    data-dm="mainnavigation.sub-nav-link">Aptamil</a>\
+<a href="/products/ready-to-drink.html" class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+    data-dm="mainnavigation.sub-nav-link">Aptamil Ready to drink</a>\
+<a href="/products/aptamil-pre-measured-tabs.html" class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+    data-dm="mainnavigation.sub-nav-link">Aptamil Pre-Measured Tabs</a>\
+<a href="/products/aptamil-organic.html" class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+    data-dm="mainnavigation.sub-nav-link">Aptamil Organic</a>\
+<a href="/products/aptamil/cereals.html" class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+    data-dm="mainnavigation.sub-nav-link">Aptamil Cereals</a>\
+<p \
+    class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font"\
+    data-dm="mainnavigation.sub-nav-link">Products by age\
+    <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+	<use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right"></use>\
+	</svg>\
+    </p>\
+<div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+<a href="/products/aptamil/infant-formula.html" class="main-navigation__subnav-link mpx-range-age mpx-hide"\
+    data-dm="mainnavigation.sub-nav-link">0-6 Months</a>\
+<a href="/products/aptamil/follow-on-milk.html" class="main-navigation__subnav-link mpx-range-age mpx-hide"\
+    data-dm="mainnavigation.sub-nav-link">6-12 Months</a>\
+<a href="/products/aptamil/toddler-milk.html" class="main-navigation__subnav-link mpx-range-age mpx-hide"\
+    data-dm="mainnavigation.sub-nav-link">12+ Months</a>\
+    <a href="/shop/filter-results.html" class="main-navigation__subnav-link mpx-font"\
+    data-dm="mainnavigation.sub-nav-link">List all products</a>\
+    </div>'
+
+    //add class to product link nav item
+    mpxproducts.classList.add('mpx-nav-adjust')
+    //place HTML into nav
+    mpxproducts.innerHTML = mpxCols
+
+    //MOBILE MENU JS
+    //when product is clicked, hide 6th nav item
+    document.querySelectorAll('.main-navigation__block>a')[5].addEventListener('click', function () {
+        //check for mobile width/view
+        if (window.matchMedia('(max-width: 50.9375em)').matches) {
+            document.querySelectorAll('.main-navigation__block>a')[6].style.display = 'none';
+            document.querySelectorAll('.main-navigation__link')[7].style.display = 'none';
+        }
+    });
+
+    let arrowOrientationExecuted = false;
+
+    //when closed, show nav item
+    document.querySelector('.main-navigation__close-button').addEventListener('click', function () {
+        //check for mobile width/view
+        if (window.matchMedia('(max-width: 50.9375em)').matches) {
+            //remove or add the mobile menu on click
+            if (document.querySelectorAll('.main-navigation__block>a')[6].style.display === 'none') {
+                document.querySelectorAll('.main-navigation__block>a')[6].style.display = 'inline-flex';
+            }
+            if (document.querySelectorAll('.main-navigation__block>a')[7].style.display === 'none') {
+                document.querySelectorAll('.main-navigation__block>a')[7].style.display = 'inline-flex';
+            }
+            //correct orientation of nav item chevron
+            if (handleScreenSizeChangeExecuted === true) {
+            } else {
+                document.querySelectorAll('.main-navigation__subnav-icon>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                arrowOrientationExecuted = true;
+            }
+            if (openMenuScreenSizeChangeExecuted === true) {
+                document.querySelectorAll('.main-navigation__subnav-icon>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            }
+        }
+    });
+
+    //back button functionality 
+    document.querySelector('.mpx-back-button').addEventListener('click', function () {
+        if (window.matchMedia('(max-width: 50.9375em)').matches) {
+            //remove or add the mobile menu
+            document.querySelector('.mpx-nav-adjust').classList.toggle('is-visible');
+            if (document.querySelectorAll('.main-navigation__block>a')[6].style.display === 'none') {
+                document.querySelectorAll('.main-navigation__block>a')[6].style.display = 'inline-flex';
+            }
+            if (document.querySelectorAll('.main-navigation__block>a')[7].style.display === 'none') {
+                document.querySelectorAll('.main-navigation__block>a')[7].style.display = 'inline-flex';
+            }
+            //correct orientation of nav item chevron
+            if (handleScreenSizeChangeExecuted === true) {
+            } else {
+                document.querySelectorAll('.main-navigation__subnav-icon>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                arrowOrientationExecuted = true;
+            }
+            if (openMenuScreenSizeChangeExecuted === true) {
+                document.querySelectorAll('.main-navigation__subnav-icon>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            }
+        }
+    });
+
+    // Add accordion functionality to products by range
+    var mpxProductRange = document.querySelectorAll('.mpx-font')[0];
+    var mpxProductRangeContent = document.querySelectorAll('.mpx-range-content');
+
+    // Add event listener to mpxProductRange
+    mpxProductRange.addEventListener('click', function () {
+        if (window.matchMedia('(max-width: 50.9375em)').matches) {
+            // Iterate over each mpxProductRangeContent element
+            for (var i = 0; i < mpxProductRangeContent.length; i++) {
+                // Toggle the class 'mpx-hide' on each mpxProductRangeContent instance
+                mpxProductRangeContent[i].classList.toggle('mpx-hide');
+            }
+
+            // Check the mpxProductAgeContent elements
+            for (var i = 0; i < mpxProductAgeContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxProductAgeContent[i].classList.contains('mpx-hide')) {
+                    mpxProductAgeContent[i].classList.add('mpx-hide');
+                }
+            }
+        }
+        if (document.querySelectorAll('.mpx-range-content')[1].classList.contains('mpx-hide')) {
+            document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+        } else {
+            document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+        }
+        if (document.querySelectorAll('.mpx-range-age')[1].classList.contains('mpx-hide')) {
+            document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+        } else {
+            document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+        }
+    });
+
+    // Add accordion functionality to products by age
+    var mpxProductAge = document.querySelectorAll('.mpx-font')[1]
+    var mpxProductAgeContent = document.querySelectorAll('.mpx-range-age')
+
+    // Add event listener to mpxProductRange
+    mpxProductAge.addEventListener('click', function () {
+        if (window.matchMedia('(max-width: 50.9375em)').matches) {
+            // Iterate over each mpxProductAgeContent element
+            for (var i = 0; i < mpxProductAgeContent.length; i++) {
+                // Toggle the class 'mpx-hide' on each mpxProductAgeContent instance
+                mpxProductAgeContent[i].classList.toggle('mpx-hide');
+            }
+
+            // Check the mpxProductRangeContent elements
+            for (var i = 0; i < mpxProductRangeContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxProductRangeContent[i].classList.contains('mpx-hide')) {
+                    mpxProductRangeContent[i].classList.add('mpx-hide');
+                }
+            }
+        }
+        if (document.querySelectorAll('.mpx-range-age')[1].classList.contains('mpx-hide')) {
+            document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+        } else {
+            document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+        }
+        if (document.querySelectorAll('.mpx-range-content')[1].classList.contains('mpx-hide')) {
+            document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+        } else {
+            document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+        }
+    });
+
+    //handle screen resize
+    let handleScreenSizeChangeExecuted = false;
+    let openMenuScreenSizeChangeExecuted = false;
+
+    function handleScreenSizeChange() {
+        // condition to match mobile CSS
+        if (window.matchMedia('(max-width: 50.9375em)').matches) {
+            // Code to handle mobile view
+            if (document.querySelector('.mpx-nav-adjust').classList.contains('is-visible') && document.querySelectorAll('.main-navigation__block>a')[6].style.display === 'inline-flex') {
+                document.querySelectorAll('.main-navigation__block>a')[6].style.display = 'none';
+                document.querySelectorAll('.main-navigation__block>a')[7].style.display = 'none';
+            }
+            
+            if (document.querySelector('.mpx-nav-adjust').classList.contains('is-visible')) {
+                document.querySelectorAll('.main-navigation__subnav-icon>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            }
+
+            const hasActiveSubnav = document.querySelector('.has-active-subnav');
+            const isMpxNavHidden = !document.querySelector('.mpx-nav-adjust').classList.contains('is-visible');
+
+            if (hasActiveSubnav && isMpxNavHidden) {
+                document.querySelectorAll('.main-navigation__subnav-icon>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                openMenuScreenSizeChangeExecuted = true;
+            }
+        } else {
+            // Code to handle desktop view
+            if (document.querySelectorAll('.main-navigation__block>a')[6].style.display === 'none') {
+                document.querySelectorAll('.main-navigation__block>a')[6].style.display = 'inline-flex';
+            }
+
+            if (document.querySelectorAll('.main-navigation__block>a')[7].style.display === 'none') {
+                document.querySelectorAll('.main-navigation__block>a')[7].style.display = 'inline-flex';
+            }
+
+            if (document.querySelector('.mpx-nav-adjust').classList.contains('is-visible')) {
+                document.querySelectorAll('.main-navigation__subnav-icon>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            }
+
+            if (arrowOrientationExecuted === true) {
+                document.querySelectorAll('.main-navigation__subnav-icon>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            const element = document.querySelectorAll('.main-navigation__subnav-icon>use')[5];
+            const attributeValue = element.getAttributeNS('http://www.w3.org/1999/xlink', 'href');
+
+            if (attributeValue === '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down') {
+                document.querySelectorAll('.main-navigation__subnav-icon>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+        }
+        handleScreenSizeChangeExecuted = true;
+    }
+
+    // Add event listener for window resize
+    window.addEventListener('resize', handleScreenSizeChange);
+</script>

@@ -1,0 +1,787 @@
+//APTA CSS
+<style>
+    .mpx-seeMore,
+    .mpx-seeLess {
+        color: blue;
+    }
+
+    .col-1-title>.star-rating {
+        flex-basis: 50%;
+    }
+
+    .mpx-header {
+        margin-top: 30px;
+        display: flex;
+    }
+
+    .mpx-header>p {
+        margin-right: 20px;
+        font-weight: bold;
+    }
+
+    .mpx-verified {
+        color: green;
+        margin-left: 20px;
+        font-weight: lighter;
+    }
+
+    .mpx-review-info {
+        display: flex;
+        margin-top: 25px;
+        font-weight: bold;
+    }
+
+    .count {
+        margin-left: 3px;
+    }
+
+    .stars-bars>.star {
+        flex-basis: 5%;
+        text-align: center;
+    }
+
+    .col-1-title {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .mpx-reviews {
+        display: flex;
+        margin-bottom: 30px;
+    }
+
+    .stars-bars {
+        display: flex;
+        align-items: center;
+    }
+
+    .mpx-reviews-col-1 {
+        flex-basis: 33%;
+    }
+
+    .mpx-reviews-col-2 {
+        flex-basis: 66%;
+    }
+
+    .ph__subheading {
+        display: flex;
+    }
+
+    .progress {
+        background-color: #001489;
+        height: 15px;
+    }
+
+    .stars-bars {
+        display: flex;
+    }
+
+    .star-rating {
+        display: inline-block;
+        font-size: 24px;
+        color: #001489;
+    }
+
+    .star {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .star[data-selected="true"],
+    .star[data-selected="true"]~.star {
+        color: #001489;
+    }
+
+    .mpx-review {
+        text-decoration: underline;
+        font-size: smaller;
+        padding-left: 30px;
+    }
+
+    .mpx-information {
+        opacity: 0.7;
+        font-style: italic;
+        margin-top: 1.3rem;
+        text-align: center;
+    }
+
+    .half-star {
+        display: inline-block;
+        background: linear-gradient(to right, #001489 50%, #95a2ee 50%);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .blank-star {
+        color: #95a2ee;
+    }
+
+    @media screen and (min-width: 300px) and (max-width: 1100px) {
+        .ph__subheading {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .col-1-title>.star-rating {
+            flex-basis: 30%;
+        }
+
+        .mpx-reviews {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mpx-reviews-col-1 {
+            order: 1;
+        }
+
+        .mpx-reviews-col-2 {
+            order: 2;
+            margin-top: 40px
+        }
+
+        .mpx-review {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+        }
+
+        .mpx-header {
+            display: contents;
+        }
+
+        .mpx-header>p {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .mpx-header>.star-rating {
+            margin-bottom: 1rem;
+        }
+
+    }
+
+    @media only screen and (max-width: 815px) {
+        .ph-purchase__cc-buttons {
+            position: fixed;
+            z-index: 9999;
+            width: -webkit-fill-available;
+            left: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-top: 10px;
+        }
+    }
+</style>
+
+<script>
+    //create header
+    var mpxHeader = '<div class="star-rating">\
+  <span class="star">&#9733;</span>\
+  <span class="star">&#9733;</span>\
+  <span class="star">&#9733;</span>\
+  <span class="star">&#9733;</span>\
+  <span class="star">&#9734;</span>\
+  <h4 style="font-size: 20px !important;display: inline-flex;padding-left: 15px;">4.8</h4>\
+  <a class="mpx-review" id="mpx-review">19 reviews</a>\
+</div>'
+    //place header
+    document.querySelector('.ph__subheading').innerHTML = mpxHeader
+    //onclick scroll to reviews
+    document.querySelector('#mpx-review').addEventListener('click', function () {
+        //open review tab
+        document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.remove('is-hidden');
+        //scroll to review tab
+        document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 2].scrollIntoView({ behavior: 'smooth' });
+    });
+    //create review section
+    var mpxReviews = '<section class="expander" data-dm="component.expander" data-qa="component.expander">\
+        <div class="expander__headline theme-1 is-hidden" data-dm="expander.headline" data-qa="expander.headline"\
+            data-js="expander-headline" data-scrollto-el="wheretobuy">\
+            <h4 class="expander__headline-heading theme-1">Reviews</h4>\
+            <span class="expander__headline-icon theme-1">\
+                <svg class="icon -size-small" aria-hidden="true">\
+                    <use\
+                        xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down">\
+                    </use>\
+                </svg>\
+            </span>\
+        </div>\
+        <div class="expander__content theme-1" data-dm="expander.content" data-qa="expander.content">\
+            <div class="row grid-center-8-width-1-col">\
+                <div class="mpx-reviews">\
+                    <div class="mpx-reviews-col-1">\
+                        <div class="col-1-title">\
+                            <div class="star-rating" style="flex-basis: 50%; font-size: 20px;">\
+                                <span class="star">&#9733;</span>\
+                                <span class="star">&#9733;</span>\
+                                <span class="star">&#9733;</span>\
+                                <span class="star">&#9733;</span>\
+                                <span class="star">&#9734;</span>\
+                            </div>\
+                            <h4 style="flex-basis: 50%; font-size: 20px !important">4.8</h4>\
+                            <p style="flex-basis: 100%;">16 reviews</p>\
+                        </div>\
+                        <div class="star-rating" style="font-size: 15px; display: flex; flex-direction: column;">\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">5</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 60%;"></span>\
+                        <span class="count">13</span>\
+                    </div>\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">4</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 10%;"></span>\
+                        <span class="count">3</span>\
+                    </div>\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">3</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 1%;"></span>\
+                        <span class="count">0</span>\
+                    </div>\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">2</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 1%;"></span>\
+                        <span class="count">0</span>\
+                    </div>\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">1</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 1%;"></span>\
+                        <span class="count">0</span>\
+                    </div>\
+                </div>\
+                        </div>\
+                    <div class="mpx-reviews-col-2">\
+                        <h4 style="margin-bottom: 10px;">Top Customer Reviews</h4>\
+                        <div class="mpx-customer-review">\
+                            <div class="mpx-header">\
+                                <p>Easy to use.</p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                very easy to use and mixes quickly. smells nice and good consistency\
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                            <hr>\
+                        </div>\
+                        <div class="mpx-customer-review">\
+                            <div class="mpx-header">\
+                                <p>Good</p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9734;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                I love the brand so much It is good for my baby and I will buy it again\
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                            <hr style="display: none;">\
+                        </div>\
+                        <a class="mpx-seeMore" style="text-decoration: underline">see more</a>\
+                        <div class="mpx-customer-review" style="display: none;">\
+                            <div class="mpx-header">\
+                                <p>Good for toddler</p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                This went down a treat with baby. No issues with digesting it and the formula is easy to prepare. It dissolves very easily without leaving lumps. \
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                            <hr>\
+                        </div>\
+                        <div class="mpx-customer-review" style="display: none;">\
+                            <div class="mpx-header">\
+                                <p>Mixed well and my baby enjoyed it </p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                I found the milk very easy to prepare. Mixed well with no lumps and instructions easy to follow on the box. My seven month old seemed to enjoy this milk and had no issues moving to this from the infant milk. \
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                            <hr>\
+                        </div>\
+                        <div class="mpx-customer-review" style="display: none;">\
+                            <div class="mpx-header">\
+                                <p>Child love this</p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                My daughter have this stuff twice a day and ansolutely addicted to it. I like the packaging too and the brand gives me comfort that my daughter has the best stuff\
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                        </div>\
+                        <a class="mpx-seeLess" style="text-decoration: underline; display: none;">see less</a>\
+                    </div>\
+                </div>\
+                </div>\
+                <hr>\
+                <div class="mpx-information"><p>All reviews are form parents with children older than 6 months and have not been edited. Preparation instructions on pack must be followed.</p></div>\
+        </div>\
+    </section>'
+    //place review section
+    document.querySelectorAll('.expander')[document.querySelectorAll('.expander').length - 1].insertAdjacentHTML('afterend', mpxReviews)
+    //toggle review open
+    document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].addEventListener('click', function () {
+        if (document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.contains('is-hidden')) {
+            document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.remove('is-hidden');
+        } else if (!document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.contains('is-hidden')) {
+            document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.add('is-hidden');
+        }
+    });
+    //see more/see less toggle
+    //see more click
+    document.querySelector('.mpx-seeMore').addEventListener('click', function () {
+        document.querySelectorAll('.mpx-customer-review')[2].style.display = ''
+        document.querySelectorAll('.mpx-customer-review')[3].style.display = ''
+        document.querySelectorAll('.mpx-customer-review')[4].style.display = ''
+        document.querySelectorAll('hr')[1].style.display = ''
+        document.querySelector('.mpx-seeLess').style.display = ''
+        document.querySelector('.mpx-seeMore').style.display = 'none'
+    })
+    //see less click
+    document.querySelector('.mpx-seeLess').addEventListener('click', function () {
+        document.querySelectorAll('.mpx-customer-review')[2].style.display = 'none'
+        document.querySelectorAll('.mpx-customer-review')[3].style.display = 'none'
+        document.querySelectorAll('.mpx-customer-review')[4].style.display = 'none'
+        document.querySelectorAll('hr')[1].style.display = 'none'
+        document.querySelector('.mpx-seeLess').style.display = 'none'
+        document.querySelector('.mpx-seeMore').style.display = ''
+        document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 2].scrollIntoView({ behavior: 'smooth' })
+    })
+</script>
+
+//////C&G///////
+<style>
+    .mpx-seeMore,
+    .mpx-seeLess {
+        color: #d32e28;
+    }
+
+    .mpx-header {
+        align-items: baseline;
+    }
+
+    .ph__subheading {
+        align-items: center;
+    }
+
+    .col-1-title>.star-rating {
+        flex-basis: 50%;
+    }
+
+    .mpx-header {
+        margin-top: 30px;
+        display: flex;
+    }
+
+    .mpx-header>p {
+        margin-right: 20px;
+        font-weight: bold;
+    }
+
+    .mpx-verified {
+        color: green;
+        margin-left: 20px;
+        font-weight: lighter;
+    }
+
+    .mpx-review-info {
+        display: flex;
+        margin-top: 25px;
+        font-weight: bold;
+    }
+
+    .count {
+        margin-left: 3px;
+    }
+
+    .stars-bars>.star {
+        flex-basis: 5%;
+        text-align: center;
+    }
+
+    .col-1-title {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .mpx-reviews {
+        display: flex;
+        margin-bottom: 30px;
+    }
+
+    .stars-bars {
+        display: flex;
+        align-items: center;
+    }
+
+    .mpx-reviews-col-1 {
+        flex-basis: 33%;
+    }
+
+    .mpx-reviews-col-2 {
+        flex-basis: 66%;
+    }
+
+    .ph__subheading {
+        display: flex;
+    }
+
+    .progress {
+        background-color: #d32e28;
+        height: 15px;
+    }
+
+    .stars-bars {
+        display: flex;
+    }
+
+    .star-rating {
+        display: inline-block;
+        font-size: 24px;
+        color: #d32e28;
+    }
+
+    .star {
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+    }
+
+    .star[data-selected="true"],
+    .star[data-selected="true"]~.star {
+        color: #d32e28;
+    }
+
+    .mpx-review {
+        text-decoration: underline;
+        font-size: smaller;
+        padding-left: 30px;
+    }
+
+    .mpx-information {
+        opacity: 0.7;
+        font-style: italic;
+        margin-top: 1.3rem;
+        text-align: center;
+    }
+
+    .half-star {
+        display: inline-block;
+        background: linear-gradient(to right, #d32e28 50%, #ff6964 50%);
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+
+    .blank-star {
+        color: #ff6964;
+    }
+
+    @media screen and (min-width: 300px) and (max-width: 1100px) {
+        .ph__subheading {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .col-1-title>.star-rating {
+            flex-basis: 30% !important;
+        }
+
+        .mpx-reviews {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mpx-reviews-col-1 {
+            order: 1;
+        }
+
+        .mpx-reviews-col-2 {
+            order: 2;
+            margin-top: 40px
+        }
+
+        .mpx-review {
+            display: flex;
+            flex-direction: column;
+            padding-left: 0;
+        }
+
+        .mpx-header {
+            display: contents;
+        }
+
+        .mpx-header>p {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .mpx-header>.star-rating {
+            margin-bottom: 1rem;
+        }
+    }
+</style>
+
+//////C&G///////
+<script>
+    //create header
+    var mpxHeader = '<div class="star-rating">\
+  <span class="star">&#9733;</span>\
+  <span class="star">&#9733;</span>\
+  <span class="star">&#9733;</span>\
+  <span class="star">&#9733;</span>\
+  <span class="star">&#9734;</span>\
+  <h4 style="font-size: 20px !important;display: inline-flex;padding-left: 15px;">4.7</h4>\
+  <a class="mpx-review" id="mpx-review">47 reviews</a>\
+</div>'
+    //place header
+    document.querySelector('.ph__subheading').innerHTML = mpxHeader
+    //onclick scroll to reviews
+    document.querySelector('#mpx-review').addEventListener('click', function () {
+        //open review tab
+        document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.remove('is-hidden');
+        //scroll to review tab
+        document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].scrollIntoView({ behavior: 'smooth' });
+    });
+    //create review section
+    var mpxReviews = '<section class="expander" data-dm="component.expander" data-qa="component.expander">\
+        <div class="expander__headline theme-1 is-hidden" data-dm="expander.headline" data-qa="expander.headline"\
+            data-js="expander-headline" data-scrollto-el="wheretobuy">\
+            <h3 class="expander__headline-heading theme-1">Reviews</h3>\
+            <span class="expander__headline-icon theme-1">\
+                <svg class="icon -size-small" aria-hidden="true">\
+                    <use\
+                        xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down">\
+                    </use>\
+                </svg>\
+            </span>\
+        </div>\
+        <div class="expander__content theme-1" data-dm="expander.content" data-qa="expander.content">\
+            <div class="row grid-center-8-width-1-col">\
+                <div class="mpx-reviews">\
+                    <div class="mpx-reviews-col-1">\
+                        <div class="col-1-title">\
+                            <div class="star-rating" style="flex-basis: 50%; font-size: 20px;">\
+                                <span class="star">&#9733;</span>\
+                                <span class="star">&#9733;</span>\
+                                <span class="star">&#9733;</span>\
+                                <span class="star">&#9733;</span>\
+                                <span class="star">&#9734;</span>\
+                            </div>\
+                            <h4 style="flex-basis: 50%; font-size: 20px !important">4.7</h4>\
+                            <p style="flex-basis: 100%;">47 reviews</p>\
+                        </div>\
+                        <div class="star-rating" style="font-size: 15px; display: flex; flex-direction: column;">\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">5</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 60%;"></span>\
+                        <span class="count">35</span>\
+                    </div>\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">4</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 20%;"></span>\
+                        <span class="count">9</span>\
+                    </div>\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">3</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 7%;"></span>\
+                        <span class="count">2</span>\
+                    </div>\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">2</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 5%;"></span>\
+                        <span class="count">1</span>\
+                    </div>\
+                    <div class="stars-bars">\
+                        <span class="star" data-rating="1">1</span>\
+                        <span class="star">&#9733;</span>\
+                        <span class="progress" style="width: 1%;"></span>\
+                        <span class="count">0</span>\
+                    </div>\
+                </div>\
+                        </div>\
+                    <div class="mpx-reviews-col-2">\
+                        <h4 style="margin-bottom: 10px;">Top Customer Reviews</h4>\
+                        <div class="mpx-customer-review">\
+                            <div class="mpx-header">\
+                                <p>Family tradition</p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9734;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                We\'ve used this for all our kids.  Never had an issue with it. Kids seem to like it more than the other brands which we\'ve tried. Easy to understand staging also which helps. \
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                            <hr>\
+                        </div>\
+                        <div class="mpx-customer-review">\
+                            <div class="mpx-header">\
+                                <p>Handy to have in the cupboard</p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9734;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                I keep this in the cupboard ready for when the family come visiting with toddlers. It is easy to mix in and the kids love it. I\'ve even used it to make rice pudding for them.\
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                            <hr style="display: none;">\
+                        </div>\
+                        <a class="mpx-seeMore" style="text-decoration: underline">see more</a>\
+                        <div class="mpx-customer-review" style="display: none;">\
+                            <div class="mpx-header">\
+                                <p>Love it</p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                Our toddler has always loved Cow and Gate milk and this stage 4 one is no different. Would recommend.\
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                            <hr>\
+                        </div>\
+                        <div class="mpx-customer-review" style="display: none;">\
+                            <div class="mpx-header">\
+                                <p>Enjoyed</p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                Baby enjoys drinking this product. ideal of you don\'t want to use cows milk, easy to use and store. got it at a discount so that was an added bonus.\
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                            <hr>\
+                        </div>\
+                        <div class="mpx-customer-review" style="display: none;">\
+                            <div class="mpx-header">\
+                                <p>Great for my toddler</p>\
+                                <div class="star-rating">\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                    <span class="star">&#9733;</span>\
+                                </div>\
+                            </div>\
+                            <div class="mpx-review-content">\
+                                This Cow and Gate milk has been a great find. I bought it on offer to see if my little one would like it at bedtime, and it went down a treat. Quick and easy to prepare, my son liked the taste. \
+                            </div>\
+                            <div class="mpx-review-info">\
+                                <p class="mpx-verified">**verified purchase**</p>\
+                            </div>\
+                        </div>\
+                        <a class="mpx-seeLess" style="text-decoration: underline; display: none;">see less</a>\
+                    </div>\
+                </div>\
+                </div>\
+                <hr>\
+                <div class="mpx-information"><p>All reviews are form parents with children older than 6 months and have not been edited. Preparation instructions on pack must be followed.</p></div>\
+        </div>\
+    </section>'
+    //place review section
+    document.querySelectorAll('.expander')[document.querySelectorAll('.expander').length - 1].insertAdjacentHTML('afterend', mpxReviews)
+    //toggle review open
+    document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].addEventListener('click', function () {
+        if (document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.contains('is-hidden')) {
+            document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.remove('is-hidden');
+        } else if (!document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.contains('is-hidden')) {
+            document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].classList.add('is-hidden');
+        }
+    });
+    //see more/see less toggle
+    //see more click
+    document.querySelector('.mpx-seeMore').addEventListener('click', function () {
+        document.querySelectorAll('.mpx-customer-review')[2].style.display = ''
+        document.querySelectorAll('.mpx-customer-review')[3].style.display = ''
+        document.querySelectorAll('.mpx-customer-review')[4].style.display = ''
+        document.querySelectorAll('hr')[1].style.display = ''
+        document.querySelector('.mpx-seeLess').style.display = ''
+        document.querySelector('.mpx-seeMore').style.display = 'none'
+    })
+    //see less click
+    document.querySelector('.mpx-seeLess').addEventListener('click', function () {
+        document.querySelectorAll('.mpx-customer-review')[2].style.display = 'none'
+        document.querySelectorAll('.mpx-customer-review')[3].style.display = 'none'
+        document.querySelectorAll('.mpx-customer-review')[4].style.display = 'none'
+        document.querySelectorAll('hr')[1].style.display = 'none'
+        document.querySelector('.mpx-seeLess').style.display = 'none'
+        document.querySelector('.mpx-seeMore').style.display = ''
+        document.querySelectorAll('.expander__headline')[document.querySelectorAll('.expander__headline').length - 1].scrollIntoView({ behavior: 'smooth' })
+    })
+
+    hj('event', 'Product Reviews Test');
+</script>

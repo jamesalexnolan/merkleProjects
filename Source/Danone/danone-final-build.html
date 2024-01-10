@@ -1,0 +1,108 @@
+<style>
+    /* varient 1*/
+    .mpx-text {
+        font-size: 0.6rem;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    /* varient 2*/
+    .mpx-cta-container {
+        background: linear-gradient(to right, #001489, #4d2e4d);
+        border-radius: 20px;
+        color: white;
+        margin-bottom: 75px;
+        display: flex;
+        width: 100%;
+        height: 110px;
+    }
+
+    .mpx-col-one {
+        flex: 0 0 30%;
+        height: 100%;
+        background-image: url("/content/dam/sn/local/gbr/aptamil/product-images/aptami-doy-multigrain-banana-berry-cereal-front-v3.jpg");
+        background-size: cover;
+    }
+
+    .mpx-col-two {
+        flex: 0 0 70%;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .mpx-col-two>h4 {
+        font-size: medium;
+        display: flex;
+        align-items: center;
+    }
+
+    .mpx-col-two>p {
+        font-size: x-small;
+    }
+
+    .mpx-col-two>h4>svg {
+        margin-left: 8px;
+    }
+</style>
+<script>
+    //Variant 1
+    //target element
+    var targetElement = document.querySelector('.cmp-product-header__text-container')
+
+    //create element
+    var mpxLink = '    <div class="mpx-link">\
+        <a class="mpx-text" href="https://www.nutricia.co.uk/hcp/where-we-specialise/infant-toddler-nutrition/aptamil.html">\
+            HEALTHCARE PROFFESIONAL INFO <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"\
+                fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">\
+                <path fill-rule="evenodd"\
+                    d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />\
+                <path fill-rule="evenodd"\
+                    d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />\
+            </svg>\
+        </a>\
+    </div>'
+
+    //insert element
+    targetElement.insertAdjacentHTML('beforeend', mpxLink);
+</script>
+
+<script>
+    //Variant 2
+    //target element
+    var targetElement = document.querySelectorAll('.container.responsivegrid.container__gutter--narrow.aem-GridColumn.aem-GridColumn--default--12')[1]
+
+    //create element
+    var mpxLink = '<div class="container responsivegrid container__gutter--narrow aem-GridColumn aem-GridColumn--default--12">\
+        <div class="container-wrapper">\
+            <div id="container-442c88f27d" class="cmp-container">\
+                <div class="mpx-cta-container"\
+                data-href="https://www.nutricia.co.uk/hcp/where-we-specialise/infant-toddler-nutrition/aptamil.html">\
+                    <div class="mpx-col-one"></div>\
+                    <div class="mpx-col-two">\
+                        <h4>Healthcare Proffesional? <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" \
+                                fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">\
+                                <path fill-rule="evenodd" \
+                                    d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z" />\
+                                                                <path fill-rule="evenodd" \
+                                    d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z" />\
+                            </svg>\</h4>\
+                        <p>Go to Nutricia website for more information.</p>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>'
+
+    //insert element
+    targetElement.insertAdjacentHTML('after', mpxLink);
+
+    //click for page re-direct
+    document.querySelector('.mpx-cta-container').addEventListener('click', function () {
+        var url = this.getAttribute('data-href')
+        window.location.href = url
+    });
+</script>

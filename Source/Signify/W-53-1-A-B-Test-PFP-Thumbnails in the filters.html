@@ -1,0 +1,2846 @@
+<body>
+    <!-- 
+   
+
+    Link to design:
+https://www.figma.com/file/5fJOFVDodLibx9eTdI9xxh/A%2FB-Test-%7C-Thumbnails-in-the-filters?node-id=110%3A2
+
+        Notes: 
+        Perfomrance by thumbnails 
+
+        Live colours - Lighting and cap type
+
+        Base type - Images to 
+
+        Multiple selections are possible, like a checkbox 
+
+        Deselcting filter 
+
+        Remove graident and have it as a seperate option group - Light effect 
+        Single and Gradient 
+-->
+
+    <!--New graident filters-->
+    <div class="b22-thumbnail"></div>
+    <div class="e12-thumbnail"></div>
+    <div class="e14-thumbnail"></div>
+    <div class="e26-thumbnail"></div>
+    <div class="e27-thumbnail"></div>
+    <div class="gu10-thumbnail"></div>
+    <div class="color-ambiance-thumbnail"></div>
+    <div class="warm-white-thumbnail"></div>
+    <div class="white-ambiance-thumbnail"></div>
+
+    <div id="mpx-filter" class="filter-group" style="display: none">
+        <h6 class="heading-6 filter-group__title">
+            Light effect </h6>
+        <div id="FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER"></div>
+        <!---->
+        <div class="filter-group__divider"></div>
+    </div>
+
+
+</body>
+
+<style>
+    .mpx-filter-result-overview {
+        flex-wrap: wrap;
+        align-self: flex-start;
+        display: flex;
+    }
+
+    .mpx-filter-result-header {
+        flex-basis: 100%;
+    }
+
+    .mpx-filter-result-padding {
+        padding: 3px;
+    }
+
+    .disabled .checkbox__checkbox[data-v-a91ccf48] {
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+    .checkbox__icon[data-v-a91ccf48] {
+        visibility: visible;
+    }
+
+    .b22-thumbnail {
+        background-image: url("https://www.philips-hue.com/content/dam/hue/en-us/images/B22.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 50px;
+        width: 50px;
+        padding: 2px;
+        border-radius: 50%;
+    }
+
+    .b22-thumbnail:hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+
+
+
+    .e12-thumbnail {
+        background-image: url("https://www.philips-hue.com/content/dam/hue/en-us/images/E12.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 50px;
+        width: 50px;
+        padding: 2px;
+        border-radius: 50%;
+    }
+
+    .e12-thumbnail:hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+
+
+
+    .e14-thumbnail {
+        background-image: url("https://www.philips-hue.com/content/dam/hue/en-us/images/E14.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 50px;
+        width: 50px;
+        padding: 2px;
+        border-radius: 50%;
+    }
+
+    .e14-thumbnail:hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+
+
+
+    .e26-thumbnail {
+        background-image: url("https://www.philips-hue.com/content/dam/hue/en-us/images/E26.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 50px;
+        width: 50px;
+        padding: 2px;
+        border-radius: 50%;
+    }
+
+    .e26-thumbnail:hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+
+
+
+    .e27-thumbnail {
+        background-image: url("https://www.philips-hue.com/content/dam/hue/en-us/images/E27.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 50px;
+        width: 50px;
+        padding: 2px;
+        border-radius: 50%;
+    }
+
+    .e27-thumbnail:hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+
+
+
+    .gu10-thumbnail {
+        background-image: url("https://www.philips-hue.com/content/dam/hue/en-us/images/GU10.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 50px;
+        width: 50px;
+        padding: 2px;
+        border-radius: 50%;
+    }
+
+    .gu10-thumbnail:hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+
+
+
+    .color-ambiance-thumbnail {
+        background-image: url("https://www.philips-hue.com/content/dam/hue/en-us/images/color-ambiance.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 24px;
+        width: 24px;
+        padding: 2px;
+        background-clip: content-box;
+        border-radius: 50%;
+    }
+
+    .color-ambiance-thumbnail:hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+
+
+
+    .warm-white-thumbnail {
+        background-image: url("https://www.philips-hue.com/content/dam/hue/en-us/images/warm-white.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 24px;
+        width: 24px;
+        padding: 2px;
+        background-clip: content-box;
+        border-radius: 50%;
+    }
+
+    .warm-white-thumbnail:hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+
+
+
+    .white-ambiance-thumbnail {
+        background-image: url("https://www.philips-hue.com/content/dam/hue/en-us/images/white-ambiance.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        height: 24px;
+        width: 24px;
+        padding: 2px;
+        background-clip: content-box;
+        border-radius: 50%;
+
+    }
+
+    .white-ambiance-thumbnail:hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+
+    .mpx-border {
+        border: 2px solid #7990fe;
+        border-radius: 50%;
+    }
+
+    .mpx-hover {
+        border: 2px solid #d0d0d0;
+        border-radius: 50%;
+    }
+</style>
+
+
+
+
+
+<script>
+
+    try {
+
+        document.onreadystatechange = function () {
+            if (document.readyState === 'complete') {
+
+                //polling function
+                var pxFuncFired = 0;
+
+                var pxInterval = setInterval(pxPollFunc, 200);
+
+                function pxPollFunc() {
+
+                    pxFuncFired += 1;
+                    //run for 4 seconds 
+                    if (pxFuncFired >= 40) {
+
+                        clearInterval(pxInterval);
+
+                    }
+                    //locate element
+                    if (document.querySelector('#FK_HUE_WHITE')) {
+                        //if found in DOM, stop polling
+                        clearInterval(pxInterval);
+                        //hide thumbnail of selected element
+                        document.querySelector('#FK_HUE_WHITE').nextElementSibling.style.display = "none";
+                        //create a new element
+                        const elem = document.createElement('div');
+
+                        // add ID and CSS class to div
+                        elem.setAttribute('id', 'warm-white-thumbnail');
+                        elem.setAttribute('class', 'warm-white-thumbnail');
+
+                        // grab target element reference
+                        const target = document.querySelector('#FK_HUE_WHITE').nextElementSibling;
+
+                        // insert the element before target element
+                        target.parentNode.insertBefore(elem, target);
+                        //check whether the object has the specified property 
+                        //if it doesn't set one so the loop can continue, rather than returning null
+                    } else ((document.querySelector('#FK_HUE_WHITE')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+                    }
+
+                    //process repeated for each thumbnail
+
+                    if (document.querySelector('#FK_WHITE_AMBIANCE')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_WHITE_AMBIANCE').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'white-ambiance-thumbnail');
+                        elem.setAttribute('class', 'white-ambiance-thumbnail');
+
+                        const target = document.querySelector('#FK_WHITE_AMBIANCE').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_WHITE_AMBIANCE')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'color-ambiance-thumbnail');
+                        elem.setAttribute('class', 'color-ambiance-thumbnail');
+
+                        const target = document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+
+
+                    } else ((document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER').style.display = "visible";
+
+                    } else ((document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('[for=FK_HUE_GRADIENT]')) {
+
+                        clearInterval(pxInterval);
+                        try {
+                            //add in additional filter group
+                            const elem = document.getElementById("mpx-filter");
+
+                            const target = document.getElementsByClassName("filter-group")[3];
+
+                            target.parentElement.insertBefore(elem, target);
+
+
+                            document.getElementById("mpx-filter").setAttribute('style', 'display: visible');
+
+                            //move gradient filter to new filter group
+                            const elemGra = document.querySelector('[for="FK_HUE_GRADIENT"]').parentElement;
+
+                            const targetGra = document.getElementById("LIGHT-EFFECT-MPX-FILTER");
+
+                            targetGra.parentElement.insertBefore(elemGra, targetGra);
+                        } catch {
+
+                        }
+                    } else ((document.querySelector('[for=FK_HUE_GRADIENT]')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+
+
+                    if (document.querySelector('#FK_HUEWIRELESS_B22')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_B22').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'b22-thumbnail');
+                        elem.setAttribute('class', 'b22-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_B22').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_B22')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_E12')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_E12').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'e12-thumbnail');
+                        elem.setAttribute('class', 'e12-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_E12').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_E12')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_E14')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_E14').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'e14-thumbnail');
+                        elem.setAttribute('class', 'e14-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_E14').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_E14')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_E26')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_E26').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'e26-thumbnail');
+                        elem.setAttribute('class', 'e26-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_E26').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_E26')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_E27')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_E27').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'e27-thumbnail');
+                        elem.setAttribute('class', 'e27-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_E27').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_E27')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_GU10')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_GU10').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'gu10-thumbnail');
+                        elem.setAttribute('class', 'gu10-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_GU10').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_GU10')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+
+                    //select each of the thumbnails above
+                    document.querySelectorAll('[id*=thumbnail]').forEach(element => {
+                        //add/remove class on click (hover done in CSS)
+                        element.addEventListener("click", function () {
+                            if (element.classList.contains("mpx-border")) {
+                                clearInterval(pxInterval);
+                                element.classList.remove("mpx-border");
+                            } else {
+                                element.classList.add("mpx-border");
+                            }
+                        })
+                    })
+
+                    //select filter group
+                    document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                        if (element.innerText == "Light color" || element.innerText == "Cap type") {
+                            clearInterval(pxInterval);
+                            //select filter group elements, if clicked add/remove border class to thumbnail
+                            mpxlist = element.parentElement.querySelectorAll('.checkbox.checkbox--primary.filter-group__checkbox');
+                            mpxlist.forEach(element => {
+                                element.querySelector('.checkbox__label').addEventListener("click", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-border")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-border") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-border") } }
+
+                                );
+                                element.querySelector('.checkbox__sub-label').addEventListener("click", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-border")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-border") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-border") } })
+
+                            });
+
+                        }
+                    });
+
+                    //select filter group
+                    document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                        if (element.innerText == "Light color" || element.innerText == "Cap type") {
+                            clearInterval(pxInterval);
+                            //select filter group elements, if hovered over add, and if hovered out remove border class to thumbnail
+                            mpxlist = element.parentElement.querySelectorAll('.checkbox.checkbox--primary.filter-group__checkbox');
+                            mpxlist.forEach(element => {
+
+                                element.querySelector('.checkbox__label').addEventListener("mouseover", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } }
+
+                                );
+                                element.querySelector('.checkbox__sub-label').addEventListener("mouseover", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } })
+
+
+                                element.querySelector('.checkbox__label').addEventListener("mouseleave", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } }
+
+                                );
+                                element.querySelector('.checkbox__sub-label').addEventListener("mouseleave", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } })
+
+                            });
+
+                        }
+                    });
+
+                    //select filter group
+                    document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                        //If title contains "cap type" add the below Classes to relevant elements
+                        if (element.innerText == "Cap type") {
+                            clearInterval(pxInterval);
+                            const filterClass = document.getElementsByClassName("filter-group")[4];
+
+                            filterClass.classList.add('mpx-filter-result-overview');
+
+                            const filterClassHeader = document.getElementsByClassName("filter-group")[4].getElementsByClassName("heading-6")[0];
+
+                            filterClassHeader.classList.add('mpx-filter-result-header');
+
+                            const filterClassDivider = document.getElementsByClassName("filter-group")[4].getElementsByClassName("filter-group__divider")[0];
+
+                            filterClassDivider.classList.add('mpx-filter-result-header');
+
+                        } else ((document.querySelectorAll('.heading-6.filter-group__title').innerText == "Cap type") !== "undefined" || null); {
+
+                            Object.prototype.hasOwnProperty();
+
+                        }
+                    })
+
+                    const filterGroup = document.getElementsByClassName("filter-group__checkbox");
+                    //select filter group
+                    document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                        //if title contains "Cap Type" run
+                        try {
+                            if (element.innerText == "Cap type") {
+                                clearInterval(pxInterval);
+                                //Loop through each elemnt in list, adding class mpx-filter-result-padding
+                                for (i = 0; i < filterGroup.length; i++) {
+                                    document.getElementsByClassName("filter-group")[4].getElementsByClassName("filter-group__checkbox")[i].classList.add('mpx-filter-result-padding');
+                                }
+                            }
+                        } catch (err) {
+                        }
+                    })
+
+
+                    //Change Gradient and Title - specific URL targeting 
+                    if (window.location.href.match(/\/products\/smart-floor-lamps/)) {
+                        clearInterval(pxInterval);
+                        if (document.querySelectorAll('.checkbox__label')[0].innerText == "Gradient") {
+
+                            document.querySelectorAll('.checkbox__label')[0].innerHTML = "Gradient color"
+                        }
+
+                        if (document.querySelectorAll('.filter-group__title')[2].innerText == "Light color"); {
+
+                            {
+
+                                document.querySelectorAll('.filter-group__title')[2].innerHTML = "Light effect"
+                            }
+                        }
+                    }
+
+                    //Change Cap Type title
+                    if (document.querySelector('.mpx-filter-result-header').innerText == "Cap type") {
+                        clearInterval(pxInterval);
+                        document.querySelector('.mpx-filter-result-header').innerHTML = "Base type"
+                    } else ((document.querySelector('.mpx-filter-result-header').innerText == "Cap type") !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+
+                    const filterLabel = document.getElementsByClassName("checkbox__label");
+                    //select filter group
+                    document.querySelectorAll('.checkbox__checkbox').forEach(element => {
+                        try {
+                            //Loop through each elemnt in list
+                            for (i = 0; i < filterLabel.length; i++) {
+                                //if item equals Gradient
+                                if ((document.querySelectorAll('.checkbox__label')[i].innerText == "Gradient")) {
+                                    //stop polling
+                                    clearInterval(pxInterval);
+                                    //change name to Gradient
+                                    document.getElementsByClassName("checkbox__label")[i].innerHTML = "Gradient color";
+                                }
+                            }
+
+                        } catch (err) {
+                        }
+                    })
+
+                }
+
+
+                //end polling function
+
+                //mutattion observer 
+
+                const targetNode = document.querySelector('.filter-menu__group-list');
+                const config = { childList: true };
+                const callback = function (mutationsList, observer) {
+
+                    //select filter group
+                    document.querySelectorAll('.applied-filters__filters').forEach(element => {
+                        if (element.innerText == "Colored light") {
+
+                            //select filter group elements, if clicked remove border class to thumbnail
+                            mpxColoredLight = element.querySelectorAll('.applied-filters__filter');
+                            mpxColoredLight.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+                        }
+
+
+
+                        if (element.innerText == "Soft warm white") {
+
+
+                            mpxSoftLight = element.querySelectorAll('.applied-filters__filter');
+                            mpxSoftLight.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) { document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) { document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "Warm-to-cool white") {
+
+                            mpxWarmLight = element.querySelectorAll('.applied-filters__filter');
+                            mpxWarmLight.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "B22") {
+
+                            mpxB22Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxB22Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) { document.querySelector('.b22-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) { document.querySelector('.b22-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "E12") {
+
+                            mpxE12Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxE12Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e12-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e12-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "E14") {
+
+                            mpxE14Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxE14Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e14-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e14-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "E26") {
+
+                            mpxE26Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxE26Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e26-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e26-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "E27") {
+
+                            mpxE27Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxE27Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e27-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e27-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "GU10") {
+
+                            mpxGU10Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxGU10Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) { document.querySelector('.gu10-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) { document.querySelector('.gu10-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                    });
+
+                }
+
+
+                const observer = new MutationObserver(callback);
+                observer.observe(targetNode, config);
+
+                //End mutation oberver 
+
+                //Start Clear Filter mutation oberver 
+
+                const targetNodeClear = document.querySelector('.filter-menu__group-list');
+                const configClear = { childList: true };
+                const callbackClear = function (mutationsListClear, observerClear) {
+
+
+                    if (document.querySelector('.applied-filters__clear-filters-link').innerText == "Clear all filters") {
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) { document.querySelector('.b22-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e12-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e14-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e26-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e27-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) { document.querySelector('.gu10-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) { document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border") } }
+                        );
+                    }
+
+                }
+
+
+                const observerClear = new MutationObserver(callbackClear);
+                observerClear.observe(targetNodeClear, configClear);
+
+                //end Clear Filter mutation oberver 
+
+                //Start URL observer 
+
+                var oldHref = document.location.href;
+                window.onload = function () {
+                    var bodyList = document.querySelector("body")
+                    var observer = new MutationObserver(function (mutations) {
+                        mutations.forEach(function (mutation) {
+                            if (oldHref != document.location.href) {
+                                oldHref = document.location.href;
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_B22/)) {
+                                    if (document.querySelector('.b22-thumbnail')) {
+                                        document.querySelector('.b22-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_B22/) == null) {
+                                    if (document.querySelector('.b22-thumbnail')) {
+                                        if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.b22-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_E12/)) {
+                                    if (document.querySelector('.e12-thumbnail')) {
+                                        document.querySelector('.e12-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_E12/) == null) {
+                                    if (document.querySelector('.e12-thumbnail')) {
+                                        if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.e12-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_E14/)) {
+                                    if (document.querySelector('.e14-thumbnail')) {
+                                        document.querySelector('.e14-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_E14/) == null) {
+                                    if (document.querySelector('.e14-thumbnail')) {
+                                        if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.e14-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_E26/)) {
+                                    if (document.querySelector('.e26-thumbnail')) {
+                                        document.querySelector('.e26-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_E26/) == null) {
+                                    if (document.querySelector('.e26-thumbnail')) {
+                                        if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.e26-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_E27/)) {
+                                    if (document.querySelector('.e27-thumbnail')) {
+                                        document.querySelector('.e27-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_E27/) == null) {
+                                    if (document.querySelector('.e27-thumbnail')) {
+                                        if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.e27-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_GU10/)) {
+                                    if (document.querySelector('.gu10-thumbnail')) {
+                                        document.querySelector('.gu10-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_GU10/) == null) {
+                                    if (document.querySelector('.gu10-thumbnail')) {
+                                        if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.gu10-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/)) {
+                                    if (document.querySelector('.color-ambiance-thumbnail')) {
+                                        document.querySelector('.color-ambiance-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/) == null) {
+                                    if (document.querySelector('.color-ambiance-thumbnail')) {
+                                        if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUE_WHITE/)) {
+                                    if (document.querySelector('.warm-white-thumbnail')) {
+                                        document.querySelector('.warm-white-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUE_WHITE/) == null) {
+                                    if (document.querySelector('.warm-white-thumbnail')) {
+                                        if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_WHITE_AMBIANCE/)) {
+                                    if (document.querySelector('.white-ambiance-thumbnail')) {
+                                        document.querySelector('.white-ambiance-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_WHITE_AMBIANCE/) == null) {
+                                    if (document.querySelector('.white-ambiance-thumbnail')) {
+                                        if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                    })
+                    var config = {
+                        childList: true,
+                        subtree: true
+                    };
+                    observer.observe(bodyList, config);
+                };
+
+                //End URL observer 
+                document.onreadystatechange = function () {
+
+                    clearInterval(pxInterval);
+                    if (window.location.href.match(/FK_HUEWIRELESS_B22/)) {
+                        if (document.querySelector('.b22-thumbnail')) {
+                            document.querySelector('.b22-thumbnail').classList.add("mpx-border")
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_HUEWIRELESS_B22/) == null) {
+                        if (document.querySelector('.b22-thumbnail')) {
+                            if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) {
+                                document.querySelector('.b22-thumbnail').classList.remove("mpx-border")
+                            }
+                        }
+                    }
+                    if (window.location.href.match(/FK_HUEWIRELESS_E12/)) {
+                        if (document.querySelector('.e12-thumbnail')) {
+                            document.querySelector('.e12-thumbnail').classList.add("mpx-border")
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_HUEWIRELESS_E12/) == null) {
+                        if (document.querySelector('.e12-thumbnail')) {
+                            if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) {
+                                document.querySelector('.e12-thumbnail').classList.remove("mpx-border")
+                            }
+                        }
+                    }
+                    if (window.location.href.match(/FK_HUEWIRELESS_E14/)) {
+                        if (document.querySelector('.e14-thumbnail')) {
+                            document.querySelector('.e14-thumbnail').classList.add("mpx-border")
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_HUEWIRELESS_E14/) == null) {
+                        if (document.querySelector('.e14-thumbnail')) {
+                            if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) {
+                                document.querySelector('.e14-thumbnail').classList.remove("mpx-border")
+                            }
+                        }
+                    }
+                    if (window.location.href.match(/FK_HUEWIRELESS_E26/)) {
+                        if (document.querySelector('.e26-thumbnail')) {
+                            document.querySelector('.e26-thumbnail').classList.add("mpx-border")
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_HUEWIRELESS_E26/) == null) {
+                        if (document.querySelector('.e26-thumbnail')) {
+                            if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) {
+                                document.querySelector('.e26-thumbnail').classList.remove("mpx-border")
+                            }
+                        }
+                    }
+                    if (window.location.href.match(/FK_HUEWIRELESS_E27/)) {
+                        if (document.querySelector('.e27-thumbnail')) {
+                            document.querySelector('.e27-thumbnail').classList.add("mpx-border")
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_HUEWIRELESS_E27/) == null) {
+                        if (document.querySelector('.e27-thumbnail')) {
+                            if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) {
+                                document.querySelector('.e27-thumbnail').classList.remove("mpx-border")
+                            }
+                        }
+                    }
+                    if (window.location.href.match(/FK_HUEWIRELESS_GU10/)) {
+                        if (document.querySelector('.gu10-thumbnail')) {
+                            document.querySelector('.gu10-thumbnail').classList.add("mpx-border")
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_HUEWIRELESS_GU10/) == null) {
+                        if (document.querySelector('.gu10-thumbnail')) {
+                            if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) {
+                                document.querySelector('.gu10-thumbnail').classList.remove("mpx-border")
+                            }
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/)) {
+                        if (document.querySelector('.color-ambiance-thumbnail')) {
+                            document.querySelector('.color-ambiance-thumbnail').classList.add("mpx-border")
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/) == null) {
+                        if (document.querySelector('.color-ambiance-thumbnail')) {
+                            if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border")
+                            }
+                        }
+                    }
+                    if (window.location.href.match(/FK_HUE_WHITE/)) {
+                        if (document.querySelector('.warm-white-thumbnail')) {
+                            document.querySelector('.warm-white-thumbnail').classList.add("mpx-border")
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_HUE_WHITE/) == null) {
+                        if (document.querySelector('.warm-white-thumbnail')) {
+                            if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) {
+                                document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border")
+                            }
+                        }
+                    }
+                    if (window.location.href.match(/FK_WHITE_AMBIANCE/)) {
+                        if (document.querySelector('.white-ambiance-thumbnail')) {
+                            document.querySelector('.white-ambiance-thumbnail').classList.add("mpx-border")
+                        }
+                    }
+
+                    if (window.location.href.match(/FK_WHITE_AMBIANCE/) == null) {
+                        if (document.querySelector('.white-ambiance-thumbnail')) {
+                            if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border")
+                            }
+                        }
+                    }
+                }
+
+            }
+        }
+
+    }
+
+
+    catch (err) {
+    }
+
+    try {
+        const targetNodeMobile = document.querySelector('.button__text button__text--mobile');
+        const configMobile = { childList: true };
+        const callbackMobile = function (mutationsListMobile, observerMobile) {
+
+            //polling function
+            var pxFuncFired = 0;
+
+            var pxInterval = setInterval(pxPollFunc, 200);
+
+            function pxPollFunc() {
+
+                pxFuncFired += 1;
+                //run for 4 seconds 
+                if (pxFuncFired >= 40) {
+
+                    clearInterval(pxInterval);
+
+                }
+                //locate element
+                if (document.querySelector('#FK_HUE_WHITE')) {
+                    //if found in DOM, stop polling
+                    clearInterval(pxInterval);
+                    //hide thumbnail of selected element
+                    document.querySelector('#FK_HUE_WHITE').nextElementSibling.style.display = "none";
+                    //create a new element
+                    const elem = document.createElement('div');
+
+                    // add ID and CSS class to div
+                    elem.setAttribute('id', 'warm-white-thumbnail');
+                    elem.setAttribute('class', 'warm-white-thumbnail');
+
+                    // grab target element reference
+                    const target = document.querySelector('#FK_HUE_WHITE').nextElementSibling;
+
+                    // insert the element before target element
+                    target.parentNode.insertBefore(elem, target);
+                    //check whether the object has the specified property 
+                    //if it doesn't set one so the loop can continue, rather than returning null
+                } else ((document.querySelector('#FK_HUE_WHITE')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+                }
+
+                //process repeated for each thumbnail
+
+                if (document.querySelector('#FK_WHITE_AMBIANCE')) {
+
+                    clearInterval(pxInterval);
+
+                    document.querySelector('#FK_WHITE_AMBIANCE').nextElementSibling.style.display = "none";
+
+                    const elem = document.createElement('div');
+
+                    elem.setAttribute('id', 'white-ambiance-thumbnail');
+                    elem.setAttribute('class', 'white-ambiance-thumbnail');
+
+                    const target = document.querySelector('#FK_WHITE_AMBIANCE').nextElementSibling;
+
+                    target.parentNode.insertBefore(elem, target);
+
+                } else ((document.querySelector('#FK_WHITE_AMBIANCE')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+                if (document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE')) {
+
+                    clearInterval(pxInterval);
+
+                    document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE').nextElementSibling.style.display = "none";
+
+                    const elem = document.createElement('div');
+
+                    elem.setAttribute('id', 'color-ambiance-thumbnail');
+                    elem.setAttribute('class', 'color-ambiance-thumbnail');
+
+                    const target = document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE').nextElementSibling;
+
+                    target.parentNode.insertBefore(elem, target);
+
+
+
+                } else ((document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+                if (document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER')) {
+
+                    clearInterval(pxInterval);
+
+                    document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER').style.display = "visible";
+
+                } else ((document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+                if (document.querySelector('[for=FK_HUE_GRADIENT]')) {
+
+                    clearInterval(pxInterval);
+                    try {
+                        //add in additional filter group
+                        const elem = document.getElementById("mpx-filter");
+
+                        const target = document.getElementsByClassName("filter-group")[3];
+
+                        target.parentElement.insertBefore(elem, target);
+
+
+                        document.getElementById("mpx-filter").setAttribute('style', 'display: visible');
+
+                        //move gradient filter to new filter group
+                        const elemGra = document.querySelector('[for="FK_HUE_GRADIENT"]').parentElement;
+
+                        const targetGra = document.getElementById("LIGHT-EFFECT-MPX-FILTER");
+
+                        targetGra.parentElement.insertBefore(elemGra, targetGra);
+                    } catch {
+
+                    }
+                } else ((document.querySelector('[for=FK_HUE_GRADIENT]')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+
+
+                if (document.querySelector('#FK_HUEWIRELESS_B22')) {
+
+                    clearInterval(pxInterval);
+
+                    document.querySelector('#FK_HUEWIRELESS_B22').nextElementSibling.style.display = "none";
+
+                    const elem = document.createElement('div');
+
+                    elem.setAttribute('id', 'b22-thumbnail');
+                    elem.setAttribute('class', 'b22-thumbnail');
+
+                    const target = document.querySelector('#FK_HUEWIRELESS_B22').nextElementSibling;
+
+                    target.parentNode.insertBefore(elem, target);
+
+                } else ((document.querySelector('#FK_HUEWIRELESS_B22')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+                if (document.querySelector('#FK_HUEWIRELESS_E12')) {
+
+                    clearInterval(pxInterval);
+
+                    document.querySelector('#FK_HUEWIRELESS_E12').nextElementSibling.style.display = "none";
+
+                    const elem = document.createElement('div');
+
+                    elem.setAttribute('id', 'e12-thumbnail');
+                    elem.setAttribute('class', 'e12-thumbnail');
+
+                    const target = document.querySelector('#FK_HUEWIRELESS_E12').nextElementSibling;
+
+                    target.parentNode.insertBefore(elem, target);
+
+                } else ((document.querySelector('#FK_HUEWIRELESS_E12')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+                if (document.querySelector('#FK_HUEWIRELESS_E14')) {
+
+                    clearInterval(pxInterval);
+
+                    document.querySelector('#FK_HUEWIRELESS_E14').nextElementSibling.style.display = "none";
+
+                    const elem = document.createElement('div');
+
+                    elem.setAttribute('id', 'e14-thumbnail');
+                    elem.setAttribute('class', 'e14-thumbnail');
+
+                    const target = document.querySelector('#FK_HUEWIRELESS_E14').nextElementSibling;
+
+                    target.parentNode.insertBefore(elem, target);
+
+                } else ((document.querySelector('#FK_HUEWIRELESS_E14')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+                if (document.querySelector('#FK_HUEWIRELESS_E26')) {
+
+                    clearInterval(pxInterval);
+
+                    document.querySelector('#FK_HUEWIRELESS_E26').nextElementSibling.style.display = "none";
+
+                    const elem = document.createElement('div');
+
+                    elem.setAttribute('id', 'e26-thumbnail');
+                    elem.setAttribute('class', 'e26-thumbnail');
+
+                    const target = document.querySelector('#FK_HUEWIRELESS_E26').nextElementSibling;
+
+                    target.parentNode.insertBefore(elem, target);
+
+                } else ((document.querySelector('#FK_HUEWIRELESS_E26')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+                if (document.querySelector('#FK_HUEWIRELESS_E27')) {
+
+                    clearInterval(pxInterval);
+
+                    document.querySelector('#FK_HUEWIRELESS_E27').nextElementSibling.style.display = "none";
+
+                    const elem = document.createElement('div');
+
+                    elem.setAttribute('id', 'e27-thumbnail');
+                    elem.setAttribute('class', 'e27-thumbnail');
+
+                    const target = document.querySelector('#FK_HUEWIRELESS_E27').nextElementSibling;
+
+                    target.parentNode.insertBefore(elem, target);
+
+                } else ((document.querySelector('#FK_HUEWIRELESS_E27')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+                if (document.querySelector('#FK_HUEWIRELESS_GU10')) {
+
+                    clearInterval(pxInterval);
+
+                    document.querySelector('#FK_HUEWIRELESS_GU10').nextElementSibling.style.display = "none";
+
+                    const elem = document.createElement('div');
+
+                    elem.setAttribute('id', 'gu10-thumbnail');
+                    elem.setAttribute('class', 'gu10-thumbnail');
+
+                    const target = document.querySelector('#FK_HUEWIRELESS_GU10').nextElementSibling;
+
+                    target.parentNode.insertBefore(elem, target);
+
+                } else ((document.querySelector('#FK_HUEWIRELESS_GU10')) !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+
+                //select each of the thumbnails above
+                document.querySelectorAll('[id*=thumbnail]').forEach(element => {
+                    //add/remove class on click (hover done in CSS)
+                    element.addEventListener("click", function () {
+                        if (element.classList.contains("mpx-border")) {
+                            clearInterval(pxInterval);
+                            element.classList.remove("mpx-border");
+                        } else {
+                            element.classList.add("mpx-border");
+                        }
+                    })
+                })
+
+                //select filter group
+                document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                    if (element.innerText == "Light color" || element.innerText == "Cap type") {
+                        clearInterval(pxInterval);
+                        //select filter group elements, if clicked add/remove border class to thumbnail
+                        mpxlist = element.parentElement.querySelectorAll('.checkbox.checkbox--primary.filter-group__checkbox');
+                        mpxlist.forEach(element => {
+                            element.querySelector('.checkbox__label').addEventListener("click", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-border")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-border") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-border") } }
+
+                            );
+                            element.querySelector('.checkbox__sub-label').addEventListener("click", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-border")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-border") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-border") } })
+
+                        });
+
+                    }
+                });
+
+                //select filter group
+                document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                    if (element.innerText == "Light color" || element.innerText == "Cap type") {
+                        clearInterval(pxInterval);
+                        //select filter group elements, if hovered over add, and if hovered out remove border class to thumbnail
+                        mpxlist = element.parentElement.querySelectorAll('.checkbox.checkbox--primary.filter-group__checkbox');
+                        mpxlist.forEach(element => {
+
+                            element.querySelector('.checkbox__label').addEventListener("mouseover", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } }
+
+                            );
+                            element.querySelector('.checkbox__sub-label').addEventListener("mouseover", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } })
+
+
+                            element.querySelector('.checkbox__label').addEventListener("mouseleave", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } }
+
+                            );
+                            element.querySelector('.checkbox__sub-label').addEventListener("mouseleave", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } })
+
+                        });
+
+                    }
+                });
+
+                //select filter group
+                document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                    //If title contains "cap type" add the below Classes to relevant elements
+                    if (element.innerText == "Cap type") {
+                        clearInterval(pxInterval);
+                        const filterClass = document.getElementsByClassName("filter-group")[4];
+
+                        filterClass.classList.add('mpx-filter-result-overview');
+
+                        const filterClassHeader = document.getElementsByClassName("filter-group")[4].getElementsByClassName("heading-6")[0];
+
+                        filterClassHeader.classList.add('mpx-filter-result-header');
+
+                        const filterClassDivider = document.getElementsByClassName("filter-group")[4].getElementsByClassName("filter-group__divider")[0];
+
+                        filterClassDivider.classList.add('mpx-filter-result-header');
+
+                    } else ((document.querySelectorAll('.heading-6.filter-group__title').innerText == "Cap type") !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+                })
+
+                const filterGroup = document.getElementsByClassName("filter-group__checkbox");
+                //select filter group
+                document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                    //if title contains "Cap Type" run
+                    try {
+                        if (element.innerText == "Cap type") {
+                            clearInterval(pxInterval);
+                            //Loop through each elemnt in list, adding class mpx-filter-result-padding
+                            for (i = 0; i < filterGroup.length; i++) {
+                                document.getElementsByClassName("filter-group")[4].getElementsByClassName("filter-group__checkbox")[i].classList.add('mpx-filter-result-padding');
+                            }
+                        }
+                    } catch (err) {
+                    }
+                })
+
+
+
+
+                //Change Gradient and Title - specific URL targeting 
+                if (window.location.href.match(/\/products\/smart-floor-lamps/)) {
+                    clearInterval(pxInterval);
+                    if (document.querySelectorAll('.checkbox__label')[0].innerText == "Gradient") {
+
+                        document.querySelectorAll('.checkbox__label')[0].innerHTML = "Gradient color"
+                    }
+
+                    if (document.querySelectorAll('.filter-group__title')[2].innerText == "Light color"); {
+
+                        {
+
+                            document.querySelectorAll('.filter-group__title')[2].innerHTML = "Light effect"
+                        }
+                    }
+                }
+
+                //Change Cap Type title
+                if (document.querySelector('.mpx-filter-result-header').innerText == "Cap type") {
+                    clearInterval(pxInterval);
+                    document.querySelector('.mpx-filter-result-header').innerHTML = "Base type"
+                } else ((document.querySelector('.mpx-filter-result-header').innerText == "Cap type") !== "undefined" || null); {
+
+                    Object.prototype.hasOwnProperty();
+
+                }
+
+
+                const filterLabel = document.getElementsByClassName("checkbox__label");
+                //select filter group
+                document.querySelectorAll('.checkbox__checkbox').forEach(element => {
+                    try {
+                        //Loop through each elemnt in list
+                        for (i = 0; i < filterLabel.length; i++) {
+                            //if item equals Gradient
+                            if ((document.querySelectorAll('.checkbox__label')[i].innerText == "Gradient")) {
+                                //stop polling
+                                clearInterval(pxInterval);
+                                //change name to Gradient
+                                document.getElementsByClassName("checkbox__label")[i].innerHTML = "Gradient color";
+                            }
+                        }
+
+                    } catch (err) {
+                    }
+                })
+
+            }
+
+
+            //end polling function
+
+            //mutattion observer 
+
+            const targetNode = document.querySelector('.filter-menu__group-list');
+            const config = { childList: true };
+            const callback = function (mutationsList, observer) {
+
+                //select filter group
+                document.querySelectorAll('.applied-filters__filters').forEach(element => {
+                    if (element.innerText == "Colored light") {
+
+                        //select filter group elements, if clicked remove border class to thumbnail
+                        mpxColoredLight = element.querySelectorAll('.applied-filters__filter');
+                        mpxColoredLight.forEach(element => {
+                            element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border") } }
+
+                            );
+                            element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border") } }
+                            );
+
+                        })
+                    }
+
+
+
+                    if (element.innerText == "Soft warm white") {
+
+
+                        mpxSoftLight = element.querySelectorAll('.applied-filters__filter');
+                        mpxSoftLight.forEach(element => {
+                            element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) { document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border") } }
+
+                            );
+                            element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) { document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border") } }
+                            );
+
+                        })
+
+                    }
+
+                    if (element.innerText == "Warm-to-cool white") {
+
+                        mpxWarmLight = element.querySelectorAll('.applied-filters__filter');
+                        mpxWarmLight.forEach(element => {
+                            element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border") } }
+
+                            );
+                            element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border") } }
+                            );
+
+                        })
+
+                    }
+
+                    if (element.innerText == "B22") {
+
+                        mpxB22Light = element.querySelectorAll('.applied-filters__filter');
+                        mpxB22Light.forEach(element => {
+                            element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) { document.querySelector('.b22-thumbnail').classList.remove("mpx-border") } }
+
+                            );
+                            element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) { document.querySelector('.b22-thumbnail').classList.remove("mpx-border") } }
+                            );
+
+                        })
+
+                    }
+
+                    if (element.innerText == "E12") {
+
+                        mpxE12Light = element.querySelectorAll('.applied-filters__filter');
+                        mpxE12Light.forEach(element => {
+                            element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e12-thumbnail').classList.remove("mpx-border") } }
+
+                            );
+                            element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e12-thumbnail').classList.remove("mpx-border") } }
+                            );
+
+                        })
+
+                    }
+
+                    if (element.innerText == "E14") {
+
+                        mpxE14Light = element.querySelectorAll('.applied-filters__filter');
+                        mpxE14Light.forEach(element => {
+                            element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e14-thumbnail').classList.remove("mpx-border") } }
+
+                            );
+                            element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e14-thumbnail').classList.remove("mpx-border") } }
+                            );
+
+                        })
+
+                    }
+
+                    if (element.innerText == "E26") {
+
+                        mpxE26Light = element.querySelectorAll('.applied-filters__filter');
+                        mpxE26Light.forEach(element => {
+                            element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e26-thumbnail').classList.remove("mpx-border") } }
+
+                            );
+                            element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e26-thumbnail').classList.remove("mpx-border") } }
+                            );
+
+                        })
+
+                    }
+
+                    if (element.innerText == "E27") {
+
+                        mpxE27Light = element.querySelectorAll('.applied-filters__filter');
+                        mpxE27Light.forEach(element => {
+                            element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e27-thumbnail').classList.remove("mpx-border") } }
+
+                            );
+                            element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e27-thumbnail').classList.remove("mpx-border") } }
+                            );
+
+                        })
+
+                    }
+
+                    if (element.innerText == "GU10") {
+
+                        mpxGU10Light = element.querySelectorAll('.applied-filters__filter');
+                        mpxGU10Light.forEach(element => {
+                            element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) { document.querySelector('.gu10-thumbnail').classList.remove("mpx-border") } }
+
+                            );
+                            element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) { document.querySelector('.gu10-thumbnail').classList.remove("mpx-border") } }
+                            );
+
+                        })
+
+                    }
+
+                });
+
+            }
+
+
+            const observer = new MutationObserver(callback);
+            observer.observe(targetNode, config);
+
+            //End mutation oberver 
+
+            //Start Clear Filter mutation oberver 
+
+            const targetNodeClear = document.querySelector('.filter-menu__group-list');
+            const configClear = { childList: true };
+            const callbackClear = function (mutationsListClear, observerClear) {
+
+
+                if (document.querySelector('.applied-filters__clear-filters-link').innerText == "Clear all filters") {
+                    document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) { document.querySelector('.b22-thumbnail').classList.remove("mpx-border") } }
+                    );
+                    document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e12-thumbnail').classList.remove("mpx-border") } }
+                    );
+                    document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e14-thumbnail').classList.remove("mpx-border") } }
+                    );
+                    document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e26-thumbnail').classList.remove("mpx-border") } }
+                    );
+                    document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e27-thumbnail').classList.remove("mpx-border") } }
+                    );
+                    document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) { document.querySelector('.gu10-thumbnail').classList.remove("mpx-border") } }
+                    );
+                    document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border") } }
+                    );
+                    document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) { document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border") } }
+                    );
+                    document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border") } }
+                    );
+                }
+
+            }
+
+
+            const observerClear = new MutationObserver(callbackClear);
+            observerClear.observe(targetNodeClear, configClear);
+
+            //end Clear Filter mutation oberver 
+
+            //Start URL observer 
+
+            var oldHref = document.location.href;
+            window.onload = function () {
+                var bodyList = document.querySelector("body")
+                var observer = new MutationObserver(function (mutations) {
+                    mutations.forEach(function (mutation) {
+                        if (oldHref != document.location.href) {
+                            oldHref = document.location.href;
+
+                            if (window.location.href.match(/FK_HUEWIRELESS_B22/)) {
+                                if (document.querySelector('.b22-thumbnail')) {
+                                    document.querySelector('.b22-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_HUEWIRELESS_B22/) == null) {
+                                if (document.querySelector('.b22-thumbnail')) {
+                                    if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) {
+                                        document.querySelector('.b22-thumbnail').classList.remove("mpx-border")
+                                    }
+                                }
+                            }
+                            if (window.location.href.match(/FK_HUEWIRELESS_E12/)) {
+                                if (document.querySelector('.e12-thumbnail')) {
+                                    document.querySelector('.e12-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_HUEWIRELESS_E12/) == null) {
+                                if (document.querySelector('.e12-thumbnail')) {
+                                    if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) {
+                                        document.querySelector('.e12-thumbnail').classList.remove("mpx-border")
+                                    }
+                                }
+                            }
+                            if (window.location.href.match(/FK_HUEWIRELESS_E14/)) {
+                                if (document.querySelector('.e14-thumbnail')) {
+                                    document.querySelector('.e14-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_HUEWIRELESS_E14/) == null) {
+                                if (document.querySelector('.e14-thumbnail')) {
+                                    if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) {
+                                        document.querySelector('.e14-thumbnail').classList.remove("mpx-border")
+                                    }
+                                }
+                            }
+                            if (window.location.href.match(/FK_HUEWIRELESS_E26/)) {
+                                if (document.querySelector('.e26-thumbnail')) {
+                                    document.querySelector('.e26-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_HUEWIRELESS_E26/) == null) {
+                                if (document.querySelector('.e26-thumbnail')) {
+                                    if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) {
+                                        document.querySelector('.e26-thumbnail').classList.remove("mpx-border")
+                                    }
+                                }
+                            }
+                            if (window.location.href.match(/FK_HUEWIRELESS_E27/)) {
+                                if (document.querySelector('.e27-thumbnail')) {
+                                    document.querySelector('.e27-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_HUEWIRELESS_E27/) == null) {
+                                if (document.querySelector('.e27-thumbnail')) {
+                                    if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) {
+                                        document.querySelector('.e27-thumbnail').classList.remove("mpx-border")
+                                    }
+                                }
+                            }
+                            if (window.location.href.match(/FK_HUEWIRELESS_GU10/)) {
+                                if (document.querySelector('.gu10-thumbnail')) {
+                                    document.querySelector('.gu10-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_HUEWIRELESS_GU10/) == null) {
+                                if (document.querySelector('.gu10-thumbnail')) {
+                                    if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) {
+                                        document.querySelector('.gu10-thumbnail').classList.remove("mpx-border")
+                                    }
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/)) {
+                                if (document.querySelector('.color-ambiance-thumbnail')) {
+                                    document.querySelector('.color-ambiance-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/) == null) {
+                                if (document.querySelector('.color-ambiance-thumbnail')) {
+                                    if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                        document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border")
+                                    }
+                                }
+                            }
+                            if (window.location.href.match(/FK_HUE_WHITE/)) {
+                                if (document.querySelector('.warm-white-thumbnail')) {
+                                    document.querySelector('.warm-white-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_HUE_WHITE/) == null) {
+                                if (document.querySelector('.warm-white-thumbnail')) {
+                                    if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) {
+                                        document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border")
+                                    }
+                                }
+                            }
+                            if (window.location.href.match(/FK_WHITE_AMBIANCE/)) {
+                                if (document.querySelector('.white-ambiance-thumbnail')) {
+                                    document.querySelector('.white-ambiance-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                            if (window.location.href.match(/FK_WHITE_AMBIANCE/) == null) {
+                                if (document.querySelector('.white-ambiance-thumbnail')) {
+                                    if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                        document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border")
+                                    }
+                                }
+                            }
+                        }
+                    })
+                })
+                var config = {
+                    childList: true,
+                    subtree: true
+                };
+                observer.observe(bodyList, config);
+            };
+
+            //End URL observer 
+            document.onreadystatechange = function () {
+
+                clearInterval(pxInterval);
+                if (window.location.href.match(/FK_HUEWIRELESS_B22/)) {
+                    if (document.querySelector('.b22-thumbnail')) {
+                        document.querySelector('.b22-thumbnail').classList.add("mpx-border")
+                    }
+                }
+
+                if (window.location.href.match(/FK_HUEWIRELESS_B22/) == null) {
+                    if (document.querySelector('.b22-thumbnail')) {
+                        if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) {
+                            document.querySelector('.b22-thumbnail').classList.remove("mpx-border")
+                        }
+                    }
+                }
+                if (window.location.href.match(/FK_HUEWIRELESS_E12/)) {
+                    if (document.querySelector('.e12-thumbnail')) {
+                        document.querySelector('.e12-thumbnail').classList.add("mpx-border")
+                    }
+                }
+
+                if (window.location.href.match(/FK_HUEWIRELESS_E12/) == null) {
+                    if (document.querySelector('.e12-thumbnail')) {
+                        if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) {
+                            document.querySelector('.e12-thumbnail').classList.remove("mpx-border")
+                        }
+                    }
+                }
+                if (window.location.href.match(/FK_HUEWIRELESS_E14/)) {
+                    if (document.querySelector('.e14-thumbnail')) {
+                        document.querySelector('.e14-thumbnail').classList.add("mpx-border")
+                    }
+                }
+
+                if (window.location.href.match(/FK_HUEWIRELESS_E14/) == null) {
+                    if (document.querySelector('.e14-thumbnail')) {
+                        if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) {
+                            document.querySelector('.e14-thumbnail').classList.remove("mpx-border")
+                        }
+                    }
+                }
+                if (window.location.href.match(/FK_HUEWIRELESS_E26/)) {
+                    if (document.querySelector('.e26-thumbnail')) {
+                        document.querySelector('.e26-thumbnail').classList.add("mpx-border")
+                    }
+                }
+
+                if (window.location.href.match(/FK_HUEWIRELESS_E26/) == null) {
+                    if (document.querySelector('.e26-thumbnail')) {
+                        if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) {
+                            document.querySelector('.e26-thumbnail').classList.remove("mpx-border")
+                        }
+                    }
+                }
+                if (window.location.href.match(/FK_HUEWIRELESS_E27/)) {
+                    if (document.querySelector('.e27-thumbnail')) {
+                        document.querySelector('.e27-thumbnail').classList.add("mpx-border")
+                    }
+                }
+
+                if (window.location.href.match(/FK_HUEWIRELESS_E27/) == null) {
+                    if (document.querySelector('.e27-thumbnail')) {
+                        if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) {
+                            document.querySelector('.e27-thumbnail').classList.remove("mpx-border")
+                        }
+                    }
+                }
+                if (window.location.href.match(/FK_HUEWIRELESS_GU10/)) {
+                    if (document.querySelector('.gu10-thumbnail')) {
+                        document.querySelector('.gu10-thumbnail').classList.add("mpx-border")
+                    }
+                }
+
+                if (window.location.href.match(/FK_HUEWIRELESS_GU10/) == null) {
+                    if (document.querySelector('.gu10-thumbnail')) {
+                        if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) {
+                            document.querySelector('.gu10-thumbnail').classList.remove("mpx-border")
+                        }
+                    }
+                }
+
+                if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/)) {
+                    if (document.querySelector('.color-ambiance-thumbnail')) {
+                        document.querySelector('.color-ambiance-thumbnail').classList.add("mpx-border")
+                    }
+                }
+
+                if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/) == null) {
+                    if (document.querySelector('.color-ambiance-thumbnail')) {
+                        if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) {
+                            document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border")
+                        }
+                    }
+                }
+                if (window.location.href.match(/FK_HUE_WHITE/)) {
+                    if (document.querySelector('.warm-white-thumbnail')) {
+                        document.querySelector('.warm-white-thumbnail').classList.add("mpx-border")
+                    }
+                }
+
+                if (window.location.href.match(/FK_HUE_WHITE/) == null) {
+                    if (document.querySelector('.warm-white-thumbnail')) {
+                        if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) {
+                            document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border")
+                        }
+                    }
+                }
+                if (window.location.href.match(/FK_WHITE_AMBIANCE/)) {
+                    if (document.querySelector('.white-ambiance-thumbnail')) {
+                        document.querySelector('.white-ambiance-thumbnail').classList.add("mpx-border")
+                    }
+                }
+
+                if (window.location.href.match(/FK_WHITE_AMBIANCE/) == null) {
+                    if (document.querySelector('.white-ambiance-thumbnail')) {
+                        if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) {
+                            document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border")
+                        }
+                    }
+                }
+            }
+        }
+
+
+        const observerMobile = new MutationObserver(callbackMobile);
+        observerMobile.observe(targetNodeMobile, configMobile);
+    } catch (err) {
+    }
+
+    //////////////////////////////////////////////////
+
+    try {
+
+        document.onreadystatechange = function () {
+            if (document.readyState === 'complete') {
+
+                //polling function
+                var pxFuncFired = 0;
+
+                var pxInterval = setInterval(pxPollFunc, 200);
+
+                function pxPollFunc() {
+
+                    pxFuncFired += 1;
+                    //run for 4 seconds 
+                    if (pxFuncFired >= 40) {
+
+                        clearInterval(pxInterval);
+
+                    }
+                    //locate element
+                    if (document.querySelector('#FK_HUE_WHITE')) {
+                        //if found in DOM, stop polling
+                        clearInterval(pxInterval);
+                        //hide thumbnail of selected element
+                        document.querySelector('#FK_HUE_WHITE').nextElementSibling.style.display = "none";
+                        //create a new element
+                        const elem = document.createElement('div');
+
+                        // add ID and CSS class to div
+                        elem.setAttribute('id', 'warm-white-thumbnail');
+                        elem.setAttribute('class', 'warm-white-thumbnail');
+
+                        // grab target element reference
+                        const target = document.querySelector('#FK_HUE_WHITE').nextElementSibling;
+
+                        // insert the element before target element
+                        target.parentNode.insertBefore(elem, target);
+                        //check whether the object has the specified property 
+                        //if it doesn't set one so the loop can continue, rather than returning null
+                    } else ((document.querySelector('#FK_HUE_WHITE')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+                    }
+
+                    //process repeated for each thumbnail
+
+                    if (document.querySelector('#FK_WHITE_AMBIANCE')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_WHITE_AMBIANCE').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'white-ambiance-thumbnail');
+                        elem.setAttribute('class', 'white-ambiance-thumbnail');
+
+                        const target = document.querySelector('#FK_WHITE_AMBIANCE').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_WHITE_AMBIANCE')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'color-ambiance-thumbnail');
+                        elem.setAttribute('class', 'color-ambiance-thumbnail');
+
+                        const target = document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+
+
+                    } else ((document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER').style.display = "visible";
+
+                    } else ((document.querySelector('#FK_WHITE_AND_COLOR_AMBIANCE-MPX-FILTER')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('[for=FK_HUE_GRADIENT]')) {
+
+                        clearInterval(pxInterval);
+                        try {
+                            //add in additional filter group
+                            const elem = document.getElementById("mpx-filter");
+
+                            const target = document.getElementsByClassName("filter-group")[3];
+
+                            target.parentElement.insertBefore(elem, target);
+
+
+                            document.getElementById("mpx-filter").setAttribute('style', 'display: visible');
+
+                            //move gradient filter to new filter group
+                            const elemGra = document.querySelector('[for="FK_HUE_GRADIENT"]').parentElement;
+
+                            const targetGra = document.getElementById("LIGHT-EFFECT-MPX-FILTER");
+
+                            targetGra.parentElement.insertBefore(elemGra, targetGra);
+                        } catch {
+
+                        }
+                    } else ((document.querySelector('[for=FK_HUE_GRADIENT]')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+
+
+                    if (document.querySelector('#FK_HUEWIRELESS_B22')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_B22').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'b22-thumbnail');
+                        elem.setAttribute('class', 'b22-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_B22').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_B22')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_E12')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_E12').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'e12-thumbnail');
+                        elem.setAttribute('class', 'e12-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_E12').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_E12')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_E14')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_E14').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'e14-thumbnail');
+                        elem.setAttribute('class', 'e14-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_E14').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_E14')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_E26')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_E26').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'e26-thumbnail');
+                        elem.setAttribute('class', 'e26-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_E26').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_E26')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_E27')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_E27').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'e27-thumbnail');
+                        elem.setAttribute('class', 'e27-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_E27').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_E27')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+                    if (document.querySelector('#FK_HUEWIRELESS_GU10')) {
+
+                        clearInterval(pxInterval);
+
+                        document.querySelector('#FK_HUEWIRELESS_GU10').nextElementSibling.style.display = "none";
+
+                        const elem = document.createElement('div');
+
+                        elem.setAttribute('id', 'gu10-thumbnail');
+                        elem.setAttribute('class', 'gu10-thumbnail');
+
+                        const target = document.querySelector('#FK_HUEWIRELESS_GU10').nextElementSibling;
+
+                        target.parentNode.insertBefore(elem, target);
+
+                    } else ((document.querySelector('#FK_HUEWIRELESS_GU10')) !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+
+                    //select each of the thumbnails above
+                    document.querySelectorAll('[id*=thumbnail]').forEach(element => {
+                        //add/remove class on click (hover done in CSS)
+                        element.addEventListener("click", function () {
+                            if (element.classList.contains("mpx-border")) {
+                                clearInterval(pxInterval);
+                                element.classList.remove("mpx-border");
+                            } else {
+                                element.classList.add("mpx-border");
+                            }
+                        })
+                    })
+
+                    //select filter group
+                    document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                        if (element.innerText == "Light color" || element.innerText == "Cap type") {
+                            clearInterval(pxInterval);
+                            //select filter group elements, if clicked add/remove border class to thumbnail
+                            mpxlist = element.parentElement.querySelectorAll('.checkbox.checkbox--primary.filter-group__checkbox');
+                            mpxlist.forEach(element => {
+                                element.querySelector('.checkbox__label').addEventListener("click", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-border")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-border") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-border") } }
+
+                                );
+                                element.querySelector('.checkbox__sub-label').addEventListener("click", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-border")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-border") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-border") } })
+
+                            });
+
+                        }
+                    });
+
+                    //select filter group
+                    document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                        if (element.innerText == "Light color" || element.innerText == "Cap type") {
+                            clearInterval(pxInterval);
+                            //select filter group elements, if hovered over add, and if hovered out remove border class to thumbnail
+                            mpxlist = element.parentElement.querySelectorAll('.checkbox.checkbox--primary.filter-group__checkbox');
+                            mpxlist.forEach(element => {
+
+                                element.querySelector('.checkbox__label').addEventListener("mouseover", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } }
+
+                                );
+                                element.querySelector('.checkbox__sub-label').addEventListener("mouseover", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } })
+
+
+                                element.querySelector('.checkbox__label').addEventListener("mouseleave", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } }
+
+                                );
+                                element.querySelector('.checkbox__sub-label').addEventListener("mouseleave", function () { if (this.parentElement.querySelector('[id*=thumbnail]').classList.contains("mpx-hover")) { this.parentElement.querySelector('[id*=thumbnail]').classList.remove("mpx-hover") } else { this.parentElement.querySelector('[id*=thumbnail]').classList.add("mpx-hover") } })
+
+                            });
+
+                        }
+                    });
+
+                    //select filter group
+                    document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                        //If title contains "cap type" add the below Classes to relevant elements
+                        if (element.innerText == "Cap type") {
+                            clearInterval(pxInterval);
+                            const filterClass = document.getElementsByClassName("filter-group")[4];
+
+                            filterClass.classList.add('mpx-filter-result-overview');
+
+                            const filterClassHeader = document.getElementsByClassName("filter-group")[4].getElementsByClassName("heading-6")[0];
+
+                            filterClassHeader.classList.add('mpx-filter-result-header');
+
+                            const filterClassDivider = document.getElementsByClassName("filter-group")[4].getElementsByClassName("filter-group__divider")[0];
+
+                            filterClassDivider.classList.add('mpx-filter-result-header');
+
+                        } else ((document.querySelectorAll('.heading-6.filter-group__title').innerText == "Cap type") !== "undefined" || null); {
+
+                            Object.prototype.hasOwnProperty();
+
+                        }
+                    })
+
+                    const filterGroup = document.getElementsByClassName("filter-group__checkbox");
+                    //select filter group
+                    document.querySelectorAll('.heading-6.filter-group__title').forEach(element => {
+                        //if title contains "Cap Type" run
+                        try {
+                            if (element.innerText == "Cap type") {
+                                clearInterval(pxInterval);
+                                //Loop through each elemnt in list, adding class mpx-filter-result-padding
+                                for (i = 0; i < filterGroup.length; i++) {
+                                    document.getElementsByClassName("filter-group")[4].getElementsByClassName("filter-group__checkbox")[i].classList.add('mpx-filter-result-padding');
+                                }
+                            }
+                        } catch (err) {
+                        }
+                    })
+
+
+
+
+                    //Change Gradient and Title - specific URL targeting 
+                    if (window.location.href.match(/\/products\/smart-floor-lamps/)) {
+                        clearInterval(pxInterval);
+                        if (document.querySelectorAll('.checkbox__label')[0].innerText == "Gradient") {
+
+                            document.querySelectorAll('.checkbox__label')[0].innerHTML = "Gradient color"
+                        }
+
+                        if (document.querySelectorAll('.filter-group__title')[2].innerText == "Light color"); {
+
+                            {
+
+                                document.querySelectorAll('.filter-group__title')[2].innerHTML = "Light effect"
+                            }
+                        }
+                    }
+
+                    //Change Cap Type title
+                    if (document.querySelector('.mpx-filter-result-header').innerText == "Cap type") {
+                        clearInterval(pxInterval);
+                        document.querySelector('.mpx-filter-result-header').innerHTML = "Base type"
+                    } else ((document.querySelector('.mpx-filter-result-header').innerText == "Cap type") !== "undefined" || null); {
+
+                        Object.prototype.hasOwnProperty();
+
+                    }
+
+
+                    const filterLabel = document.getElementsByClassName("checkbox__label");
+                    //select filter group
+                    document.querySelectorAll('.checkbox__checkbox').forEach(element => {
+                        try {
+                            //Loop through each elemnt in list
+                            for (i = 0; i < filterLabel.length; i++) {
+                                //if item equals Gradient
+                                if ((document.querySelectorAll('.checkbox__label')[i].innerText == "Gradient")) {
+                                    //stop polling
+                                    clearInterval(pxInterval);
+                                    //change name to Gradient
+                                    document.getElementsByClassName("checkbox__label")[i].innerHTML = "Gradient color";
+                                }
+                            }
+
+                        } catch (err) {
+                        }
+                    })
+
+                    if (window.location.href.match(/FK_HUEWIRELESS_B22/) == null) {
+                        clearInterval(pxInterval);
+                            if (document.querySelector('.b22-thumbnail')) {
+                                if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) {
+                                    document.querySelector('.b22-thumbnail').classList.remove("mpx-border")
+                                }
+                            }
+                        } else {
+                            if (window.location.href.match(/FK_HUEWIRELESS_B22/)) {
+                                if (document.querySelector('.b22-thumbnail')) {
+                                    document.querySelector('.b22-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+                        }
+
+
+                        if (window.location.href.match(/FK_HUEWIRELESS_E12/) == null) {
+                            clearInterval(pxInterval);
+                            if (document.querySelector('.e12-thumbnail')) {
+                                if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) {
+                                    document.querySelector('.e12-thumbnail').classList.remove("mpx-border")
+                                }
+                            }
+                        } else {
+                            if (window.location.href.match(/FK_HUEWIRELESS_E12/)) {
+                                if (document.querySelector('.e12-thumbnail')) {
+                                    document.querySelector('.e12-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+                        }
+
+                        if (window.location.href.match(/FK_HUEWIRELESS_E14/) == null) {
+                            clearInterval(pxInterval);
+                            if (document.querySelector('.e14-thumbnail')) {
+                                if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) {
+                                    document.querySelector('.e14-thumbnail').classList.remove("mpx-border")
+                                }
+                            }
+                        } else {
+                            if (window.location.href.match(/FK_HUEWIRELESS_E14/)) {
+                                if (document.querySelector('.e14-thumbnail')) {
+                                    document.querySelector('.e14-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+                        }
+
+                        if (window.location.href.match(/FK_HUEWIRELESS_E26/) == null) {
+                            clearInterval(pxInterval);
+                            if (document.querySelector('.e26-thumbnail')) {
+                                if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) {
+                                    document.querySelector('.e26-thumbnail').classList.remove("mpx-border")
+                                }
+                            }
+                        } else {
+
+                            if (window.location.href.match(/FK_HUEWIRELESS_E26/)) {
+                                if (document.querySelector('.e26-thumbnail')) {
+                                    document.querySelector('.e26-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+                        }
+
+
+                        if (window.location.href.match(/FK_HUEWIRELESS_E27/) == null) {
+                            clearInterval(pxInterval);
+                            if (document.querySelector('.e27-thumbnail')) {
+                                if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) {
+                                    document.querySelector('.e27-thumbnail').classList.remove("mpx-border")
+                                }
+                            }
+                        } else {
+                            if (window.location.href.match(/FK_HUEWIRELESS_E27/)) {
+                                if (document.querySelector('.e27-thumbnail')) {
+                                    document.querySelector('.e27-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+                        }
+
+                        if (window.location.href.match(/FK_HUEWIRELESS_GU10/) == null) {
+                            clearInterval(pxInterval);
+                            if (document.querySelector('.gu10-thumbnail')) {
+                                if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) {
+                                    document.querySelector('.gu10-thumbnail').classList.remove("mpx-border")
+                                }
+                            }
+                        } else {
+                            if (window.location.href.match(/FK_HUEWIRELESS_GU10/)) {
+                                if (document.querySelector('.gu10-thumbnail')) {
+                                    document.querySelector('.gu10-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+
+                        }
+
+                        if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/) == null) {
+                            clearInterval(pxInterval);
+                            if (document.querySelector('.color-ambiance-thumbnail')) {
+                                if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                    document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border")
+                                }
+                            }
+                        } else {
+                            if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/)) {
+                                if (document.querySelector('.color-ambiance-thumbnail')) {
+                                    document.querySelector('.color-ambiance-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+                        }
+
+                        if (window.location.href.match(/FK_HUE_WHITE/) == null) {
+                            clearInterval(pxInterval);
+                            if (document.querySelector('.warm-white-thumbnail')) {
+                                if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) {
+                                    document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border")
+                                }
+                            }
+                        } else {
+                            if (window.location.href.match(/FK_HUE_WHITE/)) {
+                                if (document.querySelector('.warm-white-thumbnail')) {
+                                    document.querySelector('.warm-white-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+                        }
+
+                        if (window.location.href.match(/FK_WHITE_AMBIANCE/) == null) {
+                            clearInterval(pxInterval);
+                            if (document.querySelector('.white-ambiance-thumbnail')) {
+                                if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                    document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border")
+                                }
+                            }
+                        } else {
+
+                            if (window.location.href.match(/FK_WHITE_AMBIANCE/)) {
+                                if (document.querySelector('.white-ambiance-thumbnail')) {
+                                    document.querySelector('.white-ambiance-thumbnail').classList.add("mpx-border")
+                                }
+                            }
+                        }
+
+                }
+
+
+                //end polling function
+
+                //mutattion observer 
+
+                const targetNode = document.querySelector('.filter-menu__group-list');
+                const config = { childList: true };
+                const callback = function (mutationsList, observer) {
+
+                    //select filter group
+                    document.querySelectorAll('.applied-filters__filters').forEach(element => {
+                        if (element.innerText == "Colored light") {
+
+                            //select filter group elements, if clicked remove border class to thumbnail
+                            mpxColoredLight = element.querySelectorAll('.applied-filters__filter');
+                            mpxColoredLight.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+                        }
+
+
+
+                        if (element.innerText == "Soft warm white") {
+
+
+                            mpxSoftLight = element.querySelectorAll('.applied-filters__filter');
+                            mpxSoftLight.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) { document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) { document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "Warm-to-cool white") {
+
+                            mpxWarmLight = element.querySelectorAll('.applied-filters__filter');
+                            mpxWarmLight.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "B22") {
+
+                            mpxB22Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxB22Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) { document.querySelector('.b22-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) { document.querySelector('.b22-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "E12") {
+
+                            mpxE12Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxE12Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e12-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e12-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "E14") {
+
+                            mpxE14Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxE14Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e14-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e14-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "E26") {
+
+                            mpxE26Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxE26Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e26-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e26-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "E27") {
+
+                            mpxE27Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxE27Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e27-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e27-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                        if (element.innerText == "GU10") {
+
+                            mpxGU10Light = element.querySelectorAll('.applied-filters__filter');
+                            mpxGU10Light.forEach(element => {
+                                element.querySelector('.icon.icon-close.icon--sm').addEventListener("click", function () { if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) { document.querySelector('.gu10-thumbnail').classList.remove("mpx-border") } }
+
+                                );
+                                element.querySelector('.caption').addEventListener("click", function () { if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) { document.querySelector('.gu10-thumbnail').classList.remove("mpx-border") } }
+                                );
+
+                            })
+
+                        }
+
+                    });
+
+                }
+
+
+                const observer = new MutationObserver(callback);
+                observer.observe(targetNode, config);
+
+                //End mutation oberver 
+
+                //Start Clear Filter mutation oberver 
+
+                const targetNodeClear = document.querySelector('.filter-menu__group-list');
+                const configClear = { childList: true };
+                const callbackClear = function (mutationsListClear, observerClear) {
+
+
+                    if (document.querySelector('.applied-filters__clear-filters-link').innerText == "Clear all filters") {
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) { document.querySelector('.b22-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e12-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e14-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e26-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) { document.querySelector('.e27-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) { document.querySelector('.gu10-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) { document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border") } }
+                        );
+                        document.querySelector('.applied-filters__clear-filters-link').addEventListener("click", function () { if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) { document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border") } }
+                        );
+                    }
+
+                }
+
+
+                const observerClear = new MutationObserver(callbackClear);
+                observerClear.observe(targetNodeClear, configClear);
+
+                //end Clear Filter mutation oberver 
+
+                //Start URL observer 
+
+                var oldHref = document.location.href;
+                window.onload = function () {
+                    var bodyList = document.querySelector("body")
+                    var observer = new MutationObserver(function (mutations) {
+                        mutations.forEach(function (mutation) {
+                            if (oldHref != document.location.href) {
+                                oldHref = document.location.href;
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_B22/)) {
+                                    if (document.querySelector('.b22-thumbnail')) {
+                                        document.querySelector('.b22-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_B22/) == null) {
+                                    if (document.querySelector('.b22-thumbnail')) {
+                                        if (document.querySelector('.b22-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.b22-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_E12/)) {
+                                    if (document.querySelector('.e12-thumbnail')) {
+                                        document.querySelector('.e12-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_E12/) == null) {
+                                    if (document.querySelector('.e12-thumbnail')) {
+                                        if (document.querySelector('.e12-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.e12-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_E14/)) {
+                                    if (document.querySelector('.e14-thumbnail')) {
+                                        document.querySelector('.e14-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_E14/) == null) {
+                                    if (document.querySelector('.e14-thumbnail')) {
+                                        if (document.querySelector('.e14-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.e14-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_E26/)) {
+                                    if (document.querySelector('.e26-thumbnail')) {
+                                        document.querySelector('.e26-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_E26/) == null) {
+                                    if (document.querySelector('.e26-thumbnail')) {
+                                        if (document.querySelector('.e26-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.e26-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_E27/)) {
+                                    if (document.querySelector('.e27-thumbnail')) {
+                                        document.querySelector('.e27-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_E27/) == null) {
+                                    if (document.querySelector('.e27-thumbnail')) {
+                                        if (document.querySelector('.e27-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.e27-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUEWIRELESS_GU10/)) {
+                                    if (document.querySelector('.gu10-thumbnail')) {
+                                        document.querySelector('.gu10-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUEWIRELESS_GU10/) == null) {
+                                    if (document.querySelector('.gu10-thumbnail')) {
+                                        if (document.querySelector('.gu10-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.gu10-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/)) {
+                                    if (document.querySelector('.color-ambiance-thumbnail')) {
+                                        document.querySelector('.color-ambiance-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_WHITE_AND_COLOR_AMBIANCE/) == null) {
+                                    if (document.querySelector('.color-ambiance-thumbnail')) {
+                                        if (document.querySelector('.color-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.color-ambiance-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_HUE_WHITE/)) {
+                                    if (document.querySelector('.warm-white-thumbnail')) {
+                                        document.querySelector('.warm-white-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_HUE_WHITE/) == null) {
+                                    if (document.querySelector('.warm-white-thumbnail')) {
+                                        if (document.querySelector('.warm-white-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.warm-white-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                                if (window.location.href.match(/FK_WHITE_AMBIANCE/)) {
+                                    if (document.querySelector('.white-ambiance-thumbnail')) {
+                                        document.querySelector('.white-ambiance-thumbnail').classList.add("mpx-border")
+                                    }
+                                }
+
+                                if (window.location.href.match(/FK_WHITE_AMBIANCE/) == null) {
+                                    if (document.querySelector('.white-ambiance-thumbnail')) {
+                                        if (document.querySelector('.white-ambiance-thumbnail').classList.contains("mpx-border")) {
+                                            document.querySelector('.white-ambiance-thumbnail').classList.remove("mpx-border")
+                                        }
+                                    }
+                                }
+                            }
+                        })
+                    })
+                    var config = {
+                        childList: true,
+                        subtree: true
+                    };
+                    observer.observe(bodyList, config);
+                };
+
+                //End URL observer 
+
+            }
+        }
+
+    }
+
+    catch (err) {
+        }
+
+
+</script>

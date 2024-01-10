@@ -1,0 +1,11 @@
+<script>
+//Hard coded image request (pixel)
+document.querySelector('ELEMENT HERE').addEventListener('click', function(){
+    var customLinkName = encodeURIComponent("NAME OF BUILD HERE");
+    var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+                            //CHANGE HTTPS:// BASED ON LAUNCH CONTAINER
+                            //CAN BE FOUND IN NETWORK HIT ON SITE
+    var img = new Image();
+    img.src = imageRequestURL;
+});
+</script>

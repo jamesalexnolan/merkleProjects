@@ -1,0 +1,75 @@
+<style>
+    @media only screen and (max-width: 815px) {
+        .ph-purchase__cc-buttons.fixed {
+            position: fixed;
+            z-index: 9999;
+            width: -webkit-fill-available;
+            left: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            bottom: 0;
+        }
+
+        .page-footer__disclaimer.padding {
+            padding-bottom: 50px;
+        }
+    }
+</style>
+
+<script>
+    //run if mobile view
+    if (window.matchMedia('(max-width: 50.9375em)').matches) {
+        //event to track if a user is scrolling
+        window.addEventListener('scroll', function () {
+            //select element
+            var purchaseButtons = document.querySelector('.ph-purchase__cc-buttons');
+            var footerAdjustment = document.querySelector('.page-footer__disclaimer>div')
+            //select window scroll
+            var scrollPosition = window.scrollY;
+
+            //remove or add 'fixed' class, based on whether if a user is scrolling
+            if (scrollPosition > 0) {
+                purchaseButtons.classList.add('fixed');
+                footerAdjustment.classList.add('padding')
+            } else {
+                purchaseButtons.classList.remove('fixed');
+                footerAdjustment.classList.remove('padding')
+            }
+        });
+
+        //click event to hide 'Buy Now' CTA when the CS model is opened
+        document.querySelector('.ph-purchase__cc-buttons').addEventListener('click', function () {
+            document.querySelector('.ph-purchase__cc-buttons').style.display = 'none'
+            //handles delay in CS model populating following 'Buy Now' CTA click
+            //polling function 
+            var pxFuncFired = 0;
+            var pxInterval = setInterval(pxPollFunc, 100);
+            //when CS model is closed, if the 'Buy Now' CTA is hidden, revert to show it again
+            function csBtnExists() {
+                document.querySelector('.csBtn-close').addEventListener('click', function () {
+                    if (document.querySelector('.ph-purchase__cc-buttons').style.display = 'none') {
+                        document.querySelector('.ph-purchase__cc-buttons').style.display = 'revert'
+                    }
+                })
+
+            }
+
+            //polling function
+            function pxPollFunc() {
+                pxFuncFired += 1;
+
+                //if run for over 1 secs then don't
+                if (pxFuncFired >= 20) {
+                    clearInterval(pxInterval);
+                }
+
+                //Select the CS model close button
+                const closeBtn = document.querySelector('.csBtn-close');
+
+                //Fire function that handles showing the 'Buy Now' CTA on model close
+                csBtnExists(closeBtn);
+            }
+
+        })
+    }
+</script>

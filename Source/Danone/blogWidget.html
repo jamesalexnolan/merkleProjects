@@ -1,0 +1,179 @@
+<body>
+    <div id="latest-blog-widget" class="widget-body">
+        <div class="widget-row">
+            <div class="widget-col-l-2">
+                <h3>
+                    MOST RECENTLY VIEWED
+                </h3>
+            </div>
+            <div class="widget-col-r-2">
+                <!-- on click calling JS function to hide widget-->
+                <div href="#" class="widget-close-btn"
+                    onclick="document.getElementById('latest-blog-widget').style.display='none'">
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div class=" widget-row">
+            <div class="widget-col-l-3 widget-date">
+                <div class="widget-date-day">
+                    14
+                </div>
+                <div class="widget-date-month">
+                    FEB
+                </div>
+            </div>
+            <div class="widget-col-m-3">
+                <img src="https://www.merkleinc.com/emea/sites/emea/files/2022-02/alexander-shatov-9Zjd7PE_FRM-unsplash.jpg"
+                    alt="LinkedIn Logo" style="width: 100%;">
+            </div>
+            <div class="widget-col-r-3">
+                <p>
+                    Discover how LinkedIn Profile Targeting on Microsoft Ads can transform user targeting capabilities.
+                </p>
+
+                <p1>
+                    Authored by: Oliver Hopkins
+                </p1>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+<style>
+    .widget-body {
+        font-family: 'Roboto', sans-serif;
+        z-index: 7;
+        height: 155px;
+        width: 675px;
+        box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 7px 0 rgba(0, 0, 0, 0.19);
+        position: fixed;
+        bottom: 50;
+        left: 50;
+        transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+        background-color: white;
+    }
+
+    .widget-body hr {
+        margin-top: 40px;
+    }
+
+    .widget-body h3 {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .widget-row {
+
+        display: flex;
+        align-items: top;
+    }
+
+    .widget-col-l-2 {
+        width: 35%;
+        padding: 0 10px 0 0;
+        float: left;
+        margin-left: 10px;
+    }
+
+    .widget-col-r-2 {
+        width: 65%;
+        padding: 0 10px 0 0;
+        float: right;
+        margin-right: 10px;
+    }
+
+    .widget-col-l-3 {
+        width: 10%;
+        padding: 0 10px 0 0;
+        float: left;
+        margin-left: 10px;
+    }
+
+    .widget-col-m-3 {
+        width: 20%;
+        padding: 0 10px 0 0;
+        float: left;
+    }
+
+    .widget-col-r-3 {
+        width: 70%;
+        padding: 0 10px 0 0;
+        float: right;
+        margin-right: 10px;
+    }
+
+    .widget-close-btn {
+        position: absolute;
+        right: 20px;
+        top: 15px;
+        width: 23px;
+        height: 23px;
+        opacity: 1;
+    }
+
+    .widget-close-btn:hover {
+        opacity: 0.3;
+        cursor: pointer;
+    }
+
+    .widget-close-btn:before,
+    .widget-close-btn:after {
+        position: absolute;
+        left: 15px;
+        content: ' ';
+        height: 20px;
+        width: 2px;
+        background-color: #333;
+    }
+
+    .widget-close-btn:before {
+        transform: rotate(45deg);
+    }
+
+    .widget-close-btn:after {
+        transform: rotate(-45deg);
+    }
+
+    .widget-date {
+        text-align: center;
+        height: 100%
+    }
+
+    .widget-date-day {
+        background-color: rgb(206, 206, 206);
+        color: rgb(134, 133, 133);
+        height: 70%;
+        vertical-align: middle;
+        line-height: 3.75;
+    }
+
+    .widget-date-month {
+        background-color: rgb(117, 115, 115);
+        color: rgb(197, 196, 196);
+        height: 30%;
+        vertical-align: middle;
+        line-height: 2;
+    }
+
+    .widget-col-r-3 p1 {
+        color: grey;
+    }
+</style>
+
+<script>
+    // no jquery - close window function on button click through display: none; styling
+    var modal = document.getElementById('latest-blog-widget');
+    try {
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+
+            }
+        }
+    }
+    catch (err) {
+        message.innerHTML = "Function " + err;
+    }
+</script>

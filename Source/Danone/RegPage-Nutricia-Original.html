@@ -1,0 +1,1977 @@
+<body>
+
+    <body>
+
+        <style>
+            /* changes to the og styling  */
+
+            .page-main.u-has-separator-2 {
+                padding: 115px 15px 0 15px;
+            }
+
+            .page-main>.container {
+                padding: 0;
+            }
+
+            .recipestage,
+            [data-target-id="column-grid_15006541"],
+            [data-target-id="column-grid_846307601"] {
+                display: none !important;
+            }
+
+            [data-target-id="column-grid_161377138"] {
+                flex-direction: column !important;
+                flex-flow: column !important;
+                width: 100%;
+            }
+
+            [data-target-id="column-grid_161377138"] .row.grid-center-col {
+                padding: 0;
+            }
+
+            [data-target-id="column-grid_161377138"] .row.grid-center-col>.column.theme-1 {
+                padding: 0;
+            }
+
+            [data-target-id="column-grid_1806704801"] .row {
+                justify-content: flex-start;
+                flex-flow: row;
+                width: 100%;
+            }
+
+            #academicTitle {
+                width: 100%;
+                min-width: 0px;
+                padding: 0;
+            }
+
+            .mpx-stepOne-details .row>.column.theme-1:first-child {
+                width: 97px;
+            }
+
+            .mpx-stepOne-details .row>.column.theme-1:last-child {
+                width: 100%;
+            }
+
+            #areasOfInterest .checkBoxLabel:before,
+            #areasOfInterest .checkBoxLabel:after {
+                content: unset;
+            }
+
+            #areasOfInterest {
+                display: flex;
+                padding: 10px;
+                gap: 15px;
+                flex-flow: row wrap;
+            }
+
+            #areasOfInterest .checkBoxLabel {
+                /* align-items: center; */
+                padding: 10px 20px;
+                /* gap: 10px; */
+                background: #f4f4f4;
+                border-radius: 63px;
+                cursor: pointer;
+            }
+
+            #areasOfInterest .-has-checkbox {
+                width: max-content;
+                height: 41px;
+                margin: 0;
+            }
+
+            .mpx-plus {
+                display: inline-block;
+                width: 25px;
+                height: 25px;
+                background: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
+                background-position: center;
+                background-size: 50% 1px, 1px 50%;
+                background-repeat: no-repeat;
+            }
+
+            .checkmark {
+                display: none;
+                width: 22px;
+                height: 22px;
+                -ms-transform: rotate(45deg);
+                /* IE 9 */
+                -webkit-transform: rotate(45deg);
+                /* Chrome, Safari, Opera */
+                transform: rotate(45deg);
+            }
+
+            .checkmark.selected {
+                display: inline-block;
+            }
+
+            .mpx-plus.selected {
+                display: none;
+            }
+
+            #areasOfInterest label.selected {
+                background: white;
+                border: solid 1px #2b3c90;
+                color: #2b3c90;
+            }
+
+            .checkmark_stem {
+                position: absolute;
+                width: 3px;
+                height: 15px;
+                background-color: #2b3c90;
+                left: 11px;
+                top: 6px;
+            }
+
+            .checkmark_kick {
+                position: absolute;
+                width: 7px;
+                height: 3px;
+                background-color: #2b3c90;
+                left: 6px;
+                top: 19px;
+            }
+
+            /* intro */
+            .mpx-intro-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0px;
+                gap: 0px;
+                margin-bottom: 20px;
+
+                min-width: 341px;
+                height: 88px;
+            }
+
+            .mpx-header {
+                font-family: "Bariol";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 33px;
+                line-height: 44px;
+                /* or 133% */
+
+                text-align: center;
+
+                /* Brand Primary/BC-ONE */
+
+                color: #2b3c90;
+            }
+
+            .mpx-desc {
+                display: none;
+            }
+
+            /* mobile icons  */
+            .mpx-cvp-container {
+                display: none !important;
+            }
+
+            .mpx-hp-cvp-container {
+                min-width: 347px;
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                opacity: 0.9;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+                border-radius: 6px;
+                margin-bottom: 42px;
+                height: 156px;
+                padding: 0px 20px 20px 20px;
+                background: #f4f4f4;
+            }
+
+            .mpx-hp-cvp-text {
+                text-align: center;
+                margin-bottom: 0px;
+                padding: 0px;
+            }
+
+            .mpx-cvp-slider-wrap {
+                height: 119px;
+                position: relative;
+                display: flex;
+                font-size: 15px;
+            }
+
+            .mpx-cvp-slider-cont {
+                display: flex;
+                height: 100%;
+                /* overflow-x: scroll; */
+                flex-direction: row;
+                margin: auto;
+                scroll-behavior: smooth;
+                scroll-snap-type: x mandatory;
+            }
+
+            .mpx-cvp-slider-cont a {
+                margin: 0px 10px;
+            }
+
+            .mpx-hp-cvp-slider-item {
+                height: 100%;
+                width: 133px;
+                display: flex;
+                padding: 15px 5px;
+                position: relative;
+                flex-direction: column;
+                scroll-snap-align: start;
+            }
+
+            .mpx-hp-cvp-icon {
+                height: 60%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .mpx-hp-cvp-icon img {
+                width: 32px;
+            }
+
+            .mpx-dotsall {
+                display: none;
+                text-align: center;
+            }
+
+            .mpx-dotsdouble {
+                display: none;
+            }
+
+            .mpx-dotssingle {
+                display: none;
+            }
+
+            .mpx-dot {
+                cursor: pointer;
+                height: 8px;
+                width: 8px;
+                margin: 0 2px;
+                background-color: #eae9ed;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+            }
+
+            span.mpx-dot.mpx-active {
+                background-color: #51338b;
+                height: 10px;
+                width: 10px;
+            }
+
+            .mpx-cvp-slider-cont a {
+                cursor: default;
+            }
+
+            @media only screen and (max-width: 1090px) {
+                .mpx-cvp-slider-wrap {
+                    width: 90%;
+                }
+
+                .mpx-cvp-slider-cont {
+                    overflow-x: scroll;
+                }
+            }
+
+            @media only screen and (min-width: 580px) and (max-width: 849px) {
+                .mpx-cvp-slider-wrap {
+                    width: 540px;
+                }
+
+                .mpx-dotsdouble {
+                    display: block;
+                }
+            }
+
+            @media only screen and (max-width: 579px) {
+                .mpx-cvp-slider-wrap {
+                    width: 320px;
+                }
+
+                .mpx-dotssingle {
+                    display: block;
+                }
+            }
+
+            /* layoutcss */
+
+            .mpx-stepOne-container .form-group>label,
+            .mpx-stepTwo-container .form-group>label,
+            .mpx-stepThree-container .form-group>label {
+                font-size: 15px;
+            }
+
+            .mpx-stepOne-container.closed,
+            .mpx-stepTwo-container.closed {
+                margin-bottom: 32px;
+            }
+
+            .mpx-stepOne-details input[type="checkbox"]+label:before,
+            input[type="radio"]+label:before {
+                width: 0.5rem;
+                margin-right: 8px;
+            }
+
+            .mpx-generic-title {
+                height: 64px;
+            }
+
+            .mpx-generic-title.closed {
+                background: #f4f4f4;
+                border-radius: 10px;
+                padding: 16px;
+            }
+
+            .mpx-generic-title>div {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                padding: 0px;
+                align-items: center;
+                height: 32px;
+            }
+
+            .mpx-generic-title>div>.default {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                padding: 0px;
+                height: 32px;
+            }
+
+            .mpx-generic-title>div>.default>h2 {
+                font-family: "Bariol";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 20px;
+                line-height: 176%;
+                letter-spacing: 0.506024px;
+                color: #2b3c90;
+                margin-right: 12px;
+                margin-bottom: 0;
+            }
+
+            .mpx-generic-title>div>.default>a {
+                width: 22px;
+                height: 25px;
+
+                font-family: "Bariol";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 176%;
+                /* identical to box height, or 25px */
+
+                letter-spacing: 0.506024px;
+                text-decoration-line: underline;
+
+                /* Brand Primary/BC-ONE */
+
+                color: #2b3c90;
+            }
+
+            .mpx-generic-title>div>img {
+                padding: 3px 3px 3px 0px;
+                width: 32px;
+            }
+
+            /* .mpx-stepOne-container {
+          margin-bottom: 20px;
+        } */
+
+            .mpx-stepThree-container a.closed,
+            .mpx-stepTwo-container a.closed,
+            .mpx-stepOne-container a.closed,
+            .mpx-stepThree-container img.closed,
+            .mpx-stepTwo-container img.closed,
+            .mpx-stepOne-container img.closed {
+                display: none;
+            }
+
+            .mpx-stepOne-container .mpx-stepOne-details.closed {
+                display: none;
+            }
+
+            .mpx-stepTwo-container .mpx-stepTwo-details.closed {
+                display: none;
+            }
+
+            /* .mpx-stepTwo-container {
+          margin-bottom: 32px;
+        } */
+
+            .mpx-stepThree-container .mpx-stepThree-details.closed {
+                display: none;
+            }
+
+            .mpx-stepThree-container .form-group input,
+            .mpx-stepThree-container .form-group select {
+                width: 100% !important;
+            }
+
+            /* please note */
+            .mpx-note-container {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0px;
+                min-height: 61px;
+                margin: 10px;
+            }
+
+            .mpx-note {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 0px;
+                gap: 6px;
+                height: 30px;
+            }
+
+            .mpx-note>p {
+                height: 24px;
+
+                font-family: "Bariol";
+                font-style: normal;
+                font-weight: 400;
+                font-size: 13px;
+                line-height: 24px;
+                /* identical to box height, or 185% */
+
+                /* Brand Primary/BC-ONE */
+
+                color: #2b3c90;
+                margin: 0;
+            }
+
+            .mpx-note>p>a {
+                color: #2b3c90;
+            }
+
+            .mpx-note>svg {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                padding: 5px 0px 10px;
+                width: 15px;
+                height: 30px;
+            }
+
+            .mpx-note>svg>use {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                padding: 10px;
+                width: 15px;
+                height: 15px;
+            }
+
+            /* first to know */
+            /* popup */
+            .mpxPopup.closed {
+                display: none;
+            }
+
+            .mpxPopup {
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: #001489ad;
+                z-index: 5;
+                width: 100%;
+                height: 100%;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+            }
+
+            .mpx-firstToKnow-container {
+                display: inline-block;
+                /* flex-direction: column;
+          justify-content: center;
+          align-items: flex-start; */
+                padding: 24px 16px;
+                max-width: 337px;
+                height: 676px;
+
+                background: #ffffff;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.12);
+                border-radius: 6px;
+            }
+
+            .mpx-firstToKnow-container h2 {
+                margin-bottom: 0.5625rem;
+                font-size: 20px;
+            }
+
+            .mpx-firstToKnow-container h5 {
+                font-size: 15px;
+            }
+
+            .mpxPopup>div>label {
+                font-size: 13px;
+            }
+
+            .mpx-firstToKnow-container b {
+                font-size: 15px;
+                font-weight: 400;
+            }
+
+            .mpx-firstToKnow-container>.rte>.default>p {
+                margin-bottom: 0.49962rem;
+            }
+
+            .mpx-firstToKnow-container input[type="checkbox"]+label p {
+                font-size: 15px;
+                line-height: 150%;
+                margin: 0 0 0.49962rem 0;
+            }
+
+            .mpx-firstToKnow-container input[type="checkbox"]+label:before {
+                margin: 0 1.125rem;
+                width: 0.7rem;
+                height: 1.6rem;
+                display: flex;
+                align-items: center;
+            }
+
+            .mpx-firstToKnow-container input[type="checkbox"]+label:after {
+                top: 4px;
+                left: 18px;
+                width: 0.7rem;
+                height: 1.6rem;
+            }
+
+            .mpx-firstToKnow-container input[type="checkbox"]+label {
+                align-items: baseline;
+                width: 240px;
+            }
+
+            .mpx-firstToKnow-container .form-group:last-child {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: 10px 0 10px 0;
+            }
+
+            .mpx-firstToKnow-container .form-group.-has-checkbox {
+                margin-bottom: 0;
+            }
+
+            /* all buttons */
+            button.button.-type-primary.formcontainer__submit.theme-1 {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 25px;
+                width: 132px;
+                height: 43px;
+                margin: 0;
+                background-color: #513388;
+            }
+
+            button.button.-type-primary.formcontainer__submit.theme-1:hover {
+                background-color: #001489;
+            }
+
+            .mpx-goBack-container {
+                width: 66px;
+                height: 23px;
+                align-items: center;
+                display: flex;
+                justify-content: space-between;
+                cursor: pointer;
+            }
+
+            .arrow.left {
+                border: solid #2b3c90;
+                border-width: 0 1px 1px 0;
+                display: inline-block;
+                padding: 3px;
+                transform: rotate(135deg);
+                -webkit-transform: rotate(135deg);
+                height: 5px;
+            }
+
+            .arrow.right {
+                transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                border: solid white;
+                border-width: 0 1px 1px 0;
+                display: inline-block;
+                padding: 3px;
+                height: 5px;
+            }
+
+            .mpx-goBack-container p {
+                height: 23px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 150%;
+                align-items: center;
+                text-align: center;
+                color: #2b3c90;
+                margin: 0;
+            }
+
+            @media only screen and (min-width: 816px) {
+                /* desktop changes to the og styling  */
+
+                .page-main.u-has-separator-2 {
+                    padding: 154px 145px 0 145px;
+                }
+
+                [data-target-id="column-grid_1806704801"] .row {
+                    width: 101.5%;
+                }
+
+                /* desktop intro*/
+                .mpx-intro-container {
+                    align-items: flex-start;
+
+                    width: 558px;
+                    height: 212px;
+                }
+
+                .mpx-header {
+                    width: 637px;
+                    height: 128px;
+                    font-size: 48px;
+                    line-height: 64px;
+                    text-align: initial;
+                }
+
+                .mpx-desc {
+                    display: block;
+                    width: 637px;
+                    height: 64px;
+                    font-family: "Bariol";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 24px;
+                    line-height: 32px;
+                    color: #3c3c3c;
+                }
+
+                /* desktop icons*/
+                .mpx-hp-cvp-container {
+                    display: none !important;
+                }
+
+                [data-target-id="column-grid_161377138"] {
+                    flex-direction: row !important;
+                    align-items: initial !important;
+                    width: 100%;
+                }
+
+                .mpx-cvp-container {
+                    display: flex !important;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 0px 22px;
+                    gap: 40px;
+
+                    /* position: absolute; */
+                    width: 320px;
+                    height: 900px;
+                    /* left: 145px; */
+                    /* top: calc(50% - 900px / 2 - 32px); */
+
+                    background: #ffffff;
+                    opacity: 0.9;
+                    margin-right: 140px;
+                }
+
+                .mpx-cvp-icons-container {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding: 0px;
+                    gap: 24px;
+
+                    width: 276px;
+                    height: 148px;
+                }
+
+                .mpx-cvp-icons-container>img {
+                    width: 60px;
+                    height: 60px;
+                }
+
+                .mpx-cvp-text {
+                    width: 276px;
+                    height: 64px;
+
+                    font-family: "Bariol";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 18px;
+                    line-height: 176%;
+                    /* or 32px */
+
+                    text-align: center;
+                    letter-spacing: 0.506024px;
+
+                    /* UI/UI-ONE */
+
+                    color: #3c3c3c;
+                }
+
+                .mpx-slider-controls {
+                    display: none !important;
+                }
+
+                /* layoutcss */
+                .mpx-generic-title {
+                    height: 75px;
+                }
+
+                .mpx-generic-title>div {
+                    height: 35px;
+                }
+
+                .mpx-generic-title>div>.default {
+                    height: 35px;
+                }
+
+                .mpx-generic-title>div>.default>h2 {
+                    height: 35px;
+                    font-size: 20px;
+                }
+
+                .mpx-generic-title>div>.default>p:last-child {
+                    width: 22px;
+                    height: 25px;
+
+                    font-family: "Bariol";
+                    font-style: normal;
+                    font-weight: 400;
+                    font-size: 14px;
+                    line-height: 176%;
+                    letter-spacing: 0.506024px;
+                    text-decoration-line: underline;
+                    color: #2b3c90;
+                }
+
+                .mpx-generic-title>div>img {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px 10px 10px 13px;
+                    gap: 10px;
+                    height: 48px;
+                    width: 48px;
+                }
+
+                .mpx-stepOne-details input[type="checkbox"]+label:after {
+                    width: 0.5rem;
+                }
+
+                /* first to know */
+                .mpx-firstToKnow-container {
+                    padding: 30px;
+                    max-width: 745px;
+                    height: 546px;
+                }
+
+                .mpx-firstToKnow-container .form-group.-has-checkbox {
+                    margin: 10px 0px;
+                }
+
+                .mpx-firstToKnow-container input[type="checkbox"]+label {
+                    align-items: initial;
+                    width: 100%;
+                }
+
+                .mpx-firstToKnow-container input[type="checkbox"]+label:after {
+                    top: 0px;
+                }
+
+                .mpx-firstToKnow-container b {
+                    font-size: 18px;
+                }
+
+                .mpx-firstToKnow-container h2 {
+                    font-size: 33px;
+                }
+
+                .mpx-firstToKnow-container input[type="checkbox"]+label p {
+                    font-size: 17px;
+                }
+
+                .mpx-firstToKnow-container h5 {
+                    font-size: 18px;
+                }
+
+                /* please note */
+                .mpx-note-container {
+                    min-height: 80px;
+                    margin: 0px;
+                }
+
+                .mpx-note>p {
+                    height: 48px;
+                }
+
+                .mpx-note>p>a {
+                    color: #2b3c90;
+                }
+            }
+        </style>
+
+        <script>
+            try {
+                function reload() {
+                    //INSERT INTRO
+                    const intro = `<div class="mpx-intro-container"> <p class="mpx-header">Create your free Nutricia account in 3 easy steps</p> <p class="mpx-desc"> Register for your free Nutricia account to get access to a wide range of support services and resources including: </p> </div>
+     `;
+
+                    document
+                        .querySelector("[data-target-id='column-grid_161377138']")
+                        .insertAdjacentHTML("beforebegin", intro);
+                    //END
+
+                    //MOBILE ICONS + FUNCTIONALITY
+                    //insert html code
+                    var mpxCVPcomp =
+                        '<div class="mpx-hp-cvp-container" id="mpx-hp-cvp-container"><div class="mpx-cvp-slider-wrap" style="border: 0px solid black;"><div class="mpx-cvp-slider-cont"><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/ph_medal-thin.png"></div><div class="mpx-hp-cvp-text">Keep informed with the latest news and events</div></div></a><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/icon-park_send-email.png"></div><div class="mpx-hp-cvp-text">Order samples, delivered to your patients\' homes</div></div></a><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/iconoir_book.png"></div><div class="mpx-hp-cvp-text">Discover Nutricia Academy</div></div></a><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/bi_calendar4-event.png"></div><div class="mpx-hp-cvp-text">Free access to live events and webinars</div></div></a><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/fluent_archive-16-regular.png"></div><div class="mpx-hp-cvp-text">Order free copies of support materials</div></div></a></div></div><div class="mpx-dotsall"><span class="mpx-dot mpx-active mpx-dot1"></span><span class="mpx-dot mpx-dot2"></span></div><div class="mpx-dotsdouble"><span class="mpx-dot mpx-active mpx-dot1"></span><span class="mpx-dot mpx-dot2"></span><span class="mpx-dot mpx-dot3"></span></div><div class="mpx-dotssingle"><span class="mpx-dot mpx-active mpx-dot1"></span><span class="mpx-dot mpx-dot2"></span><span class="mpx-dot mpx-dot3"></span><span class="mpx-dot mpx-dot4"></span></div></div>';
+
+                    var pos;
+                    var desktop = window.matchMedia("(min-width: 1050px)");
+
+                    document
+                        .querySelector("[data-target-id='column-grid_161377138']")
+                        .insertAdjacentHTML("afterbegin", mpxCVPcomp);
+
+                    //dots and slider controls
+                    var dotsAll = document.querySelectorAll(".mpx-dotsall span");
+                    var dotsDouble = document.querySelectorAll(".mpx-dotsdouble span");
+                    var dotsSingle = document.querySelectorAll(".mpx-dotssingle span");
+
+                    cont = document.querySelector(".mpx-cvp-slider-cont");
+
+                    dotsDoubleClear = function () {
+                        for (n = 0; n < dotsDouble.length; n++) {
+                            if (dotsDouble[n].classList.contains("mpx-active")) {
+                                dotsDouble[n].classList.remove("mpx-active");
+                            }
+                        }
+                    };
+
+                    dotsSingleClear = function () {
+                        for (o = 0; o < dotsSingle.length; o++) {
+                            if (dotsSingle[o].classList.contains("mpx-active")) {
+                                dotsSingle[o].classList.remove("mpx-active");
+                            }
+                        }
+                    };
+
+                    document.querySelectorAll(".mpx-dotssingle .mpx-dot").forEach((item) => {
+                        item.addEventListener("click", function () {
+                            dotsSingleClear();
+                            if (item.classList.contains("mpx-dot1")) {
+                                document.querySelector(".mpx-cvp-slider-cont").scrollTo(0, 0);
+                                item.classList.add("mpx-active");
+                            } else if (item.classList.contains("mpx-dot2")) {
+                                document.querySelector(".mpx-cvp-slider-cont").scrollTo(97, 0);
+                                item.classList.add("mpx-active");
+                            } else if (item.classList.contains("mpx-dot3")) {
+                                document.querySelector(".mpx-cvp-slider-cont").scrollTo(292, 0);
+                                item.classList.add("mpx-active");
+                            } else if (item.classList.contains("mpx-dot4")) {
+                                document
+                                    .querySelector(".mpx-cvp-slider-cont")
+                                    .scrollTo(
+                                        document.querySelector(".mpx-cvp-slider-cont").scrollWidth,
+                                        0
+                                    );
+                                item.classList.add("mpx-active");
+                            }
+                        });
+                    });
+
+                    document.querySelectorAll(".mpx-dotsdouble .mpx-dot").forEach((item) => {
+                        item.addEventListener("click", function () {
+                            dotsDoubleClear();
+                            if (item.classList.contains("mpx-dot1")) {
+                                document.querySelector(".mpx-cvp-slider-cont").scrollTo(0, 0);
+                                item.classList.add("mpx-active");
+                            } else if (item.classList.contains("mpx-dot2")) {
+                                document.querySelector(".mpx-cvp-slider-cont").scrollTo(150, 0);
+                                item.classList.add("mpx-active");
+                            } else if (item.classList.contains("mpx-dot3")) {
+                                document
+                                    .querySelector(".mpx-cvp-slider-cont")
+                                    .scrollTo(
+                                        document.querySelector(".mpx-cvp-slider-cont").scrollWidth,
+                                        0
+                                    );
+                                item.classList.add("mpx-active");
+                            }
+                        });
+                    });
+
+                    //highlighting dots
+                    cont.addEventListener("scroll", function () {
+                        dotsSingleClear();
+                        if (cont.scrollLeft < 50) {
+                            document
+                                .querySelector(".mpx-dotssingle .mpx-dot1")
+                                .classList.add("mpx-active");
+                        } else if (cont.scrollLeft > 200 - 50 && cont.scrollLeft < 200 + 50) {
+                            document
+                                .querySelector(".mpx-dotssingle .mpx-dot2")
+                                .classList.add("mpx-active");
+                        } else if (cont.scrollLeft > 360 - 50 && cont.scrollLeft < 360 + 50) {
+                            document
+                                .querySelector(".mpx-dotssingle .mpx-dot3")
+                                .classList.add("mpx-active");
+                        } else if (cont.scrollLeft > 460 - 50 && cont.scrollLeft < 460 + 50) {
+                            document
+                                .querySelector(".mpx-dotssingle .mpx-dot4")
+                                .classList.add("mpx-active");
+                        }
+                    });
+
+                    cont.addEventListener("scroll", function () {
+                        dotsDoubleClear();
+                        if (cont.scrollLeft < 160) {
+                            document
+                                .querySelector(".mpx-dotsdouble .mpx-dot1")
+                                .classList.add("mpx-active");
+                        } else if (cont.scrollLeft > 170 - 50 && cont.scrollLeft < 170 + 50) {
+                            document
+                                .querySelector(".mpx-dotsdouble .mpx-dot2")
+                                .classList.add("mpx-active");
+                        } else if (cont.scrollLeft > 205 - 25 && cont.scrollLeft < 205 + 25) {
+                            document
+                                .querySelector(".mpx-dotsdouble .mpx-dot3")
+                                .classList.add("mpx-active");
+                        }
+                    });
+                    //END
+
+                    // DESKTOP ICONS
+                    const iconsDesktop = `<div class="mpx-cvp-container"> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/ph_medal-thin.png" /> <p class="mpx-cvp-text"> Keep informed with the latest news and events </p> </div> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/icon-park_send-email.png" /> <p class="mpx-cvp-text"> Order samples, delivered to your patient’s homes </p> </div> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/iconoir_book.png" /> <p class="mpx-cvp-text">Discover Nutricia Academy</p> </div> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/bi_calendar4-event.png" /> <p class="mpx-cvp-text">Free access to live events and webinars</p> </div> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/fluent_archive-16-regular.png" /> <p class="mpx-cvp-text">Order free paper copies of support materials</p> </div> </div>`;
+
+                    document
+                        .querySelector("[data-target-id='column-grid_161377138']")
+                        .insertAdjacentHTML("afterbegin", iconsDesktop);
+                    //END
+
+                    //LAYOUT V1
+                    // form refrence to create 4 seperate containers
+                    const formRef = document.querySelector(
+                        'form[action="/hcp/register.snhc-formsubmit.html"]'
+                    );
+                    const formRefChildren = document.querySelector(
+                        'form[action="/hcp/register.snhc-formsubmit.html"]'
+                    ).children;
+
+                    //clone register btn
+                    const cloneRegisterBtn = document.querySelector(
+                        ".button.-type-primary.formcontainer__submit.theme-1"
+                    ).parentElement;
+                    const continueBtn = cloneRegisterBtn.cloneNode(true);
+                    //change to continue and hide register for now
+                    cloneRegisterBtn.style.display = "none";
+                    continueBtn.querySelector("button").innerText = "Continue";
+                    continueBtn.querySelector("button").classList.add("mpx-first-continue");
+                    continueBtn.querySelector("button").type = "button";
+                    //END
+
+                    // 1ST JOURNEY CONTAINER
+                    const stepOne = [
+                        //header - about you
+                        formRefChildren[10],
+
+                        // please note
+                        document.querySelector(
+                            "[data-target-id='column-grid_846307601'] section"
+                        ),
+
+                        // title
+                        formRefChildren[11],
+
+                        //first/second name
+                        formRefChildren[12],
+
+                        //email
+                        formRefChildren[14],
+                        //password
+                        formRefChildren[15],
+                        //re enter password
+                        formRefChildren[16],
+
+                        //disclaimer
+                        formRefChildren[8],
+                        //disclaimer checkbox
+                        formRefChildren[9],
+
+                        continueBtn,
+                    ];
+
+                    //step one container
+                    const stepOneContainer = document.createElement("div");
+                    stepOneContainer.classList.add("mpx-stepOne-container");
+
+                    //step one about you container
+                    const aboutYouContainer = document.createElement("div");
+                    aboutYouContainer.classList.add("mpx-stepOne-details");
+
+                    stepOne.forEach((array) => {
+                        aboutYouContainer.append(array);
+                    });
+
+                    stepOneContainer.append(aboutYouContainer);
+                    formRef.insertAdjacentElement("afterbegin", stepOneContainer);
+
+                    //add arrow
+                    const rightArrow = document.createElement("div");
+                    rightArrow.classList.add("arrow", "right");
+                    continueBtn.querySelector("button").append(rightArrow);
+
+                    //move last name above email address
+                    document
+                        .querySelector(".mpx-stepOne-details")
+                        .children[4].insertAdjacentElement(
+                            "beforebegin",
+                            document.querySelector(
+                                ".mpx-stepOne-details .row > .column.theme-1:last-child"
+                            ).children[0]
+                        );
+
+                    //then move choose title to last name's original position then in front of first name
+                    document
+                        .querySelector(".mpx-stepOne-details .row > .column.theme-1:last-child")
+                        .insertAdjacentElement(
+                            "beforeend",
+                            document.querySelector(".mpx-stepOne-details").children[2]
+                        );
+
+                    document
+                        .querySelector(".mpx-stepOne-details .row.grid-center-10-width-2-col")
+                        .insertAdjacentElement(
+                            "afterbegin",
+                            document.querySelector(
+                                ".mpx-stepOne-details .row.grid-center-10-width-2-col .column:last-child"
+                            )
+                        );
+
+                    //Give class then move about outside of details container
+                    document
+                        .querySelector(".mpx-stepOne-details")
+                        .children[0].classList.add("mpx-generic-title");
+
+                    document
+                        .querySelector(".mpx-stepOne-details")
+                        .children[0].querySelector(".default h2").innerText = "1 - About you";
+
+                    const textContainer = document.createElement("div");
+                    textContainer.append(
+                        document.querySelector(
+                            ".mpx-stepOne-details .mpx-generic-title > .default"
+                        )
+                    );
+
+                    document
+                        .querySelector(".mpx-stepOne-details .mpx-generic-title")
+                        .insertAdjacentElement("afterbegin", textContainer);
+
+                    const iconIncomplete = document.createElement("img");
+                    iconIncomplete.classList.add("closed");
+                    iconIncomplete.src =
+                        "https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png";
+                    document
+                        .querySelector(".mpx-stepOne-details .mpx-generic-title > div")
+                        .insertAdjacentElement("beforeend", iconIncomplete);
+
+                    const edit = document.createElement("a");
+                    edit.style.textDecoration = "underline";
+                    edit.style.color = "#2B3C90";
+
+                    edit.innerText = "edit";
+                    edit.classList.add("closed");
+                    document
+                        .querySelector(".mpx-stepOne-details .mpx-generic-title > div > .default")
+                        .insertAdjacentElement("beforeend", edit);
+
+                    document
+                        .querySelector(".mpx-stepOne-container")
+                        .insertAdjacentElement(
+                            "afterbegin",
+                            document.querySelector(".mpx-stepOne-details").children[0]
+                        );
+
+                    //END
+
+                    //2ND JOURNEY CONTAINER
+                    //step two container
+                    const stepTwoContainer = document.createElement("div");
+                    stepTwoContainer.classList.add("mpx-stepTwo-container");
+                    stepTwoContainer.classList.add("closed");
+                    //step two interests container
+                    const interestsContainer = document.createElement("div");
+                    interestsContainer.classList.add("mpx-stepTwo-details");
+                    interestsContainer.classList.add("closed");
+
+                    //clone step title
+                    const stepTwoTitle = document.querySelector(".mpx-stepOne-container")
+                        .children[0];
+
+                    const genericTitleTwo = stepTwoTitle.cloneNode(true);
+                    genericTitleTwo.classList.add("closed");
+
+                    stepTwoContainer.append(interestsContainer);
+                    stepTwoContainer.insertAdjacentElement("afterbegin", genericTitleTwo);
+
+                    //clone register btn
+                    const cloneContinueBtn = document.querySelector(
+                        ".mpx-first-continue"
+                    ).parentElement;
+                    const secondContinueBtn = cloneContinueBtn.cloneNode(true);
+
+                    // add/remove class
+                    secondContinueBtn
+                        .querySelector("button")
+                        .classList.add("mpx-second-continue");
+                    secondContinueBtn
+                        .querySelector("button")
+                        .classList.remove("mpx-first-continue");
+
+                    const stepTwo = [
+                        formRefChildren[11],
+                        formRefChildren[12],
+                        secondContinueBtn,
+                    ];
+
+                    stepTwo.forEach((array2) => {
+                        interestsContainer.append(array2);
+                    });
+
+                    stepOneContainer.insertAdjacentElement("afterend", stepTwoContainer);
+
+                    //edit after inception
+                    document.querySelector(
+                        ".mpx-stepTwo-container > .mpx-generic-title > div > .default h2"
+                    ).innerText = "2 - Your work";
+
+                    document
+                        .querySelector(".mpx-stepTwo-container a")
+                        .classList.remove("closed");
+                    document
+                        .querySelector(".mpx-stepTwo-container img")
+                        .classList.remove("closed");
+                    //END
+
+                    //3RD JOURNEY CONTAINER
+
+                    const stepThreeContainer = document.createElement("div");
+                    stepThreeContainer.classList.add("mpx-stepThree-container");
+                    //step three job container
+                    const jobContainer = document.createElement("div");
+                    jobContainer.classList.add("mpx-stepThree-details");
+                    jobContainer.classList.add("closed");
+
+                    //clone step title
+                    const stepThreeTitle = document.querySelector(".mpx-stepTwo-container")
+                        .children[0];
+
+                    const genericTitleThree = stepThreeTitle.cloneNode(true);
+
+                    stepThreeContainer.append(jobContainer);
+                    stepThreeContainer.insertAdjacentElement("afterbegin", genericTitleThree);
+
+                    //clone register btn
+                    const cloneSecondContinueBtn = document.querySelector(
+                        ".mpx-second-continue"
+                    ).parentElement;
+                    const thirdContinueBtn = cloneSecondContinueBtn.cloneNode(true);
+
+                    //add/remove class
+                    thirdContinueBtn
+                        .querySelector("button")
+                        .classList.add("mpx-third-continue");
+                    thirdContinueBtn
+                        .querySelector("button")
+                        .classList.remove("mpx-second-continue");
+                    thirdContinueBtn.querySelector("button").innerText = "Register";
+                    const rightArrowTwo = document.createElement("div");
+                    rightArrowTwo.classList.add("arrow", "right");
+                    thirdContinueBtn.querySelector("button").append(rightArrowTwo);
+
+                    const stepThree = [
+                        formRefChildren[12],
+                        formRefChildren[13],
+                        thirdContinueBtn,
+                    ];
+
+                    stepThree.forEach((array3) => {
+                        jobContainer.append(array3);
+                    });
+
+                    stepTwoContainer.insertAdjacentElement("afterend", stepThreeContainer);
+
+                    document.querySelector(
+                        ".mpx-stepThree-container > .mpx-generic-title > div > .default h2"
+                    ).innerText = "3 - Your work address";
+
+                    document
+                        .querySelector(".mpx-stepThree-container a")
+                        .classList.remove("closed");
+                    document
+                        .querySelector(".mpx-stepThree-container img")
+                        .classList.remove("closed");
+
+                    //move postcode above country
+                    document
+                        .querySelector(".mpx-stepThree-details .multiple-mandatory")
+                        .children[2].append(
+                            document.querySelector(
+                                ".mpx-stepThree-details .formInputContainerAddress .form-group:last-child"
+                            )
+                        );
+                    //END
+
+                    // 4TH JOURNEY CONTAINER - Be the first to know pop up
+
+                    //clone register btn
+                    const cloneThirdContinueBtn = document.querySelector(
+                        ".mpx-third-continue"
+                    ).parentElement;
+                    const registerContinueBtn = cloneThirdContinueBtn.cloneNode(true);
+                    registerContinueBtn
+                        .querySelector("button")
+                        .classList.remove("mpx-third-continue");
+                    registerContinueBtn.querySelector("button").classList.add("mpx-register");
+                    registerContinueBtn.querySelector("button").type = "submit";
+
+                    const popup = [
+                        formRefChildren[13],
+                        formRefChildren[14],
+                        formRefChildren[15],
+                        formRefChildren[16],
+                        formRefChildren[17],
+                        formRefChildren[18],
+                        formRefChildren[19],
+                        formRefChildren[20],
+                        formRef.children["grecaptcha-error"],
+                        registerContinueBtn,
+                    ];
+
+                    const mpxPopup = document.createElement("div");
+                    mpxPopup.classList.add("mpxPopup", "closed");
+                    const firstToKnowContainer = document.createElement("div");
+                    firstToKnowContainer.classList.add("mpx-firstToKnow-container");
+
+                    mpxPopup.append(firstToKnowContainer);
+
+                    popup.forEach((array4) => {
+                        firstToKnowContainer.append(array4);
+                    });
+
+                    //insert popup
+                    document
+                        .querySelector(".mpx-stepThree-container")
+                        .insertAdjacentElement("afterend", mpxPopup);
+
+                    //add go back btn
+                    const goBackBtn = document.createElement("div");
+                    goBackBtn.classList.add("mpx-goBack-container");
+                    const goBackImg = document.createElement("div");
+                    goBackImg.classList.add("arrow", "left");
+
+                    goBackBtn.append(goBackImg);
+
+                    const goBackText = `
+                     <p>Go back</p>
+                     `;
+
+                    goBackImg.insertAdjacentHTML("afterend", goBackText);
+                    document
+                        .querySelector(".mpx-firstToKnow-container button")
+                        .insertAdjacentElement("beforebegin", goBackBtn);
+                    //END
+
+                    // LAYOUT V2
+                    formRefChildren[4].style.display = "none";
+                    formRefChildren[12].style.display = "none";
+                    formRefChildren[13].style.display = "none";
+                    document.querySelectorAll(".form-group input").forEach((input) => {
+                        input.placeholder = "";
+                    });
+
+                    //make intital option text blank
+                    document.querySelectorAll("select option:first-child").forEach((input) => {
+                        input.innerText = "";
+                    });
+
+                    //create plus and tick css containers / request these
+                    document
+                        .querySelectorAll("#areasOfInterest .checkBoxLabel")
+                        .forEach((label) => {
+                            const newDiv = document.createElement("div");
+                            newDiv.classList.add("mpx-plus");
+                            label.insertAdjacentElement("afterbegin", newDiv);
+                            label.insertAdjacentHTML(
+                                "afterbegin",
+                                '<span class="checkmark"> <div class="checkmark_stem"></div> <div class="checkmark_kick"></div> </span>'
+                            );
+                        });
+
+                    //remove tooltip
+                    document.querySelector(".form-group__tooltip-wrapper").style.display =
+                        "none";
+
+                    // add width to select element / use css
+                    document.querySelector("#jobSpeciality").style.width = "100%";
+
+                    //step 2 order
+                    const stepTwoArray = document.querySelectorAll(
+                        "#areasOfInterest .form-group"
+                    );
+                    const arr = Array.from(stepTwoArray);
+
+                    arr.splice(3, 0, arr.splice(4, 1)[0]);
+                    arr.splice(5, 0, arr.splice(6, 1)[0]);
+                    arr.splice(6, 0, arr.splice(7, 1)[0]);
+                    arr.splice(7, 0, arr.splice(8, 1)[0]);
+                    arr.splice(8, 0, arr.splice(9, 1)[0]);
+                    arr.splice(9, 0, arr.splice(11, 1)[0]);
+                    arr.splice(10, 0, arr.splice(12, 1)[0]);
+                    arr.splice(11, 0, arr.splice(14, 1)[0]);
+                    arr.splice(12, 0, arr.splice(15, 1)[0]);
+                    arr.splice(13, 0, arr.splice(14, 1)[0]);
+
+                    //iterate it back into the dom
+                    arr.forEach((element) => {
+                        document.querySelector("#areasOfInterest").append(element);
+                    });
+
+                    //arrange step 3 order putting postcode above country
+                    document
+                        .querySelector(".mpx-stepThree-details .multiple-mandatory")
+                        .children[3].insertAdjacentElement(
+                            "beforebegin",
+                            document.querySelector(
+                                ".mpx-stepThree-container .formInputContainerAddress"
+                            ).children[1]
+                        );
+
+                    //hide please note and create new please note text box
+                    document.querySelector(
+                        ".mpx-stepOne-details .infobox.theme-1"
+                    ).style.display = "none";
+
+                    const pleaseNoteContainer = document.createElement("div");
+                    pleaseNoteContainer.classList.add("mpx-note-container");
+
+                    const pleaseNote = document.createElement("div");
+                    pleaseNote.classList.add("mpx-note");
+
+                    const pleaseNoteText = document.createElement("p");
+                    const pleaseNoteTextHTML = `
+     If you previously had an account on another Nutricia website, <a href="/hcp/login/reset-password.html"><u>click here</u></a> to reset your password
+     `;
+                    pleaseNoteText.insertAdjacentHTML("afterbegin", pleaseNoteTextHTML);
+
+                    const svgContainer = document.createElement("svg");
+                    const svg = `
+     <img src="https://smartmedia.digital4danone.com/is/image/danone/frame-27.png"></img>
+     `;
+                    svgContainer.insertAdjacentHTML("afterbegin", svg);
+
+                    pleaseNoteContainer.append(pleaseNote);
+                    pleaseNote.append(svgContainer);
+                    pleaseNote.append(pleaseNoteText);
+
+                    document
+                        .querySelector(".mpx-stepOne-details")
+                        .insertAdjacentElement("afterbegin", pleaseNoteContainer);
+
+                    //asterix move
+                    document
+                        .querySelector(".mpx-firstToKnow-container label a")
+                        .parentElement.append(
+                            document.querySelector(
+                                ".mpxPopup > div > div:nth-child(4) > div > span"
+                            )
+                        );
+                    //END
+
+                    // LOGIC AND VALIDATION
+
+                    // Step 1
+                    document
+                        .querySelector(".mpx-stepOne-details .mpx-first-continue")
+                        .addEventListener("click", (e) => {
+                            document
+                                .querySelectorAll(".mpx-stepOne-details .form-group input")
+                                .forEach((valid) => {
+                                    if (
+                                        valid.classList.contains("input-valid") &&
+                                        document.querySelector(
+                                            ".mpx-stepOne-details .form-group__checkbox > input"
+                                        ).value === "true"
+                                    ) {
+                                        const mobile = window.matchMedia("(max-width: 815px)");
+                                        if (mobile.matches) {
+                                            document.querySelector(".mpx-intro-container").style.display =
+                                                "none";
+                                            document.querySelector(".mpx-hp-cvp-container").style.display =
+                                                "none";
+                                        }
+
+                                        // add margin to container
+                                        document
+                                            .querySelector(".mpx-stepOne-container")
+                                            .classList.add("closed");
+
+                                        //close details
+                                        document
+                                            .querySelector(".mpx-stepOne-container > .mpx-generic-title")
+                                            .classList.add("closed");
+
+                                        document
+                                            .querySelector(".mpx-stepOne-details")
+                                            .classList.add("closed");
+
+                                        //show tick
+                                        document.querySelector(".mpx-stepOne-container img").src =
+                                            "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png";
+
+                                        document
+                                            .querySelector(".mpx-stepOne-container img")
+                                            .classList.remove("closed");
+
+                                        //show edit
+                                        document
+                                            .querySelector(".mpx-stepOne-container a")
+                                            .classList.remove("closed");
+
+                                        // show step two details
+                                        document
+                                            .querySelector(".mpx-stepTwo-container > .mpx-generic-title")
+                                            .classList.remove("closed");
+
+                                        document
+                                            .querySelector(".mpx-stepTwo-details")
+                                            .classList.remove("closed");
+
+                                        // hide 2nd journey edit and image
+                                        document
+                                            .querySelector(".mpx-stepTwo-container a")
+                                            .classList.add("closed");
+                                        document
+                                            .querySelector(".mpx-stepTwo-container img")
+                                            .classList.add("closed");
+                                    }
+                                });
+                        });
+
+                    //step 2
+                    document
+                        .querySelector(".mpx-stepTwo-details .mpx-second-continue")
+                        .addEventListener("click", () => {
+                            if (
+                                document
+                                    .querySelector("#areasOfInterest-required-error")
+                                    .classList.contains("hidden") &&
+                                document.querySelector("#jobSpeciality").value !== ""
+                            ) {
+                                // add margin
+                                document
+                                    .querySelector(".mpx-stepTwo-container")
+                                    .classList.add("closed");
+
+                                // close details and add styling
+                                document
+                                    .querySelector(".mpx-stepTwo-container > .mpx-generic-title")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-details")
+                                    .classList.add("closed");
+
+                                // display edit
+                                document
+                                    .querySelector(".mpx-stepTwo-container a")
+                                    .classList.remove("closed");
+
+                                // tick
+                                document.querySelector(
+                                    ".mpx-stepTwo-container .mpx-generic-title > div > img"
+                                ).src =
+                                    "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png";
+
+                                document
+                                    .querySelector(".mpx-stepTwo-container img")
+                                    .classList.remove("closed");
+
+                                //show 3rd step details
+                                document
+                                    .querySelector(".mpx-stepThree-container > .mpx-generic-title")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-details")
+                                    .classList.remove("closed");
+
+                                // hide 3rd edit and tick
+                                document
+                                    .querySelector(".mpx-stepThree-container img")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container a")
+                                    .classList.add("closed");
+                            }
+                        });
+
+                    //step 3
+                    document
+                        .querySelector(".mpx-stepThree-details .mpx-third-continue")
+                        .addEventListener("click", () => {
+                            document
+                                .querySelectorAll(".mpx-stepThree-details .form-group input")
+                                .forEach((valid3) => {
+                                    if (
+                                        valid3.classList.contains("input-valid") &&
+                                        document.querySelector(
+                                            ".mpx-stepThree-details .form-group >select "
+                                        ).value !== ""
+                                    ) {
+                                        // close details and add styling
+                                        document
+                                            .querySelector(".mpx-stepThree-container > .mpx-generic-title")
+                                            .classList.add("closed");
+                                        document
+                                            .querySelector(".mpx-stepThree-details")
+                                            .classList.add("closed");
+
+                                        // display edit
+                                        document
+                                            .querySelector(".mpx-stepThree-container a")
+                                            .classList.remove("closed");
+
+                                        // tick
+                                        document.querySelector(
+                                            ".mpx-stepThree-container .mpx-generic-title > div > img"
+                                        ).src =
+                                            "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png";
+                                        document
+                                            .querySelector(".mpx-stepThree-container img")
+                                            .classList.remove("closed");
+
+                                        //popup
+                                        if (
+                                            document.querySelector(
+                                                ".mpx-stepOne-container .mpx-generic-title img"
+                                            ).src ===
+                                            "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png" &&
+                                            document.querySelector(
+                                                ".mpx-stepTwo-container .mpx-generic-title img"
+                                            ).src ===
+                                            "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png"
+                                        ) {
+                                            document.querySelector(".mpxPopup").classList.remove("closed");
+                                        }
+                                    }
+                                });
+                        });
+
+                    //EDIT LOGIC
+
+                    for (let i = 0; i < document.querySelectorAll(".default a").length; i++) {
+                        document
+                            .querySelectorAll(".default a")[0]
+                            .addEventListener("click", () => {
+                                //remove margin
+                                document
+                                    .querySelector(".mpx-stepOne-container")
+                                    .classList.remove("closed");
+
+                                //open details
+                                document
+                                    .querySelector(".mpx-stepOne-details")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepOne-container .mpx-generic-title")
+                                    .classList.remove("closed");
+
+                                //hide icon and edit
+                                document
+                                    .querySelector(".mpx-stepOne-container a")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepOne-container img")
+                                    .classList.add("closed");
+
+                                //step 2 - close details, add margin, show edit and icon
+                                document
+                                    .querySelector(".mpx-stepTwo-details")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container .mpx-generic-title")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container a")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container img")
+                                    .classList.remove("closed");
+
+                                //step 3 - close details, add margin, show edit and icon
+                                document
+                                    .querySelector(".mpx-stepThree-details")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container .mpx-generic-title")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container a")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container img")
+                                    .classList.remove("closed");
+                            });
+
+                        document
+                            .querySelectorAll(".default a")[1]
+                            .addEventListener("click", () => {
+                                // step 1 - show details for step 2
+                                document
+                                    .querySelector(".mpx-stepTwo-container")
+                                    .classList.remove("closed");
+
+                                document
+                                    .querySelector(".mpx-stepTwo-details")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container .mpx-generic-title")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container a")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container img")
+                                    .classList.add("closed");
+
+                                //step 2 - close details, add margin, show edit and icon
+                                document
+                                    .querySelector(".mpx-stepOne-details")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepOne-container .mpx-generic-title")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepOne-container a")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepOne-container img")
+                                    .classList.remove("closed");
+
+                                document
+                                    .querySelector(".mpx-stepOne-container")
+                                    .classList.add("closed");
+
+                                //step 3 - close details, show edit and icon
+                                document
+                                    .querySelector(".mpx-stepThree-details")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container .mpx-generic-title")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container a")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container img")
+                                    .classList.remove("closed");
+                            });
+
+                        document
+                            .querySelectorAll(".default a")[2]
+                            .addEventListener("click", () => {
+                                //step 1 - show details for step 3
+                                document
+                                    .querySelector(".mpx-stepThree-details")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container .mpx-generic-title")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container a")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepThree-container img")
+                                    .classList.add("closed");
+
+                                //step 2 - close details, add margin, show edit and icon
+                                document
+                                    .querySelector(".mpx-stepOne-details")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepOne-container .mpx-generic-title")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepOne-container a")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepOne-container img")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepOne-container")
+                                    .classList.add("closed");
+
+                                //step 3 - close details, add margin, show edit and icon
+                                document
+                                    .querySelector(".mpx-stepTwo-details")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container .mpx-generic-title")
+                                    .classList.add("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container a")
+                                    .classList.remove("closed");
+                                document
+                                    .querySelector(".mpx-stepTwo-container img")
+                                    .classList.remove("closed");
+
+                                document
+                                    .querySelector(".mpx-stepTwo-container")
+                                    .classList.add("closed");
+                            });
+                    }
+
+                    //GO BACK
+                    document
+                        .querySelector(".mpx-goBack-container")
+                        .addEventListener("click", (e) => {
+                            document.querySelector(".mpxPopup").classList.add("closed");
+
+                            //show 3rd step details
+                            document
+                                .querySelector(".mpx-stepThree-container > .mpx-generic-title")
+                                .classList.remove("closed");
+                            document
+                                .querySelector(".mpx-stepThree-details")
+                                .classList.remove("closed");
+
+                            // hide 3rd edit and tick
+                            document
+                                .querySelector(".mpx-stepThree-container img")
+                                .classList.add("closed");
+                            document
+                                .querySelector(".mpx-stepThree-container a")
+                                .classList.add("closed");
+                        });
+
+                    //clicking step 2 options
+                    const stepTwoOptions = document.querySelectorAll("#areasOfInterest label");
+                    stepTwoOptions.forEach((option) => {
+                        option.addEventListener("click", () => {
+                            option.classList.toggle("selected");
+                            option.children[1].classList.toggle("selected");
+                            option.children[0].classList.toggle("selected");
+                        });
+                    });
+
+                    //only submit if captcha has been clicked, otherwise it causes the js and css to be removed
+                    document
+                        .querySelector(".mpxPopup .mpx-register")
+                        .addEventListener("click", (e) => {
+                            if (
+                                document.querySelector("#g-recaptcha-response").value === "" ||
+                                grecaptcha.getResponse() == ""
+                            ) {
+                                e.preventDefault();
+                                alert("Please check the recaptcha");
+                            }
+                        });
+
+                    //END
+
+                    //accordian open/close function 
+                    //add class to button
+                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[0].classList.add('mpx-accordion-button');
+                    //select arrow one
+                    document.querySelectorAll('.mpx-accordion-button')[0]
+                        .addEventListener("click", (e) => {
+                            if (document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[0].getAttribute("src") == 'https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png') {
+                                if (document.querySelector('.mpx-stepOne-container').classList.contains('closed')) {
+                                    document.querySelector('.mpx-stepOne-container').classList.remove('closed')
+                                    document.querySelector('.mpx-stepOne-container').classList.add('open')
+                                    document.querySelector('.mpx-stepOne-container > div').classList.remove('closed')
+                                    document.querySelector('.mpx-stepOne-container > div').classList.add('open')
+                                    document.querySelector('.mpx-stepOne-details').classList.remove('closed')
+                                    document.querySelector('.mpx-stepOne-details').classList.add('open')
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[0].style.transform = 'rotate(90deg)';
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[1].style.transform = 'rotate(0deg)';
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[2].style.transform = 'rotate(0deg)';
+                                    document.querySelector('.mpx-stepThree-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-details').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-details').classList.add('closed')
+                                } else if (document.querySelector('.mpx-stepOne-container').classList.contains('open')) {
+                                    document.querySelector('.mpx-stepOne-container').classList.remove('open')
+                                    document.querySelector('.mpx-stepOne-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-container > div').classList.remove('open')
+                                    document.querySelector('.mpx-stepOne-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-details').classList.remove('open')
+                                    document.querySelector('.mpx-stepOne-details').classList.add('closed')
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[0].style.transform = 'rotate(0deg)';
+                                }
+                            }
+                        })
+                    //returns step one tick to upright position 
+                    document.querySelector('.mpx-first-continue').addEventListener("click", (e) => {
+                        document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png"]')[0].style.transform = 'rotate(0deg)';
+                    })
+                    //add class to button
+                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[1].classList.add('mpx-accordion-button');
+                    //select arrow two
+                    document.querySelectorAll('.mpx-accordion-button')[1]
+                        .addEventListener("click", (e) => {
+                            if (document.querySelectorAll('.mpx-accordion-button')[1].getAttribute("src") == 'https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png' && document.querySelectorAll('.mpx-accordion-button')[0].getAttribute("src") == 'https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png') {
+                                if (document.querySelector('.mpx-stepTwo-container').classList.contains('closed')) {
+                                    document.querySelector('.mpx-stepTwo-container').classList.remove('closed')
+                                    document.querySelector('.mpx-stepTwo-container').classList.add('open')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.remove('closed')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.add('open')
+                                    document.querySelector('.mpx-stepTwo-details').classList.remove('closed')
+                                    document.querySelector('.mpx-stepTwo-details').classList.add('open')
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[1].style.transform = 'rotate(90deg)';
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[0].style.transform = 'rotate(0deg)';
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[2].style.transform = 'rotate(0deg)';
+                                    document.querySelector('.mpx-stepThree-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-details').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-details').classList.add('closed')
+                                    document.querySelectorAll('.mpx-generic-title > div > img')[0].classList.remove('closed')
+                                } else if (document.querySelector('.mpx-stepTwo-container').classList.contains('open')) {
+                                    document.querySelector('.mpx-stepTwo-container').classList.remove('open')
+                                    document.querySelector('.mpx-stepTwo-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.remove('open')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-details').classList.remove('open')
+                                    document.querySelector('.mpx-stepTwo-details').classList.add('closed')
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[1].style.transform = 'rotate(0deg)';
+                                }
+                            } else if (document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png"]')[0].getAttribute("src") == 'https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png') {
+                                if (document.querySelector('.mpx-stepTwo-container').classList.contains('closed')) {
+                                    document.querySelector('.mpx-stepTwo-container').classList.remove('closed')
+                                    document.querySelector('.mpx-stepTwo-container').classList.add('open')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.remove('closed')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.add('open')
+                                    document.querySelector('.mpx-stepTwo-details').classList.remove('closed')
+                                    document.querySelector('.mpx-stepTwo-details').classList.add('open')
+                                    document.querySelectorAll('.mpx-accordion-button')[1].style.transform = 'rotate(90deg)';
+                                    document.querySelectorAll('.mpx-accordion-button')[0].style.transform = 'rotate(0deg)';
+                                    document.querySelectorAll('.mpx-accordion-button')[2].style.transform = 'rotate(0deg)';
+                                    document.querySelector('.mpx-stepThree-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-details').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-details').classList.add('closed')
+                                    document.querySelectorAll('.mpx-generic-title > div > img')[0].classList.remove('closed')
+                                } else if (document.querySelector('.mpx-stepTwo-container').classList.contains('open')) {
+                                    document.querySelector('.mpx-stepTwo-container').classList.remove('open')
+                                    document.querySelector('.mpx-stepTwo-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.remove('open')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-details').classList.remove('open')
+                                    document.querySelector('.mpx-stepTwo-details').classList.add('closed')
+                                    document.querySelectorAll('.mpx-accordion-button')[1].style.transform = 'rotate(0deg)';
+                                }
+                            }
+                        })
+                    //returns step two tick to upright position 
+                    document.querySelector('.mpx-second-continue').addEventListener("click", (e) => {
+                        document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png"]')[1].style.transform = 'rotate(0deg)';
+                    })
+                    //step three
+                    //add class to button
+                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[2].classList.add('mpx-accordion-button');
+                    //select arrow three
+                    document.querySelectorAll('.mpx-accordion-button')[2]
+                        .addEventListener("click", (e) => {
+                            if (document.querySelectorAll('.mpx-accordion-button')[2].getAttribute("src") == 'https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png' && document.querySelectorAll('.mpx-accordion-button')[0].getAttribute("src") == 'https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png') {
+                                if (document.querySelector('.mpx-stepThree-container .mpx-generic-title').classList.contains('closed')) {
+                                    document.querySelector('.mpx-stepThree-container').classList.remove('closed')
+                                    document.querySelector('.mpx-stepThree-container').classList.add('open')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.remove('closed')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.add('open')
+                                    document.querySelector('.mpx-stepThree-details').classList.remove('closed')
+                                    document.querySelector('.mpx-stepThree-details').classList.add('open')
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[2].style.transform = 'rotate(90deg)';
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[0].style.transform = 'rotate(0deg)';
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[1].style.transform = 'rotate(0deg)';
+                                    document.querySelector('.mpx-stepTwo-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-details').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-details').classList.add('closed')
+                                    document.querySelectorAll('.mpx-generic-title > div > img')[0].classList.remove('closed')
+                                } else if (document.querySelector('.mpx-stepThree-container .mpx-generic-title').classList.contains('open')) {
+                                    document.querySelector('.mpx-stepThree-container').classList.remove('open')
+                                    document.querySelector('.mpx-stepThree-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.remove('open')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-details').classList.remove('open')
+                                    document.querySelector('.mpx-stepThree-details').classList.add('closed')
+                                    document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png"]')[2].style.transform = 'rotate(0deg)';
+                                }
+                            } else if (document.querySelectorAll('[src="https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png"]')[0].getAttribute("src") == 'https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png') {
+                                if (document.querySelector('.mpx-stepThree-container .mpx-generic-title').classList.contains('closed')) {
+                                    document.querySelector('.mpx-stepThree-container').classList.remove('closed')
+                                    document.querySelector('.mpx-stepThree-container').classList.add('open')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.remove('closed')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.add('open')
+                                    document.querySelector('.mpx-stepThree-details').classList.remove('closed')
+                                    document.querySelector('.mpx-stepThree-details').classList.add('open')
+                                    document.querySelectorAll('.mpx-accordion-button')[2].style.transform = 'rotate(90deg)';
+                                    document.querySelectorAll('.mpx-accordion-button')[0].style.transform = 'rotate(0deg)';
+                                    document.querySelectorAll('.mpx-accordion-button')[1].style.transform = 'rotate(0deg)';
+                                    document.querySelector('.mpx-stepTwo-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepTwo-details').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepOne-details').classList.add('closed')
+                                    document.querySelectorAll('.mpx-generic-title > div > img')[0].classList.remove('closed')
+                                    document.querySelectorAll('.mpx-accordion-button')[1].classList.remove('closed')
+                                } else if (document.querySelector('.mpx-stepThree-container .mpx-generic-title').classList.contains('open')) {
+                                    document.querySelector('.mpx-stepThree-container').classList.remove('open')
+                                    document.querySelector('.mpx-stepThree-container').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.remove('open')
+                                    document.querySelector('.mpx-stepThree-container > div').classList.add('closed')
+                                    document.querySelector('.mpx-stepThree-details').classList.remove('open')
+                                    document.querySelector('.mpx-stepThree-details').classList.add('closed')
+                                    document.querySelectorAll('.mpx-accordion-button')[2].style.transform = 'rotate(0deg)';
+                                }
+                            }
+                        })
+
+
+
+                }
+                reload();
+            } catch (error) { }
+            
+        </script>

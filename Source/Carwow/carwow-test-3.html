@@ -1,0 +1,74 @@
+URL -- https://quotes.carwow.co.uk/car-valuation
+
+<script>
+  //VARIATION 1
+  // change title
+  document.querySelector('.step__headline').innerHTML = 'Ready for the close-up?';
+  // change paragraph
+  document.querySelector('.step__advice').innerHTML = 'Become a master car photographer in minutes and get more bids with our easy-to-use photo assistant. <i> Proven to increase the number of bids you get at auction. </i>';
+  // change CTA
+  document.querySelector('.photo-wizard-intro__mobile-cta').innerHTML = 'Use photo assistant now';
+
+  //dataLayer push
+  if (window.dataLayer) {
+    var testData = {
+      event: 'entered_ab_test',
+      test_name: 'merkle_test_3',
+      test_variant: (window.merkle_test_3 || 'v1')
+    };
+    window.dataLayer.push(testData);
+  }
+
+  //VARIATION 2
+  //load jquery on the page
+  function loadJQueryAndRunCode(callback) {
+    // Create a script element and set its source to jQuery's CDN
+    var script = document.createElement("script");
+    script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
+    script.type = "text/javascript";
+
+    // Append the script element to the head of the document
+    document.head.appendChild(script);
+
+    // When the script is loaded, execute the callback function
+    script.onload = function () {
+      callback();
+    };
+  }
+
+  loadJQueryAndRunCode(function () {
+    //change title
+    $('.step__headline').innerHTML = 'Increase the number of bids on your car in minutes'
+    //change paragraph
+    $('.step__advice').innerHTML = 'Get the photos our dealers want to see fast with our easy-to-use photo guide.'
+    //change CTA
+    $('.photo-wizard-intro__mobile-cta').innerHTML = 'Use photo guide now'
+  })
+  //dataLayer push
+  if (window.dataLayer) {
+    var testData = {
+      event: 'entered_ab_test',
+      test_name: 'merkle_test_3',
+      test_variant: (window.merkle_test_3 || 'v2')
+    };
+    window.dataLayer.push(testData);
+  }
+</script>
+
+<script> 
+
+//select elements to move
+var hcSections = $('.container.block.-background-white.theme-1:eq(1), .container.block.-background-white.theme-1:eq(2), .container.block.-background-white.theme-1:eq(3), .container.block.-background-white.theme-1:eq(4)');
+//target element
+var target = $('.container.block.-background-white.theme-1:eq(6)')
+//move elements
+$(hcSections).insertAfter(target)
+//create 'line'
+var hcHr = '<hr clss="mpx-hr">'
+//css changes
+$('.mpx-hr').css({
+  width: '100%'
+})
+//insert line
+$(hcHr).insertAfter($('.container.block.-background-white.theme-1:eq(2)>div>div>div>div>p:eq(2)'))
+</script>

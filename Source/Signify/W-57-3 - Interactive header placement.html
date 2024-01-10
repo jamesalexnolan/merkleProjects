@@ -1,0 +1,60 @@
+<script>
+    function loadJQueryAndRunCode(callback) {
+        // Create a script element and set its source to jQuery's CDN
+        var script = document.createElement("script");
+        script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
+        script.type = "text/javascript";
+
+        // Append the script element to the head of the document
+        document.head.appendChild(script);
+
+        // When the script is loaded, execute the callback function
+        script.onload = function () {
+            callback();
+        };
+    }
+
+    // Call the function and pass in your code as a callback function
+    loadJQueryAndRunCode(function () {
+        var $vrCompo = $('.section-component.master-component.theme--white-white.aem-GridColumn.aem-GridColumn--default--12').find('.vr-component').closest($('.section-component.master-component.theme--white-white.aem-GridColumn.aem-GridColumn--default--12'))
+        var $target = $('.section-component.master-component.theme--white-white.aem-GridColumn.aem-GridColumn--default--12').find('#overview').closest($('.section-component.master-component.theme--white-white.aem-GridColumn.aem-GridColumn--default--12'))
+
+        if ($vrCompo && $target) {
+            $vrCompo.insertAfter($target)
+        }
+    });
+</script>
+
+//Launch code
+<script>
+    if (document.querySelector('.vr-component')) {
+        return 'yes'
+    } else {
+        return 'no'
+    }
+
+ //   let acc = [];
+//const onetrustActiveGroups = dataLayer.reduce((acc, curr) => {
+  //if (acc.length === 0 && curr.OnetrustActiveGroups) {
+    //acc.push(curr.OnetrustActiveGroups);
+  //}
+  //return acc;
+//}, []).join(',');
+
+    const onetrustActiveGroups = dataLayer.reduce((acc, curr) => {
+        if (curr.OnetrustActiveGroups) {
+            acc.push(curr.OnetrustActiveGroups);
+        }
+        return acc;
+    }, []).join(',');
+
+    const activeGroupNumbers = onetrustActiveGroups.split(',').filter(Boolean);
+
+    const activeGroupValue = dataLayer.map((element) => element.OnetrustActiveGroups).join(',')
+
+    if (activeGroupNumbers.includes('0') && (activeGroupNumbers.includes('1') || activeGroupNumbers.includes('2') || activeGroupNumbers.includes('3') || activeGroupNumbers.includes('4') || activeGroupNumbers.includes('5'))) {
+        return activeGroupValue;
+    } else {
+        return false
+    }
+</script>

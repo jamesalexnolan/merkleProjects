@@ -1,0 +1,1388 @@
+<script>
+//Add jquery to a page
+// Create a script element
+var script = document.createElement('script');
+
+// Set the source URL for jQuery
+script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+
+// Append the script element to the document's head or body
+document.head.appendChild(script);
+
+///Return AJAX VALUES///
+
+var xhr = new XMLHttpRequest();
+
+var url = 'https://www.philips-hue.com/en-us/cart';
+
+xhr.onreadystatechange = function() {
+    console.log('AJAX Response:', xhr.responseText);
+  }
+
+xhr.open('GET', url, true);
+
+xhr.send();
+
+///////////////////
+
+$.ajax({
+  url: 'https://www.philips-hue.com/en-us/cart',
+  type: 'GET',
+  success: function(data) {
+    var totalGrandTotalHtml = $(data).find('.total__grand-total').html();
+    console.log(totalGrandTotalHtml);
+    // Use the HTML content on another page as needed
+    // Example: document.getElementById('targetElement').innerHTML = totalGrandTotalHtml;
+  }
+});
+
+$('.AddToCart').on('click', function() {
+    // Code to execute when itens are added to cart 
+    console.log('Add to bag clicked!');
+    $.ajax({
+        url: 'https://www.store.xerox.eu/gb_GB/panier.cfm',//Cart URL
+        method: 'GET',
+        success: function (response) {
+
+          // Filter items on cart 
+          var items = $(response).find('.col-xs-12.col-sm-6.pull-right > div > p');
+
+          let cartContent = "";//variable to store html
+
+          cartContent += $(items[0]).html();
+          cartContent += $(items[1]).html();
+          cartContent += $(items[2]).html();
+          cartContent += $(items[4]).html();
+
+          //add new content to modal
+          $(".modal-body").prepend("<div class='grid-template bg-success'><div class='col-md-3' style='margin: 0 auto;'>"+cartContent+"</div>");
+          $('.col-md-3').css('width', '50%');
+        },
+        error: function (xhr, status, error) {
+          console.log('Ajax error:', error);
+        }
+      });
+  });
+
+// Create an XMLHttpRequest object
+var xhr = new XMLHttpRequest();
+
+// URL to make the AJAX request to
+var url = 'https://www.philips-hue.com/en-us/cart';
+
+// Callback function to handle the AJAX response
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    // Log the AJAX response
+    console.log('AJAX Response:', xhr.responseText);
+  }
+};
+
+// Open the AJAX request
+xhr.open('GET', url, true);
+
+// Send the AJAX request
+xhr.send();
+
+//Return AJAX inner HTML/TEXT of element 
+
+$.ajax({
+  url: 'https://www.philips-hue.com/en-us/cart',
+  method: 'GET',
+  success: function(response) {
+    var elements = $(response).find('.cart-component');
+    if (elements.length > 0) {
+      elements.each(function(index) {
+        var innerHTML = $(this).html();//replace HTML with text
+        console.log('Element ' + index + ': ' + innerHTML);
+      });
+    } else {
+      console.log('Elements not found');
+    }
+  },
+  error: function(xhr, status, error) {
+    console.log('AJAX error:', error);
+  }
+});
+
+//Return json data 
+
+// URL to make the AJAX request to
+const url = 'https://www.philips-hue.com/en-us/cart.json';
+
+// Make the AJAX request
+fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    // Log the JSON response
+    console.log('JSON Response:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+</script>
+
+<script>
+  try {
+    var hotjarLoading = setInterval(() => {
+      window.addEventListener("load", () => {
+        clearInterval(hotjarLoading);
+        hj("event", "HC 46 V1 UK");
+      });
+    }, 200);
+  
+    function reload() {
+      //INSERT INTRO
+      const intro = `<div class="mpx-intro-container"> <p class="mpx-header">Create your free Nutricia account in 3 easy steps</p> <p class="mpx-desc"> Register for your free Nutricia account to get access to a wide range of support services and resources including: </p> </div>
+     `;
+  
+      document
+        .querySelector("[data-target-id='column-grid_846307601']")
+        .insertAdjacentHTML("beforebegin", intro);
+      //END
+  
+      //MOBILE ICONS + FUNCTIONALITY
+      //insert html code
+      var mpxCVPcomp =
+        '<div class="mpx-hp-cvp-container" id="mpx-hp-cvp-container"><div class="mpx-cvp-slider-wrap" style="border: 0px solid black;"><div class="mpx-cvp-slider-cont"><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/ph_medal-thin.png"></div><div class="mpx-hp-cvp-text">Keep informed with the latest news and events</div></div></a><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/icon-park_send-email.png"></div><div class="mpx-hp-cvp-text">Order samples, delivered to your patients\' homes</div></div></a><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/iconoir_book.png"></div><div class="mpx-hp-cvp-text">Discover Nutricia Academy</div></div></a><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/bi_calendar4-event.png"></div><div class="mpx-hp-cvp-text">Free access to live events and webinars</div></div></a><a><div class="mpx-hp-cvp-slider-item"><div class="mpx-hp-cvp-icon"><img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/fluent_archive-16-regular.png"></div><div class="mpx-hp-cvp-text">Order free copies of support materials</div></div></a></div></div><div class="mpx-dotsall"><span class="mpx-dot mpx-active mpx-dot1"></span><span class="mpx-dot mpx-dot2"></span></div><div class="mpx-dotsdouble"><span class="mpx-dot mpx-active mpx-dot1"></span><span class="mpx-dot mpx-dot2"></span><span class="mpx-dot mpx-dot3"></span></div><div class="mpx-dotssingle"><span class="mpx-dot mpx-active mpx-dot1"></span><span class="mpx-dot mpx-dot2"></span><span class="mpx-dot mpx-dot3"></span><span class="mpx-dot mpx-dot4"></span></div></div>';
+  
+      var pos;
+      var desktop = window.matchMedia("(min-width: 1050px)");
+  
+      document
+        .querySelector("[data-target-id='column-grid_161377138']")
+        .insertAdjacentHTML("afterbegin", mpxCVPcomp);
+  
+      //dots and slider controls
+      var dotsAll = document.querySelectorAll(".mpx-dotsall span");
+      var dotsDouble = document.querySelectorAll(".mpx-dotsdouble span");
+      var dotsSingle = document.querySelectorAll(".mpx-dotssingle span");
+  
+      cont = document.querySelector(".mpx-cvp-slider-cont");
+  
+      dotsDoubleClear = function () {
+        for (n = 0; n < dotsDouble.length; n++) {
+          if (dotsDouble[n].classList.contains("mpx-active")) {
+            dotsDouble[n].classList.remove("mpx-active");
+          }
+        }
+      };
+  
+      dotsSingleClear = function () {
+        for (o = 0; o < dotsSingle.length; o++) {
+          if (dotsSingle[o].classList.contains("mpx-active")) {
+            dotsSingle[o].classList.remove("mpx-active");
+          }
+        }
+      };
+  
+      document.querySelectorAll(".mpx-dotssingle .mpx-dot").forEach((item) => {
+        item.addEventListener("click", function () {
+          dotsSingleClear();
+          if (item.classList.contains("mpx-dot1")) {
+            document.querySelector(".mpx-cvp-slider-cont").scrollTo(0, 0);
+            item.classList.add("mpx-active");
+          } else if (item.classList.contains("mpx-dot2")) {
+            document.querySelector(".mpx-cvp-slider-cont").scrollTo(97, 0);
+            item.classList.add("mpx-active");
+          } else if (item.classList.contains("mpx-dot3")) {
+            document.querySelector(".mpx-cvp-slider-cont").scrollTo(292, 0);
+            item.classList.add("mpx-active");
+          } else if (item.classList.contains("mpx-dot4")) {
+            document
+              .querySelector(".mpx-cvp-slider-cont")
+              .scrollTo(
+                document.querySelector(".mpx-cvp-slider-cont").scrollWidth,
+                0
+              );
+            item.classList.add("mpx-active");
+          }
+        });
+      });
+  
+      document.querySelectorAll(".mpx-dotsdouble .mpx-dot").forEach((item) => {
+        item.addEventListener("click", function () {
+          dotsDoubleClear();
+          if (item.classList.contains("mpx-dot1")) {
+            document.querySelector(".mpx-cvp-slider-cont").scrollTo(0, 0);
+            item.classList.add("mpx-active");
+          } else if (item.classList.contains("mpx-dot2")) {
+            document.querySelector(".mpx-cvp-slider-cont").scrollTo(150, 0);
+            item.classList.add("mpx-active");
+          } else if (item.classList.contains("mpx-dot3")) {
+            document
+              .querySelector(".mpx-cvp-slider-cont")
+              .scrollTo(
+                document.querySelector(".mpx-cvp-slider-cont").scrollWidth,
+                0
+              );
+            item.classList.add("mpx-active");
+          }
+        });
+      });
+  
+      //highlighting dots
+      cont.addEventListener("scroll", function () {
+        dotsSingleClear();
+        if (cont.scrollLeft < 50) {
+          document
+            .querySelector(".mpx-dotssingle .mpx-dot1")
+            .classList.add("mpx-active");
+        } else if (cont.scrollLeft > 200 - 50 && cont.scrollLeft < 200 + 50) {
+          document
+            .querySelector(".mpx-dotssingle .mpx-dot2")
+            .classList.add("mpx-active");
+        } else if (cont.scrollLeft > 360 - 50 && cont.scrollLeft < 360 + 50) {
+          document
+            .querySelector(".mpx-dotssingle .mpx-dot3")
+            .classList.add("mpx-active");
+        } else if (cont.scrollLeft > 460 - 50 && cont.scrollLeft < 460 + 50) {
+          document
+            .querySelector(".mpx-dotssingle .mpx-dot4")
+            .classList.add("mpx-active");
+        }
+      });
+  
+      cont.addEventListener("scroll", function () {
+        dotsDoubleClear();
+        if (cont.scrollLeft < 160) {
+          document
+            .querySelector(".mpx-dotsdouble .mpx-dot1")
+            .classList.add("mpx-active");
+        } else if (cont.scrollLeft > 170 - 50 && cont.scrollLeft < 170 + 50) {
+          document
+            .querySelector(".mpx-dotsdouble .mpx-dot2")
+            .classList.add("mpx-active");
+        } else if (cont.scrollLeft > 205 - 25 && cont.scrollLeft < 205 + 25) {
+          document
+            .querySelector(".mpx-dotsdouble .mpx-dot3")
+            .classList.add("mpx-active");
+        }
+      });
+      //END
+  
+      // DESKTOP ICONS
+      const iconsDesktop = `<div class="mpx-cvp-container"> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/ph_medal-thin.png" /> <p class="mpx-cvp-text"> Keep informed with the latest news and events </p> </div> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/icon-park_send-email.png" /> <p class="mpx-cvp-text"> Order samples, delivered to your patient’s homes </p> </div> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/iconoir_book.png" /> <p class="mpx-cvp-text">Discover Nutricia Academy</p> </div> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/bi_calendar4-event.png" /> <p class="mpx-cvp-text">Free access to live events and webinars</p> </div> <div class="mpx-cvp-icons-container"> <img src="https://www.nutricia.co.uk/content/dam/dam/amn/local/gb/approved/website-images/fluent_archive-16-regular.png" /> <p class="mpx-cvp-text">Order free paper copies of support materials</p> </div> </div>`;
+  
+      document
+        .querySelector("[data-target-id='column-grid_161377138']")
+        .insertAdjacentHTML("afterbegin", iconsDesktop);
+      //END
+  
+      //LAYOUT V1
+      // form refrence to create 4 seperate containers
+      const formRef = document.querySelector(
+        'form[action="/hcp/register.snhc-formsubmit.html"]'
+      );
+      const formRefChildren = document.querySelector(
+        'form[action="/hcp/register.snhc-formsubmit.html"]'
+      ).children;
+  
+      document
+        .querySelector(".column.theme-1 > .formcontainer")
+        .prepend(formRefChildren[0]);
+  
+     // if (document.querySelector(".mpx-text.form-group")) {
+       // document.querySelector(".mpx-text.form-group").remove();
+     // }
+  
+      //clone register btn
+      const cloneRegisterBtn = document.querySelector(
+        ".button.-type-primary.formcontainer__submit.theme-1"
+      ).parentElement;
+      const continueBtn = cloneRegisterBtn.cloneNode(true);
+      //change to continue and hide register for now
+      cloneRegisterBtn.style.display = "none";
+      continueBtn.querySelector("button").innerText = "Continue";
+      continueBtn.querySelector("button").classList.add("mpx-first-continue");
+      continueBtn.querySelector("button").type = "button";
+      //END
+  
+      // 1ST JOURNEY CONTAINER
+      const stepOne = [
+        //header - about you
+        formRefChildren[9],
+  
+        // please note
+        document.querySelector(
+          "[data-target-id='column-grid_846307601'] section"
+        ),
+  
+        // title
+        formRefChildren[10],
+  
+        //first/second name
+        formRefChildren[11],
+  
+        //email
+        formRefChildren[13],
+        //password
+        formRefChildren[14],
+        //password info
+        formRefChildren[15],
+        //re enter password
+        formRefChildren[16],
+  
+        //disclaimer
+        formRefChildren[7],
+        //disclaimer checkbox
+        formRefChildren[8],
+  
+        continueBtn,
+      ];
+  
+      //step one container
+      const stepOneContainer = document.createElement("div");
+      stepOneContainer.classList.add("mpx-stepOne-container");
+  
+      //step one about you container
+      const aboutYouContainer = document.createElement("div");
+      aboutYouContainer.classList.add("mpx-stepOne-details");
+  
+      stepOne.forEach((array) => {
+        aboutYouContainer.append(array);
+      });
+  
+      stepOneContainer.append(aboutYouContainer);
+      formRef.insertAdjacentElement("afterbegin", stepOneContainer);
+  
+      //add arrow
+      const rightArrow = document.createElement("div");
+      rightArrow.classList.add("arrow", "right");
+      continueBtn.querySelector("button").append(rightArrow);
+  
+      //move last name above email address
+      document
+        .querySelector(".mpx-stepOne-details")
+        .children[4].insertAdjacentElement(
+          "beforebegin",
+          document.querySelector(
+            ".mpx-stepOne-details .row > .column.theme-1:last-child"
+          ).children[0]
+        );
+  
+      //then move choose title to last name's original position then in front of first name
+      document
+        .querySelector(".mpx-stepOne-details .row > .column.theme-1:last-child")
+        .insertAdjacentElement(
+          "beforeend",
+          document.querySelector(".mpx-stepOne-details").children[2]
+        );
+  
+      document
+        .querySelector(".mpx-stepOne-details .row.grid-center-10-width-2-col")
+        .insertAdjacentElement(
+          "afterbegin",
+          document.querySelector(
+            ".mpx-stepOne-details .row.grid-center-10-width-2-col .column:last-child"
+          )
+        );
+  
+      //Give class then move about outside of details container
+      document
+        .querySelector(".mpx-stepOne-details")
+        .children[0].classList.add("mpx-generic-title");
+  
+      document
+        .querySelector(".mpx-stepOne-details")
+        .children[0].querySelector(".default h2").innerText = "1 - About you";
+  
+      const textContainer = document.createElement("div");
+      textContainer.append(
+        document.querySelector(
+          ".mpx-stepOne-details .mpx-generic-title > .default"
+        )
+      );
+  
+      document
+        .querySelector(".mpx-stepOne-details .mpx-generic-title")
+        .insertAdjacentElement("afterbegin", textContainer);
+  
+      const iconIncomplete = document.createElement("img");
+      iconIncomplete.classList.add("closed");
+      iconIncomplete.src =
+        "https://smartmedia.digital4danone.com/is/image/danone/circle-arrow.png";
+      document
+        .querySelector(".mpx-stepOne-details .mpx-generic-title > div")
+        .insertAdjacentElement("beforeend", iconIncomplete);
+  
+      const edit = document.createElement("a");
+      edit.style.textDecoration = "underline";
+      edit.style.color = "#2B3C90";
+  
+      edit.innerText = "edit";
+      edit.classList.add("closed");
+      document
+        .querySelector(".mpx-stepOne-details .mpx-generic-title > div > .default")
+        .insertAdjacentElement("beforeend", edit);
+  
+      document
+        .querySelector(".mpx-stepOne-container")
+        .insertAdjacentElement(
+          "afterbegin",
+          document.querySelector(".mpx-stepOne-details").children[0]
+        );
+      //END
+  
+      //2ND JOURNEY CONTAINER
+      //step two container
+      const stepTwoContainer = document.createElement("div");
+      stepTwoContainer.classList.add("mpx-stepTwo-container");
+      stepTwoContainer.classList.add("closed");
+      //step two interests container
+      const interestsContainer = document.createElement("div");
+      interestsContainer.classList.add("mpx-stepTwo-details");
+      interestsContainer.classList.add("closed");
+  
+      //clone step title
+      const stepTwoTitle = document.querySelector(".mpx-stepOne-container")
+        .children[0];
+  
+      const genericTitleTwo = stepTwoTitle.cloneNode(true);
+      genericTitleTwo.classList.add("closed");
+  
+      stepTwoContainer.append(interestsContainer);
+      stepTwoContainer.insertAdjacentElement("afterbegin", genericTitleTwo);
+  
+      //clone register btn
+      const cloneContinueBtn = document.querySelector(
+        ".mpx-first-continue"
+      ).parentElement;
+      const secondContinueBtn = cloneContinueBtn.cloneNode(true);
+  
+      // add/remove class
+      secondContinueBtn
+        .querySelector("button")
+        .classList.add("mpx-second-continue");
+      secondContinueBtn
+        .querySelector("button")
+        .classList.remove("mpx-first-continue");
+  
+      const stepTwo = [
+        formRefChildren[10],
+        formRefChildren[11],
+        secondContinueBtn,
+      ];
+  
+      stepTwo.forEach((array2) => {
+        interestsContainer.append(array2);
+      });
+  
+      stepOneContainer.insertAdjacentElement("afterend", stepTwoContainer);
+  
+      //edit after inception
+      document.querySelector(
+        ".mpx-stepTwo-container > .mpx-generic-title > div > .default h2"
+      ).innerText = "2 - Your work";
+  
+      document
+        .querySelector(".mpx-stepTwo-container a")
+        .classList.remove("closed");
+      document
+        .querySelector(".mpx-stepTwo-container img")
+        .classList.remove("closed");
+      //END
+  
+      //3RD JOURNEY CONTAINER
+  
+      const stepThreeContainer = document.createElement("div");
+      stepThreeContainer.classList.add("mpx-stepThree-container");
+      //step three job container
+      const jobContainer = document.createElement("div");
+      jobContainer.classList.add("mpx-stepThree-details");
+      jobContainer.classList.add("closed");
+  
+      //clone step title
+      const stepThreeTitle = document.querySelector(".mpx-stepTwo-container")
+        .children[0];
+  
+      const genericTitleThree = stepThreeTitle.cloneNode(true);
+  
+      stepThreeContainer.append(jobContainer);
+      stepThreeContainer.insertAdjacentElement("afterbegin", genericTitleThree);
+  
+      //clone register btn
+      const cloneSecondContinueBtn = document.querySelector(
+        ".mpx-second-continue"
+      ).parentElement;
+      const thirdContinueBtn = cloneSecondContinueBtn.cloneNode(true);
+  
+      //add/remove class
+      thirdContinueBtn
+        .querySelector("button")
+        .classList.add("mpx-third-continue");
+      thirdContinueBtn
+        .querySelector("button")
+        .classList.remove("mpx-second-continue");
+      thirdContinueBtn.querySelector("button").innerText = "Register";
+      const rightArrowTwo = document.createElement("div");
+      rightArrowTwo.classList.add("arrow", "right");
+      thirdContinueBtn.querySelector("button").append(rightArrowTwo);
+  
+      const stepThree = [
+        formRefChildren[11],
+        formRefChildren[12],
+        thirdContinueBtn,
+      ];
+  
+      stepThree.forEach((array3) => {
+        jobContainer.append(array3);
+      });
+  
+      stepTwoContainer.insertAdjacentElement("afterend", stepThreeContainer);
+  
+      document.querySelector(
+        ".mpx-stepThree-container > .mpx-generic-title > div > .default h2"
+      ).innerText = "3 - Your work address";
+  
+      document
+        .querySelector(".mpx-stepThree-container a")
+        .classList.remove("closed");
+      document
+        .querySelector(".mpx-stepThree-container img")
+        .classList.remove("closed");
+  
+      //move postcode above country
+      document
+        .querySelector(".mpx-stepThree-details .multiple-mandatory")
+        .children[2].append(
+          document.querySelector(
+            ".mpx-stepThree-details .formInputContainerAddress .form-group:last-child"
+          )
+        );
+      //END
+  
+      // 4TH JOURNEY CONTAINER - Be the first to know pop up
+  
+      //clone register btn
+      const cloneThirdContinueBtn = document.querySelector(
+        ".mpx-third-continue"
+      ).parentElement;
+      const registerContinueBtn = cloneThirdContinueBtn.cloneNode(true);
+      registerContinueBtn
+        .querySelector("button")
+        .classList.remove("mpx-third-continue");
+      registerContinueBtn.querySelector("button").classList.add("mpx-register");
+      registerContinueBtn.querySelector("button").type = "submit";
+  
+      const popup = [
+        formRefChildren[12],
+        formRefChildren[13],
+        formRefChildren[14],
+        formRefChildren[15],
+        formRefChildren[16],
+        formRefChildren[17],
+        formRefChildren[18],
+        formRefChildren[19],
+        formRef.children["grecaptcha-error"],
+        registerContinueBtn,
+      ];
+  
+      const mpxPopup = document.createElement("div");
+      mpxPopup.classList.add("mpxPopup", "closed");
+      const firstToKnowContainer = document.createElement("div");
+      firstToKnowContainer.classList.add("mpx-firstToKnow-container");
+  
+      mpxPopup.append(firstToKnowContainer);
+  
+      popup.forEach((array4) => {
+        firstToKnowContainer.append(array4);
+      });
+  
+      //insert popup
+      document
+        .querySelector(".mpx-stepThree-container")
+        .insertAdjacentElement("afterend", mpxPopup);
+  
+      //add go back btn
+      const goBackBtn = document.createElement("div");
+      goBackBtn.classList.add("mpx-goBack-container");
+      const goBackImg = document.createElement("div");
+      goBackImg.classList.add("arrow", "left");
+  
+      goBackBtn.append(goBackImg);
+  
+      const goBackText = `
+                     <p>Go back</p>
+                     `;
+  
+      goBackImg.insertAdjacentHTML("afterend", goBackText);
+      document
+        .querySelector(".mpx-firstToKnow-container button")
+        .insertAdjacentElement("beforebegin", goBackBtn);
+      //END
+  
+      // LAYOUT V2
+  
+      formRefChildren[11].style.display = "none";
+      formRefChildren[12].style.display = "none";
+      document.querySelectorAll(".form-group input").forEach((input) => {
+        input.placeholder = "";
+      });
+  
+      //make intital option text blank
+      document.querySelectorAll("select option:first-child").forEach((input) => {
+        input.innerText = "";
+      });
+  
+      //create plus and tick css containers / request these
+      document
+        .querySelectorAll("#areasOfInterest .checkBoxLabel")
+        .forEach((label) => {
+          const newDiv = document.createElement("div");
+          newDiv.classList.add("mpx-plus");
+          label.insertAdjacentElement("afterbegin", newDiv);
+          label.insertAdjacentHTML(
+            "afterbegin",
+            '<span class="checkmark"> <div class="checkmark_stem"></div> <div class="checkmark_kick"></div> </span>'
+          );
+        });
+  
+      //remove tooltip
+      document.querySelector(".form-group__tooltip-wrapper").style.display =
+        "none";
+  
+      // add width to select element / use css
+      document.querySelector("#jobSpeciality").style.width = "100%";
+  
+      //step 2 order
+      const stepTwoArray = document.querySelectorAll(
+        "#areasOfInterest .form-group"
+      );
+      const arr = Array.from(stepTwoArray);
+  
+      arr.splice(3, 0, arr.splice(4, 1)[0]);
+      arr.splice(5, 0, arr.splice(6, 1)[0]);
+      arr.splice(6, 0, arr.splice(7, 1)[0]);
+      arr.splice(7, 0, arr.splice(8, 1)[0]);
+      arr.splice(8, 0, arr.splice(9, 1)[0]);
+      arr.splice(9, 0, arr.splice(11, 1)[0]);
+      arr.splice(10, 0, arr.splice(12, 1)[0]);
+      arr.splice(11, 0, arr.splice(14, 1)[0]);
+      arr.splice(12, 0, arr.splice(15, 1)[0]);
+      arr.splice(13, 0, arr.splice(14, 1)[0]);
+  
+      //iterate it back into the dom
+      arr.forEach((element) => {
+        document.querySelector("#areasOfInterest").append(element);
+      });
+  
+      //arrange step 3 order putting postcode above country
+      document
+        .querySelector(".mpx-stepThree-details .multiple-mandatory")
+        .children[3].insertAdjacentElement(
+          "beforebegin",
+          document.querySelector(
+            ".mpx-stepThree-container .formInputContainerAddress"
+          ).children[1]
+        );
+  
+      //hide please note and create new please note text box
+      document.querySelector(
+        ".mpx-stepOne-details .infobox.theme-1"
+      ).style.display = "none";
+  
+      const pleaseNoteContainer = document.createElement("div");
+      pleaseNoteContainer.classList.add("mpx-note-container");
+  
+      const pleaseNote = document.createElement("div");
+      pleaseNote.classList.add("mpx-note");
+  
+      const pleaseNoteText = document.createElement("p");
+      const pleaseNoteTextHTML = `
+     If you previously had an account on another Nutricia website, <a href="/hcp/login/reset-password.html"><u>click here</u></a> to reset your password
+     `;
+      pleaseNoteText.insertAdjacentHTML("afterbegin", pleaseNoteTextHTML);
+  
+      const svgContainer = document.createElement("svg");
+      const svg = `
+     <img src="https://smartmedia.digital4danone.com/is/image/danone/frame-27.png"></img>
+     `;
+      svgContainer.insertAdjacentHTML("afterbegin", svg);
+  
+      pleaseNoteContainer.append(pleaseNote);
+      pleaseNote.append(svgContainer);
+      pleaseNote.append(pleaseNoteText);
+  
+      document
+        .querySelector(".mpx-stepOne-details")
+        .insertAdjacentElement("afterbegin", pleaseNoteContainer);
+  
+      //asterix move
+      document
+        .querySelector(".mpx-firstToKnow-container label a")
+        .parentElement.append(
+          document.querySelector(
+            ".mpxPopup > div > div:nth-child(4) > div > span"
+          )
+        );
+      //END
+  
+      // LOGIC AND VALIDATION
+  
+      // Step 1
+      document
+        .querySelector(".mpx-stepOne-details .mpx-first-continue")
+        .addEventListener("click", (e) => {
+          const valid = document.querySelectorAll(
+            ".mpx-stepOne-details .form-group input[required='required']"
+          );
+          if (
+            valid[0].value !== "" &&
+            valid[1].value !== "" &&
+            valid[2].value !== "" &&
+            valid[2].classList.contains("input-valid") &&
+            valid[3].value !== "" &&
+            valid[4].value !== "" &&
+            valid[4].classList.contains("input-valid") &&
+            valid[5].value === "true"
+          ) {
+            const mobile = window.matchMedia("(max-width: 815px)");
+            if (mobile.matches) {
+              document.querySelector(".mpx-intro-container").style.display =
+                "none";
+              document.querySelector(".mpx-hp-cvp-container").style.display =
+                "none";
+            }
+  
+            // add margin to container
+            document
+              .querySelector(".mpx-stepOne-container")
+              .classList.add("closed");
+  
+            //close details
+            document
+              .querySelector(".mpx-stepOne-container > .mpx-generic-title")
+              .classList.add("closed");
+  
+            document
+              .querySelector(".mpx-stepOne-details")
+              .classList.add("closed");
+  
+            //show tick
+            document.querySelector(".mpx-stepOne-container img").src =
+              "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png";
+  
+            document
+              .querySelector(".mpx-stepOne-container img")
+              .classList.remove("closed");
+  
+            //show edit
+            document
+              .querySelector(".mpx-stepOne-container a")
+              .classList.remove("closed");
+  
+            // show step two details
+            document
+              .querySelector(".mpx-stepTwo-container > .mpx-generic-title")
+              .classList.remove("closed");
+  
+            document
+              .querySelector(".mpx-stepTwo-details")
+              .classList.remove("closed");
+  
+            // hide 2nd journey edit and image
+            document
+              .querySelector(".mpx-stepTwo-container a")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container img")
+              .classList.add("closed");
+  
+            window.scrollTo({
+              top: document.querySelector(".mpx-stepTwo-container h2").offsetTop,
+              behavior: "smooth",
+            });
+  if (
+              document
+                .querySelector(".form-message.-type-error")
+                .innerText.includes("User Already Exists")
+            ) {
+              document
+              .querySelector(".form-message.-type-error").style.display = "none"
+            }
+          }
+        });
+  
+      //step 2
+      document
+        .querySelector(".mpx-stepTwo-details .mpx-second-continue")
+        .addEventListener("click", () => {
+          for (
+            let index = 0;
+            index < document.querySelectorAll("#areasOfInterest label").length;
+            index++
+          ) {
+            const element = document.querySelectorAll("#areasOfInterest label")[
+              index
+            ];
+  
+            if (
+              element.classList.contains("selected") &&
+              document.querySelector("#jobSpeciality").value !== ""
+            ) {
+              // add margin
+              document
+                .querySelector(".mpx-stepTwo-container")
+                .classList.add("closed");
+  
+              // close details and add styling
+              document
+                .querySelector(".mpx-stepTwo-container > .mpx-generic-title")
+                .classList.add("closed");
+              document
+                .querySelector(".mpx-stepTwo-details")
+                .classList.add("closed");
+  
+              // display edit
+              document
+                .querySelector(".mpx-stepTwo-container a")
+                .classList.remove("closed");
+  
+              // tick
+              document.querySelector(
+                ".mpx-stepTwo-container .mpx-generic-title > div > img"
+              ).src =
+                "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png";
+  
+              document
+                .querySelector(".mpx-stepTwo-container img")
+                .classList.remove("closed");
+  
+              //show 3rd step details
+              document
+                .querySelector(".mpx-stepThree-container > .mpx-generic-title")
+                .classList.remove("closed");
+              document
+                .querySelector(".mpx-stepThree-details")
+                .classList.remove("closed");
+  
+              // hide 3rd edit and tick
+              document
+                .querySelector(".mpx-stepThree-container img")
+                .classList.add("closed");
+              document
+                .querySelector(".mpx-stepThree-container a")
+                .classList.add("closed");
+  
+              window.scrollTo({
+                top: document.querySelector(".mpx-stepThree-container h2")
+                  .offsetTop,
+                behavior: "smooth",
+              });
+            }
+          }
+        });
+  
+      //step 3
+      document
+        .querySelector(".mpx-stepThree-details .mpx-third-continue")
+        .addEventListener("click", () => {
+          const valid3 = document.querySelectorAll(
+            ".mpx-stepThree-details .form-group input[required='required']"
+          );
+  
+          if (
+            valid3[0].value !== "" &&
+            valid3[1].value !== "" &&
+            valid3[2].value !== "" &&
+            valid3[3].value !== "" &&
+            valid3[4].value !== "" &&
+            valid3[0].classList.contains("input-valid") &&
+            valid3[1].classList.contains("input-valid") &&
+            valid3[2].classList.contains("input-valid") &&
+            valid3[3].classList.contains("input-valid") &&
+            valid3[4].classList.contains("input-valid") &&
+            document.querySelector(".mpx-stepThree-details .form-group >select ")
+              .value !== "" &&
+            document.querySelector(
+              ".mpx-stepOne-container .mpx-generic-title img"
+            ).src ===
+              "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png" &&
+            document.querySelector(
+              ".mpx-stepTwo-container .mpx-generic-title img"
+            ).src ===
+              "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png"
+          ) {
+            // close details and add styling
+            document
+              .querySelector(".mpx-stepThree-container > .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-details")
+              .classList.add("closed");
+  
+            // display edit
+            document
+              .querySelector(".mpx-stepThree-container a")
+              .classList.remove("closed");
+  
+            // tick
+            document.querySelector(
+              ".mpx-stepThree-container .mpx-generic-title > div > img"
+            ).src =
+              "https://smartmedia.digital4danone.com/is/image/danone/circle-tick.png";
+            document
+              .querySelector(".mpx-stepThree-container img")
+              .classList.remove("closed");
+  
+            //popup
+            document.querySelector(".mpxPopup").classList.remove("closed");
+          }
+        });
+  
+      //EDIT LOGIC
+      //edit button
+      for (let i = 0; i < document.querySelectorAll(".default a").length; i++) {
+        document
+          .querySelectorAll(".default a")[0]
+          .addEventListener("click", () => {
+            window.scrollTo({
+              top: document.querySelector(".mpx-stepOne-container h2").offsetTop,
+              behavior: "smooth",
+            });
+            //remove margin
+            document
+              .querySelector(".mpx-stepOne-container")
+              .classList.remove("closed");
+  
+            //open details
+            document
+              .querySelector(".mpx-stepOne-details")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepOne-container .mpx-generic-title")
+              .classList.remove("closed");
+  
+            //hide icon and edit
+            document
+              .querySelector(".mpx-stepOne-container a")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container img")
+              .classList.add("closed");
+  
+            //step 2 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepTwo-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepTwo-container img")
+              .classList.remove("closed");
+  
+            //step 3 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepThree-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepThree-container img")
+              .classList.remove("closed");
+          });
+  
+        document
+          .querySelectorAll(".default a")[1]
+          .addEventListener("click", () => {
+            window.scrollTo({
+              top: document.querySelector(".mpx-stepTwo-container h2").offsetTop,
+              behavior: "smooth",
+            });
+            // step 1 - show details for step 2
+            document
+              .querySelector(".mpx-stepTwo-container")
+              .classList.remove("closed");
+  
+            document
+              .querySelector(".mpx-stepTwo-details")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepTwo-container .mpx-generic-title")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepTwo-container a")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container img")
+              .classList.add("closed");
+  
+            //step 2 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepOne-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepOne-container img")
+              .classList.remove("closed");
+  
+            document
+              .querySelector(".mpx-stepOne-container")
+              .classList.add("closed");
+  
+            //step 3 - close details, show edit and icon
+            document
+              .querySelector(".mpx-stepThree-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepThree-container img")
+              .classList.remove("closed");
+          });
+  
+        document
+          .querySelectorAll(".default a")[2]
+          .addEventListener("click", () => {
+            window.scrollTo({
+              top: document.querySelector(".mpx-stepThree-container h2")
+                .offsetTop,
+              behavior: "smooth",
+            });
+            //step 1 - show details for step 3
+            document
+              .querySelector(".mpx-stepThree-details")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepThree-container .mpx-generic-title")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepThree-container a")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container img")
+              .classList.add("closed");
+  
+            //step 2 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepOne-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepOne-container img")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepOne-container")
+              .classList.add("closed");
+  
+            //step 3 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepTwo-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepTwo-container img")
+              .classList.remove("closed");
+  
+            document
+              .querySelector(".mpx-stepTwo-container")
+              .classList.add("closed");
+          });
+      }
+  
+      //dropdown button
+      for (
+        let i = 0;
+        i < document.querySelectorAll(".mpx-generic-title img").length;
+        i++
+      ) {
+        document
+          .querySelectorAll(".mpx-generic-title img")[0]
+          .addEventListener("click", () => {
+            window.scrollTo({
+              top: document.querySelector(".mpx-stepOne-container h2").offsetTop,
+              behavior: "smooth",
+            });
+            //remove margin
+            document
+              .querySelector(".mpx-stepOne-container")
+              .classList.remove("closed");
+  
+            //open details
+            document
+              .querySelector(".mpx-stepOne-details")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepOne-container .mpx-generic-title")
+              .classList.remove("closed");
+  
+            //hide icon and edit
+            document
+              .querySelector(".mpx-stepOne-container a")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container img")
+              .classList.add("closed");
+  
+            //step 2 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepTwo-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepTwo-container img")
+              .classList.remove("closed");
+  
+            //step 3 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepThree-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepThree-container img")
+              .classList.remove("closed");
+          });
+  
+        document
+          .querySelectorAll(".mpx-generic-title img")[1]
+          .addEventListener("click", () => {
+            window.scrollTo({
+              top: document.querySelector(".mpx-stepTwo-container h2").offsetTop,
+              behavior: "smooth",
+            });
+            // step 1 - show details for step 2
+            document
+              .querySelector(".mpx-stepTwo-container")
+              .classList.remove("closed");
+  
+            document
+              .querySelector(".mpx-stepTwo-details")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepTwo-container .mpx-generic-title")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepTwo-container a")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container img")
+              .classList.add("closed");
+  
+            //step 2 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepOne-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepOne-container img")
+              .classList.remove("closed");
+  
+            document
+              .querySelector(".mpx-stepOne-container")
+              .classList.add("closed");
+  
+            //step 3 - close details, show edit and icon
+            document
+              .querySelector(".mpx-stepThree-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepThree-container img")
+              .classList.remove("closed");
+          });
+  
+        document
+          .querySelectorAll(".mpx-generic-title img")[2]
+          .addEventListener("click", () => {
+            window.scrollTo({
+              top: document.querySelector(".mpx-stepThree-container h2")
+                .offsetTop,
+              behavior: "smooth",
+            });
+            //step 1 - show details for step 3
+            document
+              .querySelector(".mpx-stepThree-details")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepThree-container .mpx-generic-title")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepThree-container a")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepThree-container img")
+              .classList.add("closed");
+  
+            //step 2 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepOne-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepOne-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepOne-container img")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepOne-container")
+              .classList.add("closed");
+  
+            //step 3 - close details, add margin, show edit and icon
+            document
+              .querySelector(".mpx-stepTwo-details")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container .mpx-generic-title")
+              .classList.add("closed");
+            document
+              .querySelector(".mpx-stepTwo-container a")
+              .classList.remove("closed");
+            document
+              .querySelector(".mpx-stepTwo-container img")
+              .classList.remove("closed");
+  
+            document
+              .querySelector(".mpx-stepTwo-container")
+              .classList.add("closed");
+          });
+      }
+  
+      //GO BACK
+      document
+        .querySelector(".mpx-goBack-container")
+        .addEventListener("click", (e) => {
+          document.querySelector(".mpxPopup").classList.add("closed");
+  
+          //show 3rd step details
+          document
+            .querySelector(".mpx-stepThree-container > .mpx-generic-title")
+            .classList.remove("closed");
+          document
+            .querySelector(".mpx-stepThree-details")
+            .classList.remove("closed");
+  
+          // hide 3rd edit and tick
+          document
+            .querySelector(".mpx-stepThree-container img")
+            .classList.add("closed");
+          document
+            .querySelector(".mpx-stepThree-container a")
+            .classList.add("closed");
+        });
+  
+      //clicking step 2 options
+      const stepTwoOptions = document.querySelectorAll("#areasOfInterest label");
+      stepTwoOptions.forEach((option) => {
+        option.addEventListener("click", () => {
+          option.classList.toggle("selected");
+          option.children[1].classList.toggle("selected");
+          option.children[0].classList.toggle("selected");
+        });
+      });
+      //recaptcha
+      document
+        .querySelector(".mpxPopup .mpx-register")
+        .addEventListener("click", (e) => {
+          if (document.querySelector("#g-recaptcha-response").value === "") {
+            e.preventDefault();
+            if (
+              !document
+                .querySelector(".mpxPopup .mpx-register")
+                .classList.contains(".mpx-recaptchaError")
+            ) {
+              document
+                .querySelector(".mpxPopup .mpx-register")
+                .classList.add(".mpx-recaptchaError");
+              var recaptchaHTML =
+                '<div class="form-group mpx-recaptcha-error" style="margin-bottom: 0"><span class="form-message -type-error">Recaptcha not verified <br></span></div>';
+              document
+                .querySelector("#recaptcha")
+                .insertAdjacentHTML("afterend", recaptchaHTML);
+              document.querySelector(".mpx-firstToKnow-container").style.height =
+                "fit-content";
+            }
+          }
+        });
+  
+      if (
+        document
+          .querySelector(".form-message.-type-error")
+          .innerText.includes("User Already Exists")
+      ) {
+        document.querySelector("#checkbox-hpconsent").click();
+  
+        document.querySelector("#checkbox-hpconsent").value = "false";
+        //clear forms if dupe email
+        document
+          .querySelectorAll(
+            ".mpx-stepOne-details .form-group input[required='required']"
+          )
+          .forEach((input) => {
+            if (input.value !== "") {
+              input.value = "";
+            }
+          });
+  
+        document
+          .querySelectorAll(
+            ".mpx-stepThree-details .form-group input[required='required']"
+          )
+          .forEach((input) => {
+            if (input.value !== "") {
+              input.value = "";
+            }
+          });
+      }
+  
+    }
+    reload();
+  } catch (error) {}
+  
+  </script>

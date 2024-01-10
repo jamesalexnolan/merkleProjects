@@ -1,0 +1,262 @@
+<style>
+    .mpx-popup {
+        position: fixed;
+        z-index: 999999 !important;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: translateY(60%) scale(0);
+        transition: transform 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    .mpx-popup.visible {
+        transform: translateY(0) scale(1);
+        background-color: rgba(16,16,16,0.4);
+        transition: background-color 1s ease;
+    }
+
+    .mpx-content {
+        position: relative;
+        padding: 10px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #ffffff;
+        width: 500px;
+        height: auto;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        box-shadow: 5px 10px 10px rgba(16, 16, 16, 0.4);
+        padding-bottom: 30px;
+    }
+
+    .newsletter__button {
+        transform: translateX(130%);
+    }
+
+    .newsletter__text {
+        text-align: center;
+    }
+
+    .newsletter__title {
+        text-align: center;
+    }
+
+    .mpx-scroll {
+        overflow-y: auto;
+        overflow-x: hidden;
+        height: auto;
+        max-height: calc(100vh - 20px);
+    }
+
+    .mpx-scroll::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .mpx-scroll::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .mpx-scroll::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 5px;
+    }
+
+    .mpx-scroll::-webkit-scrollbar-thumb:hover {
+        background: #555;
+        border-radius: 5px;
+    }
+
+    .mpx-exit {
+        width: 100%;
+        font-size: 30px;
+        width: 100%;
+        margin-left: 90%;
+        position: sticky;
+        top: 0;
+    }
+
+    .mpx-close-btn {
+        font-size: 30px;
+        background-color: white;
+        padding: 8px;
+        color: black;
+    }
+
+    .mpx-close-btn:hover {
+        color: #0050a8;
+    }
+
+    .mpx-content-text {
+        margin: auto;
+        text-align: center;
+        position: inherit;
+        width: 100%;
+    }
+
+    .mpx-content-text h2 {
+        font-size: 35px;
+        line-height: 48px;
+    }
+
+    .mpx-content-text p {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+
+    .newsletter-component .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .checkbox--foundation .checkbox__icon {
+        width: 35px;
+        height: 35px;
+    }
+
+    .mpx-padding {
+        padding-left: 40px !important;
+        padding-right: 50px !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .newsletter .container {
+        padding: 0 !important;
+    }
+
+    .mpx-text-one {
+        transform: translateX(30px);
+        margin-top: 7px;
+    }
+
+    .mpx-text-two {
+        width: 110%;
+        transform: translateX(-20px);
+    }
+
+    .stop-scrolling {
+        height: 100%;
+        overflow: hidden;
+    }
+
+
+    @media (max-width: 767px) {
+
+        .mpx-content {
+            width: 400px;
+        }
+
+        .newsletter__button {
+            transform: translateX(80%);
+        }
+
+        .mpx-exit {
+            margin-left: 87%;
+        }
+
+        .mpx-content-text h2 {
+            font-size: 30px;
+            line-height: inherit;
+        }
+
+        .mpx-text-two {
+            width: 100%;
+        }
+    }
+</style>
+
+//insert jquery into head
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+    window.addEventListener("load", (event) => {
+        //Sets cookie  
+        function getCookie(name) {
+            let value = `; ${document.cookie}`;
+            let parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(';').shift();
+        }
+
+        //creates popup and places it on the page
+        document.querySelector('.page').insertAdjacentHTML('afterBegin', '<div class="mpx-popup">\
+        <div class="mpx-content">\
+            <div class="mpx-scroll">\
+            <div class="mpx-exit">\
+            <a href="#" class="mpx-close-btn">\
+                <img src="https://www.philips-hue.com/content/dam/hue/en-us/images/close-icon@2x.png" alt="exit button" height="20" width="20">\
+                </a>\
+            </div>\
+            <div class="mpx-content-text">\
+                <h2>Be the first! Get special offers and news</h2>\
+                <p>Sign up to receive a personalized newsletter (and even messages in the Hue app!) for exclusive updates about the latest lights, accessories, features, and discounts from Philips Hue.</p>\
+            </div>\
+            <div class="mpx-subscribe">\
+            </div>\
+        </div>\
+        </div>\
+    </div>');
+
+        //add padding to element
+        document.querySelector('[id="stayconnected"] > div').classList.add('mpx-padding')
+
+        //Move existsing reg section in page into mpx-subscribe
+        document.querySelector('.mpx-subscribe').appendChild(document.querySelector('[id="stayconnected"]'));
+        //Hide text col
+        document.querySelectorAll('.newsletter-component > div > span > div > div')[0].style.display = 'none';
+
+        //change Sign up button text
+        document.querySelector('.button__text').innerText = 'Sign up'
+
+        //Add class to text
+        document.querySelectorAll('.newsletter__form-group--checkbox > label > div > p')[0].classList.add('mpx-text-one')
+        document.querySelectorAll('.newsletter__form-group--checkbox > label > div > p')[2].classList.add('mpx-text-two')
+
+
+        //if exit button clicked, remove popup
+        document.querySelector('.mpx-close-btn').addEventListener('click', function () {
+            document.querySelector('.mpx-popup').classList.remove('visible');
+            document.querySelector('body').classList.remove('stop-scrolling');
+        });
+
+        //if Sign-Up button clicked, remove popup
+        document.querySelector('.newsletter__button').addEventListener('click', function () {
+            //removes other text within the pop-up
+            document.querySelector('.mpx-content-text').style.display = 'none'
+            //8 second delay timer so it doesn't dissapear straight away
+            setTimeout(() => {
+                document.querySelector('.mpx-popup').classList.remove('visible');
+                document.querySelector('body').classList.remove('stop-scrolling');
+            }, 8000)
+        })
+
+        //do not show popup again if cookie is present
+        //15 second delay to display popup and set cookie
+        setTimeout(() => {
+            let popUpShown = getCookie('popUpShown');
+            if (typeof (popUpShown) === 'undefined') {
+                document.querySelector('.mpx-popup').classList.add('visible');
+                document.querySelector('body').classList.add('stop-scrolling');
+                document.cookie = `popUpShown=1; path=/; max-age=${60 * 60 * 24 * 14};`;
+            }
+        }, 15000)
+
+        //Remove ts and cs href
+        document.querySelector('[title="Terms and conditions"]').href = ''
+        //Open link in new tab when clicked
+        document.querySelector('[title="Terms and conditions"]').addEventListener('click', () => {
+            window.open('https://www.philips-hue.com/en-us/support/legal/terms-conditions', '_blank');
+        });
+
+        //Remove Privacy notice href
+        document.querySelector('[title="Privacy notice"]').href = ''
+        //Open link in new tab when clicked
+        document.querySelector('[title="Privacy notice"]').addEventListener('click', () => {
+            window.open('https://www.philips-hue.com/en-us/support/legal/privacy-policy', '_blank');
+        });
+
+    })
+</script>

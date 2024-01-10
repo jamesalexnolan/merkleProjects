@@ -1,0 +1,48 @@
+const TargetClient = require("@adobe/target-nodejs-sdk");
+
+const CONFIG = {
+    client: "merkleemeadevelopmen",
+    organizationId: "AD7649695D42B3590A495FD8@AdobeOrg",
+    decisioningMethod: "on-device",
+    events: {
+        clientReady: targetClientReady
+    }
+};
+
+const tClient = TargetClient.create(CONFIG);
+
+function targetClientReady() {
+    //Adobe Target SDK has now downloaded the JSON artifact locally, which contains the activity details.
+    //We will see how to use the artifact here very soon.
+}
+
+//... Code removed for brevity
+let featureFlags = {};
+function targetClientReady() {
+   tClient.getAttributes(["ondevice-featureflag"]).then(function(response) {
+      const featureFlags = response.asObject("ondevice-featureflag");
+      if(featureFlags.enabled && featureFlags.flag !== "expA") { //Assuming "expA" is control
+         console.log("Render alternate experience" + featureFlags.flag);
+      }
+      else {
+         console.log("Render default experience");
+      }
+   });
+}
+
+//When a conversion happens
+TargetClient.sendNotifications({
+    targetCookie,
+    "request" : {
+       "notifications" : [
+       {
+          type: "display",
+          timestamp : Date.now(),
+          id: "conversion",
+          mbox : {
+             name : "pageViewed"
+          },
+       }
+       ]
+    }
+ })

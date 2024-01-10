@@ -1,0 +1,173 @@
+<style>
+    .mpx-nav-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .mpx-col-one {
+        width: 33.33%;
+    }
+
+    .mpx-col-two {
+        width: 66.66%;
+    }
+
+    .mpx-nav-images {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+    }
+
+    .mpx-nav-images a:nth-of-type(2) {
+        margin-left: 40px;
+    }
+
+    .mpx-nav-images a {
+        color: black;
+    }
+
+    .mpx-image {
+        width: 100%;
+        background-color: #f9f9f9;
+        text-align: center;
+        margin: 0 0 0rem;
+    }
+
+    .mpx-image img {
+        width: 100%;
+        display: block;
+    }
+
+    .mpx-image figcaption {
+        margin-top: 10px;
+        padding: 5px;
+        padding-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .mpx-nav-container {
+            flex-direction: column;
+        }
+
+        .mpx-col-one,
+        .mpx-col-two {
+            width: 100%;
+        }
+    }
+</style>
+
+<script>
+  function loadJQueryAndRunCode(callback) {
+  // Create a script element and set its source to jQuery's CDN
+  var script = document.createElement("script");
+  script.src = "https://code.jquery.com/jquery-3.6.0.min.js";
+  script.type = "text/javascript";
+
+  // Append the script element to the head of the document
+  document.head.appendChild(script);
+
+  // When the script is loaded, execute the callback function
+  script.onload = function() {
+    callback();
+  };
+}
+
+// Call the function and pass in your code as a callback function
+loadJQueryAndRunCode(function() {
+            //create HTML for container and colunms 
+            var mpxNav = '<container class="mpx-nav-container">\
+        <div class="mpx-col-one">\
+        </div>\
+        <div class="mpx-col-two">\
+            <div class="mpx-header">\
+                <strong>Featured</strong>\
+            </div>\
+            <div class="mpx-nav-images">\
+                <a href="https://www.philips-hue.com/en-us/products/smart-light-starter-kits">\
+                    <figure class="mpx-image">\
+                        <img src="https://www.philips-hue.com/content/dam/hue/en-us/images/philips-hue-starter-kit.jpg" alt="Starter kit image">\
+                        <figcaption><strong>Starter kits</strong></figcaption>\
+                    </figure>\
+                </a>\
+                <a href="https://www.philips-hue.com/en-us/products/all-products?page=12&sort=relevance">\
+                    <figure class="mpx-image">\
+                        <img src="https://www.philips-hue.com/content/dam/hue/en-us/images/philips-hue-bundle.jpg" alt="Bundle image">\
+                        <figcaption><strong>Bundles</strong></figcaption>\
+                    </figure>\
+                </a>\
+            </div>\
+        </div>\
+    </container>'
+
+            //mobile version
+            var mpxNavMobile = '<container class="mpx-nav-container">\
+        <div class="mpx-col-two" style="margin-top: 50px;">\
+            <div class="mpx-header">\
+                <strong>Featured</strong>\
+            </div>\
+            <div class="mpx-nav-images">\
+                <a href="https://www.philips-hue.com/en-us/products/smart-light-starter-kits">\
+                    <figure class="mpx-image">\
+                        <img src="https://www.philips-hue.com/content/dam/hue/en-us/images/philips-hue-starter-kit.jpg" alt="Starter kit image">\
+                        <figcaption><strong>Starter kits</strong></figcaption>\
+                    </figure>\
+                </a>\
+                <a href="https://www.philips-hue.com/en-us/products/all-products?page=12&sort=relevance">\
+                    <figure class="mpx-image">\
+                        <img src="https://www.philips-hue.com/content/dam/hue/en-us/images/philips-hue-bundle.jpg" alt="Bundle image">\
+                        <figcaption><strong>Bundles</strong></figcaption>\
+                    </figure>\
+                </a>\
+            </div>\
+        </div>\
+    </container>'
+
+            //place container
+            $(mpxNav).appendTo($('.col-6.flyout__block.flyout__block--s.flyout__block--bordered'))
+
+
+            // select the target node
+            var targetNode = document.querySelector('.header__menu.header__menu--mobile');
+
+            // create an observer instance
+            var observer = new MutationObserver(function (mutations) {
+                mutations.forEach(function (mutation) {
+                    if (mutation.attributeName === 'class') {
+                        $(mpxNavMobile).insertAfter($('.mobile-navigation__list'));
+                    }
+                });
+            });
+
+            // configuration of the observer:
+            var config = { attributes: true };
+
+            // pass in the target node, as well as the observer options
+            observer.observe(targetNode, config);
+            //end observer
+
+            //place shop by category list into col-one
+            $('.flyout__list:contains("Shop by category")').appendTo($('.mpx-col-one'))
+            //place into one row
+            $('.flyout__list:contains("Shop by category")').removeClass('flyout__list--two-cols')
+            $('.flyout__list:contains("Shop by category")').addClass('flyout__list--one-cols')
+
+            //change width
+            $('#experience-fragment-component-c03cc0e7d8 > div > div > div > header > div > nav > ul > li:eq(0) > div > div > nav').css('width', 'max-content');
+
+            //remove some list items
+            $('.flyout__li:contains("Table lamps")').hide()
+            $('.flyout__li:contains("Floor lamps")').hide()
+            $('.flyout__li:contains("Recessed lights")').hide()
+            $('.flyout__li:contains("Spot lights")').hide()
+            $('.flyout__li:contains("Wall lights")').hide()
+            $('.flyout__li:contains("Ceiling lights")').hide()
+
+            //amend list item
+            $('.flyout__li:contains("Pendant lights")').find('a').text("Lamps");
+            $('.flyout__li a[href="https://www.philips-hue.com/en-us/products/smart-pendant-lights"]').attr('href', 'https://www.philips-hue.com/en-us/products/all-products#filters=TABLELAMPS_SU%2CFLOORLAMPS_SU%2CRECESSEDLIGHTS_SU%2CWALLLIGHTS_SU%2CCEILINGLIGHTS_SU%2CSUSPENSIONLIGHTS_SU%2CSPOTLIGHTS_SU');
+
+            //adjust layout
+            $('.flyout').find('.container').eq(0).css('overflow-x', 'clip')
+
+        });
+</script>

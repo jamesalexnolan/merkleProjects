@@ -1,0 +1,1088 @@
+<script>
+    try {
+        //reload the page for the latest experiance (resolves page refresh issues)
+        var pageReload = (function () {
+            var executed = false;
+            return function () {
+                if (!executed) {
+                    executed = true;
+                    location.reload(true);
+                }
+            };
+        })();
+
+        //set function for changes to load when document has loaded 
+        function xmasChanges() {
+            //if UTM condition is in the UTM fire ceratin experiance 
+            if (window.location.href.match(/ENT012/)) {
+                document.querySelectorAll('.story-component')[0].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-movie.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-movie.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-movie.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-movie.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-movie.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-movie.jpg"\
+                                        alt="Christmas house and Iris light on table."\
+                                        title="Christmas house and Iris light on table."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Play gradient light tube</h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Add an extra splash of color to your favorite festive movies this Christmas. Made to sit above or below the TV, the Play gradient light tube reacts to what is on your screen, making you feel like you are part of the show with its array of multicolor light.</p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-play-gradient-light-tube-large/046677803551"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Play light tube" rel="noopener" target="_blank">Shop Play light tube<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+
+                document.querySelectorAll('.story-component')[1].innerHTML =
+                    '<div class="story spacing-responsive-2 story--left story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 offset-sm-1 order-sm-last story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        alt="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        title="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 order-sm-first">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Sync box  </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Whether you’re settling into a Christmas movie or binging on your favorite festive music videos, surround lighting gives you the ultimate experience. Connect your TV to Hue sync box and your smart lights react to all the on-screen action.</p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-play-hdmi-sync-box-/046677555221"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop sync box" rel="noopener" target="_blank">Shop sync box<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+                document.querySelectorAll('.story-component')[2].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-gaming.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-gaming.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-gaming.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-gaming.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-gaming.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-gaming.jpg"\
+                                        alt="Person sat at computer playing video games."\
+                                        title="Person sat at computer playing video games."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Play gradient lightstrip for PC </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Treat the gamer in your family to the ultimate immersive light experience this Christmas. Play gradient lightstrips for PC create a seamless blend of rich colorful light that flashes, dances, dims, and brightens right along with what’s happening on the screen.   </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-gradient-lightstrip-80-inch/046677570552"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Play lightstrip " rel="noopener" target="_blank">Shop Play lightstrip <svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+
+                document.querySelectorAll('.story-component')[3].innerHTML =
+                    '<div class="story spacing-responsive-2 story--left story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 offset-sm-1 order-sm-last story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        alt="Christmas house and Iris light on table."\
+                                        title="Christmas house and Iris light on table."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 order-sm-first">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Iris table lamp </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Sophisticated and stylish, the Iris table lamp can highlight your favorite Christmas decorations. Angle it at your tiny Christmas village or let it wash colorful light over your favorite festive ornaments.   </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-iris-gold-special-edition/046677577117"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Iris table lamp" rel="noopener" target="_blank">Shop Iris table lamp<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+                document.querySelectorAll('.story-component')[4].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="Landing Pages: https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg"\
+                                        alt="Mobile phone with Christmas music playlist on the screen."\
+                                        title="Mobile phone with Christmas music playlist on the screen."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Sync Christmas lights to music  </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Link your Spotify and Philips Hue accounts and create an Entertainment area with your Festavia string lights and other color-capable lights in the room. With your Christmas lights synced to music, you can create the perfect party vibe whether listening to carols or dancing to the Christmas classics.   </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/explore-hue/propositions/entertainment/sync-with-music"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Explore Philips Hue + Spotify" rel="noopener" target="_blank">Explore Philips Hue + Spotify<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+            }
+
+            else if (window.location.href.match(/OUT456/)) {
+
+                document.querySelectorAll('.story-component')[0].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg"\
+                                        alt="Christmas house and Iris light on table."\
+                                        title="Christmas house and Iris light on table."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Go portable light </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Make Santa-spotting with your little ones even more magical this Christmas. Take a Go portable light with you out onto the front porch or back yard. As you search among the stars, set the light to a cool blue light or a soft glow using the Candle effect in the Hue app.   </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-go-portable-light--latest-model-/7602031U7"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Go portable light" rel="noopener" target="_blank">Shop Go portable light<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+
+                document.querySelectorAll('.story-component')[1].innerHTML =
+                    '<div class="story spacing-responsive-2 story--left story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 offset-sm-1 order-sm-last story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg"\
+                                        alt="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        title="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 order-sm-first">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Lily Outdoor spot light   </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Light up your yard for an extra-festive welcome with color-capable outdoor Lily spot lights. Why not choose from one of the special Christmas scenes in the Hue app? The Golden star scene will splash your front door with festive red and gold light.  </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-lily-outdoor-spot-light/1741730V7"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Lily spot light " rel="noopener" target="_blank">Shop Lily spot light <svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+                document.querySelectorAll('.story-component')[2].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-outdoors_sensor.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-outdoors_sensor.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-outdoors_sensor.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-outdoors_sensor.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-outdoors_sensor.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-outdoors_sensor.jpg"\
+                                        alt="Person sat at computer playing vidoe games."\
+                                        title="Person sat at computer playing vidoe games."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Outdoor sensor   </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Give your guests a warm welcome this Christmas. Place an Outdoor sensor by your front door and set it to trigger the Christmas lights along your garden path. Your guests are sure to appreciate a little welcoming light to help guide them to your door on winter nights.     </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-outdoor-sensor/046677541736"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Outdoor sensor  " rel="noopener" target="_blank">Shop Outdoor sensor  <svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+
+                document.querySelectorAll('.story-component')[3].innerHTML =
+                    '<div class="story spacing-responsive-2 story--left story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 offset-sm-1 order-sm-last story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        alt="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        title="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 order-sm-first">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Iris table lamp </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Sophisticated and stylish, the Iris table lamp can highlight your favorite Christmas decorations. Angle it at your tiny Christmas village or let it wash colorful light over your favorite festive ornaments.   </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-iris-gold-special-edition/046677577117"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Iris table lamp" rel="noopener" target="_blank">Shop Iris table lamp<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+                document.querySelectorAll('.story-component')[4].innerHTML =
+
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        alt="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        title="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Sync box   </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Whether you’re settling into a Christmas movie or binging on your favorite festive music videos, surround lighting gives you the ultimate experience. Connect your TV to Hue sync box and your smart lights react to all the on-screen action.</p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-play-hdmi-sync-box-/046677555221"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop sync box " rel="noopener" target="_blank">Shop sync box <svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+            }
+
+            else if (window.location.href.match(/IND789/)) {
+
+
+                document.querySelectorAll('.story-component')[0].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go_portable_outdoors.jpg"\
+                                        alt="Christmas house and Iris light on table."\
+                                        title="Christmas house and Iris light on table."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Go portable light </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Make the haul of Christmas gifts under the tree even more tantalizing by nestling a Go portable light among them. Angle the light up through the branches to add a colorful touch to your tree’s decorations.  </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-go-portable-light--latest-model-/7602031U7"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Go portable light" rel="noopener" target="_blank">Shop Go portable light<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+
+                document.querySelectorAll('.story-component')[1].innerHTML =
+                    '<div class="story spacing-responsive-2 story--left story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 offset-sm-1 order-sm-last story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        alt="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        title="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 order-sm-first">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Iris table lamp </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Sophisticated and stylish, the Iris table lamp can highlight your favorite Christmas decorations. Angle it at your tiny Christmas village or let it wash colorful light over your favorite festive ornaments.   </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-iris-gold-special-edition/046677577117"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Iris table lamp" rel="noopener" target="_blank">Shop Iris table lamp<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+                document.querySelectorAll('.story-component')[2].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg"\
+                                        alt="Person sat at computer playing vidoe games."\
+                                        title="Person sat at computer playing vidoe games."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Flourish pendant light  </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Impress your guests at the dinner table this Christmas with the sleek and stylish Flourish. The pendant light features millions of colors of light — perfect for setting the right festive mood for eating and socializing.   </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-flourish-pendant-light/046677571238"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Flourish pendant " rel="noopener" target="_blank">Flourish pendant  <svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+
+                document.querySelectorAll('.story-component')[3].innerHTML =
+                    '<div class="story spacing-responsive-2 story--left story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 offset-sm-1 order-sm-last story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-sync-box.jpg"\
+                                        alt="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        title="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 order-sm-first">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Sync box  </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Whether you’re settling into a Christmas movie or binging on your favorite festive music videos, surround lighting gives you the ultimate experience. Connect your TV to Hue sync box and your smart lights react to all the on-screen action.</p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-play-hdmi-sync-box-/046677555221"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop sync box" rel="noopener" target="_blank">Shop sync box<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+                document.querySelectorAll('.story-component')[4].innerHTML =
+
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-lilly.jpg"\
+                                        alt="Person sat at computer playing vidoe games."\
+                                        title="Person sat at computer playing vidoe games."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Lily spot light </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Light up your yard for an extra-festive welcome with color-capable outdoor Lily spot lights. Why not choose from one of the special Christmas scenes in the Hue app? The Golden star scene will splash your front door with festive red and gold light.  </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-lily-outdoor-spot-light/1741730V7"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Lily spot light  " rel="noopener" target="_blank">Shop Lily spot light   <svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+            }
+
+            else if (window.location.href.match(/BLE123/)) {
+
+                document.querySelectorAll('.story-component')[0].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go-portable.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go-portable.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go-portable.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go-portable.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go-portable.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-go-portable.jpg"\
+                                        alt="Christmas house and Iris light on table."\
+                                        title="Christmas house and Iris light on table."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Go portable light </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Make the haul of Christmas gifts under the tree even more tantalizing by nestling a Go portable light among them. Angle the light up through the branches to add a colorful touch to your tree’s decorations.  </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-go-portable-light--latest-model-/7602031U7"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Go portable light" rel="noopener" target="_blank">Shop Go portable light<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+
+                document.querySelectorAll('.story-component')[1].innerHTML =
+                    '<div class="story spacing-responsive-2 story--left story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 offset-sm-1 order-sm-last story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-bridge.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-bridge.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-bridge.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-bridge.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-bridge.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-bridge.jpg"\
+                                        alt="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        title="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 order-sm-first">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Hue Bridge  </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Upgrade to a Hue Bridge this Christmas to create a truly festive atmosphere at home. A Bridge opens up the full suite of exciting and useful smart light features, allowing you to connect up to 50 lights and accessories while giving you total control.  </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-bridge/046677458478"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Hue Bridge " rel="noopener" target="_blank">Shop Hue Bridge <svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+                document.querySelectorAll('.story-component')[2].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-music.jpg"\
+                                        alt="Person sat at computer playing vidoe games."\
+                                        title="Person sat at computer playing vidoe games."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Sync Christmas lights to music  </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>When you use a Hue Bridge, you can link your Spotify and Philips Hue accounts which lets you sync your Festavia string lights and any other color-capable lights with your favorite festive music. Create the perfect party vibe and watch your lights and your guests dance to the Christmas classics.    </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/explore-hue/propositions/entertainment/sync-with-music"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Explore Philips Hue + Spotify " rel="noopener" target="_blank">Explore Philips Hue + Spotify  <svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+
+                document.querySelectorAll('.story-component')[3].innerHTML =
+                    '<div class="story spacing-responsive-2 story--left story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 offset-sm-1 order-sm-last story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-iris.jpg"\
+                                        alt="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        title="A living room decorated for Christmas with a Christmas tree and a garland behind the TV."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 order-sm-first">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Iris table lamp </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Sophisticated and stylish, the Iris table lamp can highlight your favorite Christmas decorations. Angle it at your tiny Christmas village or let it wash colorful light over your favorite festive ornaments.   </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-iris-gold-special-edition/046677577117"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Shop Iris table lamp" rel="noopener" target="_blank">Shop Iris table lamp<svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+
+                document.querySelectorAll('.story-component')[4].innerHTML =
+                    '<div class="story spacing-responsive-2 story--right story--image-center story--image-top-mobile "\
+            data-tracking-event="component/story/impression"\
+            data-tracking-info="{&quot;component&quot;:{&quot;id&quot;:&quot;a54ad89c5d5c1a0b6337e919dd98eb6e&quot;,&quot;path&quot;:&quot;/story_component&quot;,&quot;name&quot;:&quot;story&quot;}}"\
+            data-tracking-done="true">\
+            <div class="container">\
+                <div class="row">\
+                    <div class="col-12 col-sm-6 story__image-wrapper">\
+                        <div class="parallax__pin">\
+                            <div class="aspect-ratio-box aspect-ratio-box--1-1">\
+                                <picture class="story__picture">\
+                                    <!--[if IE 9]><video style="display: none"><![endif]-->\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg"\
+                                        media="(min-width: 523px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg">\
+                                    <source\
+                                        data-srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg"\
+                                        media="(min-width: 361px)" type="image/png" sizes="543px"\
+                                        srcset="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg">\
+                                    <!--[if IE 9]></video><![endif]--> <img\
+                                        src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg"\
+                                        data-sizes="auto"\
+                                        data-src="https://www.philips-hue.com/content/dam/hue/en-us/images/christmas_festavia-assets-lp-flourish_pendant.jpg"\
+                                        alt="Person sat at computer playing vidoe games."\
+                                        title="Person sat at computer playing vidoe games."\
+                                        class="story__image img-responsive lazyautosizes lazyloaded" sizes="543px">\
+                                </picture>\
+                            </div>\
+                        </div>\
+                    </div>\
+                    <div class="story__text-wrapper col-12 col-sm-5 offset-sm-1">\
+                        <div class="story__headline headline headline-h2-default ">\
+                            <h2 class="headline__title heading-2">Flourish pendant light  </h2>\
+                        </div>\
+                        <div class="story__description rich-text-content">\
+                            <p>Impress your guests at the dinner table this Christmas with the sleek and stylish Flourish. The pendant light features millions of colors of light — perfect for setting the right festive mood for eating and socializing.   </p>\
+                        </div>\
+                        <div class="cta"> <a class="link cta__element cta__element--single cta__element--primary "\
+                                href="https://www.philips-hue.com/en-us/p/hue-white-and-color-ambiance-flourish-pendant-light/046677571238"\
+                                data-tracking-info="{&quot;event&quot;:{&quot;attributes&quot;:{&quot;priority&quot;:&quot;primary&quot;}}}"\
+                                title="Flourish pendant " rel="noopener" target="_blank">Flourish pendant  <svg\
+                                    class="icon icon-right ">\
+                                    <use\
+                                        xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#right">\
+                                    </use>\
+                                </svg></a> </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>'
+            }
+
+        }
+
+        //fire function when document has loaded
+        document.onload = xmasChanges();
+    } catch (err) {
+
+    }
+</script>

@@ -1,0 +1,257 @@
+<style>
+    .mpxBanner {
+        background: white;
+        color: black;
+    }
+
+    .mpx-item {
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .mpx-wrapper {
+        margin-top: var(--spacing-7, 40px);
+        margin-bottom: var(--spacing-7, 40px);
+        overflow: hidden;
+        width: 85%;
+        overflow: hidden;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .mpx-icon {
+        margin-right: var(--spacing-4, 12px);
+    }
+
+    @media only screen and (max-width: 767px) {
+        .mpx-wrapper {
+            width: auto;
+        }
+    }
+
+    @media screen and (min-width: 601px) {
+        .mpxBanner {
+            display: table;
+        }
+    }
+
+    .aem-Grid.aem-Grid--12.aem-Grid--default--12 {
+        background-color: white;
+    }
+
+    .information-bar-component {
+        background-color: black;
+    }
+</style>
+
+////////////////BELOW/////////////////////////
+
+<script>
+    try {
+        var mpxBanner =
+            '<div class="mpxBanner container">\
+    <div class="row">\
+        <div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-pointer-events mpx-wrapper">\
+            <div class="swiper-wrapper">\
+                <div class="swiper-slide mpx-item" role="group" style="width: 36%;">\
+                    <div class="mpx-icon">\
+                        <svg class="icon icon-check ">\
+                            <use xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#check"></use>\
+                        </svg>\
+                    </div>\
+                    <div class="mpx-item-content">Free shipping over $50</div>\
+                </div>\
+                <div class="swiper-slide mpx-item" role="group" style="width: 32%;">\
+                    <div class="mpx-icon">\
+                        <svg class="icon icon-check ">\
+                            <use xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#check"></use>\
+                        </svg>\
+                    </div>\
+                    <div class="mpx-item-content">30-day returns</div>\
+                </div>\
+                <div class="swiper-slide mpx-item" role="group" style="width: 32%;">\
+                    <div class="mpx-icon">\
+                    <svg class="icon icon-check ">\
+                            <use xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#check"></use>\
+                        </svg>\
+                    </div>\
+                    <div class="mpx-item-content">2-year warranty</div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+    </div>';
+
+        //add banner into DOM
+        document
+            .querySelector("#experience-fragment-component-42b551740a > div > div > div.section-component.master-component.theme--grey.aem-GridColumn.aem-GridColumn--default--12")
+            .insertAdjacentHTML("beforebegin", mpxBanner);
+
+        //setup swiper for mobile
+        fetch("https://unpkg.com/swiper@8.0.6/swiper-bundle.js")
+            .then(function (response) {
+                // the API call was successful and return text/string format
+                return response.text();
+            })
+            .then(function (txt) {
+                //convert txt to js readable
+                eval(txt);
+
+                //var swiper = Swiper;
+                var init = false;
+
+                function mpxSwiperConfig() {
+                    var mobile = window.matchMedia(
+                        "(min-width: 0px) and (max-width: 600px)"
+                    );
+                    var tablet_desktop = window.matchMedia("(min-width: 601px)");
+
+                    // initialise only for mobile
+                    if (mobile.matches) {
+                        if (!init) {
+                            init = true;
+                            swiper = new Swiper(".mySwiper", {
+                                slidesPerView: 1.5,
+                                centeredSlides: true,
+                                autoplay: {
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                },
+                            });
+                        }
+                    }
+
+                    // destroy slider when its not mobile
+                    else if (tablet_desktop.matches) {
+                        if (init) {
+                            swiper.destroy();
+                            init = false;
+                        }
+                        document.querySelectorAll(".mpx-item")[0].style.width = "36%";
+                        document.querySelectorAll(".mpx-item")[1].style.width = "32%";
+                        document.querySelectorAll(".mpx-item")[2].style.width = "32%";
+                    }
+                }
+
+                mpxSwiperConfig();
+
+
+                window.addEventListener('resize', function () {
+
+                    mpxSwiperConfig();
+                });
+            });
+    } catch (e) { }
+
+</script>
+
+
+///////////ABOVE////////////////
+
+<script>
+    try {
+        var mpxBanner =
+            '<div class="mpxBanner container">\
+    <div class="row">\
+        <div class="swiper mySwiper swiper-initialized swiper-horizontal swiper-pointer-events mpx-wrapper">\
+            <div class="swiper-wrapper">\
+                <div class="swiper-slide mpx-item" role="group" style="width: 36%;">\
+                    <div class="mpx-icon">\
+                        <svg class="icon icon-check ">\
+                            <use xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#check"></use>\
+                        </svg>\
+                    </div>\
+                    <div class="mpx-item-content">Free shipping over $50</div>\
+                </div>\
+                <div class="swiper-slide mpx-item" role="group" style="width: 32%;">\
+                    <div class="mpx-icon">\
+                        <svg class="icon icon-check ">\
+                            <use xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#check"></use>\
+                        </svg>\
+                    </div>\
+                    <div class="mpx-item-content">30-day returns</div>\
+                </div>\
+                <div class="swiper-slide mpx-item" role="group" style="width: 32%;">\
+                    <div class="mpx-icon">\
+                    <svg class="icon icon-check ">\
+                            <use xlink:href="/etc.clientlibs/signify-brand-hue/clientlibs/clientlib-main-v2/resources/icons/ui.svg#check"></use>\
+                        </svg>\
+                    </div>\
+                    <div class="mpx-item-content">2-year warranty</div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+    </div>';
+
+        var elem = document.querySelector("#experience-fragment-component-42b551740a > div > div > div > section > div > div > div.aem-Grid.aem-Grid--12.aem-Grid--default--12");
+        elem.setAttribute('style', 'background-color: white');
+
+        var elemInfoBar = document.querySelector("div.information-bar");
+        elemInfoBar.setAttribute('style', 'background-color: black');
+
+        //add banner into DOM
+        document
+            .querySelector("#experience-fragment-component-42b551740a > div > div > div > section > div > div > div > div.story-banner-component.master-component.aem-GridColumn.aem-GridColumn--default--12")
+            .insertAdjacentHTML("afterend", mpxBanner);
+
+
+        //setup swiper for mobile
+        fetch("https://unpkg.com/swiper@8.0.6/swiper-bundle.js")
+            .then(function (response) {
+                // the API call was successful and return text/string format
+                return response.text();
+            })
+            .then(function (txt) {
+                //convert txt to js readable
+                eval(txt);
+
+                //var swiper = Swiper;
+                var init = false;
+
+                function mpxSwiperConfig() {
+                    var mobile = window.matchMedia(
+                        "(min-width: 0px) and (max-width: 600px)"
+                    );
+                    var tablet_desktop = window.matchMedia("(min-width: 601px)");
+
+                    // initialise only for mobile
+                    if (mobile.matches) {
+                        if (!init) {
+                            init = true;
+                            swiper = new Swiper(".mySwiper", {
+                                slidesPerView: 1.5,
+                                centeredSlides: true,
+                                autoplay: {
+                                    delay: 3000,
+                                    disableOnInteraction: false,
+                                },
+                            });
+                        }
+                    }
+
+                    // destroy slider when its not mobile
+                    else if (tablet_desktop.matches) {
+                        if (init) {
+                            swiper.destroy();
+                            init = false;
+                        }
+                        document.querySelectorAll(".mpx-item")[0].style.width = "36%";
+                        document.querySelectorAll(".mpx-item")[1].style.width = "32%";
+                        document.querySelectorAll(".mpx-item")[2].style.width = "32%";
+                    }
+                }
+
+                mpxSwiperConfig();
+
+
+                window.addEventListener('resize', function () {
+
+                    mpxSwiperConfig();
+                });
+            });
+    } catch (e) { }
+
+</script>

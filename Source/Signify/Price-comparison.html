@@ -1,0 +1,249 @@
+<style>
+    /*Starter kit*/
+    .mpx-savings {
+        font-size: small !important;
+        color: #66A704;
+        margin-top: 7.5px !important;
+        display: flex;
+        justify-content: flex-start;
+        font-weight: bold;
+    }
+
+    /*Starter kit--end*/
+
+    /*PDPs*/
+    .mpx-saving-label {
+        display: flex;
+        justify-content: end;
+        color: #66A704;
+        font-size: smaller !important;
+        font-weight: bold;
+        margin-top: 5px !important;
+    }
+
+    /*PDPs--end*/
+</style>
+
+<script>
+    //////STARTER KIT MENU////////
+    //Elements to add saving message to
+    var valuesToMatch = [
+        'Starter kit: 2 E27 smart bulbs (1100)',
+        'Starter kit: 2 E27 smart bulbs (1100) + dimmer switch',
+        'Starter kit: 2 E27 smart bulbs (1100) + smart button',
+        'Starter kit: 3 E27 smart bulbs (1100) + smart button',
+        'Starter kit: 3 E27 smart bulbs (1100) + dimmer switch',
+        'Starter kit: 3 GU10 smart spotlights + dimmer switch',
+        'Starter kit: 2 B22 smart bulbs (1100)',
+        'Starter kit: 3 B22 smart bulbs (1100) + dimmer switch',
+        'Starter kit: 3 B22 smart bulbs (1100) + dimmer switch',
+        'Starter kit: 3 B22 smart bulbs (1100) + smart button',
+        'Starter kit: 2 E27 smart bulbs (1100) + dimmer switch',
+        'Starter kit: 3 E27 smart bulbs (1100) + dimmer switch',
+        'Starter kit: 2 E27 smart bulbs (1100)',
+        'Starter kit: 3 E27 smart bulbs (1100) + dimmer switch',
+        'Starter kit: 2 E27 smart bulbs (1100) + smart button',
+        'Starter kit: 2 B22 smart bulbs (1100) + dimmer switch'
+    ]
+
+    //corresponding saving price
+    var savingValue = [
+        '£29.98',
+        '£24.98',
+        '£42.97',
+        '£62.96',
+        '£64.96',
+        '£79.96',
+        '£19.98',
+        '£39.96',
+        '£64.96',
+        '£62.96',
+        '£29.97',
+        '£54.96',
+        '£19.98',
+        '£39.96',
+        '£27.97',
+        '£44.97'
+    ]
+
+    //function to add labels based on matching array
+    var targetTexts = document.querySelectorAll('.body-copy-1.product-title__title');
+
+    function addSavingLabel() {
+        for (var i = 0; i < targetTexts.length; i++) {
+            var textContent = targetTexts[i].innerText.trim();
+            if (valuesToMatch.includes(textContent)) {
+                var parentElement = targetTexts[i].closest('.filter-product-card');
+
+                if (parentElement) {
+                    var targetLabel = parentElement.querySelector('.price__label');
+
+                    if (targetLabel) {
+                        var index = valuesToMatch.indexOf(textContent);
+
+                        if (index !== -1) {
+                            var newSavingsDiv = document.createElement('div');
+                            newSavingsDiv.classList.add('mpx-savings');
+                            newSavingsDiv.innerHTML = 'Save ' + savingValue[index];
+
+                            targetLabel.parentNode.insertBefore(newSavingsDiv, targetLabel.nextSibling);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //Run On page refresh
+    pxChange();
+
+    //select the target node
+    var target = document.querySelector('.filter-result-overview');
+
+    // create an observer instance
+    var observer = new MutationObserver(function (mutations) {
+        pxChange();
+    });
+
+    // configuration of the observer:
+    var config = {
+        attributes: true,
+        childList: true,
+        characterData: true
+    };
+
+    // pass in the target node, as well as the observer options
+    observer.observe(target, config);
+
+    function pxChange() {
+        addSavingLabel();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+
+    //CTA click, page reload
+    document.querySelectorAll('.button.button--grey.button--md').forEach(function (button) {
+        button.addEventListener('click', function () {
+            location.reload(true);
+        })
+    })
+
+    //page number click, page reload
+    document.querySelector('.pagination__pages').addEventListener('click', function () {
+        location.reload(true);
+    })
+    //////STARTER KIT MENU --- END////////
+
+    //////PDP////////
+    var urlsToMatch = [
+        'https://www.philips-hue.com/en-gb/p/hue-white-and-colour-ambiance-starter-kit--2-e27-smart-bulbs--1100-/8719514291492',
+        'https://www.philips-hue.com/en-gb/p/hue-white-and-colour-ambiance-starter-kit--2-e27-smart-bulbs--1100--+-dimmer-switch/8719514291379',
+        'https://www.philips-hue.com/en-gb/p/hue-white-and-colour-ambiance-starter-kit--2-e27-smart-bulbs--1100--+-smart-button/8719514291393',
+        'https://www.philips-hue.com/en-gb/p/hue-white-and-colour-ambiance-starter-kit--3-e27-smart-bulbs--1100--+-smart-button/8719514291331',
+        'https://www.philips-hue.com/en-gb/p/hue-white-and-colour-ambiance-starter-kit--3-e27-smart-bulbs--1100--+-dimmer-switch/8719514291355',
+        'https://www.philips-hue.com/en-gb/p/hue-white-and-colour-ambiance-starter-kit--3-gu10-smart-spotlights-+-dimmer-switch/8719514340107',
+        'https://www.philips-hue.com/en-gb/p/hue-white-starter-kit--2-b22-smart-bulbs--1100-/8719514289215',
+        'https://www.philips-hue.com/en-gb/p/hue-white-starter-kit--3-b22-smart-bulbs--1100--+-dimmer-switch/8719514289178',
+        'https://www.philips-hue.com/en-gb/p/hue-white-and-colour-ambiance-starter-kit--3-b22-smart-bulbs--1100--+-dimmer-switch/8719514291539',
+        'https://www.philips-hue.com/en-gb/p/hue-white-and-colour-ambiance-starter-kit--3-b22-smart-bulbs--1100--+-smart-button/8719514291577',
+        'https://www.philips-hue.com/en-gb/p/hue-white-ambiance-starter-kit--2-e27-smart-bulbs--1100--+-dimmer-switch/8719514291812',
+        'https://www.philips-hue.com/en-gb/p/hue-white-ambiance-starter-kit--3-e27-smart-bulbs--1100--+-dimmer-switch/8719514291232',
+        'https://www.philips-hue.com/en-gb/p/hue-white-starter-kit--2-e27-smart-bulbs--1100-/8719514289116',
+        'https://www.philips-hue.com/en-gb/p/hue-white-starter-kit--3-e27-smart-bulbs--1100--+-dimmer-switch/8719514289130',
+        'https://www.philips-hue.com/en-gb/p/hue-white-starter-kit--2-e27-smart-bulbs--1100--+-smart-button/8719514329928',
+        'https://www.philips-hue.com/en-gb/p/hue-white-and-colour-ambiance-starter-kit--2-b22-smart-bulbs--1100--+-dimmer-switch/8719514291614'
+    ]
+
+    var savingValue = [
+        '£29.98',
+        '£24.98',
+        '£42.97',
+        '£62.96',
+        '£64.96',
+        '£79.96',
+        '£19.98',
+        '£39.96',
+        '£64.96',
+        '£62.96',
+        '£29.97',
+        '£54.96',
+        '£19.98',
+        '£39.96',
+        '£27.97',
+        '£44.97'
+    ]
+
+    function addSaveLabel() {
+        var currentURL = window.location.href
+        var index = urlsToMatch.indexOf(currentURL)
+
+        if (index !== -1) {
+            var targetElement = document.querySelector('.price__label')
+
+            if (targetElement) {
+                var newSavingsDiv = document.createElement('div')
+                newSavingsDiv.classList.add('mpx-saving-label')
+                newSavingsDiv.innerHTML = 'Save ' + savingValue[index]
+
+                targetElement.parentNode.insertBefore(newSavingsDiv, targetElement.nextSibling)
+            }
+        }
+    }
+
+    //add the "Save" label in the first instance
+    addSaveLabel()
+
+    function updateSaveLabel() {
+        var currentURL = window.location.href
+        var index = urlsToMatch.indexOf(currentURL)
+
+        if (index !== -1) {
+            var savingsLabel = document.querySelector('.mpx-saving-label')
+
+            if (savingsLabel) {
+                savingsLabel.innerHTML = 'Save ' + savingValue[index]
+            }
+        }
+    }
+
+    //handle URL changes
+    let currentURL = window.location.href
+
+    function checkURLChange() {
+        const newURL = window.location.href
+        if (newURL !== currentURL) {
+            currentURL = newURL
+            updateSaveLabel()
+        }
+    }
+
+    setInterval(checkURLChange, 2000)
+
+    //////PDP --- END////////
+
+</script>
+
+//HANDLE URL CHANGES
+let currentURL = window.location.href;
+
+function checkURLChange() {
+const newURL = window.location.href;
+if (newURL !== currentURL) {
+console.log('URL has changed.');
+currentURL = newURL;
+addSavingLabel();
+}
+}
+
+setInterval(checkURLChange, 5000);
+
+//CLONE ELEMENT
+// function addSavingLabel() {
+// for (var i = 0; i < targetTexts.length; i++) { // var textContent=targetTexts[i].innerText.trim(); // if
+    (valuesToMatch.includes(textContent)) { // var parentElement=targetTexts[i].closest('.filter-product-card'); // if
+    (parentElement) { // var targetLabel=parentElement.querySelector('.price__label'); // if (targetLabel) { // const
+    clonedElement=targetLabel.cloneNode(true); // clonedElement.classList.add('mpx-savings'); // var
+    index=valuesToMatch.indexOf(textContent); // clonedElement.innerHTML='Save ' + savingValue[index]; //
+    targetLabel.parentNode.insertBefore(clonedElement, targetLabel.nextSibling); // } // } // } // } // } <script>

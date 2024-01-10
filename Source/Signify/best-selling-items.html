@@ -1,0 +1,599 @@
+<script>
+    function insertBlackBox() {
+        //insert black boxes into all elements
+
+        //target elements
+        var targetCards = document.querySelectorAll('.filter-product-card__preview.product-preview');
+
+        //target element to insert the black box after
+        var targetElement = document.querySelector('.promo-label.product-preview__label');
+
+        //iterate through target elements
+        for (var i = 0; i < targetCards.length; i++) {
+            if (!targetCards[i].contains(targetElement)) {
+                //create a new element from mpxBlackBox
+                var blackBoxElement = document.createElement('div');
+                blackBoxElement.className = 'promo-label product-preview__label';
+
+                //insert mpxBlackBox after targetElement
+                targetCards[i].appendChild(blackBoxElement);
+            }
+        }
+    }
+
+    function hideBlackBoxes() {
+        //hide 'empty' black boxes
+        var targetLabels = document.querySelectorAll('.promo-label.product-preview__label');
+
+        for (var i = 0; i < targetLabels.length; i++) {
+            if (targetLabels[i].innerHTML === '') {
+                targetLabels[i].style.display = 'none';
+            }
+        }
+    }
+
+    function changeBlackBoxText() {
+        //replace with 'best seller' for some items
+        var targetTexts = document.querySelectorAll('.body-copy-1.product-title__title');
+
+        //define an array of possible values to match
+        var valuesToMatch = [
+            'Bridge',
+            'Dimmer Swicth (latest model)',
+            'Play HDMI Sync Box',
+            'A19 - E26 smart bulb - 60 W (2-pack)',
+            'Lightstrip Plus base V4 80 inch',
+            'Gradient lightstrip 80 inch',
+            'Bundle: Signe gradient floor lamp + Bridge',
+            'Bundle: Hue sync box + Play gradient lightstrip (55" TVs) + Bridge',
+            'Dimmer Switch (latest model)'//,
+            //'Starter kit: 4 E26 smart bulbs (75 W)'
+        ];
+
+        for (var i = 0; i < targetTexts.length; i++) {
+            var textContent = targetTexts[i].innerText.trim();
+
+            //check for matches in the array
+            if (valuesToMatch.includes(textContent)) {
+                //find the closest 'black box' element to change
+                var targetLabel = targetTexts[i].closest('.filter-product-card').querySelector('.promo-label.product-preview__label');
+
+                if (targetLabel) {
+                    targetLabel.style.display = 'block';
+                    targetLabel.innerText = 'Top seller';
+                }
+
+                //hide White Ambiance Bulb Option label
+                //only run on bulb page 
+                if (window.location.href.match(/products\/smart-light-bulbs/)) {
+
+                    var targetSubTitle = document.querySelectorAll('.heading-8.product-title__family');
+
+                    for (var i = 0; i < targetSubTitle.length; i++) {
+                        if (targetSubTitle[i].innerText === 'WHITE AMBIANCE') {
+                            //find the closest parent element 
+                            var productCard = targetSubTitle[i].closest('.filter-product-card');
+
+                            //check if the product title matches 'A19 - E26 smart bulb - 60 W (2-pack)'
+                            if (productCard) {
+                                var productTitle = productCard.querySelector('.body-copy-1.product-title__title');
+                                if (productTitle.innerText === 'A19 - E26 smart bulb - 60 W (2-pack)') {
+                                    //hide the label
+                                    var targetLabel = productCard.querySelector('.promo-label.product-preview__label');
+                                    if (targetLabel) {
+                                        targetLabel.style.display = 'none';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                // //hide White Ambiance Starter Kit Option label
+                // //only run on starter kits page
+                // if (window.location.href.match(/products\/smart-light-starter-kits/)) {
+
+                //     var targetSubTitle = document.querySelectorAll('.heading-8.product-title__family');
+
+                //     for (var i = 0; i < targetSubTitle.length; i++) {
+                //         if (targetSubTitle[i].innerText === 'WHITE AMBIANCE') {
+                //             //find the closest parent element 
+                //             var productCard = targetSubTitle[i].closest('.filter-product-card');
+
+                //             // Check the text content of productTitle
+                //             if (productCard) {
+                //                 var productTitle = productCard.querySelector('.body-copy-1.product-title__title');
+                //                 console.log('Product Title:', productTitle.innerText); // Add this line for debugging
+
+                //                 // Check if targetLabel exists
+                //                 var targetLabel = productCard.querySelector('.promo-label.product-preview__label');
+                //                 console.log('targetLabel:', targetLabel); // Add this line for debugging
+
+                //                 if (productTitle.innerText === 'Starter kit: 4 E26 smart bulbs (75 W)') {
+                //                     // Check if targetLabel exists
+                //                     if (targetLabel) {
+                //                         targetLabel.style.display = 'none';
+                //                     }
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
+            }
+        }
+    }
+
+    //function to apply your modifications
+    function applyModifications() {
+        //insert black boxes, hide black boxes, and change text here
+        insertBlackBox();
+        hideBlackBoxes();
+        changeBlackBoxText();
+    }
+
+    //function to handle URL changes
+    function handleUrlChange() {
+        //apply changes when the URL changes
+        applyModifications();
+    }
+
+    //mutation observer 
+    const observer = new MutationObserver((mutationsList, observer) => {
+        //check for mutations
+        for (const mutation of mutationsList) {
+            if (mutation.target.matches('.filter-result-overview')) {
+                //apply modifications when changes are detected
+                applyModifications();
+            }
+        }
+    });
+
+    //define the configuration for the MutationObserver
+    const observerConfig = {
+        childList: true,
+        subtree: true,
+    };
+
+    //start observing changes
+    observer.observe(document.body, observerConfig);
+
+    //apply changes in the first instance
+    applyModifications();
+
+    //add an event listener to monitor URL changes
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+</script>
+
+
+
+///HIDE ALL LABELS
+https://www.philips-hue.com/en-us/products/smart-light-starter-kits
+
+<script>
+    function insertBlackBox() {
+        //insert black boxes into all elements
+
+        //target elements
+        var targetCards = document.querySelectorAll('.filter-product-card__preview.product-preview');
+
+        //target element to insert the black box after
+        var targetElement = document.querySelector('.promo-label.product-preview__label');
+
+        //iterate through target elements
+        for (var i = 0; i < targetCards.length; i++) {
+            if (!targetCards[i].contains(targetElement)) {
+                //create a new element from mpxBlackBox
+                var blackBoxElement = document.createElement('div');
+                blackBoxElement.className = 'promo-label product-preview__label';
+
+                //insert mpxBlackBox after targetElement
+                targetCards[i].appendChild(blackBoxElement);
+            }
+        }
+    }
+
+    function hideBlackBoxes() {
+        //hide black boxes
+        var targetLabels = document.querySelectorAll('.promo-label.product-preview__label');
+
+        for (var i = 0; i < targetLabels.length; i++) {
+            targetLabels[i].style.display = 'none';
+        }
+    }
+
+    function changeBlackBoxText() {
+        //replace with 'best seller' for some items
+        var targetTexts = document.querySelectorAll('.body-copy-1.product-title__title');
+
+        //define an array of possible values to match
+        var valuesToMatch = [
+            'Bridge',
+            'Dimmer Swicth (latest model)',
+            'Play HDMI Sync Box',
+            'A19 - E26 smart bulb - 60 W (2-pack)',
+            'Lightstrip Plus base V4 80 inch',
+            'Gradient lightstrip 80 inch',
+            'Bundle: Signe gradient floor lamp + Bridge',
+            'Bundle: Hue sync box + Play gradient lightstrip (55" TVs) + Bridge',
+            'Dimmer Switch (latest model)',
+            'Starter kit: 4 E26 smart bulbs (75 W)'
+        ];
+
+        for (var i = 0; i < targetTexts.length; i++) {
+            var textContent = targetTexts[i].innerText.trim();
+
+            //check for matches in the array
+            if (valuesToMatch.includes(textContent)) {
+                //find the closest 'black box' element to change
+                var targetLabel = targetTexts[i].closest('.filter-product-card').querySelector('.promo-label.product-preview__label');
+
+                if (targetLabel) {
+                    targetLabel.style.display = 'block';
+                    targetLabel.innerText = 'Top seller';
+                }
+
+                //hide White Ambiance Bulb Option label
+                //only run on bulb page 
+                if (window.location.href.match(/products\/smart-light-bulbs/)) {
+
+                    var targetSubTitle = document.querySelectorAll('.heading-8.product-title__family');
+
+                    for (var i = 0; i < targetSubTitle.length; i++) {
+                        if (targetSubTitle[i].innerText === 'WHITE AMBIANCE') {
+                            //find the closest parent element 
+                            var productCard = targetSubTitle[i].closest('.filter-product-card');
+
+                            //check if the product title matches 'A19 - E26 smart bulb - 60 W (2-pack)'
+                            if (productCard) {
+                                var productTitle = productCard.querySelector('.body-copy-1.product-title__title');
+                                if (productTitle.innerText === 'A19 - E26 smart bulb - 60 W (2-pack)') {
+                                    //hide the label
+                                    var targetLabel = productCard.querySelector('.promo-label.product-preview__label');
+                                    if (targetLabel) {
+                                        targetLabel.style.display = 'none';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                //hide White Ambiance Starter Kit Option label
+                //only run on starter kits page
+                if (window.location.href.match(/products\/smart-light-starter-kits/)) {
+                    console.log('true - 1')
+
+                    var targetSubTitle = document.querySelectorAll('.heading-8.product-title__family');
+
+                    for (var i = 0; i < targetSubTitle.length; i++) {
+                        if (targetSubTitle[i].innerText === 'WHITE AMBIANCE') {
+                            console.log('true - 2')
+                            //find the closest parent element 
+                            var productCard = targetSubTitle[i].closest('.filter-product-card');
+
+                            // Check the text content of productTitle
+                            if (productCard) {
+                                console.log('true - 3')
+                                var productTitle = productCard.querySelector('.body-copy-1.product-title__title');
+                                console.log('Product Title:', productTitle.innerText); // Add this line for debugging
+
+                                // Check if targetLabel exists
+                                var targetLabel = productCard.querySelector('.promo-label.product-preview__label');
+                                console.log('targetLabel:', targetLabel); // Add this line for debugging
+
+                                if (productTitle.innerText === 'Starter kit: 4 E26 smart bulbs (75 W)') {
+                                    console.log('true - 4')
+                                    // Check if targetLabel exists
+                                    if (targetLabel) {
+                                        console.log('true - 5')
+                                        targetLabel.style.display = 'none';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //function to apply your modifications
+    function applyModifications() {
+        //insert black boxes, hide black boxes, and change text here
+        insertBlackBox();
+        hideBlackBoxes();
+        changeBlackBoxText();
+    }
+
+    //function to handle URL changes
+    function handleUrlChange() {
+        //apply changes when the URL changes
+        applyModifications();
+    }
+
+    //mutation observer 
+    const observer = new MutationObserver((mutationsList, observer) => {
+        //check for mutations
+        for (const mutation of mutationsList) {
+            if (mutation.target.matches('.filter-result-overview')) {
+                //apply modifications when changes are detected
+                applyModifications();
+            }
+        }
+    });
+
+    //define the configuration for the MutationObserver
+    const observerConfig = {
+        childList: true,
+        subtree: true,
+    };
+
+    //start observing changes
+    observer.observe(document.body, observerConfig);
+
+    //apply changes in the first instance
+    applyModifications();
+
+    //add an event listener to monitor URL changes
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+</script>
+
+
+<script>
+
+
+
+
+
+</script>
+
+
+?????UPDATED VERSION?????
+<script>
+    function insertBlackBox() {
+        //insert black boxes into all elements
+
+        //target elements
+        var targetCards = document.querySelectorAll('.filter-product-card__preview.product-preview');
+
+        //target element to insert the black box after
+        var targetElement = document.querySelector('.promo-label.product-preview__label');
+
+        //iterate through target elements
+        for (var i = 0; i < targetCards.length; i++) {
+            if (!targetCards[i].contains(targetElement)) {
+                //create a new element from mpxBlackBox
+                var blackBoxElement = document.createElement('div');
+                blackBoxElement.className = 'promo-label product-preview__label';
+
+                //insert mpxBlackBox after targetElement
+                targetCards[i].appendChild(blackBoxElement);
+            }
+        }
+    }
+
+    function hideBlackBoxes() {
+        //hide 'empty' black boxes
+        var targetLabels = document.querySelectorAll('.promo-label.product-preview__label');
+
+        for (var i = 0; i < targetLabels.length; i++) {
+            if (targetLabels[i].innerHTML === '') {
+                targetLabels[i].style.display = 'none';
+            }
+        }
+    }
+
+    function changeBlackBoxText() {
+        var targetTexts = document.querySelectorAll('.body-copy-1.product-title__title');
+
+        var valuesToMatch = [
+            'Starter kit: 3 GU10 smart spotlights + dimmer switch',
+            'Starter kit: 2 E27 smart bulbs (1100) + dimmer switch',
+            'Starter kit: 2 B22 smart bulbs (1100) + dimmer switch',
+            'Starter kit: 3 E27 smart bulbs (1100) + dimmer switch',
+            'Starter kit: B22 smart bulbs (1100) + dimmer switch'
+        ];
+
+        for (var i = 0; i < targetTexts.length; i++) {
+            var textContent = targetTexts[i].innerText.trim();
+            var productCard = targetTexts[i].closest('.filter-product-card');
+            var targetLabel = productCard.querySelector('.promo-label.product-preview__label');
+            var productType = productCard.querySelector('.product-title__family');
+
+            if (valuesToMatch.includes(textContent) && window.location.href.match(/products\/smart-light-starter-kits/)) {
+                if (productType) {
+                    var productTypeText = productType.innerText;
+                    if (productTypeText !== 'WHITE AMBIANCE' && productTypeText !== 'WHITE') {
+                        if (targetLabel) {
+                            targetLabel.style.display = 'block';
+                            targetLabel.innerText = 'Top seller';
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    //function to apply your modifications
+    function applyModifications() {
+        //insert black boxes, hide black boxes, and change text here
+        insertBlackBox();
+        hideBlackBoxes();
+        changeBlackBoxText();
+    }
+
+    //function to handle URL changes
+    function handleUrlChange() {
+        //apply changes when the URL changes
+        applyModifications();
+    }
+
+    //mutation observer 
+    const observer = new MutationObserver((mutationsList, observer) => {
+        //check for mutations
+        for (const mutation of mutationsList) {
+            if (mutation.target.matches('.filter-result-overview')) {
+                //apply modifications when changes are detected
+                applyModifications();
+            }
+        }
+    });
+
+    //define the configuration for the MutationObserver
+    const observerConfig = {
+        childList: true,
+        subtree: true,
+    };
+
+    //start observing changes
+    observer.observe(document.body, observerConfig);
+
+    //apply changes in the first instance
+    applyModifications();
+
+    //add an event listener to monitor URL changes
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+</script>
+
+
+????ORIGINAL??????
+
+<script>
+    function insertBlackBox() {
+        //insert black boxes into all elements
+
+        //target elements
+        var targetCards = document.querySelectorAll('.filter-product-card__preview.product-preview');
+
+        //target element to insert the black box after
+        var targetElement = document.querySelector('.promo-label.product-preview__label');
+
+        //iterate through target elements
+        for (var i = 0; i < targetCards.length; i++) {
+            if (!targetCards[i].contains(targetElement)) {
+                //create a new element from mpxBlackBox
+                var blackBoxElement = document.createElement('div');
+                blackBoxElement.className = 'promo-label product-preview__label';
+
+                //insert mpxBlackBox after targetElement
+                targetCards[i].appendChild(blackBoxElement);
+            }
+        }
+    }
+
+    function hideBlackBoxes() {
+        //hide 'empty' black boxes
+        var targetLabels = document.querySelectorAll('.promo-label.product-preview__label');
+
+        for (var i = 0; i < targetLabels.length; i++) {
+                targetLabels[i].style.display = 'none';
+        }
+    }
+
+    function changeBlackBoxText() {
+        //replace with 'best seller' for some items
+        var targetTexts = document.querySelectorAll('.body-copy-1.product-title__title');
+
+        //define an array of possible values to match
+        //define an array of possible values to match
+        var valuesToMatch = [
+            'Starter kit: 3 GU10 smart spotlights + dimmer switch',
+            'Starter kit: 2 E27 smart bulbs (1100) + dimmer switch',
+            'Starter kit: 2 B22 smart bulbs (1100) + dimmer switch',
+            'Starter kit: 3 E27 smart bulbs (1100) + dimmer switch',
+            'Starter kit: B22 smart bulbs (1100) + dimmer switch'
+        ];
+
+
+        for (var i = 0; i < targetTexts.length; i++) {
+            var textContent = targetTexts[i].innerText.trim();
+
+            //check for matches in the array
+            if (valuesToMatch.includes(textContent)) {
+                //find the closest 'black box' element to change
+                var targetLabel = targetTexts[i].closest('.filter-product-card').querySelector('.promo-label.product-preview__label');
+
+                if (targetLabel) {
+                    targetLabel.style.display = 'block';
+                    targetLabel.innerText = 'Top seller';
+                }
+
+                 //hide White Ambiance Starter Kit Option label
+                 //only run on starter kits page
+                 if (window.location.href.match(/products\/smart-light-starter-kits/)) {
+
+                     var targetSubTitle = document.querySelectorAll('.heading-8.product-title__family');
+
+                     for (var i = 0; i < targetSubTitle.length; i++) {
+                         if (targetSubTitle[i].innerText === 'WHITE AMBIANCE') {
+                             //find the closest parent element 
+                            var productCard = targetSubTitle[i].closest('.filter-product-card');
+
+                             // Check the text content of productTitle
+                            if (productCard) {
+                                var productTitle = productCard.querySelector('.body-copy-1.product-title__title');
+                                console.log('Product Title:', productTitle.innerText); // Add this line for debugging
+
+                                 // Check if targetLabel exists
+                                var targetLabel = productCard.querySelector('.promo-label.product-preview__label');
+                                 console.log('targetLabel:', targetLabel); // Add this line for debugging
+
+                                 if (productTitle.innerText === 'Starter kit: 4 E26 smart bulbs (75 W)') {
+                                    // Check if targetLabel exists
+                                    if (targetLabel) {
+                                        targetLabel.style.display = 'none';
+                                    }
+                                }
+                            }
+                         }
+                     }
+                 }
+            }
+        }
+    }
+
+    //function to apply your modifications
+    function applyModifications() {
+        //insert black boxes, hide black boxes, and change text here
+        insertBlackBox();
+        hideBlackBoxes();
+        changeBlackBoxText();
+    }
+
+    //function to handle URL changes
+    function handleUrlChange() {
+        //apply changes when the URL changes
+        applyModifications();
+    }
+
+    //mutation observer 
+    const observer = new MutationObserver((mutationsList, observer) => {
+        //check for mutations
+        for (const mutation of mutationsList) {
+            if (mutation.target.matches('.filter-result-overview')) {
+                //apply modifications when changes are detected
+                applyModifications();
+            }
+        }
+    });
+
+    //define the configuration for the MutationObserver
+    const observerConfig = {
+        childList: true,
+        subtree: true,
+    };
+
+    //start observing changes
+    observer.observe(document.body, observerConfig);
+
+    //apply changes in the first instance
+    applyModifications();
+
+    //add an event listener to monitor URL changes
+    window.addEventListener('hashchange', handleUrlChange);
+    window.addEventListener('popstate', handleUrlChange);
+</script>
+
+<script>
+

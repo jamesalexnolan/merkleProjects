@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+       
+       var mpxTimercheck= setInterval(function () {
+if (document.querySelector('.mpx-hub-cvp-h2')){
+
+console.log('element exists now');
+document.querySelector('.mpx-hub-cvp-h2').innerHTML = "A community committed to support, not judgement";
+clearInterval(mpxTimercheck);
+} else {'element doesnt exist yet'}
+}, 1000);
+
+    </script>
+
+</head>
+
+<body>
+    <h2 class="mpx-hub-cvp-h2">We’re calling time on parental judgement</h2>
+</body>
+
+</html>

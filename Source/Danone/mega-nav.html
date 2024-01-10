@@ -1,0 +1,2275 @@
+<style>
+    .mpx-sub-title {
+        font-weight: bold;
+        color: #236bee;
+    }
+
+    .mpx-mob-sub-nav {
+        display: none;
+    }
+
+    .mpx-nav-adjust {
+        display: block;
+        z-index: 9999;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 50px;
+    }
+
+    .logo {
+        z-index: 99999;
+    }
+
+    .mpx-pill {
+        width: fit-content;
+        font-weight: bold;
+    }
+
+    .mpx-no-background {
+        background-color: unset;
+    }
+
+    .mpx-column a {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .mpx-font {
+        font-weight: bold;
+        background-color: transparent;
+    }
+
+    .mpx-hide {
+        display: none !important;
+    }
+
+    .mpx-font-no-background {
+        background: none;
+    }
+
+    .mpx-sub-menu-indent {
+        margin-left: 22px !important;
+    }
+
+    .mpx-sub-sub-menu-indent {
+        display: flex !important;
+        justify-content: start !important;
+        padding-left: 40px !important;
+    }
+
+    .mpx-chevron-spacing {
+        display: flex !important;
+    }
+
+    .mpx-sub-sub-menu-background-margin-adjust {
+        margin-top: 0px;
+    }
+
+    .mpx-sub-sub-menu-background {
+        background-color: #c4d9ff;
+    }
+
+    @media screen and (min-width: 51em) {
+        .mpx-nav-adjust {
+            margin-left: -635px;
+        }
+    }
+
+    @media screen and (max-width: 50.9375em) {
+        .logo {
+            z-index: inherit;
+        }
+
+        .mpx-column {
+            display: none;
+        }
+
+        .mpx-mob-sub-nav {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-gap: 10px;
+        }
+
+        .mpx-nav-adjust {
+            display: unset;
+            z-index: unset;
+            display: unset;
+            grid-template-columns: unset;
+            grid-gap: unset;
+        }
+    }
+</style>
+
+<script>
+
+    //hide original About us and FAQ
+    document.querySelector('.meta-navigation--mobile').style.display = 'none'
+
+    //select navigation section
+    mpxTarget = document.querySelector('.main-navigation')
+
+    //create new nav
+    mpxNavMenu = '<span class="main-navigation__close-button" data-js="navigation-toggler" data-dm="mainnavigation.mobiletoggler" data-qa="mainnavigation.mobiletoggler">\
+		<svg class="icon" aria-hidden="true">\
+			<use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#cross"></use>\
+		</svg>\
+	</span>\
+    <!--Product section-->\
+    <div class="main-navigation__block">\
+        <div class="mpx-mob-sub-nav">\
+            <div class="main-navigation__link mpx-title mpx-products-section mpx-font" data-dm="mainnavigation.top-nav-link">\
+                <span class="main-navigation__link-text">Products</span>\
+                <span class="main-navigation__subtitle"></span>\
+                <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                    <use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                    </use>\
+                </svg>\
+            </div>\
+            <div class="mpx-mob-sub-sub-nav mpx-products-content mpx-hide">\
+                <!--Compare-->\
+                <a href="/products/compare-products.html"\
+                    class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background"\
+                    data-dm="mainnavigation.sub-nav-link">Compare products</a>\
+                <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                <!--Products by Age-->\
+                <div class="mpx-mob-nav-item">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                        data-dm="mainnavigation.sub-nav-link">Products by age <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                            </use>\
+                        </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil/infant-formula.html"\
+                            class="main-navigation__subnav-link mpx-range-age mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">0-6 Months</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil/follow-on-milk.html"\
+                            class="main-navigation__subnav-link mpx-range-age mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">6-12 Months</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil/toddler-milk.html"\
+                            class="main-navigation__subnav-link mpx-range-age mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">12+ Months</a>\
+                    </div>\
+                </div>\
+                <!--Products by Range-->\
+                <div class="mpx-mob-nav-item">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                        data-dm="mainnavigation.sub-nav-link">Products by range <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                            </use>\
+                        </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil-advanced.html"\
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Advanced</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil-pronutra-range.html"\
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Aptamil</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/ready-to-drink.html"\
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Ready to drink</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil-pre-measured-tabs.html"\
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Pre-Measured Tabs</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil-organic.html"\
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Organic</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil/cereals.html"\
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Cereals</a>\
+                    </div>\
+                </div>\
+                <!--List ALl-->\
+                <div class="mpx-mob-nav-item">\
+                    <a href="/shop/filter-results.html" class="main-navigation__subnav-link mpx-font mpx-no-background mpx-chevron-spacing"\
+                        data-dm="mainnavigation.sub-nav-link">List all\
+                        products</a>\
+                </div>\
+                <!--FAQs-->\
+                <div class="mpx-mob-nav-item">\
+                    <a href="/faqs.html" class="main-navigation__subnav-link mpx-font mpx-no-background mpx-chevron-spacing"\
+                        data-dm="mainnavigation.sub-nav-link">FAQs</a>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+    <!--Articles section-->\
+    <div class="main-navigation__block">\
+        <div class="mpx-mob-sub-nav">\
+            <div class="main-navigation__link mpx-articles-section mpx-title mpx-font" data-dm="mainnavigation.top-nav-link">\
+                <span class="main-navigation__link-text">Expert articles and tools</span>\
+                <span class="main-navigation__subtitle"></span>\
+                <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                    <use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                    </use>\
+                </svg>\
+            </div>\
+            <div class="mpx-mob-sub-sub-nav mpx-articles-content mpx-hide">\
+                <!--Getting pregnant-->\
+                <div class="mpx-mob-nav-item mpx-gettingPregnant">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                        data-dm="mainnavigation.sub-nav-link">Getting pregnant <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                            </use>\
+                        </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <!--Conception-->\
+                    <div class="mpx-mov-nav-sub-item mpx-conception-sub-nav mpx-hide">\
+                        <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing mpx-sub-menu-indent"\
+                            data-dm="mainnavigation.sub-nav-link">Conception <svg\
+                                class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                                <use\
+                                    xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                                </use>\
+                            </svg> </p>\
+                        <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/conception.html"\
+                                class="main-navigation__subnav-link mpx-conception-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Conception</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/conception/ovulation-calculator.html"\
+                                class="main-navigation__subnav-link mpx-conception-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Ovulation calculator</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/conception/folic-acid-conception.html"\
+                                class="main-navigation__subnav-link mpx-conception-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Folic acid for conception</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/conception/what-to-eat-conception.html"\
+                                class="main-navigation__subnav-link mpx-conception-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Conception diet</a>\
+                        </div>\
+                    </div>\
+                </div>\
+                <!--Pregnancy and Labour-->\
+                <div class="mpx-mob-nav-item mpx-pregnancyAndLabour">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                        data-dm="mainnavigation.sub-nav-link">Pregnancy and Labour <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                            </use>\
+                        </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <!--Pregnancy-->\
+                    <div class="mpx-mov-nav-sub-item mpx-pregnancy-sub-nav mpx-hide">\
+                        <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing mpx-sub-menu-indent"\
+                            data-dm="mainnavigation.sub-nav-link">Pregnancy <svg\
+                                class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                                <use\
+                                    xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                                </use>\
+                            </svg> </p>\
+                        <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy.html"\
+                                class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Pregnancy</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/diet-and-nutrition.html"\
+                                class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Diet and nutrition</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/health-and-wellbeing/exercise.html"\
+                                class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Pregnancy excersises</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/practical-tools-and-tips.html"\
+                                class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Plan and prepare for birth</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/practical-tools-and-tips/hospital-bag-checklist.html"\
+                                class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Hospital bag checklist</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/practical-tools-and-tips/birth-plan.html"\
+                                class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Birth plan</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/health-and-wellbeing/pregnancy-health.html"\
+                                class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Morning sickness, sleep & more</a>\
+                        </div>\
+                    </div>\
+                    <!--Labour and Birth-->\
+                    <div class="mpx-mov-nav-sub-item mpx-landb-sub-nav mpx-hide">\
+                        <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing mpx-sub-menu-indent"\
+                            data-dm="mainnavigation.sub-nav-link">Labour and Birth <svg\
+                                class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                                <use\
+                                    xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                                </use>\
+                            </svg> </p>\
+                        <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/health-and-wellbeing/labour-and-birth.html"\
+                                class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Labour and Birth</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/health-and-wellbeing/labour-and-birth/giving-birth-alone.html"\
+                                class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Giving birth alone in hospital</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/health-and-wellbeing/labour-and-birth/home-birth.html"\
+                                class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Home birth</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/health-and-wellbeing/labour-and-birth/pregnancy-massage-benefits-for-your-baby.html"\
+                                class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Pregnancy massage</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/pregnancy/health-and-wellbeing/labour-and-birth/early-signs-of-labour.html"\
+                                class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Early signs of labour</a>\
+                        </div>\
+                    </div>\
+                </div>\
+                <!--Baby and Toddler-->\
+                <div class="mpx-mob-nav-item mpx-babyAndToddler">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                        data-dm="mainnavigation.sub-nav-link">Baby and Toddler <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                            </use>\
+                        </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <!--Baby-->\
+                    <div class="mpx-mov-nav-sub-item mpx-baby-sub-nav mpx-hide">\
+                        <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing mpx-sub-menu-indent"\
+                            data-dm="mainnavigation.sub-nav-link">Baby <svg\
+                                class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                                <use\
+                                    xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                                </use>\
+                            </svg> </p>\
+                        <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                        <div class="mpx-mov-nav-sub-item" style="margin-bottom: 15px;">\
+                            <a href="/baby.html" class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link"\
+                                style="display : none !important;">Baby</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/baby.html" class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Baby</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/baby/diet-and-nutrition/feeding-problems/baby-symptom-checker.html"\
+                                class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Baby symptom checker</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/baby/diet-and-nutrition/bottlefeeding.html"\
+                                class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Bottle feeding</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/baby/diet-and-nutrition/weaning.html"\
+                                class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Baby weaning</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/baby/diet-and-nutrition/feeding-problems.html"\
+                                class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Baby feeding problems: Colic, reflux and more</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/baby/diet-and-nutrition/breastfeeding.html"\
+                                class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Breastfeeding your baby</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/baby/health-and-wellbeing.html"\
+                                class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Baby sleep, crying and more</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/baby/holiday-with-babies.html"\
+                                class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Holiday with babies</a>\
+                        </div>\
+                    </div>\
+                    <!--Toddler-->\
+                    <div class="mpx-mov-nav-sub-item mpx-toddler-sub-nav mpx-hide">\
+                        <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing mpx-sub-menu-indent"\
+                            data-dm="mainnavigation.sub-nav-link">Toddler <svg\
+                                class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                                <use\
+                                    xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                                </use>\
+                            </svg> </p>\
+                        <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/toddler.html" class="main-navigation__subnav-link mpx-toddler-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Toddler</a>\
+                        </div>\
+                        <div class="mpx-mov-nav-sub-item">\
+                            <a href="/toddler/diet-and-nutrition.html"\
+                                class="main-navigation__subnav-link mpx-toddler-content mpx-hide"\
+                                data-dm="mainnavigation.sub-nav-link">Diet and nutrition: Advice in stages</a>\
+                        </div>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+    <!--About us-->\
+    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+    <div class="main-navigation__block">\
+        <a href="https://www.aptaclub.co.uk/about-aptaclub/about-nutricia.html" class="main-navigation__link "\
+            data-dm="mainnavigation.top-nav-link" style="display: inline-flex;">\
+            <span class="main-navigation__link-text">About us</span>\
+            <span class="main-navigation__subtitle"></span>\
+        </a>\
+    </div>\
+    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+    <!--Reviews-->\
+    <div class="main-navigation__block">\
+        <a href="https://www.aptaclub.co.uk/reviews.html" class="main-navigation__link "\
+            data-dm="mainnavigation.top-nav-link" style="display: inline-flex;">\
+            <span class="main-navigation__link-text">Reviews</span>\
+            <span class="main-navigation__subtitle"></span>\
+        </a>\
+    </div>\
+    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>'
+
+    //place nav if mobile device
+    if (window.matchMedia('(max-width: 50.9375em)').matches) {
+        mpxTarget.innerHTML = mpxNavMenu
+
+        //exit button functionality 
+        document.querySelector('.main-navigation__close-button').addEventListener('click', function () {
+            document.querySelector('.page-new-header__mobile-navigation-wrapper').classList.add('is-hidden')
+
+            if (document.querySelector('.page-new-header__mobile-navigation-wrapper').classList.contains('is-visible')) {
+                document.querySelector('.page-new-header__mobile-navigation-wrapper').classList.remove('is-visible')
+            }
+        })
+
+        //background adjust functions
+        function pregLandBPXFunc() {
+            let counter = 0;
+
+            const intervalIdpregLandBPXFunc = setInterval(() => {
+                //remove pregnancy background if closed from main nav
+                if (document.querySelector('.mpx-pregnancy-content').classList.contains('mpx-hide')) {
+                    mpxPregnancySection.classList.remove('mpx-sub-sub-menu-background');
+                } else {
+                    mpxPregnancySection.classList.add('mpx-sub-sub-menu-background');
+                }
+
+                //remove landb background if closed from main nav
+                if (document.querySelector('.mpx-landb-content').classList.contains('mpx-hide')) {
+                    mpxLandbSection.classList.remove('mpx-sub-sub-menu-background');
+                } else {
+                    mpxLandbSection.classList.add('mpx-sub-sub-menu-background');
+                }
+
+                counter++;
+
+                // Check if we have reached the desired number of iterations (5 in this case)
+                if (counter === 5) {
+                    clearInterval(intervalIdpregLandBPXFunc); // Stop the polling after 5 iterations
+                }
+            }, 100); // Poll every 1 second (1000 milliseconds)
+        }
+
+        function babyAndToddlerPXFunc() {
+            let counter = 0;
+
+            const intervalIdbabyAndToddlerPXFunc = setInterval(() => {
+                //remove baby background if closed from main nav
+                if (document.querySelector('.mpx-baby-content').classList.contains('mpx-hide')) {
+                    mpxBabySection.classList.remove('mpx-sub-sub-menu-background');
+                } else {
+                    mpxBabySection.classList.add('mpx-sub-sub-menu-background');
+                }
+
+                //remove landb background if closed from main nav
+                if (document.querySelector('.mpx-toddler-content').classList.contains('mpx-hide')) {
+                    mpxToddlerSection.classList.remove('mpx-sub-sub-menu-background');
+                } else {
+                    mpxToddlerSection.classList.add('mpx-sub-sub-menu-background');
+                }
+
+                //remove section background if applied
+                if (document.querySelector('.mpx-babyAndToddler').classList.contains('mpx-sub-sub-menu-background')) {
+                    document.querySelector('.mpx-babyAndToddler').classList.remove('mpx-sub-sub-menu-background')
+                }
+
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-toddler-content').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[11].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[11].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+
+                }
+
+                if (!document.querySelector('.mpx-baby-content').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+
+                counter++;
+
+                // Check if we have reached the desired number of iterations (5 in this case)
+                if (counter === 5) {
+                    clearInterval(intervalIdbabyAndToddlerPXFunc); // Stop the polling after 5 iterations
+                }
+            }, 100); // Poll every 1 second (1000 milliseconds)
+        }
+
+        //MAIN MENU LOGIC//
+        //when product is clicked remove mpx-hide
+        //if artciles is open when clicked, add mpx-hide
+        document.querySelector('.mpx-products-section').addEventListener('click', function () {
+            //show/hide menu
+            document.querySelector('.mpx-products-content').classList.toggle('mpx-hide')
+            //show/hide second menu
+            if (!document.querySelector('.mpx-articles-content').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-articles-content').classList.add('mpx-hide')
+            }
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-products-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+
+            }
+
+            if (!document.querySelector('.mpx-articles-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //when artciles is clicked remove mpx-hide
+        //if product is open when clicked, add mpx-hide
+        document.querySelector('.mpx-articles-section').addEventListener('click', function () {
+            //show/hide menu
+            document.querySelector('.mpx-articles-content').classList.toggle('mpx-hide')
+            //show/hide second menu
+            if (!document.querySelector('.mpx-products-content').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-products-content').classList.add('mpx-hide')
+            }
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-articles-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            if (!document.querySelector('.mpx-products-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //SUB MENU LOGIC//
+        //Products by range
+        //Add accordion functionality
+        var mpxProductRange = document.querySelectorAll('.mpx-font')[3];
+        var mpxProductRangeContent = document.querySelectorAll('.mpx-range-content');
+
+        //Add event listener to mpxProductRange
+        mpxProductRange.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 50.9375em)').matches) {
+                // Iterate over each mpxProductRangeContent element
+                for (var i = 0; i < mpxProductRangeContent.length; i++) {
+                    // Toggle the class 'mpx-hide' on each mpxProductRangeContent instance
+                    mpxProductRangeContent[i].classList.toggle('mpx-hide');
+                    mpxProductRangeContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+                }
+
+                // Check the mpxProductAgeContent elements
+                for (var i = 0; i < mpxProductAgeContent.length; i++) {
+                    // Add 'mpx-hide' class to elements that don't have it
+                    if (!mpxProductAgeContent[i].classList.contains('mpx-hide')) {
+                        mpxProductAgeContent[i].classList.add('mpx-hide');
+                        mpxProductAgeContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                    }
+                }
+                //add menu background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.toggle('mpx-sub-sub-menu-background')
+            }
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-range-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+
+            if (!document.querySelectorAll('.mpx-range-age')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+        });
+
+        //Products by Age
+        //Add accordion functionality 
+        var mpxProductAge = document.querySelectorAll('.mpx-font')[2]
+        var mpxProductAgeContent = document.querySelectorAll('.mpx-range-age')
+
+        // Add event listener to mpxProductAge
+        mpxProductAge.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 50.9375em)').matches) {
+                // Iterate over each mpxProductAgeContent element
+                for (var i = 0; i < mpxProductAgeContent.length; i++) {
+                    // Toggle the class 'mpx-hide' on each mpxProductAgeContent instance
+                    mpxProductAgeContent[i].classList.toggle('mpx-hide');
+                    mpxProductAgeContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+                }
+
+                // Check the mpxProductRangeContent elements
+                for (var i = 0; i < mpxProductRangeContent.length; i++) {
+                    // Add 'mpx-hide' class to elements that don't have it
+                    if (!mpxProductRangeContent[i].classList.contains('mpx-hide')) {
+                        mpxProductRangeContent[i].classList.add('mpx-hide');
+                        mpxProductRangeContent[i].classList.remove('mpx-sub-sub-menu-indent');
+                    }
+                }
+                //add menu background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.toggle('mpx-sub-sub-menu-background')
+
+            }
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-range-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+
+            if (!document.querySelectorAll('.mpx-range-age')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+        });
+
+        //Getting pregnant 
+        //Add accordion functionality
+        var mpxGettingPregnant = document.querySelectorAll('.mpx-font')[7]
+        var mpxGettingPregnantContent = document.querySelector('.mpx-conception-sub-nav')
+
+        mpxGettingPregnant.addEventListener('click', function () {
+            mpxGettingPregnantContent.classList.toggle('mpx-hide')
+
+            //close pregnancy and labour if open
+            if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-pregnancy-sub-nav').classList.add('mpx-hide')
+                document.querySelector('.mpx-landb-sub-nav').classList.add('mpx-hide')
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[6].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[6].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //close Baby and Toddler if open
+            if (!document.querySelector('.mpx-baby-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-baby-sub-nav').classList.add('mpx-hide')
+                document.querySelector('.mpx-toddler-sub-nav').classList.add('mpx-hide')
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-baby-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //adjust chevron on click
+            if (!mpxGettingPregnantContent.classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //add menu background
+            if (document.querySelector('.mpx-conception-content').classList.contains('mpx-hide')) {
+                mpxConceptionSection.classList.remove('mpx-sub-sub-menu-background')
+            } else {
+                mpxConceptionSection.classList.add('mpx-sub-sub-menu-background')
+            }
+
+        })
+
+        //Conception
+        //Add accordion functionality
+        var mpxConceptionSection = document.querySelector('.mpx-conception-sub-nav')
+        var mpxConceptionContent = document.querySelectorAll('.mpx-conception-content')
+
+        mpxConceptionSection.addEventListener('click', function () {
+            for (var i = 0; i < mpxConceptionContent.length; i++) {
+                mpxConceptionContent[i].classList.toggle('mpx-hide')
+                mpxConceptionContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-conception-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //add menu background
+            if (document.querySelector('.mpx-conception-content').classList.contains('mpx-hide')) {
+                mpxConceptionSection.classList.remove('mpx-sub-sub-menu-background')
+            } else {
+                mpxConceptionSection.classList.add('mpx-sub-sub-menu-background')
+            }
+        })
+
+        //Pregnancy
+        //Add accordion functionality
+        var mpxPregnancySection = document.querySelector('.mpx-pregnancy-sub-nav')
+        var mpxPregnancyContent = document.querySelectorAll('.mpx-pregnancy-content')
+
+        mpxPregnancySection.addEventListener('click', function () {
+            for (var i = 0; i < mpxPregnancyContent.length; i++) {
+                mpxPregnancyContent[i].classList.toggle('mpx-hide')
+                mpxPregnancyContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-pregnancy-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[7].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[7].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //remove pregnancy background if closed from main nav
+            //remove landb background if closed from main nav
+            // Call the function to start the polling
+            pregLandBPXFunc();
+
+            //close labour and birth if open 
+            // Check the mpxBabyContent elements
+            for (var i = 0; i < mpxLandbContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxLandbContent[i].classList.contains('mpx-hide')) {
+                    mpxLandbContent[i].classList.add('mpx-hide');
+                    mpxLandbContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                }
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-landb-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //Pregnancy and Labour
+        //Add accordion functionality
+        document.querySelector('.mpx-pregnancyAndLabour>p').addEventListener('click', function () {
+            document.querySelector('.mpx-pregnancy-sub-nav').classList.toggle('mpx-hide')
+            document.querySelector('.mpx-landb-sub-nav').classList.toggle('mpx-hide')
+
+            //close Baby and Toddler if open
+            if (!document.querySelector('.mpx-baby-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-baby-sub-nav').classList.add('mpx-hide')
+                document.querySelector('.mpx-toddler-sub-nav').classList.add('mpx-hide')
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-baby-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //close Getting pregnant if open
+            if (!document.querySelector('.mpx-conception-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-conception-sub-nav').classList.add('mpx-hide')
+
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-conception-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //remove pregnancy background if closed from main nav
+            //remove landb background if closed from main nav
+            // Call the function to start the polling
+            pregLandBPXFunc();
+
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[6].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[6].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+        })
+
+        //Baby and Toddler
+        //Add accordion functionality
+        document.querySelector('.mpx-babyAndToddler>p').addEventListener('click', function () {
+            document.querySelector('.mpx-toddler-sub-nav').classList.toggle('mpx-hide')
+            document.querySelector('.mpx-baby-sub-nav').classList.toggle('mpx-hide')
+
+            //add/remove menu background
+            babyAndToddlerPXFunc()
+
+            //close Getting pregnant if open
+            if (!document.querySelector('.mpx-conception-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-conception-sub-nav').classList.add('mpx-hide')
+
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-conception-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //close pregnancy and labour if open
+            if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-pregnancy-sub-nav').classList.add('mpx-hide')
+                document.querySelector('.mpx-landb-sub-nav').classList.add('mpx-hide')
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[6].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[6].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-toddler-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+        })
+
+        //Baby content
+        //Add accordion functionality
+        var mpxBabySection = document.querySelector('.mpx-baby-sub-nav')
+        var mpxBabyContent = document.querySelectorAll('.mpx-baby-content')
+
+        mpxBabySection.addEventListener('click', function () {
+            for (var i = 0; i < mpxBabyContent.length; i++) {
+                mpxBabyContent[i].classList.toggle('mpx-hide')
+                mpxBabyContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-baby-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //add/remove menu background
+            babyAndToddlerPXFunc()
+
+            //close Toddler if open 
+            // Check the mpxToddlerContent elements
+            for (var i = 0; i < mpxToddlerContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxToddlerContent[i].classList.contains('mpx-hide')) {
+                    mpxToddlerContent[i].classList.add('mpx-hide');
+                    mpxToddlerContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                }
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-baby-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //Toddler content
+        //Add accordion functionality
+        var mpxToddlerSection = document.querySelector('.mpx-toddler-sub-nav')
+        var mpxToddlerContent = document.querySelectorAll('.mpx-toddler-content')
+
+        mpxToddlerSection.addEventListener('click', function () {
+            for (var i = 0; i < mpxToddlerContent.length; i++) {
+                mpxToddlerContent[i].classList.toggle('mpx-hide')
+                mpxToddlerContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-toddler-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[11].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[11].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //add/remove menu background
+            babyAndToddlerPXFunc()
+
+            //close Baby if open 
+            // Check the mpxBabyContent elements
+            for (var i = 0; i < mpxBabyContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxBabyContent[i].classList.contains('mpx-hide')) {
+                    mpxBabyContent[i].classList.add('mpx-hide');
+                    mpxBabyContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                }
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-toddler-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[11].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[11].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+        })
+
+        //Labour and Birth
+        //Add accordion functionality
+        var mpxLandbSection = document.querySelector('.mpx-landb-sub-nav')
+        var mpxLandbContent = document.querySelectorAll('.mpx-landb-content')
+
+        mpxLandbSection.addEventListener('click', function () {
+            for (var i = 0; i < mpxLandbContent.length; i++) {
+                mpxLandbContent[i].classList.toggle('mpx-hide')
+                mpxLandbContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-landb-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //remove pregnancy background if closed from main nav
+            //remove landb background if closed from main nav
+            // Call the function to start the polling
+            pregLandBPXFunc();
+
+            //close pregnancy if open 
+            // Check the mpxPregnancyContent elements
+            for (var i = 0; i < mpxPregnancyContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxPregnancyContent[i].classList.contains('mpx-hide')) {
+                    mpxPregnancyContent[i].classList.add('mpx-hide');
+                    mpxPregnancyContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                }
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-pregnancy-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[7].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[7].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+        })
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+//////WITHOUT CONCEPTION SUB MENU/////
+
+<script>
+
+    //hide original About us and FAQ
+    document.querySelector('.meta-navigation--mobile').style.display = 'none'
+
+    //select navigation section
+    mpxTarget = document.querySelector('.main-navigation')
+
+    //create new nav
+    mpxNavMenu = '<span class="main-navigation__close-button" data-js="navigation-toggler" data-dm="mainnavigation.mobiletoggler" data-qa="mainnavigation.mobiletoggler">\
+    <svg class="icon" aria-hidden="true">\
+        <use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#cross"></use>\
+    </svg>\
+</span>\
+<!--Product section-->\
+<div class="main-navigation__block">\
+    <div class="mpx-mob-sub-nav">\
+        <div class="main-navigation__link mpx-title mpx-products-section mpx-font" data-dm="mainnavigation.top-nav-link">\
+            <span class="main-navigation__link-text">Products</span>\
+            <span class="main-navigation__subtitle"></span>\
+            <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                <use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                </use>\
+            </svg>\
+        </div>\
+        <div class="mpx-mob-sub-sub-nav mpx-products-content mpx-hide">\
+            <!--Compare-->\
+            <a href="/products/compare-products.html"\
+                class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background"\
+                data-dm="mainnavigation.sub-nav-link">Compare products</a>\
+            <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+            <!--Products by Age-->\
+            <div class="mpx-mob-nav-item">\
+                <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                    data-dm="mainnavigation.sub-nav-link">Products by age <svg\
+                        class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg> </p>\
+                <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                <div class="mpx-mov-nav-sub-item">\
+                    <a href="/products/aptamil/infant-formula.html"\
+                        class="main-navigation__subnav-link mpx-range-age mpx-hide"\
+                        data-dm="mainnavigation.sub-nav-link">0-6 Months</a>\
+                </div>\
+                <div class="mpx-mov-nav-sub-item">\
+                    <a href="/products/aptamil/follow-on-milk.html"\
+                        class="main-navigation__subnav-link mpx-range-age mpx-hide"\
+                        data-dm="mainnavigation.sub-nav-link">6-12 Months</a>\
+                </div>\
+                <div class="mpx-mov-nav-sub-item">\
+                    <a href="/products/aptamil/toddler-milk.html"\
+                        class="main-navigation__subnav-link mpx-range-age mpx-hide"\
+                        data-dm="mainnavigation.sub-nav-link">12+ Months</a>\
+                </div>\
+            </div>\
+            <!--Products by Range-->\
+            <div class="mpx-mob-nav-item">\
+                <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                    data-dm="mainnavigation.sub-nav-link">Products by range <svg\
+                        class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg> </p>\
+                <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                <div class="mpx-mov-nav-sub-item">\
+                    <a href="/products/aptamil-advanced.html"\
+                        class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                        data-dm="mainnavigation.sub-nav-link">Aptamil Advanced</a>\
+                </div>\
+                <div class="mpx-mov-nav-sub-item">\
+                    <a href="/products/aptamil-pronutra-range.html"\
+                        class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                        data-dm="mainnavigation.sub-nav-link">Aptamil</a>\
+                </div>\
+                <div class="mpx-mov-nav-sub-item">\
+                    <a href="/products/ready-to-drink.html"\
+                        class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                        data-dm="mainnavigation.sub-nav-link">Aptamil Ready to drink</a>\
+                </div>\
+                <div class="mpx-mov-nav-sub-item">\
+                    <a href="/products/aptamil-pre-measured-tabs.html"\
+                        class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                        data-dm="mainnavigation.sub-nav-link">Aptamil Pre-Measured Tabs</a>\
+                </div>\
+                <div class="mpx-mov-nav-sub-item">\
+                    <a href="/products/aptamil-organic.html"\
+                        class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                        data-dm="mainnavigation.sub-nav-link">Aptamil Organic</a>\
+                </div>\
+                <div class="mpx-mov-nav-sub-item">\
+                    <a href="/products/aptamil/cereals.html"\
+                        class="main-navigation__subnav-link mpx-range-content mpx-hide"\
+                        data-dm="mainnavigation.sub-nav-link">Aptamil Cereals</a>\
+                </div>\
+            </div>\
+            <!--List ALl-->\
+            <div class="mpx-mob-nav-item">\
+                <a href="/shop/filter-results.html" class="main-navigation__subnav-link mpx-font mpx-no-background mpx-chevron-spacing"\
+                    data-dm="mainnavigation.sub-nav-link">List all\
+                    products</a>\
+            </div>\
+            <!--FAQs-->\
+            <div class="mpx-mob-nav-item">\
+                <a href="/faqs.html" class="main-navigation__subnav-link mpx-font mpx-no-background mpx-chevron-spacing"\
+                    data-dm="mainnavigation.sub-nav-link">FAQs</a>\
+            </div>\
+        </div>\
+    </div>\
+</div>\
+<!--Articles section-->\
+<div class="main-navigation__block">\
+    <div class="mpx-mob-sub-nav">\
+        <div class="main-navigation__link mpx-articles-section mpx-font mpx-title" data-dm="mainnavigation.top-nav-link">\
+            <span class="main-navigation__link-text">Expert articles and tools</span>\
+            <span class="main-navigation__subtitle"></span>\
+            <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                <use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                </use>\
+            </svg>\
+        </div>\
+        <div class="mpx-mob-sub-sub-nav mpx-articles-content mpx-hide">\
+            <!--Getting pregnant-->\
+            <div class="mpx-mob-nav-item mpx-gettingPregnant">\
+                <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                    data-dm="mainnavigation.sub-nav-link">Getting pregnant <svg\
+                        class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg> </p>\
+                <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                <!--Conception-->\
+                <div class="mpx-mov-nav-sub-item mpx-conception-sub-nav mpx-hide">\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/conception.html"\
+                            class="main-navigation__subnav-link mpx-conception-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Conception</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/conception/ovulation-calculator.html"\
+                            class="main-navigation__subnav-link mpx-conception-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Ovulation calculator</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/conception/folic-acid-conception.html"\
+                            class="main-navigation__subnav-link mpx-conception-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Folic acid for conception</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/conception/what-to-eat-conception.html"\
+                            class="main-navigation__subnav-link mpx-conception-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Conception diet</a>\
+                    </div>\
+                </div>\
+            </div>\
+            <!--Pregnancy and Labour-->\
+            <div class="mpx-mob-nav-item mpx-pregnancyAndLabour">\
+                <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                    data-dm="mainnavigation.sub-nav-link">Pregnancy and Labour <svg\
+                        class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg> </p>\
+                <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                <!--Pregnancy-->\
+                <div class="mpx-mov-nav-sub-item mpx-pregnancy-sub-nav mpx-hide">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing mpx-sub-menu-indent"\
+                        data-dm="mainnavigation.sub-nav-link">Pregnancy <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                            </use>\
+                        </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy.html"\
+                            class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Pregnancy</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/diet-and-nutrition.html"\
+                            class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Diet and nutrition</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/health-and-wellbeing/exercise.html"\
+                            class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Pregnancy excersises</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/practical-tools-and-tips.html"\
+                            class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Plan and prepare for birth</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/practical-tools-and-tips/hospital-bag-checklist.html"\
+                            class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Hospital bag checklist</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/practical-tools-and-tips/birth-plan.html"\
+                            class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Birth plan</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/health-and-wellbeing/pregnancy-health.html"\
+                            class="main-navigation__subnav-link mpx-pregnancy-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Morning sickness, sleep & more</a>\
+                    </div>\
+                </div>\
+                <!--Labour and Birth-->\
+                <div class="mpx-mov-nav-sub-item mpx-landb-sub-nav mpx-hide">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing mpx-sub-menu-indent"\
+                        data-dm="mainnavigation.sub-nav-link">Labour and Birth <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                            </use>\
+                        </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/health-and-wellbeing/labour-and-birth.html"\
+                            class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Labour and Birth</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/health-and-wellbeing/labour-and-birth/giving-birth-alone.html"\
+                            class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Giving birth alone in hospital</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/health-and-wellbeing/labour-and-birth/home-birth.html"\
+                            class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Home birth</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/health-and-wellbeing/labour-and-birth/pregnancy-massage-benefits-for-your-baby.html"\
+                            class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Pregnancy massage</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/pregnancy/health-and-wellbeing/labour-and-birth/early-signs-of-labour.html"\
+                            class="main-navigation__subnav-link mpx-landb-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Early signs of labour</a>\
+                    </div>\
+                </div>\
+            </div>\
+            <!--Baby and Toddler-->\
+            <div class="mpx-mob-nav-item mpx-babyAndToddler">\
+                <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing"\
+                    data-dm="mainnavigation.sub-nav-link">Baby and Toddler <svg\
+                        class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg> </p>\
+                <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                <!--Baby-->\
+                <div class="mpx-mov-nav-sub-item mpx-baby-sub-nav mpx-hide">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing mpx-sub-menu-indent"\
+                        data-dm="mainnavigation.sub-nav-link">Baby <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                            </use>\
+                        </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <div class="mpx-mov-nav-sub-item" style="margin-bottom: 15px;">\
+                        <a href="/baby.html" class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link"\
+                            style="display : none !important;">Baby</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/baby.html" class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Baby</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/baby/diet-and-nutrition/feeding-problems/baby-symptom-checker.html"\
+                            class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Baby symptom checker</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/baby/diet-and-nutrition/bottlefeeding.html"\
+                            class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Bottle feeding</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/baby/diet-and-nutrition/weaning.html"\
+                            class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Baby weaning</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/baby/diet-and-nutrition/feeding-problems.html"\
+                            class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Baby feeding problems: Colic, reflux and more</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/baby/diet-and-nutrition/breastfeeding.html"\
+                            class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Breastfeeding your baby</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/baby/health-and-wellbeing.html"\
+                            class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Baby sleep, crying and more</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/baby/holiday-with-babies.html"\
+                            class="main-navigation__subnav-link mpx-baby-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Holiday with babies</a>\
+                    </div>\
+                </div>\
+                <!--Toddler-->\
+                <div class="mpx-mov-nav-sub-item mpx-toddler-sub-nav mpx-hide">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-font mpx-no-background mpx-chevron-spacing mpx-sub-menu-indent"\
+                        data-dm="mainnavigation.sub-nav-link">Toddler <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                            </use>\
+                        </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/toddler.html" class="main-navigation__subnav-link mpx-toddler-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Toddler</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/toddler/diet-and-nutrition.html"\
+                            class="main-navigation__subnav-link mpx-toddler-content mpx-hide"\
+                            data-dm="mainnavigation.sub-nav-link">Diet and nutrition: Advice in stages</a>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+</div>\
+<!--About us-->\
+<div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+<div class="main-navigation__block">\
+    <a href="https://www.aptaclub.co.uk/about-aptaclub/about-nutricia.html" class="main-navigation__link mpx-font"\
+        data-dm="mainnavigation.top-nav-link" style="display: inline-flex;">\
+        <span class="main-navigation__link-text">About us</span>\
+        <span class="main-navigation__subtitle"></span>\
+    </a>\
+</div>\
+<div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+<!--Reviews-->\
+<div class="main-navigation__block">\
+    <a href="https://www.aptaclub.co.uk/reviews.html" class="main-navigation__link mpx-font"\
+        data-dm="mainnavigation.top-nav-link" style="display: inline-flex;">\
+        <span class="main-navigation__link-text">Reviews</span>\
+        <span class="main-navigation__subtitle"></span>\
+    </a>\
+</div>\
+<div class="main-navigation__subnav-link--highlight-mobile-border"></div>'
+
+    //place nav if mobile device
+    if (window.matchMedia('(max-width: 50.9375em)').matches) {
+        mpxTarget.innerHTML = mpxNavMenu
+
+        //exit button functionality 
+        document.querySelector('.main-navigation__close-button').addEventListener('click', function () {
+            document.querySelector('.page-new-header__mobile-navigation-wrapper').classList.add('is-hidden')
+
+            if (document.querySelector('.page-new-header__mobile-navigation-wrapper').classList.contains('is-visible')) {
+                document.querySelector('.page-new-header__mobile-navigation-wrapper').classList.remove('is-visible')
+            }
+        })
+
+        //background adjust functions
+        function pregLandBPXFunc() {
+            let counter = 0;
+
+            const intervalIdpregLandBPXFunc = setInterval(() => {
+                //remove pregnancy background if closed from main nav
+                if (document.querySelector('.mpx-pregnancy-content').classList.contains('mpx-hide')) {
+                    mpxPregnancySection.classList.remove('mpx-sub-sub-menu-background');
+                } else {
+                    mpxPregnancySection.classList.add('mpx-sub-sub-menu-background');
+                }
+
+                //remove landb background if closed from main nav
+                if (document.querySelector('.mpx-landb-content').classList.contains('mpx-hide')) {
+                    mpxLandbSection.classList.remove('mpx-sub-sub-menu-background');
+                } else {
+                    mpxLandbSection.classList.add('mpx-sub-sub-menu-background');
+                }
+
+                counter++;
+
+                // Check if we have reached the desired number of iterations (5 in this case)
+                if (counter === 5) {
+                    clearInterval(intervalIdpregLandBPXFunc); // Stop the polling after 5 iterations
+                }
+            }, 100); // Poll every 1 second (1000 milliseconds)
+        }
+
+        function babyAndToddlerPXFunc() {
+            let counter = 0;
+
+            const intervalIdbabyAndToddlerPXFunc = setInterval(() => {
+                //remove baby background if closed from main nav
+                if (document.querySelector('.mpx-baby-content').classList.contains('mpx-hide')) {
+                    mpxBabySection.classList.remove('mpx-sub-sub-menu-background');
+                } else {
+                    mpxBabySection.classList.add('mpx-sub-sub-menu-background');
+                }
+
+                //remove landb background if closed from main nav
+                if (document.querySelector('.mpx-toddler-content').classList.contains('mpx-hide')) {
+                    mpxToddlerSection.classList.remove('mpx-sub-sub-menu-background');
+                } else {
+                    mpxToddlerSection.classList.add('mpx-sub-sub-menu-background');
+                }
+
+                //remove section background if applied
+                if (document.querySelector('.mpx-babyAndToddler').classList.contains('mpx-sub-sub-menu-background')) {
+                    document.querySelector('.mpx-babyAndToddler').classList.remove('mpx-sub-sub-menu-background')
+                }
+
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-toddler-content').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+
+                }
+
+                if (!document.querySelector('.mpx-baby-content').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+
+                counter++;
+
+                // Check if we have reached the desired number of iterations (5 in this case)
+                if (counter === 5) {
+                    clearInterval(intervalIdbabyAndToddlerPXFunc); // Stop the polling after 5 iterations
+                }
+            }, 100); // Poll every 1 second (1000 milliseconds)
+        }
+
+        //MAIN MENU LOGIC//
+        //when product is clicked remove mpx-hide
+        //if artciles is open when clicked, add mpx-hide
+        document.querySelector('.mpx-products-section').addEventListener('click', function () {
+            //show/hide menu
+            document.querySelector('.mpx-products-content').classList.toggle('mpx-hide')
+            //show/hide second menu
+            if (!document.querySelector('.mpx-articles-content').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-articles-content').classList.add('mpx-hide')
+            }
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-products-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+
+            }
+
+            if (!document.querySelector('.mpx-articles-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //when artciles is clicked remove mpx-hide
+        //if product is open when clicked, add mpx-hide
+        document.querySelector('.mpx-articles-section').addEventListener('click', function () {
+            //show/hide menu
+            document.querySelector('.mpx-articles-content').classList.toggle('mpx-hide')
+            //show/hide second menu
+            if (!document.querySelector('.mpx-products-content').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-products-content').classList.add('mpx-hide')
+            }
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-articles-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            if (!document.querySelector('.mpx-products-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //SUB MENU LOGIC//
+        //Products by range
+        //Add accordion functionality
+        var mpxProductRange = document.querySelectorAll('.mpx-font')[3];
+        var mpxProductRangeContent = document.querySelectorAll('.mpx-range-content');
+
+        //Add event listener to mpxProductRange
+        mpxProductRange.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 50.9375em)').matches) {
+                // Iterate over each mpxProductRangeContent element
+                for (var i = 0; i < mpxProductRangeContent.length; i++) {
+                    // Toggle the class 'mpx-hide' on each mpxProductRangeContent instance
+                    mpxProductRangeContent[i].classList.toggle('mpx-hide');
+                    mpxProductRangeContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+                }
+
+                // Check the mpxProductAgeContent elements
+                for (var i = 0; i < mpxProductAgeContent.length; i++) {
+                    // Add 'mpx-hide' class to elements that don't have it
+                    if (!mpxProductAgeContent[i].classList.contains('mpx-hide')) {
+                        mpxProductAgeContent[i].classList.add('mpx-hide');
+                        mpxProductAgeContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                    }
+                }
+                //add menu background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.toggle('mpx-sub-sub-menu-background')
+            }
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-range-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+
+            if (!document.querySelectorAll('.mpx-range-age')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+        });
+
+        //Products by Age
+        //Add accordion functionality 
+        var mpxProductAge = document.querySelectorAll('.mpx-font')[2]
+        var mpxProductAgeContent = document.querySelectorAll('.mpx-range-age')
+
+        // Add event listener to mpxProductAge
+        mpxProductAge.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 50.9375em)').matches) {
+                // Iterate over each mpxProductAgeContent element
+                for (var i = 0; i < mpxProductAgeContent.length; i++) {
+                    // Toggle the class 'mpx-hide' on each mpxProductAgeContent instance
+                    mpxProductAgeContent[i].classList.toggle('mpx-hide');
+                    mpxProductAgeContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+                }
+
+                // Check the mpxProductRangeContent elements
+                for (var i = 0; i < mpxProductRangeContent.length; i++) {
+                    // Add 'mpx-hide' class to elements that don't have it
+                    if (!mpxProductRangeContent[i].classList.contains('mpx-hide')) {
+                        mpxProductRangeContent[i].classList.add('mpx-hide');
+                        mpxProductRangeContent[i].classList.remove('mpx-sub-sub-menu-indent');
+                    }
+                }
+                //add menu background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.toggle('mpx-sub-sub-menu-background')
+
+            }
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-range-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+
+            if (!document.querySelectorAll('.mpx-range-age')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+        });
+
+        //Getting pregnant 
+        //Add accordion functionality
+        var mpxGettingPregnant = document.querySelectorAll('.mpx-font')[7]
+        var mpxGettingPregnantContent = document.querySelector('.mpx-conception-sub-nav')
+        var mpxConceptionContent = document.querySelectorAll('.mpx-conception-content')
+
+        mpxGettingPregnant.addEventListener('click', function () {
+            mpxGettingPregnantContent.classList.toggle('mpx-hide')
+
+            for (var i = 0; i < mpxConceptionContent.length; i++) {
+                if (!mpxGettingPregnantContent.classList.contains('mpx-hide')) {
+                    mpxConceptionContent[i].classList.add('mpx-hide')
+                    mpxConceptionContent[i].classList.add('mpx-sub-sub-menu-indent')
+                } else {
+                    mpxConceptionContent[i].classList.remove('mpx-hide')
+                    mpxConceptionContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                }
+            }
+
+            //close pregnancy and labour if open
+            if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-pregnancy-sub-nav').classList.add('mpx-hide')
+                document.querySelector('.mpx-landb-sub-nav').classList.add('mpx-hide')
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //close Baby and Toddler if open
+            if (!document.querySelector('.mpx-baby-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-baby-sub-nav').classList.add('mpx-hide')
+                document.querySelector('.mpx-toddler-sub-nav').classList.add('mpx-hide')
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-baby-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //adjust chevron on click
+            if (!mpxGettingPregnantContent.classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //Pregnancy
+        //Add accordion functionality
+        var mpxPregnancySection = document.querySelector('.mpx-pregnancy-sub-nav')
+        var mpxPregnancyContent = document.querySelectorAll('.mpx-pregnancy-content')
+
+        mpxPregnancySection.addEventListener('click', function () {
+            for (var i = 0; i < mpxPregnancyContent.length; i++) {
+                mpxPregnancyContent[i].classList.toggle('mpx-hide')
+                mpxPregnancyContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-pregnancy-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[6].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[6].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //remove pregnancy background if closed from main nav
+            //remove landb background if closed from main nav
+            // Call the function to start the polling
+            pregLandBPXFunc();
+
+            //close labour and birth if open 
+            // Check the mpxBabyContent elements
+            for (var i = 0; i < mpxLandbContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxLandbContent[i].classList.contains('mpx-hide')) {
+                    mpxLandbContent[i].classList.add('mpx-hide');
+                    mpxLandbContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                }
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-landb-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[7].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[7].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //Pregnancy and Labour
+        //Add accordion functionality
+        document.querySelector('.mpx-pregnancyAndLabour>p').addEventListener('click', function () {
+            document.querySelector('.mpx-pregnancy-sub-nav').classList.toggle('mpx-hide')
+            document.querySelector('.mpx-landb-sub-nav').classList.toggle('mpx-hide')
+
+            //close Baby and Toddler if open
+            if (!document.querySelector('.mpx-baby-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-baby-sub-nav').classList.add('mpx-hide')
+                document.querySelector('.mpx-toddler-sub-nav').classList.add('mpx-hide')
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-baby-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //close Getting pregnant if open
+            if (!document.querySelector('.mpx-conception-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-conception-sub-nav').classList.add('mpx-hide')
+
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-conception-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //remove pregnancy background if closed from main nav
+            //remove landb background if closed from main nav
+            // Call the function to start the polling
+            pregLandBPXFunc();
+
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+        })
+
+        //Baby and Toddler
+        //Add accordion functionality
+        document.querySelector('.mpx-babyAndToddler>p').addEventListener('click', function () {
+            document.querySelector('.mpx-toddler-sub-nav').classList.toggle('mpx-hide')
+            document.querySelector('.mpx-baby-sub-nav').classList.toggle('mpx-hide')
+
+            //add/remove menu background
+            babyAndToddlerPXFunc()
+
+            //close Getting pregnant if open
+            if (!document.querySelector('.mpx-conception-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-conception-sub-nav').classList.add('mpx-hide')
+
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-conception-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[4].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //close pregnancy and labour if open
+            if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-pregnancy-sub-nav').classList.add('mpx-hide')
+                document.querySelector('.mpx-landb-sub-nav').classList.add('mpx-hide')
+                //adjust chevron on click
+                if (!document.querySelector('.mpx-pregnancy-sub-nav').classList.contains('mpx-hide')) {
+                    document.querySelectorAll('.mpx-chevron>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                } else {
+                    document.querySelectorAll('.mpx-chevron>use')[5].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                }
+            }
+
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-toddler-sub-nav').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+        })
+
+        //Baby content
+        //Add accordion functionality
+        var mpxBabySection = document.querySelector('.mpx-baby-sub-nav')
+        var mpxBabyContent = document.querySelectorAll('.mpx-baby-content')
+
+        mpxBabySection.addEventListener('click', function () {
+            for (var i = 0; i < mpxBabyContent.length; i++) {
+                mpxBabyContent[i].classList.toggle('mpx-hide')
+                mpxBabyContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-baby-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[9].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //add/remove menu background
+            babyAndToddlerPXFunc()
+
+            //close Toddler if open 
+            // Check the mpxToddlerContent elements
+            for (var i = 0; i < mpxToddlerContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxToddlerContent[i].classList.contains('mpx-hide')) {
+                    mpxToddlerContent[i].classList.add('mpx-hide');
+                    mpxToddlerContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                }
+            }
+
+        })
+
+        //Toddler content
+        //Add accordion functionality
+        var mpxToddlerSection = document.querySelector('.mpx-toddler-sub-nav')
+        var mpxToddlerContent = document.querySelectorAll('.mpx-toddler-content')
+
+        mpxToddlerSection.addEventListener('click', function () {
+            for (var i = 0; i < mpxToddlerContent.length; i++) {
+                mpxToddlerContent[i].classList.toggle('mpx-hide')
+                mpxToddlerContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-toddler-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[10].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //add/remove menu background
+            babyAndToddlerPXFunc()
+
+            //close Baby if open 
+            // Check the mpxBabyContent elements
+            for (var i = 0; i < mpxBabyContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxBabyContent[i].classList.contains('mpx-hide')) {
+                    mpxBabyContent[i].classList.add('mpx-hide');
+                    mpxBabyContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                }
+            }
+
+        })
+
+        //Labour and Birth
+        //Add accordion functionality
+        var mpxLandbSection = document.querySelector('.mpx-landb-sub-nav')
+        var mpxLandbContent = document.querySelectorAll('.mpx-landb-content')
+
+        mpxLandbSection.addEventListener('click', function () {
+            for (var i = 0; i < mpxLandbContent.length; i++) {
+                mpxLandbContent[i].classList.toggle('mpx-hide')
+                mpxLandbContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-landb-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[8].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            //remove pregnancy background if closed from main nav
+            //remove landb background if closed from main nav
+            // Call the function to start the polling
+            pregLandBPXFunc();
+
+            //close pregnancy if open 
+            // Check the mpxPregnancyContent elements
+            for (var i = 0; i < mpxPregnancyContent.length; i++) {
+                // Add 'mpx-hide' class to elements that don't have it
+                if (!mpxPregnancyContent[i].classList.contains('mpx-hide')) {
+                    mpxPregnancyContent[i].classList.add('mpx-hide');
+                    mpxPregnancyContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                }
+            }
+
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-pregnancy-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[7].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[7].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+        })
+    }
+</script>
+
+
+//////WITHOUT ARTICLE SUB MENUS/////
+
+<script>
+
+    //hide original About us and FAQ
+    document.querySelector('.meta-navigation--mobile').style.display = 'none'
+
+    //select navigation section
+    mpxTarget = document.querySelector('.main-navigation')
+
+    //create new nav
+    mpxNavMenu = '<span class="main-navigation__close-button" data-js="navigation-toggler" data-dm="mainnavigation.mobiletoggler"\
+        data-qa="mainnavigation.mobiletoggler">\
+        <svg class="icon" aria-hidden="true">\
+            <use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#cross"></use>\
+        </svg>\
+    </span>\
+    <!--Product section-->\
+    <div class="main-navigation__block">\
+        <div class="mpx-mob-sub-nav">\
+            <div class="main-navigation__link mpx-title mpx-products-section mpx-font" data-dm="mainnavigation.top-nav-link">\
+                <span class="main-navigation__link-text">Products</span>\
+                <span class="main-navigation__subtitle"></span>\
+                <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                    <use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                        \
+                    </use>\
+                </svg>\
+            </div>\
+            <div class="mpx-mob-sub-sub-nav mpx-products-content mpx-hide">\
+                <!--Compare-->\
+                <a href="/products/compare-products.html" \
+                    class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-no-background" \
+                    data-dm="mainnavigation.sub-nav-link">Compare products</a>\
+                <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                <!--Products by Age-->\
+                <div class="mpx-mob-nav-item">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-no-background mpx-font mpx-chevron-spacing"\
+                        \ data-dm="mainnavigation.sub-nav-link">Products by age <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                                \
+                                </use>\
+                                </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil/infant-formula.html" \
+                            class="main-navigation__subnav-link mpx-range-age mpx-hide" \
+                            data-dm="mainnavigation.sub-nav-link">0-6 Months</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil/follow-on-milk.html" \
+                            class="main-navigation__subnav-link mpx-range-age mpx-hide" \
+                            data-dm="mainnavigation.sub-nav-link">6-12 Months</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil/toddler-milk.html" \
+                            class="main-navigation__subnav-link mpx-range-age mpx-hide" \
+                            data-dm="mainnavigation.sub-nav-link">12+ Months</a>\
+                    </div>\
+                </div>\
+                <!--Products by Range-->\
+                <div class="mpx-mob-nav-item">\
+                    <p class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-no-background mpx-font mpx-chevron-spacing"\
+                        \ data-dm="mainnavigation.sub-nav-link">Products by range <svg\
+                            class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                                \
+                                </use>\
+                                </svg> </p>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil-advanced.html" \
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Advanced</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil-pronutra-range.html" \
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+                            data-dm="mainnavigation.sub-nav-link">Aptamil</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/ready-to-drink.html" \
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Ready to drink</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil-pre-measured-tabs.html" \
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Pre-Measured Tabs</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil-organic.html" \
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Organic</a>\
+                    </div>\
+                    <div class="mpx-mov-nav-sub-item">\
+                        <a href="/products/aptamil/cereals.html" \
+                            class="main-navigation__subnav-link mpx-range-content mpx-hide" \
+                            data-dm="mainnavigation.sub-nav-link">Aptamil Cereals</a>\
+                    </div>\
+                </div>\
+                <!--List ALl-->\
+                <div class="mpx-mob-nav-item">\
+                    <a href="/shop/filter-results.html"\
+                        class="main-navigation__subnav-link mpx-no-background mpx-chevron-spacing"\
+                        data-dm="mainnavigation.sub-nav-link">List all\
+                        products</a>\
+                </div>\
+                <!--FAQs-->\
+                <div class="mpx-mob-nav-item">\
+                    <a href="/faqs.html" class="main-navigation__subnav-link mpx-no-background mpx-chevron-spacing" \
+                        data-dm="mainnavigation.sub-nav-link">FAQs</a>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+    <!--Articles section-->\
+    <div class="main-navigation__block">\
+        <div class="mpx-mob-sub-nav">\
+            <div class="main-navigation__link mpx-articles-section mpx-font mpx-title" data-dm="mainnavigation.top-nav-link">\
+                <span class="main-navigation__link-text">Expert articles and tools</span>\
+                <span class="main-navigation__subtitle"></span>\
+                <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                    <use xlink:href="/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right">\
+                        \
+                    </use>\
+                </svg>\
+            </div>\
+            <div class="mpx-mob-sub-sub-nav mpx-articles-content mpx-hide">\
+                <!--Getting pregnant-->\
+                <div class="mpx-mob-nav-item">\
+                    <a href="/conception.html" class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-no-background mpx-chevron-spacing"\
+                        \ data-dm="mainnavigation.sub-nav-link">Getting pregnant </a>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                </div>\
+                <!--Pregnancy-->\
+                <div class="mpx-mob-nav-item">\
+                    <a href="/pregnancy.html" class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-no-background mpx-chevron-spacing"\
+                        \ data-dm="mainnavigation.sub-nav-link">Pregnancy</a>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                </div>\
+                <!--Labour and Birth-->\
+                <div class="mpx-mob-nav-item">\
+                    <a href="/pregnancy/health-and-wellbeing/labour-and-birth.html" class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-no-background mpx-chevron-spacing"\
+                        \ data-dm="mainnavigation.sub-nav-link">Labour and birth</a>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                </div>\
+                <!--Baby-->\
+                <div class="mpx-mob-nav-item">\
+                    <a href="/baby.html" class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-no-background mpx-chevron-spacing"\
+                        \ data-dm="mainnavigation.sub-nav-link">Baby</a>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                </div>\
+                <!--Toddler-->\
+                <div class="mpx-mob-nav-item">\
+                    <a href="/toddler.html" class="main-navigation__subnav-link main-navigation__subnav-link--highlight mpx-no-background mpx-chevron-spacing"\
+                        \ data-dm="mainnavigation.sub-nav-link">Toddler</a>\
+                    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+                </div>\
+            </div>\
+        </div>\
+    </div>\
+    <!--About us-->\
+    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+    <div class="main-navigation__block">\
+        <a href="https://www.aptaclub.co.uk/about-aptaclub/about-nutricia.html" class="main-navigation__link mpx-font" \
+            data-dm="mainnavigation.top-nav-link" style="display: inline-flex;">\
+            <span class="main-navigation__link-text">About us</span>\
+            <span class="main-navigation__subtitle"></span>\
+        </a>\
+    </div>\
+    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>\
+    <!--Reviews-->\
+    <div class="main-navigation__block">\
+        <a href="https://www.aptaclub.co.uk/reviews.html" class="main-navigation__link mpx-font" \
+            data-dm="mainnavigation.top-nav-link" style="display: inline-flex;">\
+            <span class="main-navigation__link-text">Reviews</span>\
+            <span class="main-navigation__subtitle"></span>\
+        </a>\
+    </div>\
+    <div class="main-navigation__subnav-link--highlight-mobile-border"></div>'
+
+    //place nav if mobile device
+    if (window.matchMedia('(max-width: 50.9375em)').matches) {
+        mpxTarget.innerHTML = mpxNavMenu
+
+        //exit button functionality 
+        document.querySelector('.main-navigation__close-button').addEventListener('click', function () {
+            document.querySelector('.page-new-header__mobile-navigation-wrapper').classList.add('is-hidden')
+
+            if (document.querySelector('.page-new-header__mobile-navigation-wrapper').classList.contains('is-visible')) {
+                document.querySelector('.page-new-header__mobile-navigation-wrapper').classList.remove('is-visible')
+            }
+        })
+
+        //MAIN MENU LOGIC//
+        //when product is clicked remove mpx-hide
+        //if artciles is open when clicked, add mpx-hide
+        document.querySelector('.mpx-products-section').addEventListener('click', function () {
+            //show/hide menu
+            document.querySelector('.mpx-products-content').classList.toggle('mpx-hide')
+            //show/hide second menu
+            if (!document.querySelector('.mpx-articles-content').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-articles-content').classList.add('mpx-hide')
+            }
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-products-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+
+            }
+
+            if (!document.querySelector('.mpx-articles-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //when artciles is clicked remove mpx-hide
+        //if product is open when clicked, add mpx-hide
+        document.querySelector('.mpx-articles-section').addEventListener('click', function () {
+            //show/hide menu
+            document.querySelector('.mpx-articles-content').classList.toggle('mpx-hide')
+            //show/hide second menu
+            if (!document.querySelector('.mpx-products-content').classList.contains('mpx-hide')) {
+                document.querySelector('.mpx-products-content').classList.add('mpx-hide')
+            }
+            //adjust chevron on click
+            if (!document.querySelector('.mpx-articles-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[3].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+            if (!document.querySelector('.mpx-products-content').classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[0].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+            }
+
+        })
+
+        //SUB MENU LOGIC//
+        //Products by range
+        //Add accordion functionality
+        var mpxProductRange = document.querySelectorAll('.mpx-font')[2];
+        var mpxProductRangeContent = document.querySelectorAll('.mpx-range-content');
+
+        //Add event listener to mpxProductRange
+        mpxProductRange.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 50.9375em)').matches) {
+                // Iterate over each mpxProductRangeContent element
+                for (var i = 0; i < mpxProductRangeContent.length; i++) {
+                    // Toggle the class 'mpx-hide' on each mpxProductRangeContent instance
+                    mpxProductRangeContent[i].classList.toggle('mpx-hide');
+                    mpxProductRangeContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+                }
+
+                // Check the mpxProductAgeContent elements
+                for (var i = 0; i < mpxProductAgeContent.length; i++) {
+                    // Add 'mpx-hide' class to elements that don't have it
+                    if (!mpxProductAgeContent[i].classList.contains('mpx-hide')) {
+                        mpxProductAgeContent[i].classList.add('mpx-hide');
+                        mpxProductAgeContent[i].classList.remove('mpx-sub-sub-menu-indent')
+                    }
+                }
+                //add menu background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.toggle('mpx-sub-sub-menu-background')
+            }
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-range-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+
+            if (!document.querySelectorAll('.mpx-range-age')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+        });
+
+        //Products by Age
+        //Add accordion functionality 
+        var mpxProductAge = document.querySelectorAll('.mpx-font')[1]
+        var mpxProductAgeContent = document.querySelectorAll('.mpx-range-age')
+
+        // Add event listener to mpxProductAge
+        mpxProductAge.addEventListener('click', function () {
+            if (window.matchMedia('(max-width: 50.9375em)').matches) {
+                // Iterate over each mpxProductAgeContent element
+                for (var i = 0; i < mpxProductAgeContent.length; i++) {
+                    // Toggle the class 'mpx-hide' on each mpxProductAgeContent instance
+                    mpxProductAgeContent[i].classList.toggle('mpx-hide');
+                    mpxProductAgeContent[i].classList.toggle('mpx-sub-sub-menu-indent')
+                }
+
+                // Check the mpxProductRangeContent elements
+                for (var i = 0; i < mpxProductRangeContent.length; i++) {
+                    // Add 'mpx-hide' class to elements that don't have it
+                    if (!mpxProductRangeContent[i].classList.contains('mpx-hide')) {
+                        mpxProductRangeContent[i].classList.add('mpx-hide');
+                        mpxProductRangeContent[i].classList.remove('mpx-sub-sub-menu-indent');
+                    }
+                }
+                //add menu background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.toggle('mpx-sub-sub-menu-background')
+
+            }
+            //adjust chevron on click
+            if (!document.querySelectorAll('.mpx-range-content')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[2].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductRangeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+
+            if (!document.querySelectorAll('.mpx-range-age')[0].classList.contains('mpx-hide')) {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-down')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.add('mpx-sub-sub-menu-background')
+            } else {
+                document.querySelectorAll('.mpx-chevron>use')[1].setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', '/etc/designs/danone-eln/eln-gb-aptaclub/clientlib-base/icons/icons.svg#chevron-right')
+                //adjust background
+                mpxProductAgeContent[0].closest('.mpx-mob-nav-item').classList.remove('mpx-sub-sub-menu-background')
+            }
+        });
+    }
+</script>

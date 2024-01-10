@@ -1,0 +1,830 @@
+<style>
+    .mpx-hide {
+        display: none;
+    }
+
+    .backbtn {
+        color: #2b3c90 !important;
+        background-color: none !important;
+    }
+
+    .backbtn:hover {
+        color: white !important;
+        background-color: #2b3c90 !important;
+    }
+
+    .arrowLeftHover {
+        border: solid white !important;
+        border-width: 0 1px 1px 0 !important;
+        display: inline-block !important;
+        padding: 3px !important;
+        transform: rotate(135deg) !important;
+        -webkit-transform: rotate(135deg) !important;
+        height: 5px !important;
+    }
+
+    .progressbarOne-container {
+        width: 650px;
+        position: absolute;
+        z-index: 1;
+        justify-content: flex-start;
+    }
+
+    .mpx-progressbarOne {
+        list-style: none;
+        width: inherit;
+    }
+
+    .mpx-progressbarOne li {
+        float: left;
+        width: 33%;
+        position: relative;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .mpx-progressbarOne li:after {
+        content: "\25CF";
+        align-content: inline;
+        color: #513388;
+        font-size: 40px;
+        width: 20px;
+        height: 30px;
+        border: 3px solid #bebebe;
+        display: block;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        line-height: 10px;
+        inline-size: 30px;
+        transform: translateY(6px);
+        padding-top: 4px;
+        background-color: white;
+    }
+
+    .mpx-progressbarOne li:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #979797;
+        top: 15px;
+        left: -50%;
+        z-index: -1;
+        transform: translateY(33px);
+
+    }
+
+    .mpx-progressbarOne li:first-child:before {
+        content: none;
+    }
+
+    .mpx-progressbarOne li:nth-child(1) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarOne li:nth-child(2) {
+        color: grey;
+    }
+
+    .mpx-progressbarOne li:nth-child(3) {
+        color: grey;
+    }
+
+    .mpx-progressbarOne li:nth-child(1):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarOne li:nth-child(2):after {
+        content: '';
+    }
+
+    .mpx-progressbarOne li:nth-child(3):after {
+        content: '';
+    }
+
+    .progressbarTwo-container {
+        width: 650px;
+        position: absolute;
+        z-index: 1;
+        justify-content: flex-start;
+    }
+
+    .mpx-progressbarTwo {
+        list-style: none;
+        width: inherit;
+    }
+
+    .mpx-progressbarTwo li {
+        float: left;
+        width: 33%;
+        position: relative;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .mpx-progressbarTwo li:after {
+        content: "\25CF";
+        align-content: inline;
+        color: #513388;
+        font-size: 40px;
+        width: 20px;
+        height: 30px;
+        border: 3px solid #bebebe;
+        display: block;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        line-height: 10px;
+        inline-size: 30px;
+        transform: translateY(6px);
+        padding-top: 4px;
+        background-color: white;
+    }
+
+    .mpx-progressbarTwo li:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #979797;
+        top: 15px;
+        left: -50%;
+        z-index: -1;
+        transform: translateY(33px);
+    }
+
+    .mpx-progressbarTwo li:first-child:before {
+        content: none;
+    }
+
+    .mpx-progressbarTwo li:nth-child(1) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarTwo li:nth-child(2) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarTwo li:nth-child(3) {
+        color: grey;
+    }
+
+    .mpx-progressbarTwo li:nth-child(1):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarTwo li:nth-child(2):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarTwo li:nth-child(3):after {
+        content: '';
+    }
+
+    .progressbarThree-container {
+        width: 650px;
+        position: absolute;
+        z-index: 1;
+        justify-content: flex-start;
+    }
+
+    .mpx-progressbarThree {
+        list-style: none;
+        width: inherit;
+    }
+
+    .mpx-progressbarThree li {
+        float: left;
+        width: 33%;
+        position: relative;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .mpx-progressbarThree li:after {
+        content: "\25CF";
+        align-content: inline;
+        color: #513388;
+        font-size: 40px;
+        width: 20px;
+        height: 30px;
+        border: 3px solid #bebebe;
+        display: block;
+        margin: 0 auto 10px auto;
+        border-radius: 50%;
+        line-height: 10px;
+        inline-size: 30px;
+        transform: translateY(6px);
+        padding-top: 4px;
+        background-color: white;
+    }
+
+    .mpx-progressbarThree li:before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #979797;
+        top: 15px;
+        left: -50%;
+        z-index: -1;
+        transform: translateY(33px);
+    }
+
+    .mpx-progressbarThree li:first-child:before {
+        content: none;
+    }
+
+    .mpx-progressbarThree li:nth-child(1) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarThree li:nth-child(2) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarThree li:nth-child(3) {
+        font-weight: bold;
+    }
+
+    .mpx-progressbarThree li:nth-child(1):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarThree li:nth-child(2):after {
+        border: 3px solid #444343;
+    }
+
+    .mpx-progressbarThree li:nth-child(3):after {
+        border: 3px solid #444343;
+    }
+
+    @media screen and (max-width: 80.9375em) {
+
+        .progressbarOne-container {
+            font-size: 15px;
+        }
+
+        .progressbarTwo-container {
+            font-size: 15px;
+        }
+
+        .progressbarThree-container {
+            font-size: 15px;
+        }
+
+        .mpx-progressbarOne li:after {
+            transform: translateY(10px);
+            line-height: 11px;
+        }
+
+        .mpx-progressbarTwo li:after {
+            transform: translateY(10px);
+            line-height: 11px;
+        }
+
+        .mpx-progressbarThree li:after {
+            transform: translateY(10px);
+            line-height: 11px;
+        }
+    }
+</style>
+
+<script>
+    ///hide step one title
+    document.querySelectorAll('.mpx-generic-title')[0].style.display = "none";
+
+    ///open step two
+    document.querySelector('.mpx-stepTwo-container').classList.remove('closed')
+    document.querySelector('.mpx-stepTwo-container').classList.add('open')
+    document.querySelector('.mpx-stepTwo-container > div').classList.remove('closed')
+    document.querySelector('.mpx-stepTwo-container > div').classList.add('open')
+    document.querySelector('.mpx-stepTwo-details').classList.remove('closed')
+    document.querySelector('.mpx-stepTwo-details').classList.add('open')
+    ///hide step two title
+    document.querySelectorAll('.mpx-generic-title')[1].style.display = "none";
+
+    ///hide section two
+    document.querySelector('.mpx-stepTwo-container').classList.add('mpx-hide')
+
+    ///once valid, if continue is clicked, hide section one and show section two
+    document
+        .querySelector(".mpx-stepOne-details .mpx-first-continue")
+        .addEventListener("click", (e) => {
+            document
+                .querySelectorAll(".mpx-stepOne-details .form-group input")
+                .forEach((valid) => {
+                    if (
+                        valid.classList.contains("input-valid") &&
+                        document.querySelector(
+                            ".mpx-stepOne-details .form-group__checkbox > input"
+                        ).value === "true") {
+                        document.querySelector('.mpx-stepTwo-container').classList.remove('mpx-hide')
+                        document.querySelector('.mpx-stepOne-container').classList.add('mpx-hide')
+                    }
+                });
+        });
+
+    ///open step three
+    document.querySelector('.mpx-stepThree-container').classList.remove('closed')
+    document.querySelector('.mpx-stepThree-container').classList.add('open')
+    document.querySelector('.mpx-stepThree-container > div').classList.remove('closed')
+    document.querySelector('.mpx-stepThree-container > div').classList.add('open')
+    document.querySelector('.mpx-stepThree-details').classList.remove('closed')
+    document.querySelector('.mpx-stepThree-details').classList.add('open')
+    ///hide step three title
+    document.querySelectorAll('.mpx-generic-title')[2].style.display = "none";
+
+    ///hide section two
+    document.querySelector('.mpx-stepThree-container').classList.add('mpx-hide')
+
+    ///once valid, if continue is clicked, hide section two and show section three
+    document
+        .querySelector(".mpx-stepTwo-details .mpx-second-continue")
+        .addEventListener("click", () => {
+            if (
+                document
+                    .querySelector("#areasOfInterest-required-error")
+                    .classList.contains("hidden") &&
+                document.querySelector("#jobSpeciality").value !== ""
+            ) {
+                document.querySelector('.mpx-stepThree-container').classList.remove('mpx-hide')
+                document.querySelector('.mpx-stepTwo-container').classList.add('mpx-hide')
+            }
+        });
+
+
+
+    ///create progress bars
+    var mpxProgressBarOne = '<div class="progressbarOne-container">\
+        <ul class="mpx-progressbarOne">\
+            <li>About You</li>\
+            <li>Your Work</li>\
+            <li>Your Work Address</li>\
+        </ul>\
+    </div>\
+    <div style="padding: 40px;"></div>'
+
+    var mpxProgressBarTwo = '<div class="progressbarTwo-container">\
+        <ul class="mpx-progressbarTwo">\
+            <li>About You</li>\
+            <li>Your Work</li>\
+            <li>Your Work Address</li>\
+        </ul>\
+    </div>\
+    <div style="padding: 40px;"></div>'
+
+    var mpxProgressBarThree = '<div class="progressbarThree-container">\
+        <ul class="mpx-progressbarThree">\
+            <li>About You</li>\
+            <li>Your Work</li>\
+            <li>Your Work Address</li>\
+        </ul>\
+    </div>\
+    <div style="padding: 40px;"></div>'
+
+    //insert progress bars
+    document.querySelector('.mpx-note-container').insertAdjacentHTML('beforebegin', mpxProgressBarOne)
+
+    document.querySelector('.jobSpeciality').insertAdjacentHTML('beforebegin', mpxProgressBarTwo)
+
+    document.querySelector('.mpx-stepThree-details').insertAdjacentHTML('afterbegin', mpxProgressBarThree)
+
+    ///create back button
+    var mpxBackBtn = '<button type="button" class="button -type-primary formcontainer__submit theme-1 mpx-second-continue backbtn" style="background-color: white;"><div class="arrow left"></div>Go back</button>'
+
+    ///move first continue button
+    document.querySelectorAll('.form-group')[9].style.justifyContent = 'end'
+
+    ///insert first back button
+    document.querySelectorAll('.form-group')[28].style.justifyContent = 'space-between'
+
+    document.querySelectorAll('.form-group')[28].insertAdjacentHTML('afterbegin', mpxBackBtn)
+
+    ///first go back button function 
+    document.querySelector(".mpx-second-continue.backbtn")
+        .addEventListener("click", () => {
+            document.querySelector('.mpx-stepTwo-container').classList.add('mpx-hide')
+            document.querySelector('.mpx-stepOne-container').classList.remove('mpx-hide')
+            document.querySelector('.mpx-stepOne-container').classList.remove('closed')
+            document.querySelector('.mpx-stepOne-container').classList.add('open')
+            document.querySelector('.mpx-stepOne-container > div').classList.remove('closed')
+            document.querySelector('.mpx-stepOne-container > div').classList.add('open')
+            document.querySelector('.mpx-stepOne-details').classList.remove('closed')
+            document.querySelector('.mpx-stepOne-details').classList.add('open')
+        });
+
+    document.querySelector(".mpx-second-continue.backbtn")
+        .addEventListener("mouseover", () => {
+            document.querySelector('.arrow.left').classList.add('arrowLeftHover')
+        })
+
+    document.querySelector(".mpx-second-continue.backbtn")
+        .addEventListener("mouseleave", () => {
+            document.querySelector('.arrow.left').classList.remove('arrowLeftHover')
+        })
+
+    ///create second back button
+    var mpxBackBtnTwo = '<button type="button" class="button -type-primary formcontainer__submit theme-1 mpx-second-continue mpx-second-back backbtn" style="background-color: white;"><div class="arrow left"></div>Go back</button>'
+
+    ///insert second back button 
+    document.querySelectorAll('.form-group')[35].style.justifyContent = 'space-between'
+
+    document.querySelectorAll('.form-group')[35].insertAdjacentHTML('afterbegin', mpxBackBtnTwo)
+
+    ///second go back button function 
+    document.querySelector(".mpx-second-continue.mpx-second-back.backbtn")
+        .addEventListener("click", () => {
+            document.querySelector('.mpx-stepThree-container').classList.add('mpx-hide')
+            document.querySelector('.mpx-stepTwo-container').classList.remove('mpx-hide')
+            document.querySelector('.mpx-stepTwo-container').classList.remove('closed')
+            document.querySelector('.mpx-stepTwo-container').classList.add('open')
+            document.querySelector('.mpx-stepTwo-container > div').classList.remove('closed')
+            document.querySelector('.mpx-stepTwo-container > div').classList.add('open')
+            document.querySelector('.mpx-stepTwo-details').classList.remove('closed')
+            document.querySelector('.mpx-stepTwo-details').classList.add('open')
+        });
+
+    document.querySelector(".mpx-second-back")
+        .addEventListener("mouseover", () => {
+            document.querySelector('.mpx-second-back > div').classList.add('arrowLeftHover')
+        })
+
+    document.querySelector(".mpx-second-back")
+        .addEventListener("mouseleave", () => {
+            document.querySelector('.mpx-second-back > div').classList.remove('arrowLeftHover')
+        })
+
+    document.querySelector(".mpx-first-continue")
+        .addEventListener("click", () => {
+            // When the user clicks on the button, scroll to the top of the document
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        })
+
+    document.querySelectorAll(".mpx-second-continue")[1]
+        .addEventListener("click", () => {
+            // When the user clicks on the button, scroll to the top of the document
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        })
+
+
+    ///resize progress bar to match form group
+    ///Wait for jQuery to load on page before firing to prevent errors
+    setTimeout(function () {
+        $(".progressbarOne-container").css({
+            'width': ($(".mpx-stepOne-details").width() + 'px')
+        });
+
+        $(window).resize(function () {
+            $(".progressbarOne-container").css({
+                'width': ($(".mpx-stepOne-details").width() + 'px')
+            });
+        });
+    }, 4000);
+
+    ///first continue matches second bar to second form group size
+    document
+        .querySelector(".mpx-first-continue")
+        .addEventListener("click", (e) => {
+            setTimeout(function () {
+                $(".progressbarTwo-container").css({
+                    'width': ($(".mpx-stepTwo-details").width() + 'px')
+                });
+
+                $(window).resize(function () {
+                    $(".progressbarTwo-container").css({
+                        'width': ($(".mpx-stepTwo-details").width() + 'px')
+                    });
+                });
+            }, 1000);
+        })
+
+    ///Press the back button, resize step one bar
+    document
+        .querySelector(".mpx-second-continue.backbtn")
+        .addEventListener("click", (e) => {
+            setTimeout(function () {
+                $(".progressbarOne-container").css({
+                    'width': ($(".mpx-stepOne-details").width() + 'px')
+                });
+
+                $(window).resize(function () {
+                    $(".progressbarOne-container").css({
+                        'width': ($(".mpx-stepOne-details").width() + 'px')
+                    });
+                });
+            }, 1000);
+        })
+
+    ///second continue matches third bar to third form group size
+    document
+        .querySelectorAll(".mpx-second-continue")[1]
+        .addEventListener("click", (e) => {
+            setTimeout(function () {
+                $(".progressbarThree-container").css({
+                    'width': ($(".mpx-stepThree-details").width() + 'px')
+                });
+
+                $(window).resize(function () {
+                    $(".progressbarThree-container").css({
+                        'width': ($(".mpx-stepThree-details").width() + 'px')
+                    });
+                });
+            }, 1000);
+        })
+
+    ///Press the second back button, resize step two bar
+    document
+        .querySelector(".mpx-second-back")
+        .addEventListener("click", (e) => {
+            setTimeout(function () {
+                $(".progressbarTwo-container").css({
+                    'width': ($(".mpx-stepTwo-details").width() + 'px')
+                });
+
+                $(window).resize(function () {
+                    $(".progressbarTwo-container").css({
+                        'width': ($(".mpx-stepTwo-details").width() + 'px')
+                    });
+                });
+            }, 1000);
+        })
+
+</script>
+
+
+
+IRELAND SITE SCRIPT
+
+<script>
+
+    ///hide step one title
+    document.querySelectorAll('.mpx-generic-title')[0].style.display = "none";
+
+    ///open step two
+    document.querySelector('.mpx-stepTwo-container').classList.remove('closed')
+    document.querySelector('.mpx-stepTwo-container').classList.add('open')
+    document.querySelector('.mpx-stepTwo-container > div').classList.remove('closed')
+    document.querySelector('.mpx-stepTwo-container > div').classList.add('open')
+    document.querySelector('.mpx-stepTwo-details').classList.remove('closed')
+    document.querySelector('.mpx-stepTwo-details').classList.add('open')
+    ///hide step two title
+    document.querySelectorAll('.mpx-generic-title')[1].style.display = "none";
+
+    ///hide section two
+    document.querySelector('.mpx-stepTwo-container').classList.add('mpx-hide')
+
+    ///once valid, if continue is clicked, hide section one and show section two
+    document
+        .querySelector(".mpx-stepOne-details .mpx-first-continue")
+        .addEventListener("click", (e) => {
+            document
+                .querySelectorAll(".mpx-stepOne-details .form-group input")
+                .forEach((valid) => {
+                    if (
+                        valid.classList.contains("input-valid") &&
+                        document.querySelector(
+                            ".mpx-stepOne-details .form-group__checkbox > input"
+                        ).value === "true") {
+                        document.querySelector('.mpx-stepTwo-container').classList.remove('mpx-hide')
+                        document.querySelector('.mpx-stepOne-container').classList.add('mpx-hide')
+                    }
+                });
+        });
+
+    ///open step three
+    document.querySelector('.mpx-stepThree-container').classList.remove('closed')
+    document.querySelector('.mpx-stepThree-container').classList.add('open')
+    document.querySelector('.mpx-stepThree-container > div').classList.remove('closed')
+    document.querySelector('.mpx-stepThree-container > div').classList.add('open')
+    document.querySelector('.mpx-stepThree-details').classList.remove('closed')
+    document.querySelector('.mpx-stepThree-details').classList.add('open')
+    ///hide step three title
+    document.querySelectorAll('.mpx-generic-title')[2].style.display = "none";
+
+    ///hide section two
+    document.querySelector('.mpx-stepThree-container').classList.add('mpx-hide')
+
+    ///once valid, if continue is clicked, hide section two and show section three
+    document
+        .querySelector(".mpx-stepTwo-details .mpx-second-continue")
+        .addEventListener("click", () => {
+            if (
+                document
+                    .querySelector("#areasOfInterest-required-error")
+                    .classList.contains("hidden") &&
+                document.querySelector("#jobSpeciality").value !== ""
+            ) {
+                document.querySelector('.mpx-stepThree-container').classList.remove('mpx-hide')
+                document.querySelector('.mpx-stepTwo-container').classList.add('mpx-hide')
+            }
+        });
+
+
+
+    ///create progress bars
+    var mpxProgressBarOne = '<div class="progressbarOne-container">\
+        <ul class="mpx-progressbarOne">\
+            <li>About You</li>\
+            <li>Your Work</li>\
+            <li>Your Work Address</li>\
+        </ul>\
+    </div>\
+    <div style="padding: 40px;"></div>'
+
+    var mpxProgressBarTwo = '<div class="progressbarTwo-container">\
+        <ul class="mpx-progressbarTwo">\
+            <li>About You</li>\
+            <li>Your Work</li>\
+            <li>Your Work Address</li>\
+        </ul>\
+    </div>\
+    <div style="padding: 40px;"></div>'
+
+    var mpxProgressBarThree = '<div class="progressbarThree-container">\
+        <ul class="mpx-progressbarThree">\
+            <li>About You</li>\
+            <li>Your Work</li>\
+            <li>Your Work Address</li>\
+        </ul>\
+    </div>\
+    <div style="padding: 40px;"></div>'
+
+    //insert progress bars
+    document.querySelector('.mpx-note-container').insertAdjacentHTML('beforebegin', mpxProgressBarOne)
+
+    document.querySelector('.jobSpeciality').insertAdjacentHTML('beforebegin', mpxProgressBarTwo)
+
+    document.querySelector('.mpx-stepThree-details').insertAdjacentHTML('afterbegin', mpxProgressBarThree)
+
+    ///create back button
+    var mpxBackBtn = '<button type="button" class="button -type-primary formcontainer__submit theme-1 mpx-second-continue backbtn" style="background-color: white;"><div class="arrow left"></div>Go back</button>'
+
+    ///move first continue button
+    document.querySelectorAll('.form-group')[9].style.justifyContent = 'end'
+
+    ///insert first back button
+    document.querySelectorAll('.form-group')[28].style.justifyContent = 'space-between'
+
+    document.querySelectorAll('.form-group')[28].insertAdjacentHTML('afterbegin', mpxBackBtn)
+
+    ///first go back button function 
+    document.querySelector(".mpx-second-continue.backbtn")
+        .addEventListener("click", () => {
+            document.querySelector('.mpx-stepTwo-container').classList.add('mpx-hide')
+            document.querySelector('.mpx-stepOne-container').classList.remove('mpx-hide')
+            document.querySelector('.mpx-stepOne-container').classList.remove('closed')
+            document.querySelector('.mpx-stepOne-container').classList.add('open')
+            document.querySelector('.mpx-stepOne-container > div').classList.remove('closed')
+            document.querySelector('.mpx-stepOne-container > div').classList.add('open')
+            document.querySelector('.mpx-stepOne-details').classList.remove('closed')
+            document.querySelector('.mpx-stepOne-details').classList.add('open')
+        });
+
+    document.querySelector(".mpx-second-continue.backbtn")
+        .addEventListener("mouseover", () => {
+            document.querySelector('.arrow.left').classList.add('arrowLeftHover')
+        })
+
+    document.querySelector(".mpx-second-continue.backbtn")
+        .addEventListener("mouseleave", () => {
+            document.querySelector('.arrow.left').classList.remove('arrowLeftHover')
+        })
+
+    ///create second back button
+    var mpxBackBtnTwo = '<button type="button" class="button -type-primary formcontainer__submit theme-1 mpx-second-continue mpx-second-back backbtn" style="background-color: white;"><div class="arrow left"></div>Go back</button>'
+
+    ///insert second back button 
+    document.querySelectorAll('.form-group')[35].style.justifyContent = 'space-between'
+
+    document.querySelectorAll('.form-group')[35].insertAdjacentHTML('afterbegin', mpxBackBtnTwo)
+
+    ///second go back button function 
+    document.querySelector(".mpx-second-continue.mpx-second-back.backbtn")
+        .addEventListener("click", () => {
+            document.querySelector('.mpx-stepThree-container').classList.add('mpx-hide')
+            document.querySelector('.mpx-stepTwo-container').classList.remove('mpx-hide')
+            document.querySelector('.mpx-stepTwo-container').classList.remove('closed')
+            document.querySelector('.mpx-stepTwo-container').classList.add('open')
+            document.querySelector('.mpx-stepTwo-container > div').classList.remove('closed')
+            document.querySelector('.mpx-stepTwo-container > div').classList.add('open')
+            document.querySelector('.mpx-stepTwo-details').classList.remove('closed')
+            document.querySelector('.mpx-stepTwo-details').classList.add('open')
+        });
+
+    ///hover function for buttons
+    document.querySelector(".mpx-second-back")
+        .addEventListener("mouseover", () => {
+            document.querySelector('.mpx-second-back > div').classList.add('arrowLeftHover')
+        })
+
+    document.querySelector(".mpx-second-back")
+        .addEventListener("mouseleave", () => {
+            document.querySelector('.mpx-second-back > div').classList.remove('arrowLeftHover')
+        })
+
+    ///add class to second continue btn
+    document.querySelectorAll(".mpx-second-continue")[1].classList.add('mpx-continue-two');
+
+    //scroll to top on button press
+    document.querySelector(".mpx-first-continue")
+        .addEventListener("click", () => {
+            // When the user clicks on the button, scroll to the top of the document
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        })
+
+    document.querySelectorAll(".mpx-second-continue")[1]
+        .addEventListener("click", () => {
+            // When the user clicks on the button, scroll to the top of the document
+            document.body.scrollTop = 0; // For Safari
+            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        })
+
+    ///JQUERY/////
+
+    ///resize progress bar to match form group
+    ///Wait for jQuery to load on page before firing to prevent errors
+    setTimeout(function () {
+        $(".progressbarOne-container").css({
+            'width': ($(".mpx-stepOne-details").width() + 'px')
+        });
+
+        $(window).resize(function () {
+            $(".progressbarOne-container").css({
+                'width': ($(".mpx-stepOne-details").width() + 'px')
+            });
+        });
+
+
+        ///first continue matches second bar to second form group size
+        document
+            .querySelector(".mpx-first-continue")
+            .addEventListener("click", (e) => {
+                setTimeout(function () {
+                    $(".progressbarTwo-container").css({
+                        'width': ($(".mpx-stepTwo-details").width() + 'px')
+                    });
+
+                    $(window).resize(function () {
+                        $(".progressbarTwo-container").css({
+                            'width': ($(".mpx-stepTwo-details").width() + 'px')
+                        });
+                    });
+                }, 2000);
+            })
+
+        ///Press the back button, resize step one bar
+        document
+            .querySelector(".mpx-second-continue.backbtn")
+            .addEventListener("click", (e) => {
+                setTimeout(function () {
+                    $(".progressbarOne-container").css({
+                        'width': ($(".mpx-stepOne-details").width() + 'px')
+                    });
+
+                    $(window).resize(function () {
+                        $(".progressbarOne-container").css({
+                            'width': ($(".mpx-stepOne-details").width() + 'px')
+                        });
+                    });
+                }, 2000);
+            })
+
+        ///second continue matches third bar to third form group size
+        document
+            .querySelector(".mpx-continue-two")
+            .addEventListener("click", (e) => {
+                setTimeout(function () {
+                    $(".progressbarThree-container").css({
+                        'width': ($(".mpx-stepThree-details").width() + 'px')
+                    });
+
+                    $(window).resize(function () {
+                        $(".progressbarThree-container").css({
+                            'width': ($(".mpx-stepThree-details").width() + 'px')
+                        });
+                    });
+                }, 2000);
+            })
+
+        ///Press the second back button, resize step two bar
+        document
+            .querySelector(".mpx-second-back")
+            .addEventListener("click", (e) => {
+                setTimeout(function () {
+                    $(".progressbarTwo-container").css({
+                        'width': ($(".mpx-stepTwo-details").width() + 'px')
+                    });
+
+                    $(window).resize(function () {
+                        $(".progressbarTwo-container").css({
+                            'width': ($(".mpx-stepTwo-details").width() + 'px')
+                        });
+                    });
+                }, 2000);
+            })
+    }, 4000);
+
+</script>

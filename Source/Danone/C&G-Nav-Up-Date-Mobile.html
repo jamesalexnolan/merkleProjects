@@ -1,0 +1,1005 @@
+<style>
+    /* main menu changes*/
+    .custom_ctaWrapper {
+        margin-top: 7rem;
+        width: 100%;
+    }
+
+    .custom_ctaWrapper:not(:first-of-type) {
+        width: 80%;
+        /* Apply the width to all but the first instance */
+    }
+
+    .custom_ctaWrapper .button.-type-primary {
+        font-size: small;
+        width: 155px;
+    }
+
+    .button.-size-large.-type-primary.theme-3,
+    .button.-type-primary.theme-3 {
+        background-color: #ad1f1f;
+    }
+
+    .button.-type-primary.theme-3.is-logged-out:first-of-type {
+        background-color: white;
+        color: #ad1f1f;
+        border: inset;
+        border-color: #ad1f1f;
+        padding: 12.1px;
+    }
+
+    .mpx-main-nav {
+        margin: 0;
+        padding: 0;
+    }
+
+    .mpx-nav-block {
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    .main-navigation__block {
+        background: #8080801a;
+        padding: 3px;
+        margin: 4px 0 4px 0;
+        border-radius: 50px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .page-new-header .main-navigation__link {
+        justify-content: space-between;
+        font-size: small;
+    }
+
+    .mpx-hide {
+        display: none !important;
+    }
+
+    /*END*/
+
+    /*sub nav changes*/
+    .mpx-sub-nav-container {
+        z-index: 99997;
+        display: flex;
+        position: relative;
+        background: #8080801a;
+        display: table-column;
+        width: 100%;
+        height: 100%;
+    }
+
+    .mpx-sub-nav-cta {
+        background-color: transparent !important;
+        color: #ad1f1f !important;
+        border: inset;
+        border-color: #ad1f1f;
+        padding: 12.1px;
+    }
+
+    .mpx-sub-nav-spacing {
+        display: flex;
+        justify-content: flex-start;
+        margin: 10px;
+    }
+
+    .mpx-chevron {}
+
+    .mpx-link {
+        color: black;
+        text-decoration: underline;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .mpx-sub-nav-second-title {
+        margin: 40px 30px 10px 30px;
+        justify-content: space-between !important;
+    }
+
+    .mpx-sub-nav-item {
+        background: white;
+        padding: 5px;
+    }
+
+    .mpx-sub-nav-block {
+        margin: 5px 10px 5px 10px;
+    }
+
+    .mpx-sub-nav-item-sub-title {
+        font-weight: 100;
+        color: #8080807a;
+        margin-left: 5px;
+    }
+
+    .mpx-sub-nav-cta-spacing {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 20px 0 20px;
+    }
+
+    .main-navigation__close-button {
+        z-index: 99999;
+    }
+
+    /*END*/
+</style>
+
+<script>
+    //MAIN MOBILE NAV//
+    //change CTA text
+    document.querySelectorAll('[data-js="custom-mobilecta"]>span')[2].innerHTML = 'Register'
+
+    //add class to nav
+    document.querySelector('.main-navigation').classList.add('mpx-main-nav')
+
+    //move nav-block into container
+    var mpxNavBlocks = '<div class="mpx-nav-block"></div>'
+    //create new nav container
+    var newElement = document.createElement('div')
+    newElement.innerHTML = mpxNavBlocks
+    var targetElement = document.querySelector('.meta-navigation.meta-navigation--mobile')
+    targetElement.parentNode.insertBefore(newElement.firstChild, targetElement)
+
+    //insert nav into mpxNavBlocks
+    var mainNavigation = document.querySelector('.main-navigation')
+    var mpxNavBlock = document.querySelector('.mpx-nav-block')
+
+    mpxNavBlock.appendChild(mainNavigation)
+
+    //hide original footer
+    document.querySelector('.meta-navigation.meta-navigation--mobile').style.display = 'none'
+
+    //hide element
+    document.querySelector('.language-navigation.language-navigation--mobile').style.display = 'none'
+
+    //hide nav blocks
+    var elements = document.querySelectorAll('.main-navigation__block');
+    elements[6].style.display = 'none';
+    elements[5].style.display = 'none';
+    elements[4].style.display = 'none';
+
+    //change nav menu text
+    //remove sub title
+    var subtitles = document.querySelectorAll('.main-navigation__subtitle')
+
+    subtitles.forEach(function (subtitle) {
+        subtitle.style.display = 'none'
+    });
+
+    //hide all chevrons apart from first two
+    var icons = document.querySelectorAll('.main-navigation__subnav-icon')
+
+    icons.forEach(function (icon, index) {
+        if (index > 1) {
+            icon.style.display = 'none'
+        }
+    });
+
+    //change text of nav menu items
+    var values = [
+        'Products',
+        'Support for you and baby',
+        'Reviews',
+        'About us'
+    ];
+
+    var linkTextElements = document.querySelectorAll('.main-navigation__link-text');
+
+    linkTextElements.forEach(function (linkText, index) {
+        if (index < values.length) {
+            linkText.innerHTML = values[index];
+        }
+    });
+
+    //change nav menu links 
+
+    var hrefValues = [
+        '/reviews.html',
+        '/about-us.html'
+    ];
+
+    var linkHREFElements = document.querySelectorAll('.main-navigation__block > a');
+
+    for (var i = 2; i < linkHREFElements.length; i++) {
+        var hrefIndex = i - 2;
+        if (hrefIndex < hrefValues.length) {
+            linkHREFElements[i].setAttribute('href', hrefValues[hrefIndex]);
+        }
+    }
+
+    //remove unwanted sub-navs
+    var navSubNav = document.querySelectorAll('.main-navigation__block > div');
+
+    for (var i = 0; i < navSubNav.length; i++) {
+        var elementToRemove = navSubNav[i];
+        elementToRemove.parentNode.removeChild(elementToRemove);
+    }
+
+    //remove hrefs from first two to stop reload
+    linkHREFElements[0].removeAttribute('href');
+    linkHREFElements[1].removeAttribute('href');
+
+    //create sub nav support your baby
+    var mpxSubNavSYB = '<div class="mpx-sub-nav-syb mpx-sub-nav-container mpx-hide">\
+    <!--header-->\
+        <div class="mpx-sub-nav-header">\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing">\
+                <a target="_self" class="button -type-primary theme-3 mpx-sub-nav-cta"\
+                    data-js="custom-mobilecta">\
+                    <span class="mpx-sub-nav-cta-spacing"> <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-left">\
+                            </use>\
+                        </svg>Main menu</span>\
+                </a>\
+            </div>\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing mpx-sub-nav-second-title">\
+                <h4 class="mpx-sub-title">Popular topics</h4>\
+                <a href="/pregnancy.html" class="mpx-link">\
+                    <span>\
+                        See all\
+                    </span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Pregnancy <span class="mpx-sub-nav-item-sub-title">(Week 0-40)</span></span>\
+                    <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Labour & Birth</span>\
+                    <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Baby <span class="mpx-sub-nav-item-sub-title">(10-12 months)</span></span>\
+                    <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg>\
+                </a>\
+            </div>\
+        </div>\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Toddler <span class="mpx-sub-nav-item-sub-title">(0-3 years)</span></span>\
+                    <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Dads & Partners</span>\
+                    <svg class="icon -size-small main-navigation__subnav-icon" aria-hidden="true">\
+                        <use\
+                            xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-right">\
+                        </use>\
+                    </svg>\
+                </a>\
+            </div>\
+        </div>\
+        </div>'
+
+    //insert sub menu
+    var targetElement = document.querySelector('.search.search--mobile')
+    targetElement.insertAdjacentHTML('beforebegin', mpxSubNavSYB)
+
+    //create sub nav products
+    var mpxSubNavProducts = '<div class="mpx-sub-nav-products mpx-sub-nav-container mpx-hide">\
+    <!--header-->\
+        <div class="mpx-sub-nav-header">\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing">\
+                <a target="_self" class="button -type-primary theme-3 mpx-sub-nav-cta"\
+                    data-js="custom-mobilecta">\
+                    <span class="mpx-sub-nav-cta-spacing"> <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-left">\
+                            </use>\
+                        </svg>Main menu</span>\
+                </a>\
+            </div>\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing mpx-sub-nav-second-title">\
+                <h4 class="mpx-sub-title">Products</h4>\
+                <a href="/shop.html" class="mpx-link">\
+                    <span>\
+                        See all\
+                    </span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/products/milks.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Baby milk</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/products/foods.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Baby food</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/products/milks/specialist-milk.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Gate specialist milk</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/our-careline.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Care team</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/faqs.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">FAQs</span>\
+                </a>\
+            </div>\
+        </div>\
+        </div>'
+
+    //insert sub menu
+    targetElement.insertAdjacentHTML('beforebegin', mpxSubNavProducts)
+
+    //create sub nav pregnancy
+    var mpxSubNavPregnancy = '<div class="mpx-sub-nav-pregnancy mpx-sub-nav-container mpx-hide">\
+    <!--header-->\
+        <div class="mpx-sub-nav-header">\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing">\
+                <a target="_self" class="button -type-primary theme-3 mpx-sub-nav-cta"\
+                    data-js="custom-mobilecta">\
+                    <span class="mpx-sub-nav-cta-spacing"> <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-left">\
+                            </use>\
+                        </svg>Popular topics</span>\
+                </a>\
+            </div>\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing mpx-sub-nav-second-title">\
+                <h4 class="mpx-sub-title">Pregnancy</h4>\
+                <a href="/pregnancy.html" class="mpx-link">\
+                    <span>\
+                        See all\
+                    </span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Pregnancy</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/conception/healthy-eating-for-conception.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Diet & Nutrition</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/when-am-i-due.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Pregnancy due date calculator</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/health/morning-sickness.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Morning sickness & pregnancy symptoms</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/wellbeing/pregnancy-blues-and-mood-swings.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Mental health in pregnancy</span>\
+                </a>\
+            </div>\
+        </div>\
+        </div>'
+
+    //insert sub menu
+    targetElement.insertAdjacentHTML('beforebegin', mpxSubNavPregnancy)
+
+    //create sub nav Labour and birth
+    var mpxSubNavLandB = '<div class="mpx-sub-nav-l-and-b mpx-sub-nav-container mpx-hide">\
+    <!--header-->\
+        <div class="mpx-sub-nav-header">\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing">\
+                <a target="_self" class="button -type-primary theme-3 mpx-sub-nav-cta"\
+                    data-js="custom-mobilecta">\
+                    <span class="mpx-sub-nav-cta-spacing"> <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-left">\
+                            </use>\
+                        </svg>Popular topics</span>\
+                </a>\
+            </div>\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing mpx-sub-nav-second-title">\
+                <h4 class="mpx-sub-title">Labour & Birth</h4>\
+                <a href="/pregnancy/labour-and-birth.html" class="mpx-link">\
+                    <span>\
+                        See all\
+                    </span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Labour & Birth</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/the-stages-of-labour.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">3 stages of labour</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/what-are-braxton-hicks-contractions.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Braxton hicks contractionsr</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/the-stages-of-labour.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Early signs of labour</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/how-do-i-write-a-birth-plan.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Birth plan</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/pregnancy/labour-and-birth/hospital-bag-checklist.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Birth Hospital checklist</span>\
+                </a>\
+            </div>\
+        </div>\
+        </div>'
+
+    //insert sub menu
+    targetElement.insertAdjacentHTML('beforebegin', mpxSubNavLandB)
+
+    //create sub nav Baby
+    var mpxSubNavBaby = '<div class="mpx-sub-nav-baby mpx-sub-nav-container mpx-hide">\
+    <!--header-->\
+        <div class="mpx-sub-nav-header">\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing">\
+                <a target="_self" class="button -type-primary theme-3 mpx-sub-nav-cta"\
+                    data-js="custom-mobilecta">\
+                    <span class="mpx-sub-nav-cta-spacing"> <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-left">\
+                            </use>\
+                        </svg>Popular topics</span>\
+                </a>\
+            </div>\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing mpx-sub-nav-second-title">\
+                <h4 class="mpx-sub-title">Baby</h4>\
+                <a href="/baby.html" class="mpx-link">\
+                    <span>\
+                        See all\
+                    </span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/baby.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Baby</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/baby/health/baby-symptom-checker.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Baby symptom checker</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/products/milks/pre-term-or-low-birthweight-infant-milk.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Premature babies</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/baby/new-mum.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">New mum</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/baby/routine/establishing-your-newborns-routine.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Your baby\'s routine</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/baby/feeding.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Baby feeding & nutrition</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/baby/feeding/weaning/5-step-weaning-plan-sign-up.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Weaning</span>\
+                </a>\
+            </div>\
+        </div>\
+        </div>'
+
+    //insert sub menu
+    targetElement.insertAdjacentHTML('beforebegin', mpxSubNavBaby)
+
+    //create sub nav Toddler
+    var mpxSubNavToddler = '<div class="mpx-sub-nav-toddler mpx-sub-nav-container mpx-hide">\
+    <!--header-->\
+        <div class="mpx-sub-nav-header">\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing">\
+                <a target="_self" class="button -type-primary theme-3 mpx-sub-nav-cta"\
+                    data-js="custom-mobilecta">\
+                    <span class="mpx-sub-nav-cta-spacing"> <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-left">\
+                            </use>\
+                        </svg>Popular topics</span>\
+                </a>\
+            </div>\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing mpx-sub-nav-second-title">\
+                <h4 class="mpx-sub-title">Toddler</h4>\
+                <a href="/toddler.html" class="mpx-link">\
+                    <span>\
+                        See all\
+                    </span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/toddler.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Toddler</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/toddler/development/toddler-development-stages.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Your toddler\'s development</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/products/milks/toddler-milk.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Toddler feeding & nutrition</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/products/milks/toddler-milk.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Toddler health</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/products/milks/first-infant-milk.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Vitamins</span>\
+                </a>\
+            </div>\
+        </div>\
+        </div>'
+
+    //insert sub menu
+    targetElement.insertAdjacentHTML('beforebegin', mpxSubNavToddler)
+
+    //create sub nav Dads and Partners
+    var mpxSubNavDandP = '<div class="mpx-sub-nav-d-and-p mpx-sub-nav-container mpx-hide">\
+    <!--header-->\
+        <div class="mpx-sub-nav-header">\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing">\
+                <a target="_self" class="button -type-primary theme-3 mpx-sub-nav-cta"\
+                    data-js="custom-mobilecta">\
+                    <span class="mpx-sub-nav-cta-spacing"> <svg class="icon -size-small main-navigation__subnav-icon mpx-chevron" aria-hidden="true">\
+                            <use\
+                                xlink:href="/etc/designs/danone-eln/eln-gb-cowandgate/clientlib-base/icons/icons.svg#chevron-left">\
+                            </use>\
+                        </svg>Popular topics</span>\
+                </a>\
+            </div>\
+            <div class="custom_ctaWrapper cta-top mpx-sub-nav-spacing mpx-sub-nav-second-title">\
+                <h4 class="mpx-sub-title">Dads & Partners</h4>\
+                <a href="/parenting.html" class="mpx-link">\
+                    <span>\
+                        See all\
+                    </span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/parenting.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Dads & Partners</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/parenting/when-to-leave-baby-for-first-time.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">"Us" time for parents</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/parenting/bringing-your-baby-home-from-hospital.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">Bringing your baby home from the hospital</span>\
+                </a>\
+            </div>\
+        </div>\
+        <!--sub nav item-->\
+        <div class="mpx-sub-nav-block">\
+            <div class="main-navigation__block mpx-sub-nav-item">\
+                <a href="/parenting/new-parent-checklist.html" class="main-navigation__link ">\
+                    <span class="main-navigation__link-text">New parents survival kit for dads & partners</span>\
+                </a>\
+            </div>\
+        </div>\
+        </div>'
+
+    //insert sub menu
+    targetElement.insertAdjacentHTML('beforebegin', mpxSubNavDandP)
+
+    //CLICK EVENTS FOR NAV 
+    //products section
+    //select button
+    var mpxNavProductsBlock = document.querySelectorAll('.main-navigation__block')[0]
+    //select nav to open
+    var mpxNavProductsClasslist = document.querySelector('.mpx-sub-nav-products').classList
+    mpxNavProductsBlock.addEventListener('click', function () {
+        mpxNavProductsClasslist.remove('mpx-hide')
+    })
+    //support your baby section
+    //select button
+    var mpxNavSYBBlock = document.querySelectorAll('.main-navigation__block')[1]
+    //select nav to open
+    var mpxNavSYBClasslist = document.querySelector('.mpx-sub-nav-syb').classList
+    mpxNavSYBBlock.addEventListener('click', function () {
+        mpxNavSYBClasslist.remove('mpx-hide')
+    })
+    //END---MAIN MOBILE NAV---END//
+
+    //SUB NAV//
+    //open sub menus//
+    //select nav buttons 
+    var subNavBtn = document.querySelectorAll('.mpx-sub-nav-block')
+    //Pregnancy
+    var mpxSubNavPregnancyClasslist = document.querySelector('.mpx-sub-nav-pregnancy').classList
+    subNavBtn[0].addEventListener('click', function () {
+        mpxSubNavPregnancyClasslist.remove('mpx-hide')
+        mpxNavSYBClasslist.add('mpx-hide')
+    })
+    //Labour & birth
+    var mpxSubNavLandBClasslist = document.querySelector('.mpx-sub-nav-l-and-b').classList
+    subNavBtn[1].addEventListener('click', function () {
+        mpxSubNavLandBClasslist.remove('mpx-hide')
+        mpxNavSYBClasslist.add('mpx-hide')
+    })
+    //Baby
+    var mpxSubNavBabyClasslist = document.querySelector('.mpx-sub-nav-baby').classList
+    subNavBtn[2].addEventListener('click', function () {
+        mpxSubNavBabyClasslist.remove('mpx-hide')
+        mpxNavSYBClasslist.add('mpx-hide')
+    })
+    //Toddler
+    var mpxSubNavToddlerClasslist = document.querySelector('.mpx-sub-nav-toddler').classList
+    subNavBtn[3].addEventListener('click', function () {
+        mpxSubNavToddlerClasslist.remove('mpx-hide')
+        mpxNavSYBClasslist.add('mpx-hide')
+    })
+    //Dads & Partners
+    var mpxSubNavDandPClasslist = document.querySelector('.mpx-sub-nav-d-and-p').classList
+    subNavBtn[4].addEventListener('click', function () {
+        mpxSubNavDandPClasslist.remove('mpx-hide')
+        mpxNavSYBClasslist.add('mpx-hide')
+    })
+
+    //close sub menus//
+    //select back buttons
+    var subNavBackBtn = document.querySelectorAll('.mpx-sub-nav-cta')
+
+    //product close
+    subNavBackBtn[1].addEventListener('click', function () {
+        mpxNavProductsClasslist.add('mpx-hide')
+    })
+
+    //sYB close
+    subNavBackBtn[0].addEventListener('click', function () {
+        mpxNavSYBClasslist.add('mpx-hide')
+    })
+
+    //Pregnancy close
+    subNavBackBtn[2].addEventListener('click', function () {
+        mpxSubNavPregnancyClasslist.add('mpx-hide')
+        mpxNavSYBClasslist.remove('mpx-hide')
+    })
+    //Labour & birth close
+    subNavBackBtn[3].addEventListener('click', function () {
+        mpxSubNavLandBClasslist.add('mpx-hide')
+        mpxNavSYBClasslist.remove('mpx-hide')
+    })
+    //Baby close
+    subNavBackBtn[4].addEventListener('click', function () {
+        mpxSubNavBabyClasslist.add('mpx-hide')
+        mpxNavSYBClasslist.remove('mpx-hide')
+    })
+    //Toddler close
+    subNavBackBtn[5].addEventListener('click', function () {
+        mpxSubNavToddlerClasslist.add('mpx-hide')
+        mpxNavSYBClasslist.remove('mpx-hide')
+    })
+    //Dads & Partners close
+    subNavBackBtn[6].addEventListener('click', function () {
+        mpxSubNavDandPClasslist.add('mpx-hide')
+        mpxNavSYBClasslist.remove('mpx-hide')
+    })
+
+    //END---SUB NAV---END//
+
+    //TRACKING//
+    //account buttons
+    var accountButtons = document.querySelectorAll('.button.-type-primary.theme-3');
+
+    accountButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var accountButtonInnerText = button.innerText;
+            var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP B - " + accountButtonInnerText + " - button");
+            var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+            var img = new Image();
+            img.src = imageRequestURL;
+        });
+    });
+
+    //nav menu buttons
+    var navButtons = document.querySelectorAll('.main-navigation__block');
+
+    navButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var accountButtonInnerText = button.innerText;
+            var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP B - " + accountButtonInnerText + " - button");
+            var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+            var img = new Image();
+            img.src = imageRequestURL;
+        });
+    });
+
+    //open menu
+    var openMenuBTN = document.querySelector('.button.page-new-header__menu-button')
+
+    openMenuBTN.addEventListener('click', function () {
+        var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP B - open menu");
+        var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+        var img = new Image();
+        img.src = imageRequestURL;
+    });
+
+    //close menu
+    var openMenuBTN = document.querySelector('.main-navigation__close-button')
+
+    openMenuBTN.addEventListener('click', function () {
+        var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP B - close menu");
+        var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+        var img = new Image();
+        img.src = imageRequestURL;
+    });
+
+    //back button
+    var backButtons = document.querySelectorAll('.mpx-sub-nav-cta');
+
+    Array.from(backButtons).forEach(function (button, index) {
+        button.addEventListener('click', function () {
+            var backButtonIndex = index;
+            var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP B - " + backButtonIndex + " - back button");
+            var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+            var img = new Image();
+            img.src = imageRequestURL;
+        });
+    });
+
+    //TRACKING END//
+</script>
+
+<script>
+    //CONTROL TRACKING
+    var accountButtons = document.querySelectorAll('.button.-type-primary.theme-3');
+
+    accountButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var accountButtonInnerText = button.innerText;
+            var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP A - " + accountButtonInnerText + " - button");
+            var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+            var img = new Image();
+            img.src = imageRequestURL;
+        });
+    });
+
+    //open menu
+    var openMenuBTN = document.querySelector('.button.page-new-header__menu-button')
+
+    openMenuBTN.addEventListener('click', function () {
+        var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP A - open menu");
+        var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+        var img = new Image();
+        img.src = imageRequestURL;
+    });
+
+    //close menu
+    var openMenuBTN = document.querySelector('.main-navigation__close-button')
+
+    openMenuBTN.addEventListener('click', function () {
+        var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP A - close menu");
+        var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+        var img = new Image();
+        img.src = imageRequestURL;
+    });
+
+
+    //main nav menu buttons
+    var navButtons = document.querySelectorAll('..main-navigation__block>a>span');
+
+    navButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var accountButtonInnerText = button.innerText;
+            var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP A - " + accountButtonInnerText + " - main nav button");
+            var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+            var img = new Image();
+            img.src = imageRequestURL;
+        });
+    });
+
+    //main nav menu buttons
+    var navButtons = document.querySelectorAll('.main-navigation__block>a>span');
+
+    navButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var accountButtonInnerText = button.innerText;
+            var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP A - " + accountButtonInnerText + " - main nav button");
+            var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+            var img = new Image();
+            img.src = imageRequestURL;
+        });
+    });
+
+    //sub header tracking 'Reviews' etc.
+    var metaNavigationLinks = document.querySelectorAll('.meta-navigation__link');
+
+    var indicesToApplyCode = [3, 4, 5];
+
+    indicesToApplyCode.forEach(function (index) {
+        var button = metaNavigationLinks[index];
+        button.addEventListener('click', function () {
+            var accountButtonInnerText = button.innerText;
+            var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP A - " + accountButtonInnerText + " - button");
+            var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+            var img = new Image();
+            img.src = imageRequestURL;
+        });
+    });
+
+    //sub nav items
+    var navButtons = document.querySelectorAll('.main-navigation__subnav-link');
+
+    navButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var accountButtonInnerText = button.innerText;
+            var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP A - " + accountButtonInnerText + " - sub nav button");
+            var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+            var img = new Image();
+            img.src = imageRequestURL;
+        });
+    });
+
+    //back button
+    var backButtons = document.querySelectorAll('.main-navigation__back-link');
+
+    Array.from(backButtons).forEach(function (button, index) {
+        button.addEventListener('click', function () {
+            var backButtonIndex = index;
+            var customLinkName = encodeURIComponent("C&G NAV MENU - MOBILE - EXP A - " + backButtonIndex + " - back button");
+            var imageRequestURL = "https://danone.d3.sc.omtrdc.net/b/ss/danoneprod,danoneaptaclubprod/10/JS-2.22.0-LDQM/s71107680273159?AQB=1&pccr=true&pe=lnk_o&pev2=" + customLinkName + "&AQE=1";
+            var img = new Image();
+            img.src = imageRequestURL;
+        });
+    });
+
+
+</script>

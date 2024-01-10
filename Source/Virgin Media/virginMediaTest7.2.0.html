@@ -1,0 +1,709 @@
+URL -- https://www.virginmedia.com/join/speed-selection
+
+<style>
+    .mpx-nav-banner {
+        position: sticky;
+        bottom: 0;
+        top: 0;
+        background: white;
+        padding-bottom: 30px;
+    }
+
+    .content {
+        overflow: visible !important;
+        contain: paint !important;
+    }
+
+    .mpx-accordion-container {
+        position: relative;
+    }
+
+
+    .mpx-accordion-info img {
+        width: 30px;
+    }
+
+    .mpx-product-title {
+        font-weight: bold;
+    }
+
+    .mpx-accordion-info img,
+    .mpx-accordion-info .mpx-product-title,
+    .mpx-accordion-info .mpx-product-info,
+    .mpx-accordion-info .mpx-speed-info,
+    .mpx-accordion-info .mpx-sim-info {
+        display: inline-block;
+    }
+
+    .mpx-accordion-container>a {
+        display: inline-block;
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-decoration: none !important;
+    }
+
+    p.mpx-accordion-btn {
+        display: inline-block;
+        padding: 0.1em 1em;
+        border-radius: 1em;
+        text-align: center;
+        color: purple;
+        border: 1px solid purple;
+        display: inline-flex;
+        font-weight: bold;
+    }
+
+    /* Hide all mpx-accordion-content divs by default */
+    .mpx-accordion-content {
+        display: none;
+    }
+
+    /* Add open class to open the accordion */
+    .mpx-accordion-content.open {
+        display: block;
+    }
+
+    .mpx-nav-banner {
+        display: flex !important;
+        flex-direction: row-reverse;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    /* change color pen svg */
+
+    .fas.fa-fw.fa-pen {
+        -webkit-text-fill-color: white !important;
+        -webkit-text-stroke-width: 1px !important;
+        -webkit-text-stroke-color: purple !important;
+        font-size: 15px;
+        padding: 5px 7px;
+    }
+
+    /* invert color plus sg */
+
+    p.mpx-accordion-btn img {
+        filter: brightness(0) saturate(115%) invert(36%) sepia(60%) saturate(1917%) hue-rotate(249deg) brightness(57%) contrast(80%);
+        padding-left: 4px;
+        width: 20px;
+    }
+
+    /* accordion container */
+
+    .mpx-accordion-info {
+        display: flex;
+        justify-content: space-evenly;
+        width: 35%;
+        align-items: stretch;
+    }
+
+    .mpx-accordion-info-labels {
+        display: flex;
+        width: 200px;
+        align-items: center;
+    }
+
+    .mpx-product-info {
+        min-width: fit-content;
+    }
+
+    .mpx-speed-info {
+        min-width: fit-content;
+    }
+
+    .mpx-sim-info {
+        min-width: fit-content;
+    }
+
+    .mpx-product-title {
+        min-width: -webkit-fill-available;
+    }
+
+    .modal-dialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -75%);
+    }
+
+    /* media queries */
+    @media screen and (min-width: 300px) and (max-width: 768px) {
+        .mpx-accordion-info {
+            width: 230px;
+        }
+
+        .mpx-accordion-info-labels {
+            display: grid;
+            margin-left: 20px;
+            justify-items: stretch;
+        }
+
+        .mpx-accordion-container>a {
+            top: 22px;
+        }
+
+        .mpx-product-info {
+            width: fit-content;
+            margin-left: 0 !important;
+            justify-content: left !important;
+        }
+
+        .mpx-speed-info {
+            width: fit-content;
+            margin-left: 0 !important;
+            justify-content: left !important;
+        }
+
+        .mpx-sim-info {
+            width: fit-content;
+            margin-left: 0 !important;
+            justify-content: left !important;
+        }
+
+        .mpx-product-title {
+            width: fit-content;
+            margin-left: 2px;
+        }
+
+        .btn {
+            width: 50%;
+        }
+
+        .mpx-total {
+            width: 150px;
+        }
+
+        .page-header h1 {
+            margin-top: 0px;
+        }
+
+        .mpx-nav-banner {
+            padding-bottom: 20px;
+        }
+
+        .mpx-accordion-info img {
+            width: 30px;
+            transform: translatey(-40%);
+        }
+
+        .mpx-accordion-container>a {
+            transform: translatey(-50%);
+        }
+
+        .mpx-nav-banner>div {
+            max-width: 210px;
+        }
+    }
+</style>
+
+<script>
+
+    //check if they are a 'non-volt' customer from the dataLayer
+    //brand == virgin
+    function searchForBrand(dataLayer, brand = "virgin", recursionDepth = 0) {
+        if (!dataLayer || recursionDepth > 10) {
+            return false;
+        }
+
+        for (const key in dataLayer) {
+            if (typeof dataLayer[key] === "string" && key === "brand" && dataLayer[key] === brand) {
+                return true;
+            }
+            if (typeof dataLayer[key] === "object") {
+                const searchResult = searchForBrand(dataLayer[key], brand, recursionDepth + 1);
+                if (searchResult) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    if (searchForBrand(dataLayer) === true) {
+        // ... run code when brand is "virgin"
+        //creates HTML for the accordion 
+        var mpxAccordion = '<container class="mpx-accordion">\
+    <hr>\
+    <div class="mpx-speedSelection mpx-accordion-container">\
+        <div class="mpx-accordion-info">\
+            <img src="https://www.virginmedia.com/content/dam/virginmedia/dotcom/images/ABtest/cro/wifi-4-4.svg">\
+            <div class="mpx-accordion-info-labels">\
+            <p class="mpx-product-title">Broadband & O2 sim</p>\
+            <p class="mpx-speed-info"></p>\
+            <p class="mpx-sim-info"></p>\
+            </div>\
+        </div>\
+        <a href="#speedSelection">\
+            <p class="mpx-accordion-btn"></p>\
+        </a>\
+        <div class="mpx-speedSelection-content mpx-accordion-content">\
+        </div>\
+        <div class="mpx-simSelection-content mpx-accordion-content">\
+        </div>\
+    </div>\
+    <hr>\
+    <div class="mpx-skySelection mpx-accordion-container">\
+        <div class="mpx-accordion-info">\
+            <img src="https://www.virginmedia.com/content/dam/virginmedia/dotcom/images/ABtest/cro/tv.svg">\
+            <div class="mpx-accordion-info-labels">\
+            <p class="mpx-product-title">Channel Packs</p>\
+            <p class="mpx-product-info"></p>\
+            </div>\
+        </div>\
+        <a href="#skySelection">\
+            <p class="mpx-accordion-btn"></p>\
+        </a>\
+        <div class="mpx-skySelection-content mpx-accordion-content">\
+        </div>\
+    </div>\
+    <hr>\
+    <div class="mpx-netflixSelection mpx-accordion-container">\
+        <div class="mpx-accordion-info">\
+            <img src="https://www.virginmedia.com/content/dam/virginmedia/dotcom/images/ABtest/cro/popcorn.svg">\
+            <div class="mpx-accordion-info-labels">\
+            <p class="mpx-product-title">Entertainment</p>\
+            <p class="mpx-product-info"></p>\
+            </div>\
+        </div>\
+        <a href="#netflixSelection">\
+            <p class="mpx-accordion-btn"></p>\
+        </a>\
+        <div class="mpx-netflixSelection-content mpx-accordion-content">\
+        </div>\
+    </div>\
+    <hr>\
+    <div class="mpx-tvSelection mpx-accordion-container">\
+        <div class="mpx-accordion-info">\
+            <img src="https://www.virginmedia.com/content/dam/virginmedia/dotcom/images/ABtest/cro/tv_copy.svg">\
+            <div class="mpx-accordion-info-labels">\
+            <p class="mpx-product-title">Extra TV Boxes</p>\
+            <p class="mpx-product-info"></p>\
+            </div>\
+        </div>\
+        <a href="#tvSelection">\
+            <p class="mpx-accordion-btn"></p>\
+        </a>\
+        <div class="mpx-tvSelection-content mpx-accordion-content">\
+        </div>\
+    </div>\
+    <hr>\
+    <div class="mpx-landlineSelection mpx-accordion-container">\
+        <div class="mpx-accordion-info">\
+            <img src="https://www.virginmedia.com/content/dam/virginmedia/dotcom/images/ABtest/cro/landline.svg">\
+            <div class="mpx-accordion-info-labels">\
+            <p class="mpx-product-title">Call Plans</p>\
+            <p class="mpx-product-info"></p>\
+            </div>\
+        </div>\
+        <a href="#landlineSelection">\
+            <p class="mpx-accordion-btn"></p>\
+        </a>\
+        <div class="mpx-landlineSelection-content mpx-accordion-content">\
+        </div>\
+    </div>\
+    <hr>\
+</container>'
+
+        //places the accordion 
+        $(mpxAccordion).insertAfter($('#speed-selection'))
+
+        //hides original menu
+        $('#speed-selection').css('display', 'none')
+
+        //moves header and changes text
+        $('.page-header').insertBefore('.mpx-accordion')
+        $('.page-header h1').text("Customise your bundle your way")
+
+        //moves existing sections into container 
+        $('#speed-selection-board-container').appendTo($('.mpx-speedSelection-content'))
+        $('#channel-packs-container').appendTo($('.mpx-skySelection-content'))
+        //id = "tv2-streaming-options-container"
+        //id = "netflix-container"
+        $('#streaming-options-container').appendTo($('.mpx-netflixSelection-content'))
+        $('#additional-tv-selection-board-container').appendTo($('.mpx-tvSelection-content'))
+        $('#landline-selection-board-container').appendTo($('.mpx-landlineSelection-content'))
+
+        //moves modals 
+        //create container for modal, move into relevant accordion 
+        // Wrap each modal with a container element and append it to the corresponding section
+        $('#speed-selection-info-modal').wrap('<div class="modal-container"></div>').appendTo($('.mpx-speedSelection-content'));
+        $('#sim-selection-info-modal').wrap('<div class="modal-container"></div>').appendTo($('.mpx-speedSelection-content'));
+        $('#netflix-subscription-info-modal').wrap('<div class="modal-container"></div>').appendTo($('.mpx-netflixSelection-content'));
+        $('.channel-pack-modal').wrap('<div class="modal-container"></div>').appendTo($('.mpx-skySelection-content'));
+        $('#tv-mini-modal-second-info-box').wrap('<div class="modal-container"></div>').appendTo($('.mpx-tvSelection-content'));
+        $('#tv-modal-info-box').wrap('<div class="modal-container"></div>').appendTo($('.mpx-tvSelection-content'));
+        $('<div id="landline-pick-modal"></div>').wrap('<div class="modal-container"></div>').appendTo($('.mpx-landlineSelection-content'));
+
+        //remove original backdrop
+        $(document).on('click', function (event) {
+            if ($('.modal-backdrop')) {
+                $('.modal-backdrop').css('display', 'none');
+            }
+        });
+
+        //add background to modals
+        $('#speed-selection-info-modal').css('background-color', 'rgba(0, 0, 0, 0.6)');
+        $('#sim-selection-info-modal').css('background-color', 'rgba(0, 0, 0, 0.6)');
+        $('#netflix-subscription-info-modal').css('background-color', 'rgba(0, 0, 0, 0.6)');
+        $('.channel-pack-modal').css('background-color', 'rgba(0, 0, 0, 0.6)');
+        $('#tv-mini-modal-second-info-box').css('background-color', 'rgba(0, 0, 0, 0.6)');
+        $('#tv-modal-info-box').css('background-color', 'rgba(0, 0, 0, 0.6)');
+        $('<div id="landline-pick-modal"></div>').css('background-color', 'rgba(0, 0, 0, 0.6)');
+
+        //on click for accordian 
+        //Add click event to mpx-accordion-btn to 'open' / 'close' accordion item
+        $('.mpx-accordion-btn').on('click vclick', function () {
+            $(this).parent().parent('.mpx-accordion-content').toggleClass('open');
+            $(this).parent().siblings('.mpx-accordion-content').slideToggle();
+        });
+
+        //Add click event to container to 'open' / 'close' accordion item
+        $('.mpx-accordion-info').on('click vclick', function () {
+            $(this).parent('.mpx-accordion-content').toggleClass('open');
+            $(this).siblings('.mpx-accordion-content').slideToggle();
+        });
+
+        //add dataLayer push on click
+        const accordionButtons = document.querySelectorAll('.mpx-accordion-btn');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                let eventLabel;
+                if (this.textContent.trim() == 'edit') {
+                    eventLabel = "edit click";
+                } else {
+                    eventLabel = "add click";
+                }
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: "gaEvent",
+                    eventCategory: "a/b testing",
+                    eventAction: "merkle-7",
+                    eventLabel: eventLabel,
+                    eventValue: "1",
+                });
+            });
+        });
+
+        //button clicks in sequence 
+        //loads relevant content on the page 
+        //each click populates the next element
+        var pxFuncFired = 0;
+        var pxInterval = setInterval(pxPollFunc, 500);
+
+        //polling function
+        function pxPollFunc() {
+            pxFuncFired += 1;
+
+            //if run for over 5 secs then don't
+            if (pxFuncFired >= 10) {
+                clearInterval(pxInterval);
+
+                var element = $('#speed-selection-board-container > div > div:eq(1)');
+                if (element.length) {
+                    //moves sim selection option
+                    //only moves if populated after button clicks
+                    if ($('#speed-selection-board-container > div > div:eq(1)').html().indexOf('Add a mobile sim') > -1 == true) {
+                        $('#speed-selection-board-container > div > div:eq(1)').appendTo($('.mpx-simSelection-content'))
+                        $('.mpx-simSelection-content').appendTo($("#speed-selection-board-container"))
+                        $('.mpx-simSelection-content').show()
+                    } else if ($('#speed-selection-board-container > div > div:eq(1)').html().indexOf('Add a mobile sim') > -1 == false) {
+                        //if not populated, change text to broadband and hide sim info section
+                        $('.mpx-speedSelection .mpx-product-title').text('Broadband')
+                        $('.mpx-sim-info').hide()
+                    }
+                }
+
+                //adjusts continue buttons
+                //hides each virgin button
+                $('.virgin-button').addClass('hide');
+
+                // Clone the last button
+                var cloneButton = $('.virgin-button').last().clone();
+
+                // Insert the clone button after the accordion element
+                cloneButton.insertAfter($('.mpx-accordion'));
+
+                // Adjust the class and text of the clone button
+                cloneButton.addClass('mpx-nav-banner')
+                    .removeClass('align-items-center')
+                    .removeClass('flex-column')
+                    .removeClass('hide');
+
+                //changes text of last button
+                cloneButton.find('span').text('Continue to checkout');
+
+                //hide clone text
+                $('.virgin-button .vm-h5').last().hide()
+
+                // Attach a click event to the clone button
+                $('.virgin-button').last().find('div').on('click vclick', function () {
+                    // Trigger the click event on the original button
+                    $('.virgin-button').eq(-2).find('div').click();
+                });
+
+                //selects each of the accordion elements and the content div inside it
+                var containers = [
+                    { container: "#speed-selection-board-container", class: ".mpx-speedSelection" },
+                    { container: "#channel-packs-container", class: ".mpx-skySelection" },
+                    { container: "#streaming-options-container", class: ".mpx-netflixSelection" },
+                    { container: "#additional-tv-selection-board-container", class: ".mpx-tvSelection" },
+                    { container: "#landline-selection-board-container", class: ".mpx-landlineSelection" },
+                ];
+
+                //if one of the selection options isn't populated after button presses, hide its accordion option
+                containers.forEach(function (containerInfo) {
+                    if ($(containerInfo.container).html() === "" || $(containerInfo.container).css("display") === "none") {
+                        $(containerInfo.class).find(".mpx-accordion-btn").parent().parent().css("display", "none");
+                    }
+                });
+
+                //hides <hr> if div is not displayed 
+                $('.mpx-accordion-container').each(function () {
+                    if ($(this).css('display') == 'none') {
+                        $(this).prev('hr').css('display', 'none');
+                    }
+                });
+
+                //adds edit/add button text, depending on active class being included or not
+                //checks if 'active' has changed on card changes accordion btn to edit/add
+                function updateButtonText() {
+                    containers.forEach(function (container) {
+                        var active = $(container.class + " .active");
+                        if (active.length) {
+                            $(container.class + " .mpx-accordion-btn").text("edit");
+                            $(container.class + " .mpx-accordion-btn").append("<i class='fas fa-fw fa-pen'></i>");
+                        } else {
+                            $(container.class + " .mpx-accordion-btn").text("add");
+                            $(container.class + " .mpx-accordion-btn").append("<img src='https://prod.ctassets.virginmedia.com/uploads/plus_741c555f11.svg'/>");
+                        }
+                    });
+                }
+
+                //runs function
+                updateButtonText()
+
+                //updates on click 
+                $(document).on("click vclick", ".selection-card", function () {
+                    updateButtonText()
+                });
+
+                //create css variables to call in below functions
+                var notAddedCss = {
+                    'display': 'inline-block',
+                    'padding': '0.1em 1em',
+                    'border-radius': '1em',
+                    'text-align': 'center',
+                    'color': 'white',
+                    'background-color': 'grey',
+                    'display': 'inline-flex',
+                    'justify-content': 'center',
+                    'margin-left': '10px',
+                    'line-height': '20px'
+                }
+
+                var addedCss = {
+                    'display': 'inline-block',
+                    'padding': '0.1em 1em',
+                    'border-radius': '1em',
+                    'text-align': 'left',
+                    'color': '',
+                    'background-color': '',
+                    'display': 'inline-flex',
+                    'justify-content': 'center',
+                    'margin-left': '0',
+                    'line-height': ''
+                }
+
+                //updates accordion titles
+                //updates accordion titles
+                function updateSelectedTitle() {
+                    containers.forEach(function (container) {
+                        let $active = $(container.class + ' .active').filter('.selection-card'), productTitle = "";
+                        if ($active.length) {
+                            $active.each(function () {
+                                $(this).contents().each(function () {
+                                    if ($(this).text().length > 0) {
+                                        productTitle = $(this).text();
+                                        return false;
+                                    }
+                                });
+                            });
+                            //remove unwanted text
+                            productTitle = productTitle.replace(/Find out more*/, '');
+
+                            //changes text to 'multiple selected', excluding broadband and 02
+                            if ($active.length > 1 && container.class.slice(1) !== "mpx-speedSelection") {
+                                productTitle = "Multiple selected"
+                            }
+
+                            //specific for channel package to negate possible bug
+                            if ($('.mpx-skySelection' + ' .active').filter('.selection-card').length === 0) {
+                                $('.mpx-skySelection' + ' .mpx-product-info').text("Not added").css(notAddedCss);
+                            } else {
+                                $('.mpx-skySelection' + ' .mpx-product-info').css(addedCss)
+                            }
+
+                            //specific for entertainment package to negate possible bug
+                            if ($('.mpx-netflixSelection' + ' .active').length === 0) {
+                                $('.mpx-netflixSelection' + ' .mpx-product-info').text("Not added").css(notAddedCss);
+                            } else {
+                                $('.mpx-netflixSelection' + ' .mpx-product-info').css(addedCss)
+                            }
+
+                            //updates each accordion title, excluding broadband and 02
+                            if (container.class.slice(1) !== "mpx-speedSelection") {
+                                $(container.class + ' .mpx-product-info').text(productTitle).css(addedCss)
+                            } else {
+                                $(container.class + ' .mpx-product-info').text("Not added").css(notAddedCss)
+                            }
+                        }
+                    })
+                }
+
+                //updates broadband accordion title
+                function updateBroadbandTitle() {
+                    let $active = $('#speed-selection-board-container > div:eq(0)').find('.active'), speedProductTitle = "";
+                    if ($active.length) {
+                        $active.each(function () {
+                            $(this).contents().filter(':not(div[style*="text-decoration: line-through"])').each(function () {
+                                if ($(this).text().length > 0) {
+                                    var text = $(this).text();
+                                    text = text.replace($(this).find("[style*='line-through']").text(), '');
+                                    speedProductTitle = text;
+                                    return false;
+                                }
+                            });
+                        });
+                        $($('.mpx-speedSelection').find(' .mpx-speed-info'))
+                            .text(speedProductTitle)
+                            .css(addedCss)
+                    } else {
+                        $($('.mpx-speedSelection').find(' .mpx-speed-info'))
+                            .text("Not added")
+                            .css(notAddedCss)
+                    }
+                }
+
+                //updates sim accordion title
+                function updateSimTitle() {
+                    let $active = $('.mpx-simSelection-content').find('.active'), simProductTitle = "";
+                    if ($active.length) {
+                        $active.each(function () {
+                            $(this).contents().each(function () {
+                                if ($(this).text().length > 0) {
+                                    simProductTitle = $(this).text();
+                                    //capture first word after '02 sim' to remove possible text with line through it
+                                    simProductTitle = $(this).text().match(/[\w\d]+ O2 sim/)[0].substring(0, $(this).text().match(/[\w\d]+ O2 sim/)[0].indexOf(" O2 sim")) + " O2 sim"; return false;
+                                }
+                            });
+                        });
+
+                        $($('.mpx-speedSelection').find(' .mpx-sim-info'))
+                            .text(simProductTitle)
+                            .css(addedCss)
+                    } else {
+                        $($('.mpx-speedSelection').find(' .mpx-sim-info'))
+                            .text("Sim not added")
+                            .css(notAddedCss)
+                    }
+                }
+
+                //run functions
+                updateSelectedTitle()
+                updateBroadbandTitle()
+                updateSimTitle()
+
+                //update on click
+                $(document).on("click vclick", ".selection-card", function () {
+                    updateSelectedTitle()
+                    updateBroadbandTitle()
+                    updateSimTitle()
+                });
+
+                //calcuates the running total of selected options
+                //updates and adds total at bottom of page 
+                let elementExists = false;
+
+                function updateRunningTotal() {
+                    let total = 0;
+                    let numbers = [];
+
+                    $('.active').each(function () {
+                        const text = $(this).text();
+
+                        if (text.includes('\u00A3')) {
+                            const number = parseFloat(text.split('\u00A3')[1].match(/\d+(\.\d+)?/));
+                            numbers.push(number);
+                        }
+                    });
+
+                    total = numbers.reduce((a, b) => a + b, 0);
+                    total = total.toFixed(2);
+
+                    if (!elementExists) {
+                        $('<p class="mpx-total">Est. monthly total: <strong>&pound;</strong><span class="total-number">' + total + '</span></p>').appendTo('.mpx-nav-banner');
+                        elementExists = true;
+                    } else {
+                        $('.mpx-nav-banner .mpx-total .total-number').text(total);
+                    }
+
+                    $('.total-number').css("font-weight", "bold");
+                    $("strong").css("font-weight", "bold");
+                }
+
+                //runs function 
+                updateRunningTotal();
+
+                //updates total on click
+                $(document).on("click vclick", ".selection-card", function () {
+                    updateRunningTotal();
+                });
+
+            }
+
+            //loads dynamic content into accordions 
+            //presses each virgin button to load content, provided button has text 'next step'
+            if ($('.virgin-button').find('h5:contains("Next step:")')) {
+                $('div > h5:contains("Next step:")').closest('div').siblings().click()
+                $(this).hide()
+                $('.cta-hr').hide()
+            }
+        }
+    }
+</script>
+
+
+let elementExists = false;
+function updateRunningTotal() {
+let total = 0;
+let numbers = [];
+numbers = [];
+$('.active').each(function () {
+const text = $(this).text();
+if (text.includes('\u00A3')) {
+const number = parseFloat(text.split('\u00A3')[1].match(/\d+(\.\d+)?/));
+numbers.push(number);
+}
+});
+total = numbers.reduce((a, b) => a + b, 0);
+total = Math.round(total * 100) / 100;
+if (!elementExists) {
+$('<p class="mpx-total">Est. monthly total: <strong>&pound;</strong><span class="total-number">' + total + '</span></p>
+').appendTo('.mpx-nav-banner');
+elementExists = true;
+} else {
+$('.mpx-nav-banner .mpx-total .total-number').text(total);
+}
+$('.total-number').css("font-weight", "bold");
+$("strong").css("font-weight", "bold");
+}
+
+//runs function
+updateRunningTotal();
+
+//updates total on click
+$(document).on("click vclick", ".selection-card", function () {
+updateRunningTotal();
+});

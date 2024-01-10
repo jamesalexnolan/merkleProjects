@@ -1,0 +1,685 @@
+---------------------------------------------COW AND GATE--------------------------------------------
+
+<style>
+    * {
+        box-sizing: border-box;
+
+    }
+
+    html,
+    body {
+        overflow-x: clip;
+
+    }
+
+    .page-new-header {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+
+    .mpx-image {
+        display: none;
+    }
+
+    .mpx-link {
+        color: white;
+        text-decoration: underline;
+    }
+
+    .mpx-link:hover {
+        color: #af1d5e;
+    }
+
+    #mpx-scrolling-banners {
+        height: auto;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner {
+        animation: bannerOne 15s linear infinite;
+        height: auto;
+        position: absolute;
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one p,
+    #mpx-scrolling-banners .mpx-scrolling-banner.two p,
+    #mpx-scrolling-banners .mpx-scrolling-banner.three p {
+        color: #fff;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one p span,
+    #mpx-scrolling-banners .mpx-scrolling-banner.two p span,
+    #mpx-scrolling-banners .mpx-scrolling-banner.three p span {
+        display: block;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one .mpx-image,
+    #mpx-scrolling-banners .mpx-scrolling-banner.two .mpx-image,
+    #mpx-scrolling-banners .mpx-scrolling-banner.three .mpx-image {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one {
+        background: #e73458;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one p {
+        text-align: center;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one .mpx-image {
+        background: url("http://placehold.it/400x400") no-repeat right center;
+        background-size: 100%;
+        right: 0;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.two {
+        animation-name: bannerTwo;
+        background: #e73458;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.two p {
+        text-align: center;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.two .mpx-image {
+        background: url("http://placehold.it/1000x200") no-repeat center bottom;
+        background-size: 100%;
+        top: 50%;
+        height: 50%;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.three {
+        animation-name: bannerThree;
+        background: #e73458;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.three p {
+        text-align: center;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.three .mpx-image {
+        background: url("http://placehold.it/400x400") no-repeat left center;
+        background-size: 100%;
+        left: 0;
+    }
+
+    @keyframes bannerOne {
+        0% {
+            left: 0;
+        }
+
+        31% {
+            left: 0;
+        }
+
+        34% {
+            left: -100%;
+        }
+
+        97% {
+            left: 100%;
+        }
+
+        100% {
+            left: 0;
+        }
+    }
+
+    @keyframes bannerTwo {
+        0% {
+            left: 100%;
+        }
+
+        31% {
+            left: 100%;
+        }
+
+        34% {
+            left: 0;
+        }
+
+        64% {
+            left: 0;
+        }
+
+        67% {
+            left: -100%;
+        }
+
+        100% {
+            left: -100%;
+        }
+    }
+
+    @keyframes bannerThree {
+        0% {
+            left: 100%;
+        }
+
+        64% {
+            left: 100%;
+        }
+
+        67% {
+            left: 0;
+        }
+
+        97% {
+            left: 0;
+        }
+
+        100% {
+            left: -100%;
+        }
+    }
+
+    /* small */
+    @media (min-width: 321px) and (max-width: 655px) {
+        #mpx-scrolling-banners {
+            height: auto;
+            padding-top: 1rem;
+        }
+
+        #mpx-scrolling-banners .mpx-scrolling-banner.one,
+        #mpx-scrolling-banners .mpx-scrolling-banner.two,
+        #mpx-scrolling-banners .mpx-scrolling-banner.three {
+            height: auto;
+        }
+
+        .page-main {
+            padding-top: 3rem;
+        }
+
+        .page-new-header {
+            padding-bottom: 2rem;
+        }
+
+        .thousanddays {
+            padding-top: 40px;
+        }
+    }
+
+    /* medium */
+    @media (min-width: 656px) and (max-width: 811px) {
+        #mpx-scrolling-banners {
+            height: auto;
+            padding-top: 1rem;
+        }
+
+        #mpx-scrolling-banners .mpx-scrolling-banner.one,
+        #mpx-scrolling-banners .mpx-scrolling-banner.two,
+        #mpx-scrolling-banners .mpx-scrolling-banner.three {
+            height: auto;
+        }
+
+        .page-new-header {
+            padding-bottom: 3rem;
+        }
+
+        .thousanddays {
+            padding-top: 40px;
+        }
+
+    }
+
+    /* large */
+    @media (min-width: 811px) {
+        #mpx-scrolling-banners {
+            padding-top: 0.5rem;
+        }
+
+        .thousanddays {
+            padding-top: 40px;
+        }
+
+        .page-main {
+            padding-top: 4rem;
+        }
+    }
+</style>
+
+<script>
+    //creates HTML for banner
+    var mpxBanner =
+        '<section id="mpx-scrolling-banners">\
+    <div class="mpx-scrolling-banner one">\
+        <p>Win £150 of prizes – <a class="mpx-link" href ="https://www.cgbabyclub.co.uk/register.html/utm_source=cghampercvp"> Register here </a></p>\
+        <div class="mpx-image"></div>\
+    </div>\
+    <div class="mpx-scrolling-banner two">\
+        <p>Free weaning plan – <a class="mpx-link" href ="https://www.cgbabyclub.co.uk/register.html"> Register here </a></p>\
+        <div class="mpx-image"></div>\
+    </div>\
+    <div class="mpx-scrolling-banner three">\
+        <p>Weekly baby support & tips – <a class="mpx-link" href ="https://www.cgbabyclub.co.uk/register.html"> Register here </a></p>\
+        <div class="mpx-image"></div>\
+    </div>\
+    </section>';
+
+    //inserts banner after the NAV header
+    document.querySelectorAll(".row")[1]
+        .insertAdjacentHTML("afterend", mpxBanner);
+
+    //if a page has buttons and an image, increases the spacing
+
+    if (document.querySelector('[data-dm="thousanddays-navigation.topics-link"]')) {
+        if (document.querySelector('.promotionheader__image')) {
+            document.querySelector('.page-main').style.paddingTop = '0.09rem';
+        }
+    }
+
+    //adds /utm_source=cghampercvp to the current page URL if the first button on the banner is clicked 
+    document.querySelector('.mpx-scrolling-banner.one .mpx-link').addEventListener('click', function () {
+        var currentUrl = window.location.href;
+        var separator = (currentUrl.indexOf('?') !== -1) ? '&' : '?';
+        var newUrl = currentUrl + separator + 'utm_source=cghampercvp';
+        window.location.href = newUrl;
+    });
+
+</script>
+
+---------------------------------------------APTA CLUB--------------------------------------------
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        overflow-x: clip;
+    }
+
+    .page-new-header {
+        position: -webkit-sticky;
+        position: sticky;
+    }
+
+    .mpx-image {
+        display: none;
+    }
+
+    .mpx-link {
+        color: #001489;
+        text-decoration: underline;
+    }
+
+    .mpx-link:hover {
+        color: #00A9DE;
+    }
+
+    #mpx-scrolling-banners {
+        height: auto;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner {
+        animation: bannerOne 15s linear infinite;
+        height: auto;
+        position: absolute;
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one p,
+    #mpx-scrolling-banners .mpx-scrolling-banner.two p,
+    #mpx-scrolling-banners .mpx-scrolling-banner.three p {
+        color: #001489;
+        margin: 0;
+        font-weight: bold;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one p span,
+    #mpx-scrolling-banners .mpx-scrolling-banner.two p span,
+    #mpx-scrolling-banners .mpx-scrolling-banner.three p span {
+        display: block;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one .mpx-image,
+    #mpx-scrolling-banners .mpx-scrolling-banner.two .mpx-image,
+    #mpx-scrolling-banners .mpx-scrolling-banner.three .mpx-image {
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one {
+        background: #abcae9;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one p {
+        text-align: center;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.one .mpx-image {
+        background: url("http://placehold.it/400x400") no-repeat right center;
+        background-size: 100%;
+        right: 0;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.two {
+        animation-name: bannerTwo;
+        background: #abcae9;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.two p {
+        text-align: center;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.two .mpx-image {
+        background: url("http://placehold.it/1000x200") no-repeat center bottom;
+        background-size: 100%;
+        top: 50%;
+        height: 50%;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.three {
+        animation-name: bannerThree;
+        background: #abcae9;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.three p {
+        text-align: center;
+        width: 100%;
+    }
+
+    #mpx-scrolling-banners .mpx-scrolling-banner.three .mpx-image {
+        background: url("http://placehold.it/400x400") no-repeat left center;
+        background-size: 100%;
+        left: 0;
+    }
+
+    @keyframes bannerOne {
+        0% {
+            left: 0;
+        }
+
+        31% {
+            left: 0;
+        }
+
+        34% {
+            left: -100%;
+        }
+
+        97% {
+            left: 100%;
+        }
+
+        100% {
+            left: 0;
+        }
+    }
+
+    @keyframes bannerTwo {
+        0% {
+            left: 100%;
+        }
+
+        31% {
+            left: 100%;
+        }
+
+        34% {
+            left: 0;
+        }
+
+        64% {
+            left: 0;
+        }
+
+        67% {
+            left: -100%;
+        }
+
+        100% {
+            left: -100%;
+        }
+    }
+
+    @keyframes bannerThree {
+        0% {
+            left: 100%;
+        }
+
+        64% {
+            left: 100%;
+        }
+
+        67% {
+            left: 0;
+        }
+
+        97% {
+            left: 0;
+        }
+
+        100% {
+            left: -100%;
+        }
+    }
+
+    @media screen and (max-width: 50.9375em) {
+
+        .thousanddays-navigation {
+            margin-top: 0;
+            padding: 0 0 0 10px;
+            padding-top: 50px;
+        }
+
+        .fase-sub-navigation-flyout__row.-weeks {
+            overflow: hidden;
+            padding-top: 70px;
+        }
+
+    }
+
+    @media screen and (min-width: 51em) {
+
+        .fase-sub-navigation-flyout__row.-weeks {
+            overflow: hidden;
+            padding-top: 70px;
+        }
+
+        .thousanddays-navigation .fase-sub-navigation {
+            top: auto;
+            bottom: -80px;
+        }
+    }
+
+    @media screen and (max-width: 80.9375em) {
+        .page-main>.container {
+            padding: 0 .93712rem;
+            padding-top: 70px !important;
+        }
+    }
+
+    @media only screen and (max-width: 815px) {
+
+        .thousanddays-navigation .fase-sub-navigation-flyout.is-visible {
+            margin-top: 0;
+            width: 97%;
+            height: auto;
+            -webkit-box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .1);
+            border-radius: 0 0 5px 5px;
+            padding-top: 0px;
+        }
+
+        .fase-sub-navigation-flyout__row.-weeks {
+            overflow: hidden;
+            padding-top: 10px;
+        }
+    }
+
+
+    /* small */
+    @media (min-width: 321px) and (max-width: 728px) {
+        #mpx-scrolling-banners {
+            height: auto;
+            padding-top: 1rem;
+        }
+
+        #mpx-scrolling-banners .mpx-scrolling-banner.one,
+        #mpx-scrolling-banners .mpx-scrolling-banner.two,
+        #mpx-scrolling-banners .mpx-scrolling-banner.three {
+            height: auto;
+        }
+
+        .page-main {
+            padding-top: 1.5rem !important;
+        }
+
+        .page-new-header {
+            padding-bottom: 0;
+        }
+
+        .thousanddays-navigation {
+            padding-top: 50px;
+        }
+    }
+
+    /* medium */
+    @media (min-width: 729px) and (max-width: 960px) {
+        #mpx-scrolling-banners {
+            height: auto;
+        }
+
+        .page-main {
+            padding-top: 2rem;
+        }
+
+        #mpx-scrolling-banners .mpx-scrolling-banner.one,
+        #mpx-scrolling-banners .mpx-scrolling-banner.two,
+        #mpx-scrolling-banners .mpx-scrolling-banner.three {
+            height: auto;
+        }
+
+        .fase-sub-navigation-flyout.-weeks {
+            height: 250px;
+            padding: 32px 18px 50px;
+        }
+
+        .fase-sub-navigation-flyout__row.-weeks {
+            overflow: hidden;
+            padding-top: 70px;
+        }
+
+        .fase-sub-navigation-flyout.-topics {
+            padding: 40px 20px 0;
+            height: 200px;
+            padding-top: 100px;
+        }
+    }
+
+    /* large */
+    @media (min-width: 961px) {
+        #mpx-scrolling-banners {
+            padding-top: 0.5rem;
+        }
+
+        .page-main {
+            padding-top: 3rem !important;
+        }
+
+        .page-new-header {
+            padding-bottom: 0;
+        }
+
+        .mpx-image {
+            display: none;
+        }
+
+        .thousanddays-navigation .fase-sub-navigation {
+            top: auto;
+            bottom: -90px;
+        }
+
+        .thousanddays-navigation .fase-sub-navigation-flyout {
+            background-color: #d8edfb;
+            padding-top: 100px;
+        }
+
+        .fase-sub-navigation-flyout.-weeks {
+            height: 250px;
+            padding: 32px 18px 50px;
+        }
+
+        .fase-sub-navigation-flyout.-topics {
+            padding: 40px 20px 0;
+            height: 200px;
+            padding-top: 90px;
+        }
+    }
+</style>
+
+<script>
+    //creates HTML for banner
+    var mpxBanner =
+        '<section id="mpx-scrolling-banners">\
+<div class="mpx-scrolling-banner one">\
+<p>Win Tommee Tippee goodies – <a class="mpx-link" href ="https://www.aptaclub.co.uk/register.html"> Register here </a></p>\
+<div class="mpx-image"></div>\
+</div>\
+<div class="mpx-scrolling-banner two">\
+<p>Tailored coach-led workouts – <a class="mpx-link" href ="https://www.aptaclub.co.uk/register.html"> Register here </a></p>\
+<div class="mpx-image"></div>\
+</div>\
+<div class="mpx-scrolling-banner three">\
+<p>Downloadable Recipe PDF – <a class="mpx-link" href ="https://www.aptaclub.co.uk/register.html"> Register here </a></p>\
+<div class="mpx-image"></div>\
+</div>\
+</section>';
+
+    //inserts banner after the NAV header
+    document.querySelectorAll(".row")[1]
+        .insertAdjacentHTML("afterend", mpxBanner);
+
+    //if a page has buttons and an image, increases the spacing
+    //polling function
+    var pxFuncFired = 0;
+
+    var pxIntervalBanner = setInterval(pxPollFuncBanner, 200);
+
+    function pxPollFuncBanner() {
+
+        pxFuncFired += 1;
+        //run for 4 seconds 
+        if (pxFuncFired >= 40) {
+            clearInterval(pxIntervalBanner);
+
+
+            if (document.querySelector('[data-dm="thousanddays-navigation.topics-link"]')) {
+                if (document.querySelector('.promotionheader__image')) {
+                    document.querySelector('.page-main').style.paddingTop = '4rem';
+                }
+            }
+
+        }
+
+    }
+
+    //adds /utm_source=cghampercvp to the current page URL if the first button on the banner is clicked 
+    document.querySelector('.mpx-scrolling-banner.one .mpx-link').addEventListener('click', function () {
+        var currentUrl = window.location.href;
+        var separator = (currentUrl.indexOf('?') !== -1) ? '&' : '?';
+        var newUrl = currentUrl + separator + 'utm_source=aptaclubhampercvp';
+        window.location.href = newUrl;
+    });
+</script>

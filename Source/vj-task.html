@@ -1,0 +1,208 @@
+<script>
+    /***********************
+        *   FIRST PAGE   *
+    ***********************/
+
+    // Step 1. Create a new Hero Banner
+    //make CSS changes in console
+    //create style elements
+    var styleElement = document.createElement('style');
+
+    //cta style
+    styleElement.textContent += `
+        .vj-address-cta-button {
+            background-color: white;
+            color: black;
+            border: 2px solid;
+        }
+    `
+
+    //desktop
+    styleElement.textContent += `
+    @media only screen and (min-width: 1100px) {
+        .kgWvAx {
+            background-image: image-set(
+                url("https://cdn.vodafone.co.uk/en/assets/images/large/IMG_Pro_Broadband_Affiliate_voucher.jpg") 1x
+            );
+        }
+    }
+`;
+
+    //tablet
+    styleElement.textContent += `
+    @media only screen and (min-width: 768px) and (max-width: 1060px) {
+        .kgWvAx {
+            background-image: image-set(
+                url("https://cdn.vodafone.co.uk/en/assets/images/medium/IMG_Pro_Broadband_Affiliate_voucher.jpg") 1x
+            );
+        }
+
+        .sc-gKAaef.hYuqNZ:nth-child(4) {
+            display: flex;
+            align-items: center;
+            width: 110%;
+        }
+    }
+`;
+
+    //mobile
+    styleElement.textContent += `
+    @media only screen and (max-width: 767px) {
+        .kgWvAx {
+            background-image: image-set(
+                url("https://cdn.vodafone.co.uk/en/assets/images/extralarge/IMG_Pro_Broadband_Affiliate_voucher.jpg") 3x
+            );
+        }
+    }
+`;
+
+    //append the style element to the head of the document
+    document.head.appendChild(styleElement);
+
+    // Step 2. Hide all the content below the Postcode checker section (except footer)
+    // Select content elements
+    var contentChildren = document.querySelector('[id="content"]').children
+    // Hide content elements after postcode section
+    for (var i = 3; i < contentChildren.length; i++) {
+        contentChildren[i].style.display = 'none';
+    }
+
+    // Step 3. Change Postcode checker section title: Enter your postcode to see your exclusive broadband deal
+    //change on first instance on page load
+    document.querySelector('.Headingstyle__Heading-sc-12vluu2-0.jlAJRD').innerText = 'Enter your postcode to see your exclusive broadband deal'
+
+    // Step 4. Move the Change address link next to the View broadbands plans button.
+    // Step 5. Hide section Select broadband contract type.
+    //function to be triggered when changes are detected
+    function handleChanges() {
+        //change on address change instance on page load
+        document.querySelector('.Headingstyle__Heading-sc-12vluu2-0.jlAJRD').innerText = 'Enter your postcode to see your exclusive broadband deal'
+
+        //original address change button
+        var originalCTASpacer = document.querySelector('.Spacingstyle__Spacing-sc-1h2wgj2-0.fnPLti');
+        // hide original spacer container
+        originalCTASpacer.style.display = 'none';
+
+        // select original address link
+        var originalCTA = document.querySelector('.Interactionstyle__Button-sc-e1xkgc-0.fNOZZp.Linkstyle__Link-sc-dp6eia-0.kSfUVT');
+
+        // create button
+        var vjAddressCta = '<div columns="[object Object]" spacing="2" layout="[object Object]" class="sc-iCoHzw jLqmlS vj-address-cta">\
+        <div spacinglevel="[object Object]" class="Spacingstyle__Spacing-sc-1h2wgj2-0 eTdjwW">\
+            <button type="submit" aria-label="View broadband plans" aria-disabled="false" aria-describedby="form-error-info" data-cy="view-broadband-plans" class="Interactionstyle__Button-sc-e1xkgc-0 fNOZZp Buttonstyle__Button-sc-twej8-0 jFXJpx vj-address-cta-button" sec_uuid="62af99fcf823">\
+                Change address\
+            </button>\
+            <p id="form-error-info" aria-live="assertive" aria-atomic="true" aria-hidden="true" class="sc-hBMVwJ gDRddP"></p>\
+        </div>\
+    </div>';
+
+        //select element to place it in
+        var targetElement = document.querySelectorAll('.sc-gKAaef.hYuqNZ')[4];
+        //insert button at the beginning
+        targetElement.insertAdjacentHTML('afterbegin', vjAddressCta);
+        //select new button
+        var vjAddressCtaButton = document.querySelector('.vj-address-cta-button');
+
+        //replicate original button click on new element
+        vjAddressCtaButton.addEventListener('click', function () {
+            originalCTA.click()
+        })
+
+        //hide section Select broadband contract type
+        document.querySelectorAll('.sc-gKAaef.hYuqNZ')[2].style.display = 'none'
+    }
+
+    function onClickCheckAvailability() {
+        //polling function
+        function pollAddressForm() {
+            var addressForm = document.getElementById('address-line-form');
+            if (addressForm) {
+                //if the address form is found, stop polling and handle changes
+                handleChanges();
+            } else {
+                //if not found, continue polling
+                setTimeout(pollAddressForm, 100);
+            }
+        }
+
+        pollAddressForm();
+    }
+
+    //click event to trigger polling function
+    document.body.addEventListener('click', function (event) {
+        //check if the clicked element is the addressCheckCTA or a child element of it
+        if (event.target.closest('[aria-label="Check availability"]')) {
+            onClickCheckAvailability();
+        }
+    });
+
+    //handle moving backwards
+    var addressForm = document.getElementById('address-line-form');
+    if (addressForm) {
+        handleChanges();
+    }
+</script>
+
+<script>
+    /***********************
+        *   Second PAGE   *
+    ***********************/
+
+    // Step 6. On the product plan page, Hide the purple sash for Fibre 2 plan card.
+    // Step 7. Change copy on the purple sash for Pro II Fibre 2 plan card: Get £60 amazon voucher
+    //add style to head 
+    var styleElement = document.createElement('style');
+
+    //cta style
+    styleElement.textContent += `
+@media only screen and (min-width: 768px) {
+    .vj-height-adjust {
+        height: calc(100% - 42px);
+        position: relative;
+        top: 42px; /* This keeps the element anchored at the top */
+    }
+}
+`
+    //append the style element to the head of the document
+    document.head.appendChild(styleElement);
+
+    //select cards to trigger code
+    var broadbandCards = document.querySelectorAll('.sc-giAruI.fhWfzO')
+
+    function handleBroadbandChanges() {
+        //if fibre 2, trigger changes, avoids changes on fibre 1
+        if (document.querySelector('.sc-fbIVIu.fEJgWZ').innerText.includes('Fibre 2')) {
+            //hide first header 
+            document.querySelectorAll('.sc-csTbTw.bLOFgE')[0].style.display = 'none'
+            //change first card height
+            document.querySelectorAll('.sc-bXexPF.gZLEjA')[0].classList.add('vj-height-adjust')
+
+            //change second header text
+            document.querySelectorAll('.Paragraphstyle__Paragraph-sc-1kdgtrh-0.jVvLGy')[1].innerText = 'Get £60 amazon voucher'
+        }
+    }
+
+    function onClickCheckAvailability() {
+        //polling function
+        function pollACPlans() {
+            var broadBandACPlanCardsChildren = document.querySelector('[name="ac-plans"]').children
+            if (broadBandACPlanCardsChildren.length !== 0) {
+                //if element has children, stop polling and make changes
+                handleBroadbandChanges();
+            } else {
+                //if not found, continue polling
+                setTimeout(pollACPlans, 100);
+            }
+        }
+
+        pollACPlans();
+    }
+
+    //click event to trigger polling function
+    document.body.addEventListener('click', function (event) {
+        //check if the clicked element is the addressCheckCTA or a child element of it
+        if (event.target.closest('.sc-giAruI.fhWfzO')) {
+            onClickCheckAvailability();
+        }
+    });
+</script>
